@@ -36,6 +36,15 @@
   table.lines tbody th{width:8.5em;white-space:nowrap;font-weight:600;color:var(--ink)}
   table.lines td{color:#2c2c2c}
   table.lines tbody tr:nth-child(even){background:#fafafa}
+  table.lines th.pic,table.lines td.pic{width:160px;padding-right:10px}
+  table.lines td.pic{vertical-align:middle}
+  table.lines td.pic a{display:block;width:160px;line-height:0}
+  table.lines td.pic img{display:block;width:160px;height:100px;object-fit:cover;border-radius:8px;background:var(--soft)}
+  @media (max-width:600px){
+    table.lines th.pic,table.lines td.pic{width:120px}
+    table.lines td.pic a{width:120px}
+    table.lines td.pic img{width:120px;height:75px}
+  }
   @media (max-width:560px){table.lines tbody th{white-space:normal;width:6em}}
   .open{display:inline-block;font-weight:600;margin:0 0 14px}
   .reports{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:14px;padding-top:12px;border-top:1px solid var(--line)}
@@ -100,27 +109,45 @@
   "lines": [
    {
     "topic": "AI 行业早报",
-    "text": "Anthropic 启动 IPO 路演，每股 70 到 78 美元，同天推出 Claude Sheets、Whiteboards 和 Meetings，直接和 Office、Google Workspace 抢办公场景。"
+    "text": "Anthropic 启动 IPO 路演，每股 70 到 78 美元，同天推出 Claude Sheets、Whiteboards 和 Meetings，直接和 Office、Google Workspace 抢办公场景。",
+    "image": "assets/img/2026-11-11/anthropic-ipo.jpg",
+    "image_src": "https://www-cdn.anthropic.com/images/4zrzovbb/website/6d4a0d28992ade92d6fa63646fd9c9d318245c6c-2400x1260.jpg",
+    "link": "https://www.anthropic.com/news/roadshow-launch"
    },
    {
     "topic": "科技高管观点",
-    "text": "Google 开放 Gemini 4 Carbon，谷歌高管集体站台。"
+    "text": "Google 开放 Gemini 4 Carbon，谷歌高管集体站台。",
+    "image": "assets/img/2026-11-11/gemini-4-carbon.jpg",
+    "image_src": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini_4_carbon_key_art_16-9_lockup.width-1300.jpg",
+    "link": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/"
    },
    {
     "topic": "PC 行业动向",
-    "text": "Kora Systems 发布内置 AI 和智能体的 Linux 桌面系统，在骁龙 X2 Elite 上跑通。"
+    "text": "Kora Systems 发布内置 AI 和智能体的 Linux 桌面系统，在骁龙 X2 Elite 上跑通。",
+    "image": "assets/img/2026-11-11/kora-linux.jpg",
+    "image_src": "https://images.siliconangle.com/blogs.dir/1/files/2026/11/kora-800x450.png",
+    "link": "https://siliconangle.com/2026/11/10/kora-builds-ai-models-and-agents-into-a-new-linux-os-bound-for-qualcomm-snapdragon-pcs/"
    },
    {
     "topic": "Apple 洞察",
-    "text": "Apple 旗下 Claris 在测试 Harbor，把 Mac 变成本地 AI 推理服务器。"
+    "text": "Apple 旗下 Claris 在测试 Harbor，把 Mac 变成本地 AI 推理服务器。",
+    "image": "assets/img/2026-11-11/claris-harbor.jpg",
+    "image_src": "https://images.macrumors.com/t/9wUV-qYkqqosjBGhmAOYPyY-q5k=/1600x/article-new/2026/11/claris-harbor-2.jpg",
+    "link": "https://www.macrumors.com/2026/11/10/apple-claris-harbor-app/"
    },
    {
     "topic": "X 热门新点子",
-    "text": "Perplexity 实测 Gemini 4 Carbon 和 Claude Fable 5.2 持平、成本约为对手 40%；ChatGPT 开放商家入驻测试。"
+    "text": "Perplexity 实测 Gemini 4 Carbon 和 Claude Fable 5.2 持平、成本约为对手 40%；ChatGPT 开放商家入驻测试。",
+    "image": "assets/img/2026-11-11/perplexity-carbon.jpg",
+    "image_src": "https://pbs.twimg.com/media/HWx-WgoWsAA992y.jpg?name=orig",
+    "link": "https://x.com/AravSrinivas/status/2120208455965569262"
    },
    {
     "topic": "GitHub 涨星",
-    "text": "meta/astryx 以 +3,108 升到第 1。"
+    "text": "meta/astryx 以 +3,108 升到第 1。",
+    "image": "assets/img/2026-11-11/meta-astryx.jpg",
+    "image_src": "https://opengraph.githubassets.com/77d2c2047ff12e54f80596c1648c1d0df2e4499cee2c7ff4ae2a77a7a30fd881/meta/astryx",
+    "link": "https://github.com/meta/astryx"
    }
   ]
  },
@@ -159,23 +186,38 @@
   "lines": [
    {
     "topic": "旺财早报",
-    "text": "OpenAI 发布面向安全研究的 GPT-6 Cyber，谷歌 Gemini Omni 1.2 Flash 把视频拉长到 15 秒并降价。"
+    "text": "OpenAI 发布面向安全研究的 GPT-6 Cyber，谷歌 Gemini Omni 1.2 Flash 把视频拉长到 15 秒并降价。",
+    "image": "assets/img/2026-11-06/gpt-6-cyber.jpg",
+    "image_src": "https://pbs.twimg.com/amplify_video_thumb/2118387217588465664/img/N2grMUmP0O_EMvS2.jpg",
+    "link": "https://x.com/OpenAI/status/2118390190246879554"
    },
    {
     "topic": "Apple 洞察",
-    "text": "五款新品开售，首款触控 OLED MacBook Pro 和 OLED iPad mini 到货，iOS / macOS 27.3 首个公开测试版同时放出。"
+    "text": "五款新品开售，首款触控 OLED MacBook Pro 和 OLED iPad mini 到货，iOS / macOS 27.3 首个公开测试版同时放出。",
+    "image": "assets/img/2026-11-06/apple-five-products.jpg",
+    "image_src": "https://images.macrumors.com/t/wPYeHY6-2xS0BMyi62C601kOVDs=/1600x/article-new/2026/10/apple-pro-tell-logo.jpg",
+    "link": "https://www.macrumors.com/2026/11/05/apple-launching-five-new-products-tomorrow/"
    },
    {
     "topic": "科技高管观点",
-    "text": "Anthropic S-1 披露约 8954 亿美元算力承诺，当日 AI 股大跌。"
+    "text": "Anthropic S-1 披露约 8954 亿美元算力承诺，当日 AI 股大跌。",
+    "image": "assets/img/2026-11-06/anthropic-s1.jpg",
+    "image_src": "https://media.datacenterdynamics.com/media/images/Claude.2e16d0ba.fill-1200x630.jpg",
+    "link": "https://www.datacenterdynamics.com/en/news/anthropic-s-1-update-reveals-8954bn-in-cloud-and-data-center-commitments/"
    },
    {
     "topic": "X 新想法",
-    "text": "Perplexity 发布 Teammates 工作代理，Claude 在美国上线只读的个人理财 beta。"
+    "text": "Perplexity 发布 Teammates 工作代理，Claude 在美国上线只读的个人理财 beta。",
+    "image": "assets/img/2026-11-06/perplexity-teammates.jpg",
+    "image_src": "https://pbs.twimg.com/amplify_video_thumb/2118389256930660352/img/GPUe0mXgz4f2dJ6O.jpg",
+    "link": "https://x.com/perplexity_ai/status/2118389326459670825"
    },
    {
     "topic": "GitHub 涨星",
-    "text": "NVIDIA/auto-ontology 以 +2,679 登顶。"
+    "text": "NVIDIA/auto-ontology 以 +2,679 登顶。",
+    "image": "assets/img/2026-11-06/nvidia-auto-ontology.jpg",
+    "image_src": "https://opengraph.githubassets.com/3d910998f6ad2a98c7eb6a9f28f5b23f8d8d886dfac9b5cd2b0c479847dfc3d7/NVIDIA/auto-ontology",
+    "link": "https://github.com/NVIDIA/auto-ontology"
    }
   ]
  }
@@ -184,6 +226,12 @@
   (function(){
     var fallback = JSON.parse(document.getElementById('days-fallback').textContent);
     function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+    function imgCell(l){
+      if(!l.image) return '<td class="pic"></td>';
+      var img='<img src="'+esc(l.image)+'" alt="" width="160" height="100" loading="lazy" decoding="async">';
+      if(l.link) return '<td class="pic"><a href="'+esc(safeHref(l.link))+'" target="_blank" rel="noopener noreferrer">'+img+'</a></td>';
+      return '<td class="pic">'+img+'</td>';
+    }
     function safeHref(h){return /^(?:[a-z]+:|\/\/)/i.test(h)&&!/^https:\/\//i.test(h)?'#':h;}
     function render(days){
       days = days.slice().sort(function(a,b){return a.date<b.date?1:-1;});
@@ -195,7 +243,7 @@
         var sec=document.createElement('section'); sec.className='day'; sec.id=id;
         sec.innerHTML='<h2>'+esc(d.date)+'</h2>'+
           '<p class="topics">'+(d.topics||[]).length+' 条线：'+(d.topics||[]).map(esc).join(' · ')+'</p>'+
-          ((d.lines&&d.lines.length)?'<table class="lines"><thead><tr><th scope="col">主线</th><th scope="col">要点</th></tr></thead><tbody>'+d.lines.map(function(l){return '<tr><th scope="row">'+esc(l.topic)+'</th><td>'+esc(l.text)+'</td></tr>';}).join('')+'</tbody></table>':'<p class="sum">'+esc(d.summary||'')+'</p>')+
+          ((d.lines&&d.lines.length)?'<table class="lines"><thead><tr><th scope="col">主线</th><th scope="col">要点</th><th class="pic" scope="col">原图</th></tr></thead><tbody>'+d.lines.map(function(l){return '<tr><th scope="row">'+esc(l.topic)+'</th><td>'+esc(l.text)+'</td>'+imgCell(l)+'</tr>';}).join('')+'</tbody></table>':'<p class="sum">'+esc(d.summary||'')+'</p>')+
           '<a class="open" href="'+esc(d.date)+'.html">查看详情 →</a>'+
           (reps?'<div class="reports"><span>当天日报：</span>'+reps+'</div>':'');
         main.appendChild(sec);
