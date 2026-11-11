@@ -18,16 +18,13 @@
   .eyebrow{margin:0 0 10px;font-size:13px;letter-spacing:.08em;color:var(--muted)}
   h1{margin:0 0 14px;font-size:clamp(28px,5vw,40px);line-height:1.22;font-weight:700;letter-spacing:-.02em}
   .lead{margin:0 0 22px;max-width:68ch;color:#2c2c2c}
-  .picker{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:0 0 28px;padding:14px 16px;background:var(--card);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow)}
-  .picker label{font-size:14px;color:var(--muted)}
-  .picker select{font:inherit;padding:6px 10px;border:1px solid var(--line);border-radius:8px;background:var(--card)}
-  .picker button,.chip{font:inherit;font-size:14px;padding:6px 12px;border:1px solid var(--line);border-radius:999px;background:var(--card);color:var(--ink);cursor:pointer;text-decoration:none}
-  .picker button:hover,.chip:hover{border-color:var(--ink)}
-  .chips{display:flex;flex-wrap:wrap;gap:8px}
   .day{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 22px 18px;margin:0 0 20px;scroll-margin-top:16px;box-shadow:var(--shadow)}
   .day.flash{animation:flash 1.2s ease}
   @keyframes flash{0%{background:#fff3d6}100%{background:var(--card)}}
-  .day h2{margin:0 0 6px;font-size:24px;letter-spacing:-.01em}
+  .day-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 6px}
+  .day h2{margin:0;font-size:24px;letter-spacing:-.01em;min-width:0;flex:1}
+  .open{flex:none;display:inline-block;font:inherit;font-size:14px;font-weight:600;padding:6px 14px;border:1px solid var(--line);border-radius:999px;background:var(--soft);color:var(--ink);text-decoration:none;white-space:nowrap;line-height:1.4;box-shadow:0 1px 0 rgba(255,255,255,.7) inset}
+  .open:hover{border-color:var(--ink);color:var(--ink)}
   .topics{margin:0 0 12px;color:var(--muted);font-size:14px}
   .day p.sum{margin:0 0 16px;color:#2c2c2c}
   table.lines{width:100%;border-collapse:collapse;margin:0 0 16px;font-size:15px}
@@ -45,8 +42,13 @@
     table.lines td.pic a{width:120px}
     table.lines td.pic img{width:120px;height:75px}
   }
-  @media (max-width:560px){table.lines tbody th{white-space:normal;width:6em}}
-  .open{display:inline-block;font-weight:600;margin:0 0 14px}
+  @media (max-width:560px){
+    table.lines tbody th{white-space:normal;width:6em}
+    .day{padding:18px 16px 16px}
+    .day-head{gap:8px}
+    .day h2{font-size:20px}
+    .open{font-size:13px;padding:5px 12px}
+  }
   .reports{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:14px;padding-top:12px;border-top:1px solid var(--line)}
   .reports span{color:var(--muted)}
   footer{margin-top:40px;color:var(--muted);font-size:14px}
@@ -60,11 +62,6 @@
       <h1><img class="wc-dog" src="assets/wangcai-dog.png" alt="" aria-hidden="true">旺财资讯日报</h1>
       <p class="lead">每天一页，汇总各 bot 和 AI 行业简报当天的输出。点「查看详情」看可展开的要点，点下面的小链接看各 bot 当天日报原文。</p>
     </header>
-    <div class="picker">
-      <label for="date-select">选择日期</label>
-      <select id="date-select"></select>
-      <button type="button" id="go-map">查看详情</button>
-    </div>
     <main id="days"></main>
     <footer>数据来自 days.json，每天追加一条。</footer>
   </div>
@@ -235,29 +232,27 @@
     function safeHref(h){return /^(?:[a-z]+:|\/\/)/i.test(h)&&!/^https:\/\//i.test(h)?'#':h;}
     function render(days){
       days = days.slice().sort(function(a,b){return a.date<b.date?1:-1;});
-      var main=document.getElementById('days'), sel=document.getElementById('date-select');
-      main.innerHTML=''; sel.innerHTML='';
+      var main=document.getElementById('days');
+      main.innerHTML='';
       days.forEach(function(d){
         var id='d-'+d.date;
         var reps=(d.reports||[]).map(function(r){return '<a href="'+esc(safeHref(r.href))+'">'+esc(r.name)+'</a>';}).join('');
         var sec=document.createElement('section'); sec.className='day'; sec.id=id;
-        sec.innerHTML='<h2>'+esc(d.date)+'</h2>'+
+        sec.innerHTML='<div class="day-head"><h2>'+esc(d.date)+'</h2>'+
+          '<a class="open" href="'+esc(d.date)+'.html">查看详情</a></div>'+
           '<p class="topics">'+(d.topics||[]).length+' 条线：'+(d.topics||[]).map(esc).join(' · ')+'</p>'+
           ((d.lines&&d.lines.length)?'<table class="lines"><thead><tr><th scope="col">主线</th><th scope="col">要点</th><th class="pic" scope="col">原图</th></tr></thead><tbody>'+d.lines.map(function(l){return '<tr><th scope="row">'+esc(l.topic)+'</th><td>'+esc(l.text)+'</td>'+imgCell(l)+'</tr>';}).join('')+'</tbody></table>':'<p class="sum">'+esc(d.summary||'')+'</p>')+
-          '<a class="open" href="'+esc(d.date)+'.html">查看详情 →</a>'+
           (reps?'<div class="reports"><span>当天日报：</span>'+reps+'</div>':'');
         main.appendChild(sec);
-        var o=document.createElement('option'); o.value=d.date; o.textContent=d.date; sel.appendChild(o);
       });
-      sel.onchange=function(){jump(sel.value);};
-      document.getElementById('go-map').onclick=function(){ if(sel.value) location.href=sel.value+'.html'; };
-      var h=location.hash.replace('#d-',''); if(h){var t=document.getElementById('d-'+h); if(t){sel.value=h; t.scrollIntoView();}}
-    }
-    function jump(date){
-      var t=document.getElementById('d-'+date); if(!t) return;
-      t.classList.remove('flash'); void t.offsetWidth; t.classList.add('flash');
-      t.scrollIntoView({behavior:'smooth',block:'start'});
-      if(history.replaceState) history.replaceState(null,'','#d-'+date);
+      var h=location.hash.replace(/^#d-/, '');
+      if(h){
+        var t=document.getElementById('d-'+h);
+        if(t){
+          t.classList.remove('flash'); void t.offsetWidth; t.classList.add('flash');
+          t.scrollIntoView({behavior:'smooth',block:'start'});
+        }
+      }
     }
     render(fallback);
     if(window.fetch){
