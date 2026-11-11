@@ -4,26 +4,166 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light">
-<meta http-equiv="refresh" content="0; url=2026-11-11.html">
-<link rel="canonical" href="2026-11-11.html">
+<meta name="theme-color" content="#ffffff">
+<meta name="description" content="每日 Bot 资讯脑图：每天一张脑图，汇总各 bot 和旺财早报的输出。">
 <title>每日 Bot 资讯脑图</title>
 <style>
-  body {
-    margin: 0;
-    background: #fff;
-    color: #1a1a1a;
-    font-family: "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", "Microsoft YaHei", sans-serif;
-    line-height: 1.6;
-  }
-  main { max-width: 36rem; margin: 15vh auto; padding: 0 20px; }
-  a { color: #0b57d0; }
-  .archive { margin-top: 1.5rem; color: #5c5c5c; font-size: 14px; }
+  :root{color-scheme:light;--ink:#1a1a1a;--muted:#5c5c5c;--line:#e6e6e6;--bg:#fff;--soft:#f5f5f5}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Microsoft YaHei","Segoe UI",sans-serif;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-wrap:break-word}
+  a{color:#0b57d0} a:hover{color:#0842a0}
+  :focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+  .wrap{width:min(880px,calc(100% - 32px));margin:0 auto;padding:32px 0 80px}
+  .eyebrow{margin:0 0 10px;font-size:13px;letter-spacing:.08em;color:var(--muted)}
+  h1{margin:0 0 14px;font-size:clamp(28px,5vw,40px);line-height:1.22;font-weight:700;letter-spacing:-.02em}
+  .lead{margin:0 0 22px;max-width:68ch;color:#2c2c2c}
+  .picker{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:0 0 28px;padding:14px 16px;background:var(--soft);border-radius:12px}
+  .picker label{font-size:14px;color:var(--muted)}
+  .picker select{font:inherit;padding:6px 10px;border:1px solid #cfcfcf;border-radius:8px;background:#fff}
+  .picker button,.chip{font:inherit;font-size:14px;padding:6px 12px;border:1px solid #cfcfcf;border-radius:999px;background:#fff;color:var(--ink);cursor:pointer;text-decoration:none}
+  .picker button:hover,.chip:hover{border-color:var(--ink)}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .day{border:1px solid var(--line);border-radius:14px;padding:22px 22px 18px;margin:0 0 20px;scroll-margin-top:16px}
+  .day.flash{animation:flash 1.2s ease}
+  @keyframes flash{0%{background:#fff7d6}100%{background:#fff}}
+  .day h2{margin:0 0 6px;font-size:24px;letter-spacing:-.01em}
+  .topics{margin:0 0 12px;color:var(--muted);font-size:14px}
+  .day p.sum{margin:0 0 16px;color:#2c2c2c}
+  .open{display:inline-block;font-weight:600;margin:0 0 14px}
+  .reports{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:14px;padding-top:12px;border-top:1px solid var(--line)}
+  .reports span{color:var(--muted)}
+  footer{margin-top:40px;color:var(--muted);font-size:14px}
 </style>
 </head>
 <body>
-  <main>
-    <p>正在打开 <a href="2026-11-11.html">每日 Bot 资讯脑图 2026-11-11</a></p>
-    <p class="archive">往期：<a href="2026-11-06.html">2026-11-06</a></p>
-  </main>
+  <div class="wrap">
+    <header>
+      <p class="eyebrow">AI-News</p>
+      <h1>每日 Bot 资讯脑图</h1>
+      <p class="lead">每天一张脑图，汇总各 bot 和旺财早报当天的输出。点「打开脑图」看可展开的要点，点下面的小链接看各 bot 当天日报原文。</p>
+    </header>
+    <div class="picker">
+      <label for="date-select">选择日期</label>
+      <select id="date-select"></select>
+      <button type="button" id="go-map">打开脑图</button>
+      <div class="chips" id="chips"></div>
+    </div>
+    <main id="days"></main>
+    <footer>数据来自 days.json，每天追加一条。</footer>
+  </div>
+  <script id="days-fallback" type="application/json">[
+ {
+  "date": "2026-11-11",
+  "topics": [
+   "AI 行业早报",
+   "科技高管观点",
+   "PC 行业动向",
+   "Apple 洞察",
+   "X 热门新点子",
+   "GitHub 涨星"
+  ],
+  "summary": "Anthropic 启动 IPO 路演，每股 70 到 78 美元，同天推出 Claude Sheets、Whiteboards 和 Meetings，直接和 Office、Google Workspace 抢办公场景。Google 开放 Gemini 4 Carbon，谷歌高管集体站台，Perplexity 实测它和 Claude Fable 5.2 持平、成本约为对手 40%。PC 这边，Kora Systems 发布内置 AI 和智能体的 Linux 桌面系统，在骁龙 X2 Elite 上跑通。Apple 旗下 Claris 在测试 Harbor，把 Mac 变成本地 AI 推理服务器。GitHub 涨星榜上 meta/astryx 以 +3,108 升到第 1。",
+  "reports": [
+   {
+    "name": "旺财早报",
+    "href": "reports/2026-11-11/brief.html"
+   },
+   {
+    "name": "科技高管观点",
+    "href": "reports/2026-11-11/exec.html"
+   },
+   {
+    "name": "PC 行业动向",
+    "href": "reports/2026-11-11/pc.html"
+   },
+   {
+    "name": "Apple 洞察",
+    "href": "reports/2026-11-11/apple.html"
+   },
+   {
+    "name": "X 热门新点子",
+    "href": "reports/2026-11-11/x-ideas.html"
+   },
+   {
+    "name": "GitHub 涨星",
+    "href": "reports/2026-11-11/github-stars.html"
+   }
+  ]
+ },
+ {
+  "date": "2026-11-06",
+  "topics": [
+   "旺财早报",
+   "Apple 洞察",
+   "科技高管观点",
+   "X 新想法",
+   "GitHub 涨星"
+  ],
+  "summary": "五款 Apple 新品开售，首款触控 OLED MacBook Pro 和 OLED iPad mini 到货，iOS / macOS 27.3 首个公开测试版同时放出。OpenAI 发布面向安全研究的 GPT-6 Cyber，Brockman 称它已用于加固关键软件。Perplexity 发布 Teammates 工作代理，Claude 在美国上线只读的个人理财 beta。Anthropic S-1 披露约 8954 亿美元算力承诺，当日 AI 股大跌。GitHub 涨星榜上 NVIDIA/auto-ontology 以 +2,679 登顶。",
+  "reports": [
+   {
+    "name": "旺财早报",
+    "href": "reports/2026-11-06/brief.html"
+   },
+   {
+    "name": "Apple 洞察",
+    "href": "reports/2026-11-06/apple.html"
+   },
+   {
+    "name": "科技高管观点",
+    "href": "reports/2026-11-06/exec.html"
+   },
+   {
+    "name": "X 新想法",
+    "href": "reports/2026-11-06/x-ideas.html"
+   },
+   {
+    "name": "GitHub 涨星",
+    "href": "reports/2026-11-06/github-stars.html"
+   }
+  ]
+ }
+]</script>
+  <script>
+  (function(){
+    var fallback = JSON.parse(document.getElementById('days-fallback').textContent);
+    function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+    function safeHref(h){return /^(?:[a-z]+:|\/\/)/i.test(h)&&!/^https:\/\//i.test(h)?'#':h;}
+    function render(days){
+      days = days.slice().sort(function(a,b){return a.date<b.date?1:-1;});
+      var main=document.getElementById('days'), sel=document.getElementById('date-select'), chips=document.getElementById('chips');
+      main.innerHTML=''; sel.innerHTML=''; chips.innerHTML='';
+      days.forEach(function(d){
+        var id='d-'+d.date;
+        var reps=(d.reports||[]).map(function(r){return '<a href="'+esc(safeHref(r.href))+'">'+esc(r.name)+'</a>';}).join('');
+        var sec=document.createElement('section'); sec.className='day'; sec.id=id;
+        sec.innerHTML='<h2>'+esc(d.date)+'</h2>'+
+          '<p class="topics">'+(d.topics||[]).length+' 条线：'+(d.topics||[]).map(esc).join(' · ')+'</p>'+
+          '<p class="sum">'+esc(d.summary||'')+'</p>'+
+          '<a class="open" href="'+esc(d.date)+'.html">打开脑图 →</a>'+
+          (reps?'<div class="reports"><span>当天日报：</span>'+reps+'</div>':'');
+        main.appendChild(sec);
+        var o=document.createElement('option'); o.value=d.date; o.textContent=d.date; sel.appendChild(o);
+        var c=document.createElement('a'); c.className='chip'; c.href='#'+id; c.textContent=d.date.slice(5);
+        c.addEventListener('click',function(e){e.preventDefault();jump(d.date);sel.value=d.date;}); chips.appendChild(c);
+      });
+      sel.onchange=function(){jump(sel.value);};
+      document.getElementById('go-map').onclick=function(){ if(sel.value) location.href=sel.value+'.html'; };
+      var h=location.hash.replace('#d-',''); if(h){var t=document.getElementById('d-'+h); if(t){sel.value=h; t.scrollIntoView();}}
+    }
+    function jump(date){
+      var t=document.getElementById('d-'+date); if(!t) return;
+      t.classList.remove('flash'); void t.offsetWidth; t.classList.add('flash');
+      t.scrollIntoView({behavior:'smooth',block:'start'});
+      if(history.replaceState) history.replaceState(null,'','#d-'+date);
+    }
+    render(fallback);
+    if(window.fetch){
+      fetch('days.json',{cache:'no-cache'}).then(function(r){if(!r.ok) throw 0; return r.json();})
+        .then(function(d){ if(Array.isArray(d)&&d.length) render(d); }).catch(function(){});
+    }
+  })();
+  </script>
+  <noscript><style>#days{display:none}</style><p style="width:min(880px,calc(100% - 32px));margin:0 auto"><a href="2026-11-11.html">2026-11-11 脑图</a> · <a href="2026-11-06.html">2026-11-06 脑图</a></p></noscript>
 </body>
 </html>

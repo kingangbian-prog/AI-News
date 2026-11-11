@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>旺财早报 2026-11-06</title>
+<style>
+  :root{color-scheme:light;--ink:#1a1a1a;--muted:#5c5c5c;--line:#e6e6e6;--bg:#fff;--soft:#f5f5f5}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Microsoft YaHei","Segoe UI",sans-serif;font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-wrap:anywhere}
+  a{color:#0b57d0} a:hover{color:#0842a0}
+  .wrap{width:min(820px,calc(100% - 32px));margin:0 auto;padding:28px 0 80px}
+  .nav{display:flex;gap:16px;flex-wrap:wrap;font-size:14px;margin:0 0 18px}
+  .date{margin:0 0 8px;font-size:13px;letter-spacing:.08em;color:var(--muted)}
+  h1{margin:0 0 10px;font-size:clamp(26px,4.6vw,36px);line-height:1.25;letter-spacing:-.02em}
+  .meta{margin:0 0 24px;color:var(--muted);font-size:14px}
+  article h2{margin:32px 0 10px;font-size:20px;padding-top:14px;border-top:1px solid var(--line)}
+  article h3{margin:24px 0 8px;font-size:17px}
+  article p,article li{color:#2c2c2c}
+  article ul,article ol{padding-left:1.4em} article li{margin:0 0 12px}
+  .sub{color:var(--muted);font-size:14px;margin-top:-4px}
+  footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <nav class="nav"><a href="../../2026-11-06.html">← 返回脑图</a><a href="../../index.html">全部日期</a></nav>
+    <header>
+      <p class="date">2026-11-06</p>
+      <h1>旺财早报 · 2026-11-06</h1>
+      <p class="meta">AI 行业早间简报｜2026-11-06　原文照录，仅整理排版。</p>
+    </header>
+    <article>
+<p>今天主线是网络安全模型和开源权重两边一起加速：OpenAI 把专用安全模型抬到 Critical，谷歌把视频生成拉长并降价，国内则密集放出可下载的基座权重。</p>
+<ol start="1">
+<li>OpenAI 发布 GPT-6 Cyber。这是面向授权安全研究的专用模型，ExploitGym 得分从 32.1% 提到 48.5%，在预备框架里网络安全能力被标成 Critical。团队用它在 Linux 上做出 948 个本地提权利用、在 Firefox 里挖出 81 个高危漏洞，并已向维护方提交候选补丁；目前只对部分 Daybreak Red 客户开放。<a href="https://openai.com/index/introducing-gpt-6-cyber/" target="_blank" rel="noopener noreferrer">OpenAI 官方博客</a></li>
+</ol>
+<ol start="2">
+<li>谷歌发布 Gemini Omni 1.2 Flash。原生视频最长到 15 秒，支持多轮对话式改片，720p 报价降到每秒 0.07 美元，比上一版便宜约 30%，已在 Gemini API 和 Google Cloud 全面可用。视频生成从演示走向更可批量生产的阶段。<a href="https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/" target="_blank" rel="noopener noreferrer">Google 官方博客</a></li>
+</ol>
+<ol start="3">
+<li>百度开源文心 5.5 Flash Base。稀疏 MoE，总参 280B、每 token 激活 14B，在 33.5T tokens 上预训练，最长训练上下文 128K，微调与推理可到 1M。这次放出的是未经中训和后训的预训练终点权重，方便社区做领域适配和强化学习。<a href="https://ernie.baidu.com/zh/release/ernie-5-5-flash-base/" target="_blank" rel="noopener noreferrer">文心官方发布页</a></li>
+</ol>
+<ol start="4">
+<li>月之暗面放出 Kimi K3.1 Pro 完整权重。2.8T 总参、约 104B 激活的 MoE，原生图文输入，上下文 100 万 token；官方称编程、3D、金融研究等 Agent 任务有明显提升，权重已在 Hugging Face 可下载。<a href="https://www.kimi.ai/blog/kimi-k3-1-pro" target="_blank" rel="noopener noreferrer">Kimi 技术博客</a></li>
+</ol>
+<ol start="5">
+<li>Sand.ai 完成 2 亿美元 A+ 轮融资。基石资本、网宿科技联合领投，10 个月内累计融资约 3 亿美元，跻身独角兽。钱主要用于下一代视频基础模型 MAGI-2 正式版、算力与全球市场；其产品 VidMuse 上线两个月 ARR 已破千万美元。<a href="https://tech.caijing.com.cn/20261105/5191943.shtml" target="_blank" rel="noopener noreferrer">财经网报道</a></li>
+</ol>
+<ol start="6">
+<li>Meta 收购 AI 编程初创公司 Conductor。Conductor 让工程师在隔离工作区里并行跑多个编码 Agent，创始人 Charlie Holtz 确认团队并入 Meta，云服务将在 11 月 20 日关停。这是 Meta 在编程 Agent 编排层的又一次补强。<a href="https://techcrunch.com/2026/11/04/meta-acquires-ai-coding-startup-conductor/" target="_blank" rel="noopener noreferrer">TechCrunch 报道</a></li>
+</ol>
+<ol start="7">
+<li>Anthropic 据报道与美联社达成首份新闻授权协议。Adweek 援引知情人士称，Claude 可在美国中期选举夜展示带出处的 AP 选举数据，财务条款未披露。此前 Anthropic 长期回避付费新闻授权，这次转向对内容行业有信号意义。<a href="https://www.adweek.com/media/anthropic-licensing-deal-ap-election/" target="_blank" rel="noopener noreferrer">Adweek 报道</a></li>
+</ol>
+    </article>
+    <footer><a href="../../2026-11-06.html">返回 2026-11-06 脑图</a> · <a href="../../index.html">全部日期</a></footer>
+  </div>
+</body>
+</html>

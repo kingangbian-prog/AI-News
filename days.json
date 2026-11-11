@@ -1,0 +1,27 @@
+[
+  {
+    "date": "2026-11-11",
+    "topics": ["AI 行业早报", "科技高管观点", "PC 行业动向", "Apple 洞察", "X 热门新点子", "GitHub 涨星"],
+    "summary": "Anthropic 启动 IPO 路演，每股 70 到 78 美元，同天推出 Claude Sheets、Whiteboards 和 Meetings，直接和 Office、Google Workspace 抢办公场景。Google 开放 Gemini 4 Carbon，谷歌高管集体站台，Perplexity 实测它和 Claude Fable 5.2 持平、成本约为对手 40%。PC 这边，Kora Systems 发布内置 AI 和智能体的 Linux 桌面系统，在骁龙 X2 Elite 上跑通。Apple 旗下 Claris 在测试 Harbor，把 Mac 变成本地 AI 推理服务器。GitHub 涨星榜上 meta/astryx 以 +3,108 升到第 1。",
+    "reports": [
+      {"name": "旺财早报", "href": "reports/2026-11-11/brief.html"},
+      {"name": "科技高管观点", "href": "reports/2026-11-11/exec.html"},
+      {"name": "PC 行业动向", "href": "reports/2026-11-11/pc.html"},
+      {"name": "Apple 洞察", "href": "reports/2026-11-11/apple.html"},
+      {"name": "X 热门新点子", "href": "reports/2026-11-11/x-ideas.html"},
+      {"name": "GitHub 涨星", "href": "reports/2026-11-11/github-stars.html"}
+    ]
+  },
+  {
+    "date": "2026-11-06",
+    "topics": ["旺财早报", "Apple 洞察", "科技高管观点", "X 新想法", "GitHub 涨星"],
+    "summary": "五款 Apple 新品开售，首款触控 OLED MacBook Pro 和 OLED iPad mini 到货，iOS / macOS 27.3 首个公开测试版同时放出。OpenAI 发布面向安全研究的 GPT-6 Cyber，Brockman 称它已用于加固关键软件。Perplexity 发布 Teammates 工作代理，Claude 在美国上线只读的个人理财 beta。Anthropic S-1 披露约 8954 亿美元算力承诺，当日 AI 股大跌。GitHub 涨星榜上 NVIDIA/auto-ontology 以 +2,679 登顶。",
+    "reports": [
+      {"name": "旺财早报", "href": "reports/2026-11-06/brief.html"},
+      {"name": "Apple 洞察", "href": "reports/2026-11-06/apple.html"},
+      {"name": "科技高管观点", "href": "reports/2026-11-06/exec.html"},
+      {"name": "X 新想法", "href": "reports/2026-11-06/x-ideas.html"},
+      {"name": "GitHub 涨星", "href": "reports/2026-11-06/github-stars.html"}
+    ]
+  }
+]
