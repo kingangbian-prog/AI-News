@@ -40,13 +40,12 @@
     <header>
       <p class="eyebrow">AI-News</p>
       <h1>每日 Bot 资讯脑图</h1>
-      <p class="lead">每天一张脑图，汇总各 bot 和旺财早报当天的输出。点「打开脑图」看可展开的要点，点下面的小链接看各 bot 当天日报原文。</p>
+      <p class="lead">每天一张脑图，汇总各 bot 和旺财早报当天的输出。点「查看详情」看可展开的要点，点下面的小链接看各 bot 当天日报原文。</p>
     </header>
     <div class="picker">
       <label for="date-select">选择日期</label>
       <select id="date-select"></select>
-      <button type="button" id="go-map">打开脑图</button>
-      <div class="chips" id="chips"></div>
+      <button type="button" id="go-map">查看详情</button>
     </div>
     <main id="days"></main>
     <footer>数据来自 days.json，每天追加一条。</footer>
@@ -131,8 +130,8 @@
     function safeHref(h){return /^(?:[a-z]+:|\/\/)/i.test(h)&&!/^https:\/\//i.test(h)?'#':h;}
     function render(days){
       days = days.slice().sort(function(a,b){return a.date<b.date?1:-1;});
-      var main=document.getElementById('days'), sel=document.getElementById('date-select'), chips=document.getElementById('chips');
-      main.innerHTML=''; sel.innerHTML=''; chips.innerHTML='';
+      var main=document.getElementById('days'), sel=document.getElementById('date-select');
+      main.innerHTML=''; sel.innerHTML='';
       days.forEach(function(d){
         var id='d-'+d.date;
         var reps=(d.reports||[]).map(function(r){return '<a href="'+esc(safeHref(r.href))+'">'+esc(r.name)+'</a>';}).join('');
@@ -140,12 +139,10 @@
         sec.innerHTML='<h2>'+esc(d.date)+'</h2>'+
           '<p class="topics">'+(d.topics||[]).length+' 条线：'+(d.topics||[]).map(esc).join(' · ')+'</p>'+
           '<p class="sum">'+esc(d.summary||'')+'</p>'+
-          '<a class="open" href="'+esc(d.date)+'.html">打开脑图 →</a>'+
+          '<a class="open" href="'+esc(d.date)+'.html">查看详情 →</a>'+
           (reps?'<div class="reports"><span>当天日报：</span>'+reps+'</div>':'');
         main.appendChild(sec);
         var o=document.createElement('option'); o.value=d.date; o.textContent=d.date; sel.appendChild(o);
-        var c=document.createElement('a'); c.className='chip'; c.href='#'+id; c.textContent=d.date.slice(5);
-        c.addEventListener('click',function(e){e.preventDefault();jump(d.date);sel.value=d.date;}); chips.appendChild(c);
       });
       sel.onchange=function(){jump(sel.value);};
       document.getElementById('go-map').onclick=function(){ if(sel.value) location.href=sel.value+'.html'; };
