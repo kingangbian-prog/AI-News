@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light">
-<meta name="theme-color" content="#ffffff">
+<meta name="theme-color" content="#f4f1ea">
 <meta name="description" content="6 条资讯线汇总今天各 bot 和旺财早报的输出（AI大拿 今天没有输出，暂未收录）。点上方标签切换各条线，要点默认展开；点右侧原图打开来源，点箭头可收起。">
 <link rel="icon" type="image/png" href="assets/wangcai-dog.png">
 <title>旺财资讯 2026-11-11</title>
@@ -14,15 +14,21 @@
     --ink: #1a1a1a;
     --muted: #5c5c5c;
     --faint: #5e5e5e;
-    --line: #e6e6e6;
-    --bg: #ffffff;
-    --soft: #f5f5f5;
+    --line: #ece8e1;
+    --bg: #f4f1ea;
+    --bg-top: #fbf8f2;
+    --soft: #f8f3ea;
+    --card: #fffaf4;
+    --shadow: 0 1px 0 rgba(255,255,255,.8) inset, 0 6px 16px rgba(40,30,10,.05);
   }
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   body {
     margin: 0;
-    background: var(--bg);
+    background-color: var(--bg);
+    background-image: linear-gradient(180deg, #fbf8f2 0%, #f4f1ea 42%);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
     color: var(--ink);
     font-family: "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", "Microsoft YaHei", "Segoe UI", sans-serif;
     font-size: 16px;
@@ -77,9 +83,10 @@
     gap: 8px;
     min-height: 168px;
     padding: 16px;
-    background: #fff;
+    background: var(--card);
     border: 1px solid var(--line);
     border-radius: 16px;
+    box-shadow: var(--shadow);
     text-align: left;
     cursor: pointer;
   }
@@ -120,7 +127,7 @@
   .tree {
     margin-top: 14px;
     padding: 4px 0 4px 22px;
-    border-left: 2px solid #ececec;
+    border-left: 2px solid var(--line);
   }
   .root {
     display: flex;
@@ -131,7 +138,7 @@
     max-width: calc(100% + 22px);
     border: 1.5px solid #111;
     border-radius: 16px;
-    background: #fff;
+    background: var(--card);
     font-weight: 700;
   }
   .root-mark {
@@ -159,7 +166,7 @@
     gap: 12px;
     min-height: 64px;
     padding: 12px 14px;
-    background: #fff;
+    background: var(--card);
     border: 1px solid var(--line);
     border-radius: 14px;
     cursor: pointer;
@@ -221,7 +228,7 @@
   }
   .item-btn:hover { border-color: #ccc; }
   .item.is-open .item-btn {
-    background: #fff;
+    background: var(--card);
     border-color: #111;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
@@ -242,7 +249,7 @@
   .badge {
     font-size: 11px;
     color: #333;
-    background: #fff;
+    background: var(--card);
     border: 1px solid var(--line);
     border-radius: 999px;
     padding: 1px 8px;
@@ -252,7 +259,7 @@
     border: 1px solid #111;
     border-top: 0;
     border-radius: 0 0 12px 12px;
-    background: #fff;
+    background: var(--card);
   }
   .detail p { margin: 8px 0 12px; }
   figure { margin: 0 0 12px; }
@@ -280,7 +287,7 @@
   .item.flash .item-btn { animation: flash 1.3s ease; }
   @keyframes flash {
     0% { background: #fff3cc; }
-    100% { background: #fff; }
+    100% { background: var(--card); }
   }
   footer {
     margin-top: 40px;
@@ -310,7 +317,7 @@
     position:sticky;top:0;z-index:30;
     display:flex;flex-wrap:nowrap;gap:0;
     overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:thin;
-    background:#fff;
+    background:var(--bg);
     border-bottom:1px solid var(--line);
     margin:0 0 18px;padding:8px 0 0;
   }
@@ -319,7 +326,7 @@
     padding:10px 16px;border:0;border-bottom:2px solid transparent;
     background:transparent;color:var(--muted);cursor:pointer;white-space:nowrap;
   }
-  .tab.is-active,.tab[aria-selected="true"]{color:var(--ink);border-bottom-color:#111}
+  .tab.is-active,.tab[aria-selected="true"]{color:var(--ink);background:var(--card);border-bottom-color:#111;border-radius:10px 10px 0 0}
   .tab-panel{display:none}
   .tab-panel.is-active{display:block}
   .panel-meta{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 16px;margin:0 0 12px;font-size:14px;color:var(--muted)}
@@ -331,7 +338,7 @@
     padding:12px;background:var(--soft);border:1px solid transparent;border-radius:12px;cursor:pointer;
   }
   .item-head:hover{border-color:#ccc}
-  .item.is-open .item-head{background:#fff;border-color:#111;border-bottom-left-radius:0;border-bottom-right-radius:0}
+  .item.is-open .item-head{background:var(--card);border-color:#111;border-bottom-left-radius:0;border-bottom-right-radius:0}
   .item-btn{
     flex:1;min-width:0;width:auto;
     display:flex;flex-direction:column;align-items:flex-start;gap:4px;
@@ -339,7 +346,7 @@
   }
   .item-top{width:auto}
   .item-thumb{flex:none;display:block;width:140px;height:86px;border-radius:8px;overflow:hidden;line-height:0}
-  .item-thumb img{display:block;width:140px;height:86px;object-fit:cover;background:#eee;border-radius:8px}
+  .item-thumb img{display:block;width:140px;height:86px;object-fit:cover;background:#f3efe6;border-radius:8px}
   .item-head>.chev{margin-left:0;margin-top:0;flex:none}
   .item.is-open .item-head>.chev{transform:rotate(-135deg) translateY(-2px)}
   .item{scroll-margin-top:72px}
@@ -356,9 +363,9 @@
   }
 
 
-  .day-poster{margin:0 0 28px;max-width:960px}
+  .day-poster{margin:0 0 28px;max-width:100%}
   .day-poster a{display:block;line-height:0}
-  .day-poster img{display:block;width:100%;max-width:960px;height:auto;border-radius:12px;border:1px solid var(--line);background:#f4f1ea}
+  .day-poster img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:12px;border:1px solid var(--line);background:#f4f1ea;box-shadow:var(--shadow)}
 
 .wc-dog{display:inline-block;width:1.15em;height:1.15em;vertical-align:-0.18em;margin-right:.3em}
 </style>
@@ -371,7 +378,7 @@
       <h1><img class="wc-dog" src="assets/wangcai-dog.png" alt="" aria-hidden="true">旺财资讯 <span class="nowrap">2026-11-11</span></h1>
       <p class="summary">6 条资讯线汇总今天各 bot 和旺财早报的输出（AI大拿 今天没有输出，暂未收录）。点上方标签切换各条线，要点默认展开；点右侧原图打开来源，点箭头可收起。</p>
     </header>
-    <p class="day-poster"><a href="assets/poster/2026-11-11.png" target="_blank" rel="noopener noreferrer"><img src="assets/poster/2026-11-11.png" alt="旺财资讯 2026-11-11" width="960" height="1200" loading="lazy" decoding="async"></a></p>
+    <p class="day-poster"><a href="assets/poster/2026-11-11.png" target="_blank" rel="noopener noreferrer"><img src="assets/poster/2026-11-11.png" alt="旺财资讯 2026-11-11" width="1920" height="1080" loading="lazy" decoding="async"></a></p>
 
 
     <h2 class="section-label">今日最值得关注</h2>

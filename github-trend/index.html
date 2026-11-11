@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light">
-<meta name="theme-color" content="#ffffff">
+<meta name="theme-color" content="#f4f1ea">
 <meta name="description" content="按天汇总 GitHub Trending 每日涨星 Top 50。折线图看各项目星数走势，表格可按日期查看，当天新进榜的项目会单独标出。">
 <title>GitHub 每日涨星 Top 50 趋势</title>
 <style>
-  :root{color-scheme:light;--ink:#1a1a1a;--muted:#5c5c5c;--faint:#5e5e5e;--line:#e6e6e6;--bg:#fff;--soft:#f5f5f5;--accent:#0b57d0}
+  :root{color-scheme:light;--ink:#1a1a1a;--muted:#5c5c5c;--faint:#5e5e5e;--line:#ece8e1;--bg:#f4f1ea;--bg-top:#fbf8f2;--soft:#f8f3ea;--card:#fffaf4;--shadow:0 1px 0 rgba(255,255,255,.8) inset,0 6px 16px rgba(40,30,10,.05);--accent:#0b57d0}
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{margin:0;background:var(--bg);color:var(--ink);font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Microsoft YaHei","Segoe UI",sans-serif;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-wrap:break-word}
+  body{margin:0;background-color:var(--bg);background-image:linear-gradient(180deg,#fbf8f2 0%,#f4f1ea 42%);background-attachment:fixed;background-repeat:no-repeat;color:var(--ink);font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Microsoft YaHei","Segoe UI",sans-serif;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-wrap:break-word}
   a{color:var(--accent)} a:hover{color:#0842a0}
   :focus-visible{outline:2px solid var(--ink);outline-offset:3px}
   button{font-family:inherit;color:inherit}
@@ -22,35 +22,35 @@
   .lead{margin:0 0 28px;max-width:72ch;color:#2c2c2c}
   h2{margin:36px 0 14px;font-size:20px;letter-spacing:-.01em;padding-top:8px;border-top:1px solid var(--line)}
   .toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 12px}
-  .seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:auto;background:#fff}
+  .seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:auto;background:var(--card)}
   .seg button,.chip,.btn{font:inherit;font-size:13px;padding:6px 12px;border:0;background:transparent;cursor:pointer;color:var(--ink);white-space:nowrap}
   .seg button{border-right:1px solid var(--line)}
   .seg button:last-child{border-right:0}
   .seg button.is-on,.btn.primary{background:#111;color:#fff}
-  .btn{border:1px solid #cfcfcf;border-radius:999px;background:#fff}
+  .btn{border:1px solid var(--line);border-radius:999px;background:var(--card)}
   .btn:hover,.chip:hover{border-color:#111}
-  .chip{border:1px solid #cfcfcf;border-radius:999px;background:#fff}
+  .chip{border:1px solid var(--line);border-radius:999px;background:var(--card)}
   .chip.is-on{border-color:#111;background:#111;color:#fff}
   .chip .n{margin-left:6px;font-size:11px;opacity:.75}
   .days{display:flex;flex-wrap:nowrap;gap:6px;overflow-x:auto;-webkit-overflow-scrolling:touch;padding:2px 0 10px;scrollbar-width:thin}
-  .search{width:min(420px,100%);font:inherit;padding:8px 12px;border:1px solid #cfcfcf;border-radius:10px;background:#fff}
+  .search{width:min(420px,100%);font:inherit;padding:8px 12px;border:1px solid var(--line);border-radius:10px;background:var(--card)}
   .matches{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 12px}
-  .chart-wrap{width:100%;overflow-x:auto;background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:8px}
+  .chart-wrap{width:100%;overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:8px;box-shadow:var(--shadow)}
   .chart-wrap svg{display:block;min-width:720px;width:100%;height:auto}
   .hint,.note{font-size:13.5px;color:var(--muted);margin:10px 0 0}
   .top5{margin:4px 0 14px;padding:0;list-style:none}
   .top5 li{margin:0 0 8px;color:#2c2c2c;font-size:14.5px}
-  .tbl-wrap{width:100%;overflow-x:auto;border:1px solid var(--line);border-radius:12px}
+  .tbl-wrap{width:100%;overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow)}
   table.rank{width:100%;border-collapse:collapse;font-size:14.5px;min-width:640px}
   table.rank th,table.rank td{text-align:left;vertical-align:top;padding:8px 12px;border-bottom:1px solid var(--line)}
   table.rank thead th{font-size:13px;font-weight:600;color:var(--muted);background:var(--soft);cursor:pointer;white-space:nowrap}
   table.rank thead th.num,table.rank td.num{text-align:right;font-variant-numeric:tabular-nums}
-  table.rank tbody tr:nth-child(even){background:#fafafa}
+  table.rank tbody tr:nth-child(even){background:#f8f3ea}
   table.rank a.repo{color:var(--ink);font-weight:500;text-decoration:none}
   table.rank a.repo:hover{color:var(--accent);text-decoration:underline}
   table.rank a.repo.is-new{font-weight:700}
   .badge-new{display:inline-block;font-size:11px;padding:1px 7px;border-radius:999px;background:#111;color:#fff;margin-left:4px;font-weight:600}
-  .callout{margin:0;padding:12px 14px;background:var(--soft);border-radius:12px;color:#2c2c2c;font-size:14.5px}
+  .callout{margin:0;padding:12px 14px;background:var(--card);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);color:#2c2c2c;font-size:14.5px}
   .tog{display:inline-flex;align-items:center;gap:6px;font-size:14px;cursor:pointer;user-select:none}
   .tog input{accent-color:#111}
   footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
@@ -173,7 +173,7 @@
 
       ticks.forEach(function(v){
         var g=svgEl("g");
-        g.appendChild(svgEl("line",{x1:L,x2:W-R,y1:Y(v),y2:Y(v),stroke:"#e6e6e6"}));
+        g.appendChild(svgEl("line",{x1:L,x2:W-R,y1:Y(v),y2:Y(v),stroke:"#ece8e1"}));
         g.appendChild(svgEl("text",Object.assign({x:L-8,y:Y(v)+4,"text-anchor":"end"},lab), fmt(Math.round(v))));
         svg.appendChild(g);
       });
@@ -188,7 +188,7 @@
         if(segs.length) g.appendChild(svgEl("path",{d:segs.join(" "),"fill":"none",stroke:c,"stroke-width": hover&&hover.n===p.n?3:2}));
         p.s.forEach(function(pt,i){
           if(!pt) return;
-          var cir=svgEl("circle",{cx:X(i),cy:Y(pt.v),r:5,fill:pt.est?"#fff":c,stroke:c,"stroke-width":2,style:"cursor:pointer"});
+          var cir=svgEl("circle",{cx:X(i),cy:Y(pt.v),r:5,fill:pt.est?"#fffaf4":c,stroke:c,"stroke-width":2,style:"cursor:pointer"});
           (function(n,i){ cir.addEventListener("mouseenter",function(){ hover={n:n,i:i}; drawChart(); }); })(p.n,i);
           g.appendChild(cir);
         });
@@ -203,7 +203,7 @@
         if(p){
           var x=Math.min(X(hover.i)+10, W-330), y=Math.max(Y(p.v)-70, T);
           var g=svgEl("g");
-          g.appendChild(svgEl("rect",{x:x,y:y,width:320,height:60,rx:8,fill:"#fff",stroke:"#cfcfcf"}));
+          g.appendChild(svgEl("rect",{x:x,y:y,width:320,height:60,rx:8,fill:"#fffaf4",stroke:"#ece8e1"}));
           g.appendChild(svgEl("text",{x:x+10,y:y+22,fill:"#1a1a1a","font-size":"13","font-family":"inherit"}, hover.n));
           var msg=DAYS[hover.i]+"："+(mode==="total"?"总星":"当日新增")+" "+fmt(p.v)+(p.est?"（估算：次日总星减次日新增）":"");
           g.appendChild(svgEl("text",{x:x+10,y:y+44,fill:"#5c5c5c","font-size":"12","font-family":"inherit"}, msg));
