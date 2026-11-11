@@ -23,8 +23,29 @@
   @keyframes flash{0%{background:#fff3d6}100%{background:var(--card)}}
   .day-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 6px}
   .day h2{margin:0;font-size:24px;letter-spacing:-.01em;min-width:0;flex:1}
-  .open{flex:none;display:inline-block;font:inherit;font-size:14px;font-weight:600;padding:6px 14px;border:1px solid var(--line);border-radius:999px;background:var(--soft);color:var(--ink);text-decoration:none;white-space:nowrap;line-height:1.4;box-shadow:0 1px 0 rgba(255,255,255,.7) inset}
-  .open:hover{border-color:var(--ink);color:var(--ink)}
+  .open{
+    --open:#d9772b;--open-hot:#c26420;
+    flex:none;display:inline-flex;align-items:center;gap:6px;
+    font:inherit;font-size:14px;font-weight:700;letter-spacing:.02em;
+    padding:7px 14px 7px 12px;border:0;border-radius:999px;
+    background:var(--open);color:#fff;text-decoration:none;white-space:nowrap;line-height:1.3;
+    box-shadow:0 1px 0 rgba(255,255,255,.28) inset,0 4px 10px rgba(160,70,10,.22);
+    transition:transform .18s ease,box-shadow .18s ease,background-color .18s ease;
+  }
+  .open svg{display:block;width:15px;height:15px;flex:none}
+  .open .open-arrow{transition:transform .18s ease}
+  .open:hover,.open.is-hover{
+    background:var(--open-hot);color:#fff;
+    transform:translateY(-2px);
+    box-shadow:0 1px 0 rgba(255,255,255,.3) inset,0 8px 18px rgba(140,55,8,.34);
+  }
+  .open:hover .open-arrow,.open.is-hover .open-arrow{transform:translateX(3px)}
+  .open:active{transform:translateY(0);box-shadow:0 2px 6px rgba(140,55,8,.24)}
+  .open:focus-visible{outline:2px solid var(--ink);outline-offset:3px;color:#fff}
+  @media (prefers-reduced-motion:reduce){
+    .open,.open .open-arrow{transition:none}
+    .open:hover,.open.is-hover{transform:none}
+  }
   .topics{margin:0 0 12px;color:var(--muted);font-size:14px}
   .day p.sum{margin:0 0 16px;color:#2c2c2c}
   table.lines{width:100%;border-collapse:collapse;margin:0 0 16px;font-size:15px}
@@ -47,7 +68,8 @@
     .day{padding:18px 16px 16px}
     .day-head{gap:8px}
     .day h2{font-size:20px}
-    .open{font-size:13px;padding:5px 12px}
+    .open{font-size:13px;padding:6px 12px 6px 10px;gap:5px}
+    .open svg{width:14px;height:14px}
   }
   .reports{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:14px;padding-top:12px;border-top:1px solid var(--line)}
   .reports span{color:var(--muted)}
@@ -239,7 +261,11 @@
         var reps=(d.reports||[]).map(function(r){return '<a href="'+esc(safeHref(r.href))+'">'+esc(r.name)+'</a>';}).join('');
         var sec=document.createElement('section'); sec.className='day'; sec.id=id;
         sec.innerHTML='<div class="day-head"><h2>'+esc(d.date)+'</h2>'+
-          '<a class="open" href="'+esc(d.date)+'.html">查看详情</a></div>'+
+          '<a class="open" href="'+esc(d.date)+'.html">'+
+          '<svg class="open-ico" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true" focusable="false"><rect x="3" y="2.5" width="10" height="11" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M6 6h4M6 8.5h4M6 11h2.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>'+
+          '查看详情'+
+          '<svg class="open-arrow" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true" focusable="false"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>'+
+          '</a></div>'+
           '<p class="topics">'+(d.topics||[]).length+' 条线：'+(d.topics||[]).map(esc).join(' · ')+'</p>'+
           ((d.lines&&d.lines.length)?'<table class="lines"><thead><tr><th scope="col">主线</th><th scope="col">要点</th><th class="pic" scope="col">原图</th></tr></thead><tbody>'+d.lines.map(function(l){return '<tr><th scope="row">'+esc(l.topic)+'</th><td>'+esc(l.text)+'</td>'+imgCell(l)+'</tr>';}).join('')+'</tbody></table>':'<p class="sum">'+esc(d.summary||'')+'</p>')+
           (reps?'<div class="reports"><span>当天日报：</span>'+reps+'</div>':'');
