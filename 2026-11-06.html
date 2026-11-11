@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light">
 <meta name="theme-color" content="#f4f1ea">
-<meta name="description" content="5 条资讯线汇总今天各 bot 和旺财早报的输出（PC 行业动向和 AI大拿 今天没有找到输出，暂未收录）。点上方标签切换各条线，要点默认展开；点右侧原图打开来源，点箭头可收起。">
+<meta name="description" content="5 条资讯线汇总今天各 bot 和旺财早报的输出（PC 行业动向和 AI大拿 今天没有找到输出，暂未收录）。默认打开 ALL 可看全部资讯线的树形列表；点上方标签切换各条线，要点默认展开；点右侧原图打开来源，点箭头可收起。">
 <link rel="icon" type="image/png" href="assets/wangcai-dog.png">
 <title>旺财资讯 2026-11-06</title>
 <style>
@@ -367,6 +367,38 @@
   .day-poster a{display:block;line-height:0}
   .day-poster img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:12px;border:1px solid var(--line);background:#f4f1ea;box-shadow:var(--shadow)}
 
+
+  /* ALL tab: restore topic tree, scoped so other tabs stay unchanged */
+  #panel-all .tree{
+    margin-top:6px;padding:4px 0 4px 22px;
+    border-left:2px solid var(--line);
+  }
+  #panel-all .topic{position:relative;margin:0 0 12px}
+  #panel-all .topic::before{
+    content:"";position:absolute;left:-22px;top:28px;width:22px;height:2px;
+    background:var(--branch,#111);
+  }
+  #panel-all .topic-head{display:flex;align-items:stretch;gap:8px}
+  #panel-all .topic-links{
+    align-self:center;flex:none;display:flex;flex-direction:column;gap:4px;
+    padding:8px 2px;font-size:13px;white-space:nowrap;
+  }
+  #panel-all .topic-links a{font-weight:650}
+  #panel-all .items{
+    display:none;
+    margin:8px 0 6px 8px;padding-left:14px;
+    border-left:2px solid color-mix(in srgb, var(--branch,#111) 45%, #fffaf4);
+    flex-direction:column;gap:8px;
+  }
+  #panel-all .topic.is-open > .items{display:flex}
+  @media (max-width:720px){
+    #panel-all .topic-head{flex-direction:column;gap:0}
+    #panel-all .topic-links{align-self:flex-start;padding:6px 2px 2px 4px;white-space:normal}
+  }
+  @media print{
+    #panel-all .items,#panel-all .detail{display:block !important}
+  }
+
 .wc-dog{display:inline-block;width:1.15em;height:1.15em;vertical-align:-0.18em;margin-right:.3em}
 </style>
 </head>
@@ -376,7 +408,7 @@
       <p class="home-link" style="margin:0 0 14px;font-size:14px"><a href="./index.html">← 全部日期</a></p>
       <p class="date">2026-11-06</p>
       <h1><img class="wc-dog" src="assets/wangcai-dog.png" alt="" aria-hidden="true">旺财资讯 <span class="nowrap">2026-11-06</span></h1>
-      <p class="summary">5 条资讯线汇总今天各 bot 和旺财早报的输出（PC 行业动向和 AI大拿 今天没有找到输出，暂未收录）。点上方标签切换各条线，要点默认展开；点右侧原图打开来源，点箭头可收起。</p>
+      <p class="summary">5 条资讯线汇总今天各 bot 和旺财早报的输出（PC 行业动向和 AI大拿 今天没有找到输出，暂未收录）。默认打开 ALL 可看全部资讯线的树形列表；点上方标签切换各条线，要点默认展开；点右侧原图打开来源，点箭头可收起。</p>
     </header>
     <p class="day-poster"><a href="assets/poster/2026-11-06.png" target="_blank" rel="noopener noreferrer"><img src="assets/poster/2026-11-06.png" alt="旺财资讯 2026-11-06" width="1920" height="1080" loading="lazy" decoding="async"></a></p>
 
@@ -409,14 +441,740 @@
 
     <div class="tabs" id="tabs">
       <div class="tab-list" role="tablist" aria-label="资讯线">
-        <button type="button" class="tab is-active" role="tab" id="tab-0" data-topic="0" aria-selected="true" aria-controls="topic-0" tabindex="0">旺财早报</button>
+        <button type="button" class="tab is-active" role="tab" id="tab-all" aria-selected="true" aria-controls="panel-all" tabindex="0">ALL</button>
+        <button type="button" class="tab" role="tab" id="tab-0" data-topic="0" aria-selected="false" aria-controls="topic-0" tabindex="-1">旺财早报</button>
         <button type="button" class="tab" role="tab" id="tab-1" data-topic="1" aria-selected="false" aria-controls="topic-1" tabindex="-1">Apple 洞察</button>
         <button type="button" class="tab" role="tab" id="tab-2" data-topic="2" aria-selected="false" aria-controls="topic-2" tabindex="-1">科技高管观点</button>
         <button type="button" class="tab" role="tab" id="tab-3" data-topic="3" aria-selected="false" aria-controls="topic-3" tabindex="-1">X 新想法</button>
         <button type="button" class="tab" role="tab" id="tab-4" data-topic="4" aria-selected="false" aria-controls="topic-4" tabindex="-1">GitHub 涨星</button>
       </div>
       <div class="tab-panels">
-      <section class="tab-panel is-active" role="tabpanel" id="topic-0" aria-labelledby="tab-0">
+            <section class="tab-panel is-active" role="tabpanel" id="panel-all" aria-labelledby="tab-all">
+        <div class="tree" id="tree">
+        <section class="topic is-open" id="all-topic-0" style="--branch:#0f766e">
+          <div class="topic-head">
+            <button type="button" class="topic-btn" aria-expanded="true" aria-controls="all-items-0">
+              <span class="dot" aria-hidden="true"></span>
+              <span class="topic-copy">
+                <span class="topic-name">旺财早报</span>
+                <span class="topic-meta">旺财 AI 行业早间简报 · 7 条</span>
+              </span>
+              <span class="chev" aria-hidden="true"></span>
+            </button>
+            <div class="topic-links"><a href="reports/2026-11-06/brief.html">查看日报</a></div>
+          </div>
+          <div class="items" id="all-items-0">
+<article class="item is-open" id="all-t0-i0">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t0-i0">
+                <span class="item-top">
+                  <span class="idx">01</span>
+                  <span class="item-title">OpenAI 发布 GPT-6 Cyber</span>
+                </span>
+                <span class="item-sum">面向授权安全研究的专用模型，ExploitGym 从 32.1% 提到 48.5%</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t0-i0">
+<p>团队用它在 Linux 上做出约 948 个本地提权利用、在 Firefox 里挖出 81 个高危漏洞，并已向维护方提交候选补丁。目前只对部分 Daybreak Red 客户开放，网络安全能力在预备框架里被标成 Critical。</p>
+<ul class="links"><li><a href="https://openai.com/index/introducing-gpt-6-cyber/" rel="noopener noreferrer" target="_blank">OpenAI 官方博客</a></li></ul>
+</div>
+          </article>
+<article class="item is-open" id="all-t0-i1">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t0-i1">
+                <span class="item-top">
+                  <span class="idx">02</span>
+                  <span class="item-title">谷歌发布 Gemini Omni 1.2 Flash</span>
+                </span>
+                <span class="item-sum">原生视频最长 15 秒，720p 报价降到每秒 0.07 美元</span>
+                <span class="badges"><span class="badge">原图</span><span class="badge">1 个来源</span></span>
+              </button>
+              <a class="item-thumb" href="https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/" target="_blank" rel="noopener noreferrer"><img src="assets/img/2026-11-06/gemini-omni-1.2.jpg" alt="" width="140" height="86" loading="lazy" decoding="async"></a>
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t0-i1">
+<p>支持多轮对话式改片，比上一版便宜约 30%，已在 Gemini API 和 Google Cloud 全面可用。视频生成从演示走向更可批量生产的阶段。</p>
+<figure>
+<a href="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini-omni-1.2_FZLql41.width-1300.png" rel="noopener noreferrer" target="_blank">
+<img alt="谷歌发布 Gemini Omni 1.2 Flash" decoding="async" loading="lazy" referrerpolicy="no-referrer" src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini-omni-1.2_FZLql41.width-1300.png"/>
+</a>
+<figcaption>原图 · 点图片可打开原文件</figcaption>
+</figure>
+<ul class="links"><li><a href="https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/" rel="noopener noreferrer" target="_blank">Google 官方博客</a></li></ul>
+</div>
+          </article>
+<article class="item is-open" id="all-t0-i2">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t0-i2">
+                <span class="item-top">
+                  <span class="idx">03</span>
+                  <span class="item-title">百度开源文心 5.5 Flash Base</span>
+                </span>
+                <span class="item-sum">280B 稀疏 MoE，激活 14B，放出预训练终点权重</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t0-i2">
+<p>在 33.5T tokens 上预训练，最长训练上下文 128K，微调与推理可到 1M。这次放出的是未经中训和后训的基座权重，方便社区做领域适配和强化学习。</p>
+<ul class="links"><li><a href="https://ernie.baidu.com/zh/release/ernie-5-5-flash-base/" rel="noopener noreferrer" target="_blank">文心官方发布页</a></li></ul>
+</div>
+          </article>
+<article class="item is-open" id="all-t0-i3">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t0-i3">
+                <span class="item-top">
+                  <span class="idx">04</span>
+                  <span class="item-title">月之暗面放出 Kimi K3.1 Pro 完整权重</span>
+                </span>
+                <span class="item-sum">2.8T 总参、约 104B 激活，原生图文，上下文 100 万 token</span>
+                <span class="badges"><span class="badge">原图</span><span class="badge">1 个来源</span></span>
+              </button>
+              <a class="item-thumb" href="https://www.kimi.ai/blog/kimi-k3-1-pro" target="_blank" rel="noopener noreferrer"><img src="assets/img/2026-11-06/kimi-k3-1-pro.jpg" alt="" width="140" height="86" loading="lazy" decoding="async"></a>
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t0-i3">
+<p>官方称编程、3D、金融研究等 Agent 任务有明显提升，权重已在 Hugging Face 可下载。</p>
+<figure>
+<a href="https://kimi-img.kimi.ai/pub/slides/kimi-fs/managed-assets/9558f8d5-08fc-42de-8e4e-339076e03895.webp" rel="noopener noreferrer" target="_blank">
+<img alt="月之暗面放出 Kimi K3.1 Pro 完整权重" decoding="async" loading="lazy" referrerpolicy="no-referrer" src="https://kimi-img.kimi.ai/pub/slides/kimi-fs/managed-assets/9558f8d5-08fc-42de-8e4e-339076e03895.webp"/>
+</a>
+<figcaption>原图 · 点图片可打开原文件</figcaption>
+</figure>
+<ul class="links"><li><a href="https://www.kimi.ai/blog/kimi-k3-1-pro" rel="noopener noreferrer" target="_blank">Kimi 技术博客</a></li></ul>
+</div>
+          </article>
+<article class="item is-open" id="all-t0-i4">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t0-i4">
+                <span class="item-top">
+                  <span class="idx">05</span>
+                  <span class="item-title">Sand.ai 完成 2 亿美元 A+ 轮</span>
+                </span>
+                <span class="item-sum">10 个月内累计融资约 3 亿美元，VidMuse ARR 破千万美元</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t0-i4">
+<p>基石资本、网宿科技联合领投。钱主要用于下一代视频基础模型 MAGI-2 正式版、算力与全球市场。</p>
+<ul class="links"><li><a href="https://tech.caijing.com.cn/20261105/5191943.shtml" rel="noopener noreferrer" target="_blank">财经网报道</a></li></ul>
+</div>
+          </article>
+<article class="item is-open" id="all-t0-i5">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t0-i5">
+                <span class="item-top">
+                  <span class="idx">06</span>
+                  <span class="item-title">Meta 收购 AI 编程初创 Conductor</span>
+                </span>
+                <span class="item-sum">并行跑多个编码 Agent 的编排层，云服务 11 月 20 日关停</span>
+                <span class="badges"><span class="badge">原图</span><span class="badge">1 个来源</span></span>
+              </button>
+              <a class="item-thumb" href="https://techcrunch.com/2026/11/04/meta-acquires-ai-coding-startup-conductor/" target="_blank" rel="noopener noreferrer"><img src="assets/img/2026-11-06/meta-conductor.jpg" alt="" width="140" height="86" loading="lazy" decoding="async"></a>
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t0-i5">
+<p>创始人 Charlie Holtz 确认团队并入 Meta。这是 Meta 在编程 Agent 编排层的又一次补强。</p>
+<figure>
+<a href="https://techcrunch.com/wp-content/uploads/2026/09/mark-zuckerberg-ray-bans.png?resize=1200,653" rel="noopener noreferrer" target="_blank">
+<img alt="Meta 收购 AI 编程初创 Conductor" decoding="async" loading="lazy" referrerpolicy="no-referrer" src="https://techcrunch.com/wp-content/uploads/2026/09/mark-zuckerberg-ray-bans.png?resize=1200,653"/>
+</a>
+<figcaption>原图 · 点图片可打开原文件</figcaption>
+</figure>
+<ul class="links"><li><a href="https://techcrunch.com/2026/11/04/meta-acquires-ai-coding-startup-conductor/" rel="noopener noreferrer" target="_blank">TechCrunch</a></li></ul>
+</div>
+          </article>
+<article class="item is-open" id="all-t0-i6">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t0-i6">
+                <span class="item-top">
+                  <span class="idx">07</span>
+                  <span class="item-title">Anthropic 据报与美联社达成新闻授权</span>
+                </span>
+                <span class="item-sum">选举夜可展示带出处的 AP 数据，财务条款未披露</span>
+                <span class="badges"><span class="badge">原图</span><span class="badge">1 个来源</span></span>
+              </button>
+              <a class="item-thumb" href="https://www.adweek.com/media/anthropic-licensing-deal-ap-election/" target="_blank" rel="noopener noreferrer"><img src="assets/img/2026-11-06/anthropic-ap.jpg" alt="" width="140" height="86" loading="lazy" decoding="async"></a>
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t0-i6">
+<p>Adweek 援引知情人士称，此前 Anthropic 长期回避付费新闻授权，这次转向对内容行业有信号意义。</p>
+<figure>
+<a href="https://static-www.adweek.com/wp-content/uploads/2026/04/Claude-Design-hero-image-2026.png?w=600&amp;h=315&amp;crop=1" rel="noopener noreferrer" target="_blank">
+<img alt="Anthropic 据报与美联社达成新闻授权" decoding="async" loading="lazy" referrerpolicy="no-referrer" src="https://static-www.adweek.com/wp-content/uploads/2026/04/Claude-Design-hero-image-2026.png?w=600&amp;h=315&amp;crop=1"/>
+</a>
+<figcaption>原图 · 点图片可打开原文件</figcaption>
+</figure>
+<ul class="links"><li><a href="https://www.adweek.com/media/anthropic-licensing-deal-ap-election/" rel="noopener noreferrer" target="_blank">Adweek</a></li></ul>
+</div>
+          </article>
+          </div>
+        </section>
+        <section class="topic is-open" id="all-topic-1" style="--branch:#b45309">
+          <div class="topic-head">
+            <button type="button" class="topic-btn" aria-expanded="true" aria-controls="all-items-1">
+              <span class="dot" aria-hidden="true"></span>
+              <span class="topic-copy">
+                <span class="topic-name">Apple 洞察</span>
+                <span class="topic-meta">Apple新闻洞察 · 7 条</span>
+              </span>
+              <span class="chev" aria-hidden="true"></span>
+            </button>
+            <div class="topic-links"><a href="reports/2026-11-06/apple.html">查看日报</a></div>
+          </div>
+          <div class="items" id="all-items-1">
+<article class="item is-open" id="all-t1-i0">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t1-i0">
+                <span class="item-top">
+                  <span class="idx">01</span>
+                  <span class="item-title">五款新品今天起陆续交付</span>
+                </span>
+                <span class="item-sum">OLED iPad mini、M6 iMac、14 寸 M6 MBP、触控 OLED MBP</span>
+                <span class="badges"><span class="badge">原图</span><span class="badge">2 个来源</span></span>
+              </button>
+              <a class="item-thumb" href="https://www.macrumors.com/2026/11/05/apple-launching-five-new-products-tomorrow/" target="_blank" rel="noopener noreferrer"><img src="assets/img/2026-11-06/apple-five-products.jpg" alt="" width="140" height="86" loading="lazy" decoding="async"></a>
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t1-i0">
+<p>澳新已先开箱，随后是亚洲、中东、欧洲，北美最后。首款触控 Mac 和最便宜的 OLED iPad 会主导舆论；基础款 14 寸触控机 Space Black 要等 3 至 4 周，供应是观察点。</p>
+<figure>
+<a href="https://images.macrumors.com/t/wPYeHY6-2xS0BMyi62C601kOVDs=/1600x/article-new/2026/10/apple-pro-tell-logo.jpg" rel="noopener noreferrer" target="_blank">
+<img alt="五款新品今天起陆续交付" decoding="async" loading="lazy" referrerpolicy="no-referrer" src="https://images.macrumors.com/t/wPYeHY6-2xS0BMyi62C601kOVDs=/1600x/article-new/2026/10/apple-pro-tell-logo.jpg"/>
+</a>
+<figcaption>原图 · 点图片可打开原文件</figcaption>
+</figure>
+<ul class="links"><li><a href="https://www.macrumors.com/2026/11/05/apple-launching-five-new-products-tomorrow/" rel="noopener noreferrer" target="_blank">MacRumors 开售预告</a></li><li><a href="https://www.macrumors.com/2026/11/05/touchscreen-mac-now-arriving-to-customers/" rel="noopener noreferrer" target="_blank">MacRumors 澳新到货</a></li></ul>
+</div>
+          </article>
+<article class="item is-open" id="all-t1-i1">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t1-i1">
+                <span class="item-top">
+                  <span class="idx">02</span>
+                  <span class="item-title">触控 OLED MacBook Pro 评测提前放出</span>
+                </span>
+                <span class="item-sum">PROLED XDR 峰值约 2,000 nits，Dynamic Island 取代刘海</span>
+                <span class="badges"><span class="badge">原图</span><span class="badge">1 个来源</span></span>
+              </button>
+              <a class="item-thumb" href="https://www.macrumors.com/2026/11/05/macbook-pro-proled-xdr-reviews/" target="_blank" rel="noopener noreferrer"><img src="assets/img/2026-11-06/macbook-pro-proled-touch.jpg" alt="" width="140" height="86" loading="lazy" decoding="async"></a>
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t1-i1">
+<p>触控被多数人当成加分项，指纹和溢价是主要吐槽。高端线的购买决策会更看显示和重量，而不是触控本身。</p>
+<figure>
+<a href="https://images.macrumors.com/t/PHKi81hvoeZkcWOZVTLXu2NI5Zk=/1600x/article-new/2026/10/MacBook-Pro-PROLED-Touch-1.jpg" rel="noopener noreferrer" target="_blank">
+<img alt="触控 OLED MacBook Pro 评测提前放出" decoding="async" loading="lazy" referrerpolicy="no-referrer" src="https://images.macrumors.com/t/PHKi81hvoeZkcWOZVTLXu2NI5Zk=/1600x/article-new/2026/10/MacBook-Pro-PROLED-Touch-1.jpg"/>
+</a>
+<figcaption>原图 · 点图片可打开原文件</figcaption>
+</figure>
+<ul class="links"><li><a href="https://www.macrumors.com/2026/11/05/macbook-pro-proled-xdr-reviews/" rel="noopener noreferrer" target="_blank">MacRumors 评测汇总</a></li></ul>
+</div>
+          </article>
+<article class="item is-open" id="all-t1-i2">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t1-i2">
+                <span class="item-top">
+                  <span class="idx">03</span>
+                  <span class="item-title">iOS / macOS 27.3 首个公开测试版放出</span>
+                </span>
+                <span class="item-sum">Safari 竖向标签、Siri AI 跨 App 动作、Health 改版</span>
+                <span class="badges"><span class="badge">原图</span><span class="badge">1 个来源</span></span>
+              </button>
+              <a class="item-thumb" href="https://www.macrumors.com/2026/11/05/ios-27-3-public-beta/" target="_blank" rel="noopener noreferrer"><img src="assets/img/2026-11-06/ios-27-3.jpg" alt="" width="140" height="86" loading="lazy" decoding="async"></a>
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t1-i2">
+<p>公开测试把国行 Apple Intelligence 和公开链接审查等争议功能推到普通用户面前，正式版仍预期 12 月。</p>
+<figure>
+<a href="https://images.macrumors.com/t/Q36rkgs0ilZ2LSmBQC-L4MuVwZI=/2500x/article-new/2026/10/iOS-27.3-Feature.jpg" rel="noopener noreferrer" target="_blank">
+<img alt="iOS / macOS 27.3 首个公开测试版放出" decoding="async" loading="lazy" referrerpolicy="no-referrer" src="https://images.macrumors.com/t/Q36rkgs0ilZ2LSmBQC-L4MuVwZI=/2500x/article-new/2026/10/iOS-27.3-Feature.jpg"/>
+</a>
+<figcaption>原图 · 点图片可打开原文件</figcaption>
+</figure>
+<ul class="links"><li><a href="https://www.macrumors.com/2026/11/05/ios-27-3-public-beta/" rel="noopener noreferrer" target="_blank">MacRumors</a></li></ul>
+</div>
+          </article>
+<article class="item is-open" id="all-t1-i3">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t1-i3">
+                <span class="item-top">
+                  <span class="idx">04</span>
+                  <span class="item-title">Apple 启动约 70 亿美元美元债发行</span>
+                </span>
+                <span class="item-sum">七个批次、最长到 2036 年，偏回购与再融资</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t1-i3">
+<p>X 上后续汇总称订单约 310 亿美元。和其他大厂借钱砸 AI 基建不同，这笔钱更偏股东回报，说明现金流仍宽裕。</p>
+<ul class="links"><li><a href="https://www.investing.com/news/stock-market-news/apple-seeks-about-7-billion-from-bond-sale-bloomberg-news-reports-5004966" rel="noopener noreferrer" target="_blank">Investing / Reuters</a></li></ul>
+</div>
+          </article>
+<article class="item is-open" id="all-t1-i4">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t1-i4">
+                <span class="item-top">
+                  <span class="idx">05</span>
+                  <span class="item-title">Ternus 确认 FY26 Mac 出货创公司历史新高</span>
+                </span>
+                <span class="item-sum">动力主要来自 MacBook Neo 和 MacBook Pro</span>
+                <span class="badges"><span class="badge">原图</span><span class="badge">1 个来源</span></span>
+              </button>
+              <a class="item-thumb" href="https://www.macrumors.com/2026/11/05/apple-announces-a-new-mac-sales-record/" target="_blank" rel="noopener noreferrer"><img src="assets/img/2026-11-06/mac-sales-record.jpg" alt="" width="140" height="86" loading="lazy" decoding="async"></a>
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t1-i4">
+<p>即便部分机型仍缺货。今天五款新品开售会进一步检验假期需求，也要和内存涨价对毛利率的压力对看。</p>
+<figure>
+<a href="https://images.macrumors.com/t/Sa45WpyBk4fP8VHn6dTWNNsULG8=/1960x/article-new/2025/10/M5-MacBook-Pro.jpg" rel="noopener noreferrer" target="_blank">
+<img alt="Ternus 确认 FY26 Mac 出货创公司历史新高" decoding="async" loading="lazy" referrerpolicy="no-referrer" src="https://images.macrumors.com/t/Sa45WpyBk4fP8VHn6dTWNNsULG8=/1960x/article-new/2025/10/M5-MacBook-Pro.jpg"/>
+</a>
+<figcaption>原图 · 点图片可打开原文件</figcaption>
+</figure>
+<ul class="links"><li><a href="https://www.macrumors.com/2026/11/05/apple-announces-a-new-mac-sales-record/" rel="noopener noreferrer" target="_blank">MacRumors</a></li></ul>
+</div>
+          </article>
+<article class="item is-open" id="all-t1-i5">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t1-i5">
+                <span class="item-top">
+                  <span class="idx">06</span>
+                  <span class="item-title">HomeView 代码暗示第三方对话式 AI</span>
+                </span>
+                <span class="item-sum">PebblePlay 出现 Conversational Apps 与双向音频接口</span>
+                <span class="badges"><span class="badge">原图</span><span class="badge">2 个来源</span></span>
+              </button>
+              <a class="item-thumb" href="https://www.macrumors.com/2026/11/05/homeview-code-suggests-support-ai-chatbot-apps/" target="_blank" rel="noopener noreferrer"><img src="assets/img/2026-11-06/homeview-conversational.jpg" alt="" width="140" height="86" loading="lazy" decoding="async"></a>
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t1-i5">
+<p>11 月 13 日开售的智能家居中枢可能成为客厅 AI 入口，点名方向包括 ChatGPT、Claude 一类应用；功能尚未完整落地，Apple 也没官宣。</p>
+<figure>
+<a href="https://images.macrumors.com/t/E5zV0bTB-qU1FFwifjp6YrffJ0k=/2071x/article-new/2026/10/homeview_home_screen_feature-2.jpg" rel="noopener noreferrer" target="_blank">
+<img alt="HomeView 代码暗示第三方对话式 AI" decoding="async" loading="lazy" referrerpolicy="no-referrer" src="https://images.macrumors.com/t/E5zV0bTB-qU1FFwifjp6YrffJ0k=/2071x/article-new/2026/10/homeview_home_screen_feature-2.jpg"/>
+</a>
+<figcaption>原图 · 点图片可打开原文件</figcaption>
+</figure>
+<ul class="links"><li><a href="https://www.macrumors.com/2026/11/05/homeview-code-suggests-support-ai-chatbot-apps/" rel="noopener noreferrer" target="_blank">MacRumors</a></li><li><a href="https://9to5mac.com/2026/11/05/homeview-will-support-third-party-ai-chatbots-suggests-code/" rel="noopener noreferrer" target="_blank">9to5Mac</a></li></ul>
+</div>
+          </article>
+<article class="item is-open" id="all-t1-i6">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t1-i6">
+                <span class="item-top">
+                  <span class="idx">07</span>
+                  <span class="item-title">iPhone Duo 买家收到体验问卷</span>
+                </span>
+                <span class="item-sum">问外屏、折痕、屏下摄像头和拍照，没问 Touch ID</span>
+                <span class="badges"><span class="badge">原图</span><span class="badge">1 个来源</span></span>
+              </button>
+              <a class="item-thumb" href="https://www.macrumors.com/2026/11/05/apple-iphone-duo-survey/" target="_blank" rel="noopener noreferrer"><img src="assets/img/2026-11-06/iphone-duo.jpg" alt="" width="140" height="86" loading="lazy" decoding="async"></a>
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t1-i6">
+<p>说明公司在收集一代折迭机的体验数据，后续改版可能优先照顾外观和影像。</p>
+<figure>
+<a href="https://images.macrumors.com/t/moB5pnioz9ULPrWGK9M7DZdy-9Y=/1600x/article-new/2026/10/hero_medium_2x-feature1.jpg" rel="noopener noreferrer" target="_blank">
+<img alt="iPhone Duo 买家收到体验问卷" decoding="async" loading="lazy" referrerpolicy="no-referrer" src="https://images.macrumors.com/t/moB5pnioz9ULPrWGK9M7DZdy-9Y=/1600x/article-new/2026/10/hero_medium_2x-feature1.jpg"/>
+</a>
+<figcaption>原图 · 点图片可打开原文件</figcaption>
+</figure>
+<ul class="links"><li><a href="https://www.macrumors.com/2026/11/05/apple-iphone-duo-survey/" rel="noopener noreferrer" target="_blank">MacRumors</a></li></ul>
+</div>
+          </article>
+          </div>
+        </section>
+        <section class="topic is-open" id="all-topic-2" style="--branch:#1d4ed8">
+          <div class="topic-head">
+            <button type="button" class="topic-btn" aria-expanded="true" aria-controls="all-items-2">
+              <span class="dot" aria-hidden="true"></span>
+              <span class="topic-copy">
+                <span class="topic-name">科技高管观点</span>
+                <span class="topic-meta">科技公司高管最新观点监测 · 6 条</span>
+              </span>
+              <span class="chev" aria-hidden="true"></span>
+            </button>
+            <div class="topic-links"><a href="reports/2026-11-06/exec.html">查看日报</a></div>
+          </div>
+          <div class="items" id="all-items-2">
+<article class="item is-open" id="all-t2-i0">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t2-i0">
+                <span class="item-top">
+                  <span class="idx">01</span>
+                  <span class="item-title">Anthropic S-1 披露近 9 千亿算力承诺</span>
+                </span>
+                <span class="item-sum">采购与租赁合计约 8954 亿美元，发酵当日 AI 股大跌</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t2-i0">
+<p>约 4480 亿预计在 2030 年底前发生，未来 12 个月内约 700 亿到期。最大对手方包括 Broadcom、Google、SpaceX 和 Amazon。</p>
+<ul class="links"><li><a href="https://x.com/" rel="noopener noreferrer" target="_blank">相关讨论</a></li></ul>
+</div>
+          </article>
+<article class="item is-open" id="all-t2-i1">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t2-i1">
+                <span class="item-top">
+                  <span class="idx">02</span>
+                  <span class="item-title">Brockman：GPT-6 Cyber 已用于加固关键软件</span>
+                </span>
+                <span class="item-sum">并宣布与摩根大通探索 Codex 与网络安全模型落地</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t2-i1">
+<p>OpenAI 补充说，除约 948 个 Linux 提权漏洞外，该模型还在 Firefox 中发现 111 个渲染器 RCE，其中 81 个为新发现。</p>
+<ul class="links"><li><a href="https://x.com/gdb/status/2118395717966606542" rel="noopener noreferrer" target="_blank">X @gdb</a></li><li><a href="https://x.com/OpenAI/status/2118390190246879554" rel="noopener noreferrer" target="_blank">OpenAI 官方帖</a></li></ul>
+</div>
+          </article>
+<article class="item is-open" id="all-t2-i2">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t2-i2">
+                <span class="item-top">
+                  <span class="idx">03</span>
+                  <span class="item-title">Srinivas 发布 Perplexity Teammates</span>
+                </span>
+                <span class="item-sum">从写提示词转向下达高层目标，内部约 1 万个 Teammate</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t2-i2">
+<p>约为员工数的 20 倍，前一天活跃约 1000 个；用途包括自动分拣漏洞、QA、安全监控、数据分析和增长营销。</p>
+<ul class="links"><li><a href="https://x.com/perplexity_ai/status/2118389326459670825" rel="noopener noreferrer" target="_blank">X @perplexity_ai</a></li></ul>
+</div>
+          </article>
+<article class="item is-open" id="all-t2-i3">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t2-i3">
+                <span class="item-top">
+                  <span class="idx">04</span>
+                  <span class="item-title">Agility Robotics 以 AGLT 登陆纳斯达克</span>
+                </span>
+                <span class="item-sum">美国首家已有真实商业部署的纯人形机器人上市公司</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t2-i3">
+<p>CEO Peggy Johnson 称 Digit 已在客户现场承担重复、费力的工作。同日王兴兴称数据、算力、芯片产能、能源和矿产是未来最核心资源。</p>
+<ul class="links"><li><a href="https://x.com/" rel="noopener noreferrer" target="_blank">相关讨论</a></li></ul>
+</div>
+          </article>
+<article class="item is-open" id="all-t2-i4">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t2-i4">
+                <span class="item-top">
+                  <span class="idx">05</span>
+                  <span class="item-title">软银收购 ABB 在华机器人业务被叫停</span>
+                </span>
+                <span class="item-sum">约 54 亿美元交易受阻，监管担忧机器人数据外流</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t2-i4">
+<p>美国一侧 Blankfein 警告阻拦数据中心等于把领先优势让给中国；马斯克转发得州当选州长关于已获许可数据中心可继续建设的表态。</p>
+<ul class="links"><li><a href="https://x.com/" rel="noopener noreferrer" target="_blank">相关讨论</a></li></ul>
+</div>
+          </article>
+<article class="item is-open" id="all-t2-i5">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t2-i5">
+                <span class="item-top">
+                  <span class="idx">06</span>
+                  <span class="item-title">Brockman 谈生物与长寿时间表</span>
+                </span>
+                <span class="item-sum">称未来 12 到 18 个月会看到真实进展，并可想象死亡成为选择</span>
+                <span class="badges"><span class="badge">原图</span><span class="badge">1 个来源</span></span>
+              </button>
+              <a class="item-thumb" href="https://www.techspot.com/news/114456-openai-president-ai-could-make-death-choice-predicts.html" target="_blank" rel="noopener noreferrer"><img src="assets/img/2026-11-06/brockman-longevity.jpg" alt="" width="140" height="86" loading="lazy" decoding="async"></a>
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t2-i5">
+<p>这是对生物模型叙事的外延，临床与监管仍是主要瓶颈。同场他还谈到 2027 年 IPO 的可能性。</p>
+<figure>
+<a href="https://www.techspot.com/images2/news/bigimage/2026/11/2026-11-05-image-12.jpg" rel="noopener noreferrer" target="_blank">
+<img alt="Brockman 谈生物与长寿时间表" decoding="async" loading="lazy" referrerpolicy="no-referrer" src="https://www.techspot.com/images2/news/bigimage/2026/11/2026-11-05-image-12.jpg"/>
+</a>
+<figcaption>原图 · 点图片可打开原文件</figcaption>
+</figure>
+<ul class="links"><li><a href="https://www.techspot.com/news/114456-openai-president-ai-could-make-death-choice-predicts.html" rel="noopener noreferrer" target="_blank">TechSpot</a></li></ul>
+</div>
+          </article>
+          </div>
+        </section>
+        <section class="topic is-open" id="all-topic-3" style="--branch:#6d28d9">
+          <div class="topic-head">
+            <button type="button" class="topic-btn" aria-expanded="true" aria-controls="all-items-3">
+              <span class="dot" aria-hidden="true"></span>
+              <span class="topic-copy">
+                <span class="topic-name">X 新想法</span>
+                <span class="topic-meta">X TOP new idea · 5 条</span>
+              </span>
+              <span class="chev" aria-hidden="true"></span>
+            </button>
+            <div class="topic-links"><a href="reports/2026-11-06/x-ideas.html">查看日报</a></div>
+          </div>
+          <div class="items" id="all-items-3">
+<article class="item is-open" id="all-t3-i0">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t3-i0">
+                <span class="item-top">
+                  <span class="idx">01</span>
+                  <span class="item-title">Claude 上线个人理财（美国 beta）</span>
+                </span>
+                <span class="item-sum">自选连接账户，用日常语言问余额与交易；只读</span>
+                <span class="badges"><span class="badge">原图</span><span class="badge">1 个来源</span></span>
+              </button>
+              <a class="item-thumb" href="https://x.com/claudeai/status/2118403114890137895" target="_blank" rel="noopener noreferrer"><img src="assets/img/2026-11-06/claude-personal-finance.jpg" alt="" width="140" height="86" loading="lazy" decoding="async"></a>
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t3-i0">
+<p>Anthropic 官方帖约 2.5 万赞、348 万浏览。Plaid 联创同步宣布合作。不能转账、理财或投资。</p>
+<figure>
+<a href="https://pbs.twimg.com/media/HWYUk7ZWwAAcrVe?format=webp&amp;name=large" rel="noopener noreferrer" target="_blank">
+<img alt="Claude 上线个人理财（美国 beta）" decoding="async" loading="lazy" referrerpolicy="no-referrer" src="https://pbs.twimg.com/media/HWYUk7ZWwAAcrVe?format=webp&amp;name=large"/>
+</a>
+<figcaption>原图 · 点图片可打开原文件</figcaption>
+</figure>
+<ul class="links"><li><a href="https://x.com/claudeai/status/2118403114890137895" rel="noopener noreferrer" target="_blank">X @claudeai</a></li></ul>
+</div>
+          </article>
+<article class="item is-open" id="all-t3-i1">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t3-i1">
+                <span class="item-top">
+                  <span class="idx">02</span>
+                  <span class="item-title">OpenAI GPT-6 Cyber 在 X 上热传</span>
+                </span>
+                <span class="item-sum">官方帖约 1.4 万赞、164 万浏览，安全向专用模型成产品线</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t3-i1">
+<p>称该模型推动了前一日 Linux 内核漏洞自动化研究，并已用于 Mozilla、Palo Alto Networks 等安全团队。</p>
+<ul class="links"><li><a href="https://x.com/OpenAI/status/2118390190246879554" rel="noopener noreferrer" target="_blank">X @OpenAI</a></li></ul>
+</div>
+          </article>
+<article class="item is-open" id="all-t3-i2">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t3-i2">
+                <span class="item-top">
+                  <span class="idx">03</span>
+                  <span class="item-title">Perplexity Teammates：给高层目标的工作代理</span>
+                </span>
+                <span class="item-sum">能用 Computer 任务、skills、记忆与工具，可在 Slack 发消息</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t3-i2">
+<p>从会话写提示改成下达高层目标；先向 Max 用户网页版开放。</p>
+<ul class="links"><li><a href="https://x.com/perplexity_ai/status/2118389326459670825" rel="noopener noreferrer" target="_blank">X @perplexity_ai</a></li></ul>
+</div>
+          </article>
+<article class="item is-open" id="all-t3-i3">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t3-i3">
+                <span class="item-top">
+                  <span class="idx">04</span>
+                  <span class="item-title">Agent 治理成焦点</span>
+                </span>
+                <span class="item-sum">Mercury 上线可审计并秒级切断的 Agent Controls</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t3-i3">
+<p>Mustafa Suleyman 对特拉华州「AI 公司由 Agent 日常经营」草案表示深切担忧；同时大银行仍在封锁 Agent 接入。</p>
+<ul class="links"><li><a href="https://x.com/immad/status/2118392980084269451" rel="noopener noreferrer" target="_blank">X @immad</a></li></ul>
+</div>
+          </article>
+<article class="item is-open" id="all-t3-i4">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t3-i4">
+                <span class="item-top">
+                  <span class="idx">05</span>
+                  <span class="item-title">视频生成升温，市场情绪因数据中心政治风险回调</span>
+                </span>
+                <span class="item-sum">Gemini Omni 被多条帖展示；纳斯达克进入技术性回调</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t3-i4">
+<p>9 分钟 AI 奇幻片获纽约国际电影奖 4 项；CNN 报道中期选举后数据中心建设担忧影响纳指。</p>
+<ul class="links"><li><a href="https://x.com/minchoi/status/2118471354244800573" rel="noopener noreferrer" target="_blank">X @minchoi</a></li></ul>
+</div>
+          </article>
+          </div>
+        </section>
+        <section class="topic is-open" id="all-topic-4" style="--branch:#be123c">
+          <div class="topic-head">
+            <button type="button" class="topic-btn" aria-expanded="true" aria-controls="all-items-4">
+              <span class="dot" aria-hidden="true"></span>
+              <span class="topic-copy">
+                <span class="topic-name">GitHub 涨星</span>
+                <span class="topic-meta">Github top star 洞察 · 5 条</span>
+              </span>
+              <span class="chev" aria-hidden="true"></span>
+            </button>
+            <div class="topic-links"><a class="trend-open" href="github-trend/index.html">打开 GitHub 涨星看板</a> · <a href="reports/2026-11-06/github-stars.html">查看日报</a></div>
+          </div>
+          <div class="items" id="all-items-4">
+<article class="item is-open" id="all-t4-i0">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t4-i0">
+                <span class="item-top">
+                  <span class="idx">01</span>
+                  <span class="item-title">NVIDIA/auto-ontology 一日涨星登顶</span>
+                </span>
+                <span class="item-sum">今日 +2,679，总星 7,342</span>
+                <span class="badges"><span class="badge">原图</span><span class="badge">1 个来源</span></span>
+              </button>
+              <a class="item-thumb" href="https://github.com/NVIDIA/auto-ontology" target="_blank" rel="noopener noreferrer"><img src="assets/img/2026-11-06/nvidia-auto-ontology.jpg" alt="" width="140" height="86" loading="lazy" decoding="async"></a>
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t4-i0">
+<p>NVIDIA 出品的 Python 框架，在数据之上建语义化、图结构推理层。昨天才以 +2,050 排第 2，今天升到第一，总星从约 5,028 涨到 7,342。</p>
+<figure>
+<a href="https://opengraph.githubassets.com/3d910998f6ad2a98c7eb6a9f28f5b23f8d8d886dfac9b5cd2b0c479847dfc3d7/NVIDIA/auto-ontology" rel="noopener noreferrer" target="_blank">
+<img alt="NVIDIA/auto-ontology 一日涨星登顶" decoding="async" loading="lazy" referrerpolicy="no-referrer" src="https://opengraph.githubassets.com/3d910998f6ad2a98c7eb6a9f28f5b23f8d8d886dfac9b5cd2b0c479847dfc3d7/NVIDIA/auto-ontology"/>
+</a>
+<figcaption>原图 · 点图片可打开原文件</figcaption>
+</figure>
+<ul class="links"><li><a href="https://github.com/NVIDIA/auto-ontology" rel="noopener noreferrer" target="_blank">GitHub</a></li></ul>
+</div>
+          </article>
+<article class="item is-open" id="all-t4-i1">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t4-i1">
+                <span class="item-top">
+                  <span class="idx">02</span>
+                  <span class="item-title">agent-desktop 连续四天单日涨星过两千</span>
+                </span>
+                <span class="item-sum">今日 +2,173，总星 16,853，从第一落到第二</span>
+                <span class="badges"><span class="badge">原图</span><span class="badge">1 个来源</span></span>
+              </button>
+              <a class="item-thumb" href="https://github.com/vercel-labs/agent-desktop" target="_blank" rel="noopener noreferrer"><img src="assets/img/2026-11-06/agent-desktop.jpg" alt="" width="140" height="86" loading="lazy" decoding="async"></a>
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t4-i1">
+<p>给 AI 智能体用的操控电脑命令行工具（Rust）。11-03 +2,275、11-04 +3,791、昨天 +2,470、今天 +2,173。</p>
+<figure>
+<a href="https://repository-images.githubusercontent.com/1161958643/83055b28-992e-4176-b5d6-89b56aa22dde" rel="noopener noreferrer" target="_blank">
+<img alt="agent-desktop 连续四天单日涨星过两千" decoding="async" loading="lazy" referrerpolicy="no-referrer" src="https://repository-images.githubusercontent.com/1161958643/83055b28-992e-4176-b5d6-89b56aa22dde"/>
+</a>
+<figcaption>原图 · 点图片可打开原文件</figcaption>
+</figure>
+<ul class="links"><li><a href="https://github.com/vercel-labs/agent-desktop" rel="noopener noreferrer" target="_blank">GitHub</a></li></ul>
+</div>
+          </article>
+<article class="item is-open" id="all-t4-i2">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t4-i2">
+                <span class="item-top">
+                  <span class="idx">03</span>
+                  <span class="item-title">mattpocock/skills 今日 +2,071 升到第 3</span>
+                </span>
+                <span class="item-sum">总星破 31.5 万，从 10-31 起天天在榜</span>
+                <span class="badges"><span class="badge">原图</span><span class="badge">1 个来源</span></span>
+              </button>
+              
+              
+              <a class="item-thumb" href="https://github.com/mattpocock/skills" target="_blank" rel="noopener noreferrer"><img src="assets/img/2026-11-06/mattpocock-skills.jpg" alt="" width="140" height="86" loading="lazy" decoding="async"></a>
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t4-i2">
+<p>Matt Pocock 公开的智能体技能集合。今天 +2,071 是这几天最高。</p>
+<figure>
+<a href="https://opengraph.githubassets.com/ba7b961fb5cce3301275260cc9726f125fd1971697f8826d57a88f3aad8ec03e/mattpocock/skills" rel="noopener noreferrer" target="_blank">
+<img alt="mattpocock/skills 今日 +2,071 升到第 3" decoding="async" loading="lazy" referrerpolicy="no-referrer" src="https://opengraph.githubassets.com/ba7b961fb5cce3301275260cc9726f125fd1971697f8826d57a88f3aad8ec03e/mattpocock/skills"/>
+</a>
+<figcaption>原图 · 点图片可打开原文件</figcaption>
+</figure>
+<ul class="links"><li><a href="https://github.com/mattpocock/skills" rel="noopener noreferrer" target="_blank">GitHub</a></li></ul>
+</div>
+          </article>
+<article class="item is-open" id="all-t4-i3">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t4-i3">
+                <span class="item-top">
+                  <span class="idx">04</span>
+                  <span class="item-title">t3code 以 +1,879 回到第 4</span>
+                </span>
+                <span class="item-sum">控制本机各种编程智能体的统一面板</span>
+                <span class="badges"><span class="badge">原图</span><span class="badge">1 个来源</span></span>
+              </button>
+              
+              
+              <a class="item-thumb" href="https://github.com/pingdotgg/t3code" target="_blank" rel="noopener noreferrer"><img src="assets/img/2026-11-06/t3code.jpg" alt="" width="140" height="86" loading="lazy" decoding="async"></a>
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t4-i3">
+<p>有手机、网页和桌面端。11-02、11-03 曾连占第一，昨天掉出 Top 50，今天重回前排。</p>
+<figure>
+<a href="https://opengraph.githubassets.com/6fa174fb5244e0d4e99a551e07773c4211b5161a34df0102ab788e01de06840a/pingdotgg/t3code" rel="noopener noreferrer" target="_blank">
+<img alt="t3code 以 +1,879 回到第 4" decoding="async" loading="lazy" referrerpolicy="no-referrer" src="https://opengraph.githubassets.com/6fa174fb5244e0d4e99a551e07773c4211b5161a34df0102ab788e01de06840a/pingdotgg/t3code"/>
+</a>
+<figcaption>原图 · 点图片可打开原文件</figcaption>
+</figure>
+<ul class="links"><li><a href="https://github.com/pingdotgg/t3code" rel="noopener noreferrer" target="_blank">GitHub</a></li></ul>
+</div>
+          </article>
+<article class="item is-open" id="all-t4-i4">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t4-i4">
+                <span class="item-top">
+                  <span class="idx">05</span>
+                  <span class="item-title">Scrapling 回落到第 5 仍 +1,655</span>
+                </span>
+                <span class="item-sum">总星逼近 9.8 万</span>
+                <span class="badges"><span class="badge">原图</span><span class="badge">1 个来源</span></span>
+              </button>
+              <a class="item-thumb" href="https://github.com/D4Vinci/Scrapling" target="_blank" rel="noopener noreferrer"><img src="assets/img/2026-11-06/scrapling.jpg" alt="" width="140" height="86" loading="lazy" decoding="async"></a>
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t4-i4">
+<p>从单个请求到大规模爬取都能用的爬虫框架。昨天冲到 +2,005 排第 3。</p>
+<figure>
+<a href="https://repository-images.githubusercontent.com/872119017/65c3a8e0-207a-4834-8b43-01119c0834ce" rel="noopener noreferrer" target="_blank">
+<img alt="Scrapling 回落到第 5 仍 +1,655" decoding="async" loading="lazy" referrerpolicy="no-referrer" src="https://repository-images.githubusercontent.com/872119017/65c3a8e0-207a-4834-8b43-01119c0834ce"/>
+</a>
+<figcaption>原图 · 点图片可打开原文件</figcaption>
+</figure>
+<ul class="links"><li><a href="https://github.com/D4Vinci/Scrapling" rel="noopener noreferrer" target="_blank">GitHub</a></li></ul>
+</div>
+          </article>
+          </div>
+        </section>
+        </div>
+      </section>
+<section class="tab-panel" role="tabpanel" id="topic-0" aria-labelledby="tab-0">
         <div class="panel-meta"><p>旺财 AI 行业早间简报 · 7 条</p><div><a href="reports/2026-11-06/brief.html">查看日报</a></div></div>
         <div class="items">
           <article class="item is-open" id="t0-i0">
@@ -1103,6 +1861,13 @@
       var tabs = document.querySelectorAll(".tab");
       var panels = document.querySelectorAll(".tab-panel");
 
+      function topicTabIndex(topicIndex) {
+        for (var i = 0; i < tabs.length; i++) {
+          if (tabs[i].getAttribute("data-topic") === String(topicIndex)) return i;
+        }
+        return topicIndex + 1;
+      }
+
       function selectTab(index, hashKind) {
         if (index < 0 || index >= tabs.length) index = 0;
         tabs.forEach(function (tab, i) {
@@ -1115,7 +1880,12 @@
           p.classList.toggle("is-active", i === index);
         });
         if (hashKind === "topic" && history.replaceState) {
-          history.replaceState(null, "", "#topic-" + index);
+          var tab = tabs[index];
+          var hash = "#all";
+          if (tab && tab.getAttribute("data-topic") != null) {
+            hash = "#topic-" + tab.getAttribute("data-topic");
+          }
+          history.replaceState(null, "", hash);
         }
         return index;
       }
@@ -1127,7 +1897,7 @@
       }
 
       function reveal(topicIndex, itemIndex, smooth) {
-        selectTab(topicIndex, "item");
+        selectTab(topicTabIndex(topicIndex), "item");
         var article = document.getElementById("t" + topicIndex + "-i" + itemIndex);
         if (!article) return;
         setItem(article, true);
@@ -1150,6 +1920,16 @@
           e.preventDefault();
           selectTab(next, "topic");
           tabs[next].focus();
+        });
+      });
+
+      document.querySelectorAll("#panel-all .topic").forEach(function (topic) {
+        var btn = topic.querySelector(".topic-btn");
+        if (!btn) return;
+        btn.addEventListener("click", function () {
+          var open = !topic.classList.contains("is-open");
+          topic.classList.toggle("is-open", open);
+          btn.setAttribute("aria-expanded", open ? "true" : "false");
         });
       });
 
@@ -1185,9 +1965,11 @@
 
       var h = location.hash || "";
       var item = h.match(/^#t(\d+)-i(\d+)$/);
+      var allHash = h.match(/^#(?:all|tab-all|panel-all)$/);
       var topic = h.match(/^#(?:topic|tab|panel)-(\d+)$/);
       if (item) reveal(Number(item[1]), Number(item[2]), false);
-      else if (topic) selectTab(Number(topic[1]), null);
+      else if (allHash) selectTab(0, null);
+      else if (topic) selectTab(topicTabIndex(Number(topic[1])), null);
       else selectTab(0, null);
     })();
   </script>
