@@ -29,6 +29,9 @@
   .day h2{margin:0 0 6px;font-size:24px;letter-spacing:-.01em}
   .topics{margin:0 0 12px;color:var(--muted);font-size:14px}
   .day p.sum{margin:0 0 16px;color:#2c2c2c}
+  ul.lines{list-style:none;margin:0 0 16px;padding:0}
+  ul.lines li{margin:0 0 8px;color:#2c2c2c}
+  ul.lines .lt{display:inline-block;min-width:7.5em;margin-right:8px;color:var(--muted);font-size:14px}
   .open{display:inline-block;font-weight:600;margin:0 0 14px}
   .reports{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:14px;padding-top:12px;border-top:1px solid var(--line)}
   .reports span{color:var(--muted)}
@@ -87,6 +90,32 @@
     "name": "GitHub 涨星",
     "href": "reports/2026-11-11/github-stars.html"
    }
+  ],
+  "lines": [
+   {
+    "topic": "AI 行业早报",
+    "text": "Anthropic 启动 IPO 路演，每股 70 到 78 美元，同天推出 Claude Sheets、Whiteboards 和 Meetings，直接和 Office、Google Workspace 抢办公场景。"
+   },
+   {
+    "topic": "科技高管观点",
+    "text": "Google 开放 Gemini 4 Carbon，谷歌高管集体站台。"
+   },
+   {
+    "topic": "PC 行业动向",
+    "text": "Kora Systems 发布内置 AI 和智能体的 Linux 桌面系统，在骁龙 X2 Elite 上跑通。"
+   },
+   {
+    "topic": "Apple 洞察",
+    "text": "Apple 旗下 Claris 在测试 Harbor，把 Mac 变成本地 AI 推理服务器。"
+   },
+   {
+    "topic": "X 热门新点子",
+    "text": "Perplexity 实测 Gemini 4 Carbon 和 Claude Fable 5.2 持平、成本约为对手 40%；ChatGPT 开放商家入驻测试。"
+   },
+   {
+    "topic": "GitHub 涨星",
+    "text": "meta/astryx 以 +3,108 升到第 1。"
+   }
   ]
  },
  {
@@ -120,6 +149,28 @@
     "name": "GitHub 涨星",
     "href": "reports/2026-11-06/github-stars.html"
    }
+  ],
+  "lines": [
+   {
+    "topic": "旺财早报",
+    "text": "OpenAI 发布面向安全研究的 GPT-6 Cyber，谷歌 Gemini Omni 1.2 Flash 把视频拉长到 15 秒并降价。"
+   },
+   {
+    "topic": "Apple 洞察",
+    "text": "五款新品开售，首款触控 OLED MacBook Pro 和 OLED iPad mini 到货，iOS / macOS 27.3 首个公开测试版同时放出。"
+   },
+   {
+    "topic": "科技高管观点",
+    "text": "Anthropic S-1 披露约 8954 亿美元算力承诺，当日 AI 股大跌。"
+   },
+   {
+    "topic": "X 新想法",
+    "text": "Perplexity 发布 Teammates 工作代理，Claude 在美国上线只读的个人理财 beta。"
+   },
+   {
+    "topic": "GitHub 涨星",
+    "text": "NVIDIA/auto-ontology 以 +2,679 登顶。"
+   }
   ]
  }
 ]</script>
@@ -138,7 +189,7 @@
         var sec=document.createElement('section'); sec.className='day'; sec.id=id;
         sec.innerHTML='<h2>'+esc(d.date)+'</h2>'+
           '<p class="topics">'+(d.topics||[]).length+' 条线：'+(d.topics||[]).map(esc).join(' · ')+'</p>'+
-          '<p class="sum">'+esc(d.summary||'')+'</p>'+
+          ((d.lines&&d.lines.length)?'<ul class="lines">'+d.lines.map(function(l){return '<li><span class="lt">'+esc(l.topic)+'</span>'+esc(l.text)+'</li>';}).join('')+'</ul>':'<p class="sum">'+esc(d.summary||'')+'</p>')+
           '<a class="open" href="'+esc(d.date)+'.html">查看详情 →</a>'+
           (reps?'<div class="reports"><span>当天日报：</span>'+reps+'</div>':'');
         main.appendChild(sec);
