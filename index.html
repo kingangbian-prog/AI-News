@@ -29,9 +29,13 @@
   .day h2{margin:0 0 6px;font-size:24px;letter-spacing:-.01em}
   .topics{margin:0 0 12px;color:var(--muted);font-size:14px}
   .day p.sum{margin:0 0 16px;color:#2c2c2c}
-  ul.lines{list-style:none;margin:0 0 16px;padding:0}
-  ul.lines li{margin:0 0 8px;color:#2c2c2c}
-  ul.lines .lt{display:inline-block;min-width:7.5em;margin-right:8px;color:var(--muted);font-size:14px}
+  table.lines{width:100%;border-collapse:collapse;margin:0 0 16px;font-size:15px}
+  table.lines th,table.lines td{text-align:left;vertical-align:top;padding:9px 12px;border-bottom:1px solid var(--line)}
+  table.lines thead th{font-size:13px;font-weight:600;color:var(--muted);background:var(--soft);border-bottom:1px solid #d9d9d9}
+  table.lines tbody th{width:8.5em;white-space:nowrap;font-weight:600;color:var(--ink)}
+  table.lines td{color:#2c2c2c}
+  table.lines tbody tr:nth-child(even){background:#fafafa}
+  @media (max-width:560px){table.lines tbody th{white-space:normal;width:6em}}
   .open{display:inline-block;font-weight:600;margin:0 0 14px}
   .reports{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:14px;padding-top:12px;border-top:1px solid var(--line)}
   .reports span{color:var(--muted)}
@@ -189,7 +193,7 @@
         var sec=document.createElement('section'); sec.className='day'; sec.id=id;
         sec.innerHTML='<h2>'+esc(d.date)+'</h2>'+
           '<p class="topics">'+(d.topics||[]).length+' 条线：'+(d.topics||[]).map(esc).join(' · ')+'</p>'+
-          ((d.lines&&d.lines.length)?'<ul class="lines">'+d.lines.map(function(l){return '<li><span class="lt">'+esc(l.topic)+'</span>'+esc(l.text)+'</li>';}).join('')+'</ul>':'<p class="sum">'+esc(d.summary||'')+'</p>')+
+          ((d.lines&&d.lines.length)?'<table class="lines"><thead><tr><th scope="col">主线</th><th scope="col">要点</th></tr></thead><tbody>'+d.lines.map(function(l){return '<tr><th scope="row">'+esc(l.topic)+'</th><td>'+esc(l.text)+'</td></tr>';}).join('')+'</tbody></table>':'<p class="sum">'+esc(d.summary||'')+'</p>')+
           '<a class="open" href="'+esc(d.date)+'.html">查看详情 →</a>'+
           (reps?'<div class="reports"><span>当天日报：</span>'+reps+'</div>':'');
         main.appendChild(sec);
