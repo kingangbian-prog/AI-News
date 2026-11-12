@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#f4f1ea">
+<meta name="description" content="今天只有 AI 行业简报有当天输出，共 7 条要点（高管观点、PC、Apple、X、AI大拿 今天没有输出，暂未收录）。默认打开 ALL 可看全部资讯线的树形列表；点上方标签切换各条线，要点默认展开；点右侧原图打开来源，点箭头可收起。">
+<link rel="icon" type="image/png" href="assets/wangcai-dog.png">
+<title>旺财资讯 2026-11-12</title>
+<style>
+  :root {
+    color-scheme: light;
+    --ink: #1a1a1a;
+    --muted: #5c5c5c;
+    --faint: #5e5e5e;
+    --line: #ece8e1;
+    --bg: #f4f1ea;
+    --bg-top: #fbf8f2;
+    --soft: #f8f3ea;
+    --card: #fffaf4;
+    --shadow: 0 1px 0 rgba(255,255,255,.8) inset, 0 6px 16px rgba(40,30,10,.05);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background-color: var(--bg);
+    background-image: linear-gradient(180deg, #fbf8f2 0%, #f4f1ea 42%);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: var(--ink);
+    font-family: "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", "Microsoft YaHei", "Segoe UI", sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    overflow-wrap: break-word;
+  }
+  a { color: #0b57d0; }
+  a:hover { color: #0842a0; }
+  button, input { font-family: inherit; color: inherit; }
+  :focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+  .wrap {
+    width: min(880px, calc(100% - 32px));
+    margin: 0 auto;
+    padding: 32px 0 80px;
+  }
+  .date {
+    margin: 0 0 10px;
+    font-size: 13px;
+    letter-spacing: .08em;
+    color: var(--muted);
+  }
+  h1 {
+    margin: 0 0 14px;
+    font-size: clamp(28px, 5vw, 40px);
+    line-height: 1.22;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  .nowrap { white-space: nowrap; }
+  .summary {
+    margin: 0;
+    max-width: 68ch;
+    color: #2c2c2c;
+  }
+  .section-label {
+    margin: 40px 0 12px;
+    font-size: 13px;
+    font-weight: 650;
+    letter-spacing: .12em;
+    color: var(--muted);
+  }
+  .top-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+  }
+  .top-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    min-height: 168px;
+    padding: 16px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    text-align: left;
+    cursor: pointer;
+  }
+  .top-card:hover { border-color: #111; }
+  .rank {
+    font-variant-numeric: tabular-nums;
+    font-size: 12px;
+    letter-spacing: .04em;
+    color: var(--faint);
+  }
+  .top-t { font-size: 16px; font-weight: 680; line-height: 1.4; }
+  .top-s { font-size: 13px; line-height: 1.5; color: var(--muted); }
+  .top-go {
+    margin-top: auto;
+    font-size: 13px;
+    border-bottom: 1px solid #111;
+    line-height: 1.4;
+  }
+  .map-bar {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 4px 12px;
+    margin-top: 40px;
+  }
+  .map-bar .section-label { margin: 0; }
+  .text-btn {
+    border: 0;
+    background: transparent;
+    padding: 8px 0;
+    min-height: 44px;
+    cursor: pointer;
+    font-size: 14px;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .tree {
+    margin-top: 14px;
+    padding: 4px 0 4px 22px;
+    border-left: 2px solid var(--line);
+  }
+  .root {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 18px -22px;
+    padding: 10px 16px;
+    max-width: calc(100% + 22px);
+    border: 1.5px solid #111;
+    border-radius: 16px;
+    background: var(--card);
+    font-weight: 700;
+  }
+  .root-mark {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #111;
+    flex: none;
+  }
+  .topic { position: relative; margin: 0 0 12px; }
+  .topic::before {
+    content: "";
+    position: absolute;
+    left: -22px;
+    top: 28px;
+    width: 22px;
+    height: 2px;
+    background: var(--branch, #111);
+  }
+  .topic-head { display: flex; align-items: stretch; gap: 8px; }
+  .topic-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 64px;
+    padding: 12px 14px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    cursor: pointer;
+    text-align: left;
+  }
+  .topic-btn:hover,
+  .topic.is-open .topic-btn { border-color: #111; }
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--branch, #111);
+    flex: none;
+  }
+  .topic-copy { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+  .topic-name { font-size: 17px; font-weight: 700; line-height: 1.35; }
+  .topic-meta { font-size: 13px; color: var(--muted); }
+  .chev {
+    width: 8px;
+    height: 8px;
+    margin-left: auto;
+    border-right: 1.5px solid #111;
+    border-bottom: 1.5px solid #111;
+    transform: rotate(45deg) translateY(-2px);
+    flex: none;
+  }
+  .topic.is-open .topic-btn > .chev { transform: rotate(-135deg) translateY(-2px); }
+  .report {
+    align-self: center;
+    flex: none;
+    font-size: 13px;
+    padding: 8px 2px;
+    white-space: nowrap;
+  }
+  .items, .detail { display: none; }
+  .topic.is-open > .topic-head + .items,
+  .topic.is-open > .items { display: flex; }
+  .item.is-open .detail { display: block; }
+  .items {
+    margin: 8px 0 6px 8px;
+    padding-left: 14px;
+    border-left: 2px solid color-mix(in srgb, var(--branch, #111) 45%, #fff);
+    flex-direction: column;
+    gap: 8px;
+  }
+  .item { scroll-margin: 16px 0 24px; }
+  .item-btn {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    padding: 12px;
+    background: var(--soft);
+    border: 1px solid transparent;
+    border-radius: 12px;
+    cursor: pointer;
+    text-align: left;
+  }
+  .item-btn:hover { border-color: #ccc; }
+  .item.is-open .item-btn {
+    background: var(--card);
+    border-color: #111;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .item-top { display: flex; width: 100%; align-items: flex-start; gap: 8px; }
+  .idx {
+    font-variant-numeric: tabular-nums;
+    font-size: 12px;
+    color: var(--faint);
+    padding-top: 3px;
+    flex: none;
+  }
+  .item-title { font-weight: 680; font-size: 15.5px; line-height: 1.45; }
+  .item-top .chev { margin-top: 6px; }
+  .item.is-open .item-top .chev { transform: rotate(-135deg) translateY(-2px); }
+  .item-sum { font-size: 13.5px; color: var(--muted); padding-left: 24px; }
+  .badges { display: flex; flex-wrap: wrap; gap: 6px; padding-left: 24px; }
+  .badge {
+    font-size: 11px;
+    color: #333;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 1px 8px;
+  }
+  .detail {
+    padding: 4px 14px 14px;
+    border: 1px solid #111;
+    border-top: 0;
+    border-radius: 0 0 12px 12px;
+    background: var(--card);
+  }
+  .detail p { margin: 8px 0 12px; }
+  figure { margin: 0 0 12px; }
+  figure img {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: 440px;
+    object-fit: contain;
+    background: var(--soft);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+  }
+  figcaption { margin-top: 6px; font-size: 12px; color: var(--faint); }
+  .links {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .links a { font-size: 14px; }
+  .item.flash .item-btn { animation: flash 1.3s ease; }
+  @keyframes flash {
+    0% { background: #fff3cc; }
+    100% { background: var(--card); }
+  }
+  footer {
+    margin-top: 40px;
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 13px;
+  }
+  footer p { margin: 0 0 6px; }
+  @media (max-width: 720px) {
+    .wrap { width: min(100% - 28px, 880px); padding-top: 22px; }
+    .top-grid { grid-template-columns: 1fr; }
+    .top-card { min-height: 0; }
+    .topic-head { flex-direction: column; gap: 0; }
+    .report { align-self: flex-start; padding: 6px 2px 2px 4px; white-space: normal; }
+    h1 { letter-spacing: 0; }
+  }
+  @media print {
+    .text-btn, .top-go { display: none; }
+    .items, .detail { display: block !important; }
+    .top-card, .topic-btn, .item-btn { break-inside: avoid; }
+  }
+
+  /* tabs + card thumbs (overrides tree layout) */
+  .map-bar{align-items:flex-end}
+  .tab-list{
+    position:sticky;top:0;z-index:30;
+    display:flex;flex-wrap:nowrap;gap:0;
+    overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:thin;
+    background:var(--bg);
+    border-bottom:1px solid var(--line);
+    margin:0 0 18px;padding:8px 0 0;
+  }
+  .tab{
+    flex:none;font:inherit;font-size:15px;font-weight:650;
+    padding:10px 16px;border:0;border-bottom:2px solid transparent;
+    background:transparent;color:var(--muted);cursor:pointer;white-space:nowrap;
+  }
+  .tab.is-active,.tab[aria-selected="true"]{color:var(--ink);background:var(--card);border-bottom-color:#111;border-radius:10px 10px 0 0}
+  .tab-panel{display:none}
+  .tab-panel.is-active{display:block}
+  .panel-meta{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 16px;margin:0 0 12px;font-size:14px;color:var(--muted)}
+  .panel-meta a{font-weight:650}
+  a.trend-open{font-weight:700}
+  .items{display:flex;flex-direction:column;gap:8px;margin:0;padding:0;border:0}
+  .item-head{
+    display:flex;align-items:center;gap:10px;
+    padding:12px;background:var(--soft);border:1px solid transparent;border-radius:12px;cursor:pointer;
+  }
+  .item-head:hover{border-color:#ccc}
+  .item.is-open .item-head{background:var(--card);border-color:#111;border-bottom-left-radius:0;border-bottom-right-radius:0}
+  .item-btn{
+    flex:1;min-width:0;width:auto;
+    display:flex;flex-direction:column;align-items:flex-start;gap:4px;
+    padding:0;background:transparent;border:0;cursor:pointer;text-align:left;
+  }
+  .item-top{width:auto}
+  .item-thumb{flex:none;display:block;width:140px;height:86px;border-radius:8px;overflow:hidden;line-height:0}
+  .item-thumb img{display:block;width:140px;height:86px;object-fit:cover;background:#f3efe6;border-radius:8px}
+  .item-head>.chev{margin-left:0;margin-top:0;flex:none}
+  .item.is-open .item-head>.chev{transform:rotate(-135deg) translateY(-2px)}
+  .item{scroll-margin-top:72px}
+  .item.flash .item-head{animation:flash 1.3s ease}
+  .detail{display:none}
+  .item.is-open .detail{display:block}
+  @media (max-width:600px){
+    .item-thumb,.item-thumb img{width:84px;height:54px}
+    .tab{padding:10px 12px;font-size:14px}
+  }
+  @media print{
+    .tab-list{position:static}
+    .tab-panel,.detail,.items{display:block !important}
+  }
+
+
+  .day-poster{margin:0 0 28px;max-width:100%}
+  .day-poster a{display:block;line-height:0}
+  .day-poster img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:12px;border:1px solid var(--line);background:#f4f1ea;box-shadow:var(--shadow)}
+
+
+  /* ALL tab: restore topic tree, scoped so other tabs stay unchanged */
+  #panel-all .tree{
+    margin-top:6px;padding:4px 0 4px 22px;
+    border-left:2px solid var(--line);
+  }
+  #panel-all .topic{position:relative;margin:0 0 12px}
+  #panel-all .topic::before{
+    content:"";position:absolute;left:-22px;top:28px;width:22px;height:2px;
+    background:var(--branch,#111);
+  }
+  #panel-all .topic-head{display:flex;align-items:stretch;gap:8px}
+  #panel-all .topic-links{
+    align-self:center;flex:none;display:flex;flex-direction:column;gap:4px;
+    padding:8px 2px;font-size:13px;white-space:nowrap;
+  }
+  #panel-all .topic-links a{font-weight:650}
+  #panel-all .items{
+    display:none;
+    margin:8px 0 6px 8px;padding-left:14px;
+    border-left:2px solid color-mix(in srgb, var(--branch,#111) 45%, #fffaf4);
+    flex-direction:column;gap:8px;
+  }
+  #panel-all .topic.is-open > .items{display:flex}
+  @media (max-width:720px){
+    #panel-all .topic-head{flex-direction:column;gap:0}
+    #panel-all .topic-links{align-self:flex-start;padding:6px 2px 2px 4px;white-space:normal}
+  }
+  @media print{
+    #panel-all .items,#panel-all .detail{display:block !important}
+  }
+
+
+  /* tabs + card thumbs (overrides tree layout) */
+  .map-bar{align-items:flex-end}
+  .tab-list{
+    position:sticky;top:0;z-index:30;
+    display:flex;flex-wrap:nowrap;gap:0;
+    overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:thin;
+    background:var(--bg);
+    border-bottom:1px solid var(--line);
+    margin:0 0 18px;padding:8px 0 0;
+  }
+  .tab{
+    flex:none;font:inherit;font-size:15px;font-weight:650;
+    padding:10px 16px;border:0;border-bottom:2px solid transparent;
+    background:transparent;color:var(--muted);cursor:pointer;white-space:nowrap;
+  }
+  .tab.is-active,.tab[aria-selected="true"]{color:var(--ink);background:var(--card);border-bottom-color:#111;border-radius:10px 10px 0 0}
+  .tab-panel{display:none}
+  .tab-panel.is-active{display:block}
+  .panel-meta{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 16px;margin:0 0 12px;font-size:14px;color:var(--muted)}
+  .panel-meta a{font-weight:650}
+  a.trend-open{font-weight:700}
+  .items{display:flex;flex-direction:column;gap:8px;margin:0;padding:0;border:0}
+  .item-head{
+    display:flex;align-items:center;gap:10px;
+    padding:12px;background:var(--soft);border:1px solid transparent;border-radius:12px;cursor:pointer;
+  }
+  .item-head:hover{border-color:#ccc}
+  .item.is-open .item-head{background:var(--card);border-color:#111;border-bottom-left-radius:0;border-bottom-right-radius:0}
+  .item-btn{
+    flex:1;min-width:0;width:auto;
+    display:flex;flex-direction:column;align-items:flex-start;gap:4px;
+    padding:0;background:transparent;border:0;cursor:pointer;text-align:left;
+  }
+  .item-top{width:auto}
+  .item-thumb{flex:none;display:block;width:140px;height:86px;border-radius:8px;overflow:hidden;line-height:0}
+  .item-thumb img{display:block;width:140px;height:86px;object-fit:cover;background:#f3efe6;border-radius:8px}
+  .item-head>.chev{margin-left:0;margin-top:0;flex:none}
+  .item.is-open .item-head>.chev{transform:rotate(-135deg) translateY(-2px)}
+  .item{scroll-margin-top:72px}
+  .item.flash .item-head{animation:flash 1.3s ease}
+  .detail{display:none}
+  .item.is-open .detail{display:block}
+  @media (max-width:600px){
+    .item-thumb,.item-thumb img{width:84px;height:54px}
+    .tab{padding:10px 12px;font-size:14px}
+  }
+  @media print{
+    .tab-list{position:static}
+    .tab-panel,.detail,.items{display:block !important}
+  }
+/* ALL tab: restore topic tree, scoped so other tabs stay unchanged */
+  #panel-all .tree{
+    margin-top:6px;padding:4px 0 4px 22px;
+    border-left:2px solid var(--line);
+  }
+  #panel-all .topic{position:relative;margin:0 0 12px}
+  #panel-all .topic::before{
+    content:"";position:absolute;left:-22px;top:28px;width:22px;height:2px;
+    background:var(--branch,#111);
+  }
+  #panel-all .topic-head{display:flex;align-items:stretch;gap:8px}
+  #panel-all .topic-links{
+    align-self:center;flex:none;display:flex;flex-direction:column;gap:4px;
+    padding:8px 2px;font-size:13px;white-space:nowrap;
+  }
+  #panel-all .topic-links a{font-weight:650}
+  #panel-all .items{
+    display:none;
+    margin:8px 0 6px 8px;padding-left:14px;
+    border-left:2px solid color-mix(in srgb, var(--branch,#111) 45%, #fffaf4);
+    flex-direction:column;gap:8px;
+  }
+  #panel-all .topic.is-open > .items{display:flex}
+  @media (max-width:720px){
+    #panel-all .topic-head{flex-direction:column;gap:0}
+    #panel-all .topic-links{align-self:flex-start;padding:6px 2px 2px 4px;white-space:normal}
+  }
+  @media print{
+    #panel-all .items,#panel-all .detail{display:block !important}
+  }
+
+
+.wc-dog{display:inline-block;width:1.15em;height:1.15em;vertical-align:-0.18em;margin-right:.3em}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="mast">
+      <p class="home-link" style="margin:0 0 14px;font-size:14px"><a href="./index.html">← 全部日期</a></p>
+      <p class="date">2026-11-12</p>
+      <h1><img class="wc-dog" src="assets/wangcai-dog.png" alt="" aria-hidden="true">旺财资讯 <span class="nowrap">2026-11-12</span></h1>
+      <p class="summary">今天只有 AI 行业简报有当天输出，共 7 条要点（高管观点、PC、Apple、X、AI大拿 今天没有输出，暂未收录）。默认打开 ALL 可看全部资讯线的树形列表；点上方标签切换各条线，要点默认展开；点右侧原图打开来源，点箭头可收起。</p>
+    </header>
+    <p class="day-poster"><a href="assets/poster/2026-11-12.png" target="_blank" rel="noopener noreferrer"><img src="assets/poster/2026-11-12.png" alt="旺财资讯 2026-11-12" width="1920" height="1080" loading="lazy" decoding="async"></a></p>
+
+
+    <h2 class="section-label">今日最值得关注</h2>
+    <div class="top-grid">
+      <button type="button" class="top-card" data-topic="0" data-item="0">
+        <span class="rank">01 · AI 行业简报</span>
+        <span class="top-t">英伟达董事会据报准备撤换黄仁勋</span>
+        <span class="top-s">最快当天开会决定去留，两天市值蒸发超 4000 亿美元</span>
+        <span class="top-go">查看详情</span>
+      </button>
+      <button type="button" class="top-card" data-topic="0" data-item="1">
+        <span class="rank">02 · AI 行业简报</span>
+        <span class="top-t">Anthropic IPO 认购超额数倍</span>
+        <span class="top-s">彭博称订单是可售股数的好几倍，最终定价可能上调</span>
+        <span class="top-go">查看详情</span>
+      </button>
+      <button type="button" class="top-card" data-topic="0" data-item="3">
+        <span class="rank">03 · AI 行业简报</span>
+        <span class="top-t">DeepMind 用 AI 完成 Signal 协议代码级形式化验证</span>
+        <span class="top-s">AlphaProof Code 四周证明加密代码满足关键安全属性，约 1% 需人工复核</span>
+        <span class="top-go">查看详情</span>
+      </button>
+    </div>
+
+            <div class="map-bar">
+      <h2 class="section-label">资讯 · 1 条线 · 7 条要点</h2>
+    </div>
+
+    <div class="tabs" id="tabs">
+      <div class="tab-list" role="tablist" aria-label="资讯线">
+        <button type="button" class="tab is-active" role="tab" id="tab-all" aria-selected="true" aria-controls="panel-all" tabindex="0">ALL</button>
+        <button type="button" class="tab" role="tab" id="tab-0" data-topic="0" aria-selected="false" aria-controls="topic-0" tabindex="-1">AI 行业简报</button>
+      </div>
+      <div class="tab-panels">
+      <section class="tab-panel is-active" role="tabpanel" id="panel-all" aria-labelledby="tab-all">
+        <div class="tree" id="tree">
+        <section class="topic is-open" id="all-topic-0" style="--branch:#0f766e">
+          <div class="topic-head">
+            <button type="button" class="topic-btn" aria-expanded="true" aria-controls="all-items-0">
+              <span class="dot" aria-hidden="true"></span>
+              <span class="topic-copy">
+                <span class="topic-name">AI 行业简报</span>
+                <span class="topic-meta">AI 行业简报 · 7 条</span>
+              </span>
+              <span class="chev" aria-hidden="true"></span>
+            </button>
+            <div class="topic-links"><a class="report" href="reports/2026-11-12/brief.html">查看日报</a></div>
+          </div>
+          <div class="items" id="all-items-0">
+          <article class="item is-open" id="all-t0-i0">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t0-i0">
+                <span class="item-top">
+                  <span class="idx">01</span>
+                  <span class="item-title">英伟达董事会据报准备撤换黄仁勋</span>
+                </span>
+                <span class="item-sum">最快当天开会决定去留，两天市值蒸发超 4000 亿美元</span>
+                <span class="badges"><span class="badge">原图</span><span class="badge">2 个来源</span></span>
+              </button>
+              <a class="item-thumb" href="https://techcrunch.com/2026/11/11/nvidia-ceo-jensen-huangs-affair-with-alleged-chinese-spy-a-timeline/" target="_blank" rel="noopener noreferrer"><img src="assets/img/2026-11-12/nvidia-ceo.jpg" alt="" width="140" height="86" loading="lazy" decoding="async"></a>
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t0-i0"><p>《华尔街日报》周三报道，起因是他承认与一名被美国情报部门认定为中国间谍的女商人有婚外情，《纽约时报》随后又报道他和一名直接向他汇报的英伟达副总裁有过关系。截至发稿董事会还没有公布结果。全球 AI 算力最大的供应商可能换帅，芯片出口管制也因此在国会重新升温。</p>
+<figure><a href="https://techcrunch.com/wp-content/uploads/2025/04/GettyImages-2205754389.jpg?w=1024" rel="noopener noreferrer" target="_blank"><img alt="英伟达董事会据报准备撤换黄仁勋" decoding="async" loading="lazy" referrerpolicy="no-referrer" src="https://techcrunch.com/wp-content/uploads/2025/04/GettyImages-2205754389.jpg?w=1024"/></a><figcaption>原图 · 点图片可打开原文件</figcaption></figure>
+<ul class="links"><li><a href="https://techcrunch.com/2026/11/11/nvidia-ceo-jensen-huangs-affair-with-alleged-chinese-spy-a-timeline/" rel="noopener noreferrer" target="_blank">TechCrunch 事件时间线</a></li><li><a href="https://www.techmeme.com/261111/p44" rel="noopener noreferrer" target="_blank">Techmeme 汇总</a></li><li><a href="reports/2026-11-12/brief.html">查看日报</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t0-i1">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t0-i1">
+                <span class="item-top">
+                  <span class="idx">02</span>
+                  <span class="item-title">Anthropic IPO 认购超额数倍</span>
+                </span>
+                <span class="item-sum">彭博称订单是可售股数的好几倍，最终定价可能上调</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t0-i1"><p>Dario Amodei 和摩根大通 CEO Jamie Dimon 周五还会办一场直播活动。前两天它刚下调了发行规模和估值，现在需求反过来带动 AI 板块回暖。</p>
+<ul class="links"><li><a href="https://news.bloomberglaw.com/artificial-intelligence/anthropics-ipo-is-said-to-be-multiple-times-oversubscribed-1" rel="noopener noreferrer" target="_blank">Bloomberg Law 转载彭博报道</a></li><li><a href="reports/2026-11-12/brief.html">查看日报</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t0-i2">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t0-i2">
+                <span class="item-top">
+                  <span class="idx">03</span>
+                  <span class="item-title">OpenAI 单季收入首次突破 100 亿美元</span>
+                </span>
+                <span class="item-sum">比第二季度的 67 亿美元增长近 50%，年化收入 500 亿美元</span>
+                <span class="badges"><span class="badge">原图</span><span class="badge">1 个来源</span></span>
+              </button>
+              <a class="item-thumb" href="https://techcrunch.com/2026/11/11/openais-quarterly-revenue-reportedly-crosses-10b-for-the-first-time/" target="_blank" rel="noopener noreferrer"><img src="assets/img/2026-11-12/openai-revenue.jpg" alt="" width="140" height="86" loading="lazy" decoding="async"></a>
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t0-i2"><p>彭博社报道，调整后营业利润率从 -150% 收窄到 -109%。增长主要来自新模型需求和企业产品，但 Anthropic 年化收入已到 810 亿美元，企业市场上 OpenAI 仍在追。</p>
+<figure><a href="https://techcrunch.com/wp-content/uploads/2024/05/openAI-spiral-rose.jpg?resize=1200,675" rel="noopener noreferrer" target="_blank"><img alt="OpenAI 单季收入首次突破 100 亿美元" decoding="async" loading="lazy" referrerpolicy="no-referrer" src="https://techcrunch.com/wp-content/uploads/2024/05/openAI-spiral-rose.jpg?resize=1200,675"/></a><figcaption>原图 · 点图片可打开原文件</figcaption></figure>
+<ul class="links"><li><a href="https://techcrunch.com/2026/11/11/openais-quarterly-revenue-reportedly-crosses-10b-for-the-first-time/" rel="noopener noreferrer" target="_blank">TechCrunch 报道</a></li><li><a href="reports/2026-11-12/brief.html">查看日报</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t0-i3">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t0-i3">
+                <span class="item-top">
+                  <span class="idx">04</span>
+                  <span class="item-title">DeepMind 用 AI 完成 Signal 协议代码级形式化验证</span>
+                </span>
+                <span class="item-sum">AlphaProof Code 四周证明加密代码满足关键安全属性，约 1% 需人工复核</span>
+                <span class="badges"><span class="badge">原图</span><span class="badge">1 个来源</span></span>
+              </button>
+              <a class="item-thumb" href="https://deepmind.google/blog/introducing-alphaproof-code/" target="_blank" rel="noopener noreferrer"><img src="assets/img/2026-11-12/alphaproof-code.jpg" alt="" width="140" height="86" loading="lazy" decoding="async"></a>
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t0-i3"><p>由 Gemini Carbon 驱动的 Agent 写了 600 多万行 Lean 证明。这是广泛部署的加密协议实现第一次被完整形式化验证，过去这类工作需要专家团队花好几年。</p>
+<figure><a href="https://lh3.googleusercontent.com/hn6AiI6lYFo6chi1mL6uJ9nOW9UXfsAKnSyOApiie2urHNU2tmSPUmGn0hNfWyYLRcsWCGjCIrBZSCt1ihZmvW-LDJPfyolsr5w-yvzlknZVzmaH=w1200-h630-n-nu-rw" rel="noopener noreferrer" target="_blank"><img alt="DeepMind 用 AI 完成 Signal 协议代码级形式化验证" decoding="async" loading="lazy" referrerpolicy="no-referrer" src="https://lh3.googleusercontent.com/hn6AiI6lYFo6chi1mL6uJ9nOW9UXfsAKnSyOApiie2urHNU2tmSPUmGn0hNfWyYLRcsWCGjCIrBZSCt1ihZmvW-LDJPfyolsr5w-yvzlknZVzmaH=w1200-h630-n-nu-rw"/></a><figcaption>原图 · 点图片可打开原文件</figcaption></figure>
+<ul class="links"><li><a href="https://deepmind.google/blog/introducing-alphaproof-code/" rel="noopener noreferrer" target="_blank">DeepMind 官方博客</a></li><li><a href="reports/2026-11-12/brief.html">查看日报</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t0-i4">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t0-i4">
+                <span class="item-top">
+                  <span class="idx">05</span>
+                  <span class="item-title">微软研究院：改不到 10 个神经元就能给 AI Agent 植入后门</span>
+                </span>
+                <span class="item-sum">Lazarus 方法无需重新训练，能通过常规安全评测</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t0-i4"><p>被改过的模型等触发条件出现（比如日期跨入 2027 年）才执行攻击者的命令。对使用开源权重模型、给 Agent 开终端权限的团队来说，模型来源和权重完整性要像代码一样审计。</p>
+<ul class="links"><li><a href="https://www.microsoft.com/en-us/research/blog/lazare-veni-foras-reprogramming-dormant-neurons-to-backdoor-ai-agents/" rel="noopener noreferrer" target="_blank">微软研究院博客</a></li><li><a href="reports/2026-11-12/brief.html">查看日报</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t0-i5">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t0-i5">
+                <span class="item-top">
+                  <span class="idx">06</span>
+                  <span class="item-title">纽约州 AI 安全法开始落地</span>
+                </span>
+                <span class="item-sum">年收入超 5 亿美元的前沿 AI 开发者须在 2027 年 1 月 1 日前注册</span>
+                <span class="badges"><span class="badge">原图</span><span class="badge">1 个来源</span></span>
+              </button>
+              <a class="item-thumb" href="https://techcrunch.com/2026/11/10/openai-anthropic-face-new-oversight-as-new-yorks-ai-safety-law-takes-effect/" target="_blank" rel="noopener noreferrer"><img src="assets/img/2026-11-12/ny-ai-law.jpg" alt="" width="140" height="86" loading="lazy" decoding="async"></a>
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t0-i5"><p>包括 OpenAI 和 Anthropic 在内，需披露安全做法、上报重大事故，首次违规最高罚 100 万美元，之后最高 300 万美元。这是美国第一部对前沿模型公司真正生效的州级安全法规。</p>
+<figure><a href="https://techcrunch.com/wp-content/uploads/2026/11/GettyImages-2302996653.jpg?w=1024" rel="noopener noreferrer" target="_blank"><img alt="纽约州 AI 安全法开始落地" decoding="async" loading="lazy" referrerpolicy="no-referrer" src="https://techcrunch.com/wp-content/uploads/2026/11/GettyImages-2302996653.jpg?w=1024"/></a><figcaption>原图 · 点图片可打开原文件</figcaption></figure>
+<ul class="links"><li><a href="https://techcrunch.com/2026/11/10/openai-anthropic-face-new-oversight-as-new-yorks-ai-safety-law-takes-effect/" rel="noopener noreferrer" target="_blank">TechCrunch 报道</a></li><li><a href="reports/2026-11-12/brief.html">查看日报</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t0-i6">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t0-i6">
+                <span class="item-top">
+                  <span class="idx">07</span>
+                  <span class="item-title">Mercor 融资 7.5 亿美元，估值 200 亿美元</span>
+                </span>
+                <span class="item-sum">D 轮估值翻倍，下一步把 Agent 评测卖给普通企业</span>
+                <span class="badges"><span class="badge">原图</span><span class="badge">1 个来源</span></span>
+              </button>
+              <a class="item-thumb" href="https://siliconangle.com/2026/11/10/mercor-raises-750m-at-20b-valuation-to-take-ai-agent-evaluation-to-enterprises/" target="_blank" rel="noopener noreferrer"><img src="assets/img/2026-11-12/mercor.jpg" alt="" width="140" height="86" loading="lazy" decoding="async"></a>
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t0-i6"><p>这家给前沿实验室提供 AI 训练数据和评测的公司，投资方包括 Benchmark、General Catalyst、英伟达和 Salesforce。给模型“出题打分”已经成了一门大生意。</p>
+<figure><a href="https://images.siliconangle.com/blogs.dir/1/files/2026/11/mercorseridsd-scaled.png" rel="noopener noreferrer" target="_blank"><img alt="Mercor 融资 7.5 亿美元，估值 200 亿美元" decoding="async" loading="lazy" referrerpolicy="no-referrer" src="https://images.siliconangle.com/blogs.dir/1/files/2026/11/mercorseridsd-scaled.png"/></a><figcaption>原图 · 点图片可打开原文件</figcaption></figure>
+<ul class="links"><li><a href="https://siliconangle.com/2026/11/10/mercor-raises-750m-at-20b-valuation-to-take-ai-agent-evaluation-to-enterprises/" rel="noopener noreferrer" target="_blank">SiliconANGLE 报道</a></li><li><a href="reports/2026-11-12/brief.html">查看日报</a></li></ul></div>
+          </article>
+          </div>
+        </section>
+        </div>
+      </section>
+      <section class="tab-panel" role="tabpanel" id="topic-0" aria-labelledby="tab-0">
+        <div class="panel-meta"><p>AI 行业简报 · 7 条</p><div><a href="reports/2026-11-12/brief.html">查看日报</a></div></div>
+        <div class="items">
+          <article class="item is-open" id="t0-i0">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t0-i0">
+                <span class="item-top">
+                  <span class="idx">01</span>
+                  <span class="item-title">英伟达董事会据报准备撤换黄仁勋</span>
+                </span>
+                <span class="item-sum">最快当天开会决定去留，两天市值蒸发超 4000 亿美元</span>
+                <span class="badges"><span class="badge">原图</span><span class="badge">2 个来源</span></span>
+              </button>
+              <a class="item-thumb" href="https://techcrunch.com/2026/11/11/nvidia-ceo-jensen-huangs-affair-with-alleged-chinese-spy-a-timeline/" target="_blank" rel="noopener noreferrer"><img src="assets/img/2026-11-12/nvidia-ceo.jpg" alt="" width="140" height="86" loading="lazy" decoding="async"></a>
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t0-i0"><p>《华尔街日报》周三报道，起因是他承认与一名被美国情报部门认定为中国间谍的女商人有婚外情，《纽约时报》随后又报道他和一名直接向他汇报的英伟达副总裁有过关系。截至发稿董事会还没有公布结果。全球 AI 算力最大的供应商可能换帅，芯片出口管制也因此在国会重新升温。</p>
+<figure><a href="https://techcrunch.com/wp-content/uploads/2025/04/GettyImages-2205754389.jpg?w=1024" rel="noopener noreferrer" target="_blank"><img alt="英伟达董事会据报准备撤换黄仁勋" decoding="async" loading="lazy" referrerpolicy="no-referrer" src="https://techcrunch.com/wp-content/uploads/2025/04/GettyImages-2205754389.jpg?w=1024"/></a><figcaption>原图 · 点图片可打开原文件</figcaption></figure>
+<ul class="links"><li><a href="https://techcrunch.com/2026/11/11/nvidia-ceo-jensen-huangs-affair-with-alleged-chinese-spy-a-timeline/" rel="noopener noreferrer" target="_blank">TechCrunch 事件时间线</a></li><li><a href="https://www.techmeme.com/261111/p44" rel="noopener noreferrer" target="_blank">Techmeme 汇总</a></li><li><a href="reports/2026-11-12/brief.html">查看日报</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t0-i1">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t0-i1">
+                <span class="item-top">
+                  <span class="idx">02</span>
+                  <span class="item-title">Anthropic IPO 认购超额数倍</span>
+                </span>
+                <span class="item-sum">彭博称订单是可售股数的好几倍，最终定价可能上调</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t0-i1"><p>Dario Amodei 和摩根大通 CEO Jamie Dimon 周五还会办一场直播活动。前两天它刚下调了发行规模和估值，现在需求反过来带动 AI 板块回暖。</p>
+<ul class="links"><li><a href="https://news.bloomberglaw.com/artificial-intelligence/anthropics-ipo-is-said-to-be-multiple-times-oversubscribed-1" rel="noopener noreferrer" target="_blank">Bloomberg Law 转载彭博报道</a></li><li><a href="reports/2026-11-12/brief.html">查看日报</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t0-i2">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t0-i2">
+                <span class="item-top">
+                  <span class="idx">03</span>
+                  <span class="item-title">OpenAI 单季收入首次突破 100 亿美元</span>
+                </span>
+                <span class="item-sum">比第二季度的 67 亿美元增长近 50%，年化收入 500 亿美元</span>
+                <span class="badges"><span class="badge">原图</span><span class="badge">1 个来源</span></span>
+              </button>
+              <a class="item-thumb" href="https://techcrunch.com/2026/11/11/openais-quarterly-revenue-reportedly-crosses-10b-for-the-first-time/" target="_blank" rel="noopener noreferrer"><img src="assets/img/2026-11-12/openai-revenue.jpg" alt="" width="140" height="86" loading="lazy" decoding="async"></a>
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t0-i2"><p>彭博社报道，调整后营业利润率从 -150% 收窄到 -109%。增长主要来自新模型需求和企业产品，但 Anthropic 年化收入已到 810 亿美元，企业市场上 OpenAI 仍在追。</p>
+<figure><a href="https://techcrunch.com/wp-content/uploads/2024/05/openAI-spiral-rose.jpg?resize=1200,675" rel="noopener noreferrer" target="_blank"><img alt="OpenAI 单季收入首次突破 100 亿美元" decoding="async" loading="lazy" referrerpolicy="no-referrer" src="https://techcrunch.com/wp-content/uploads/2024/05/openAI-spiral-rose.jpg?resize=1200,675"/></a><figcaption>原图 · 点图片可打开原文件</figcaption></figure>
+<ul class="links"><li><a href="https://techcrunch.com/2026/11/11/openais-quarterly-revenue-reportedly-crosses-10b-for-the-first-time/" rel="noopener noreferrer" target="_blank">TechCrunch 报道</a></li><li><a href="reports/2026-11-12/brief.html">查看日报</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t0-i3">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t0-i3">
+                <span class="item-top">
+                  <span class="idx">04</span>
+                  <span class="item-title">DeepMind 用 AI 完成 Signal 协议代码级形式化验证</span>
+                </span>
+                <span class="item-sum">AlphaProof Code 四周证明加密代码满足关键安全属性，约 1% 需人工复核</span>
+                <span class="badges"><span class="badge">原图</span><span class="badge">1 个来源</span></span>
+              </button>
+              <a class="item-thumb" href="https://deepmind.google/blog/introducing-alphaproof-code/" target="_blank" rel="noopener noreferrer"><img src="assets/img/2026-11-12/alphaproof-code.jpg" alt="" width="140" height="86" loading="lazy" decoding="async"></a>
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t0-i3"><p>由 Gemini Carbon 驱动的 Agent 写了 600 多万行 Lean 证明。这是广泛部署的加密协议实现第一次被完整形式化验证，过去这类工作需要专家团队花好几年。</p>
+<figure><a href="https://lh3.googleusercontent.com/hn6AiI6lYFo6chi1mL6uJ9nOW9UXfsAKnSyOApiie2urHNU2tmSPUmGn0hNfWyYLRcsWCGjCIrBZSCt1ihZmvW-LDJPfyolsr5w-yvzlknZVzmaH=w1200-h630-n-nu-rw" rel="noopener noreferrer" target="_blank"><img alt="DeepMind 用 AI 完成 Signal 协议代码级形式化验证" decoding="async" loading="lazy" referrerpolicy="no-referrer" src="https://lh3.googleusercontent.com/hn6AiI6lYFo6chi1mL6uJ9nOW9UXfsAKnSyOApiie2urHNU2tmSPUmGn0hNfWyYLRcsWCGjCIrBZSCt1ihZmvW-LDJPfyolsr5w-yvzlknZVzmaH=w1200-h630-n-nu-rw"/></a><figcaption>原图 · 点图片可打开原文件</figcaption></figure>
+<ul class="links"><li><a href="https://deepmind.google/blog/introducing-alphaproof-code/" rel="noopener noreferrer" target="_blank">DeepMind 官方博客</a></li><li><a href="reports/2026-11-12/brief.html">查看日报</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t0-i4">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t0-i4">
+                <span class="item-top">
+                  <span class="idx">05</span>
+                  <span class="item-title">微软研究院：改不到 10 个神经元就能给 AI Agent 植入后门</span>
+                </span>
+                <span class="item-sum">Lazarus 方法无需重新训练，能通过常规安全评测</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t0-i4"><p>被改过的模型等触发条件出现（比如日期跨入 2027 年）才执行攻击者的命令。对使用开源权重模型、给 Agent 开终端权限的团队来说，模型来源和权重完整性要像代码一样审计。</p>
+<ul class="links"><li><a href="https://www.microsoft.com/en-us/research/blog/lazare-veni-foras-reprogramming-dormant-neurons-to-backdoor-ai-agents/" rel="noopener noreferrer" target="_blank">微软研究院博客</a></li><li><a href="reports/2026-11-12/brief.html">查看日报</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t0-i5">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t0-i5">
+                <span class="item-top">
+                  <span class="idx">06</span>
+                  <span class="item-title">纽约州 AI 安全法开始落地</span>
+                </span>
+                <span class="item-sum">年收入超 5 亿美元的前沿 AI 开发者须在 2027 年 1 月 1 日前注册</span>
+                <span class="badges"><span class="badge">原图</span><span class="badge">1 个来源</span></span>
+              </button>
+              <a class="item-thumb" href="https://techcrunch.com/2026/11/10/openai-anthropic-face-new-oversight-as-new-yorks-ai-safety-law-takes-effect/" target="_blank" rel="noopener noreferrer"><img src="assets/img/2026-11-12/ny-ai-law.jpg" alt="" width="140" height="86" loading="lazy" decoding="async"></a>
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t0-i5"><p>包括 OpenAI 和 Anthropic 在内，需披露安全做法、上报重大事故，首次违规最高罚 100 万美元，之后最高 300 万美元。这是美国第一部对前沿模型公司真正生效的州级安全法规。</p>
+<figure><a href="https://techcrunch.com/wp-content/uploads/2026/11/GettyImages-2302996653.jpg?w=1024" rel="noopener noreferrer" target="_blank"><img alt="纽约州 AI 安全法开始落地" decoding="async" loading="lazy" referrerpolicy="no-referrer" src="https://techcrunch.com/wp-content/uploads/2026/11/GettyImages-2302996653.jpg?w=1024"/></a><figcaption>原图 · 点图片可打开原文件</figcaption></figure>
+<ul class="links"><li><a href="https://techcrunch.com/2026/11/10/openai-anthropic-face-new-oversight-as-new-yorks-ai-safety-law-takes-effect/" rel="noopener noreferrer" target="_blank">TechCrunch 报道</a></li><li><a href="reports/2026-11-12/brief.html">查看日报</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t0-i6">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t0-i6">
+                <span class="item-top">
+                  <span class="idx">07</span>
+                  <span class="item-title">Mercor 融资 7.5 亿美元，估值 200 亿美元</span>
+                </span>
+                <span class="item-sum">D 轮估值翻倍，下一步把 Agent 评测卖给普通企业</span>
+                <span class="badges"><span class="badge">原图</span><span class="badge">1 个来源</span></span>
+              </button>
+              <a class="item-thumb" href="https://siliconangle.com/2026/11/10/mercor-raises-750m-at-20b-valuation-to-take-ai-agent-evaluation-to-enterprises/" target="_blank" rel="noopener noreferrer"><img src="assets/img/2026-11-12/mercor.jpg" alt="" width="140" height="86" loading="lazy" decoding="async"></a>
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t0-i6"><p>这家给前沿实验室提供 AI 训练数据和评测的公司，投资方包括 Benchmark、General Catalyst、英伟达和 Salesforce。给模型“出题打分”已经成了一门大生意。</p>
+<figure><a href="https://images.siliconangle.com/blogs.dir/1/files/2026/11/mercorseridsd-scaled.png" rel="noopener noreferrer" target="_blank"><img alt="Mercor 融资 7.5 亿美元，估值 200 亿美元" decoding="async" loading="lazy" referrerpolicy="no-referrer" src="https://images.siliconangle.com/blogs.dir/1/files/2026/11/mercorseridsd-scaled.png"/></a><figcaption>原图 · 点图片可打开原文件</figcaption></figure>
+<ul class="links"><li><a href="https://siliconangle.com/2026/11/10/mercor-raises-750m-at-20b-valuation-to-take-ai-agent-evaluation-to-enterprises/" rel="noopener noreferrer" target="_blank">SiliconANGLE 报道</a></li><li><a href="reports/2026-11-12/brief.html">查看日报</a></li></ul></div>
+          </article>
+        </div>
+      </section>
+      </div>
+    </div>
+
+<footer>
+      <p>文字、要点和链接都写在这个页面里，打开即可阅读，不需要再加载数据。</p>
+      <p>往期：<a href="./2026-11-12.html">2026-11-12</a> · <a href="./2026-11-06.html">2026-11-06</a></p>
+      <p><a href="./index.html">返回主页</a>，查看全部日期。</p>
+    </footer>
+  </div>
+  <noscript>
+    <style>.tab-panel, .items, .detail { display: block !important; }</style>
+  </noscript>
+  <script>
+    (function () {
+      var tabs = document.querySelectorAll(".tab");
+      var panels = document.querySelectorAll(".tab-panel");
+
+      function topicTabIndex(topicIndex) {
+        for (var i = 0; i < tabs.length; i++) {
+          if (tabs[i].getAttribute("data-topic") === String(topicIndex)) return i;
+        }
+        return topicIndex + 1;
+      }
+
+      function selectTab(index, hashKind) {
+        if (index < 0 || index >= tabs.length) index = 0;
+        tabs.forEach(function (tab, i) {
+          var on = i === index;
+          tab.classList.toggle("is-active", on);
+          tab.setAttribute("aria-selected", on ? "true" : "false");
+          tab.tabIndex = on ? 0 : -1;
+        });
+        panels.forEach(function (p, i) {
+          p.classList.toggle("is-active", i === index);
+        });
+        if (hashKind === "topic" && history.replaceState) {
+          var tab = tabs[index];
+          var hash = "#all";
+          if (tab && tab.getAttribute("data-topic") != null) {
+            hash = "#topic-" + tab.getAttribute("data-topic");
+          }
+          history.replaceState(null, "", hash);
+        }
+        return index;
+      }
+
+      function setItem(article, open) {
+        article.classList.toggle("is-open", open);
+        var btn = article.querySelector(".item-btn");
+        if (btn) btn.setAttribute("aria-expanded", open ? "true" : "false");
+      }
+
+      function reveal(topicIndex, itemIndex, smooth) {
+        selectTab(topicTabIndex(topicIndex), "item");
+        var article = document.getElementById("t" + topicIndex + "-i" + itemIndex);
+        if (!article) return;
+        setItem(article, true);
+        article.classList.remove("flash");
+        void article.offsetWidth;
+        article.classList.add("flash");
+        article.scrollIntoView({ behavior: smooth ? "smooth" : "auto", block: "start" });
+        if (history.replaceState) history.replaceState(null, "", "#" + article.id);
+      }
+
+      tabs.forEach(function (tab, i) {
+        tab.addEventListener("click", function () { selectTab(i, "topic"); });
+        tab.addEventListener("keydown", function (e) {
+          var next = i;
+          if (e.key === "ArrowRight") next = (i + 1) % tabs.length;
+          else if (e.key === "ArrowLeft") next = (i - 1 + tabs.length) % tabs.length;
+          else if (e.key === "Home") next = 0;
+          else if (e.key === "End") next = tabs.length - 1;
+          else return;
+          e.preventDefault();
+          selectTab(next, "topic");
+          tabs[next].focus();
+        });
+      });
+
+      document.querySelectorAll("#panel-all .topic").forEach(function (topic) {
+        var btn = topic.querySelector(".topic-btn");
+        if (!btn) return;
+        btn.addEventListener("click", function () {
+          var open = !topic.classList.contains("is-open");
+          topic.classList.toggle("is-open", open);
+          btn.setAttribute("aria-expanded", open ? "true" : "false");
+        });
+      });
+
+      document.querySelectorAll(".item").forEach(function (article) {
+        var head = article.querySelector(".item-head") || article.querySelector(".item-btn");
+        if (!head) return;
+        head.addEventListener("click", function (e) {
+          if (e.target.closest && e.target.closest(".item-thumb")) return;
+          var open = !article.classList.contains("is-open");
+          setItem(article, open);
+        });
+      });
+
+      document.querySelectorAll(".top-card").forEach(function (card) {
+        card.addEventListener("click", function () {
+          reveal(Number(card.dataset.topic), Number(card.dataset.item), true);
+        });
+      });
+
+      document.querySelectorAll("img").forEach(function (img) {
+        img.addEventListener("error", function () {
+          var fig = img.closest("figure");
+          if (!fig || fig.dataset.broken) return;
+          fig.dataset.broken = "1";
+          var link = document.createElement("a");
+          link.href = img.getAttribute("src");
+          link.target = "_blank";
+          link.rel = "noopener noreferrer";
+          link.textContent = "原图无法内嵌显示，打开原图";
+          fig.replaceChildren(link);
+        });
+      });
+
+      var h = location.hash || "";
+      var item = h.match(/^#t(\d+)-i(\d+)$/);
+      var allHash = h.match(/^#(?:all|tab-all|panel-all)$/);
+      var topic = h.match(/^#(?:topic|tab|panel)-(\d+)$/);
+      if (item) reveal(Number(item[1]), Number(item[2]), false);
+      else if (allHash) selectTab(0, null);
+      else if (topic) selectTab(topicTabIndex(Number(topic[1])), null);
+      else selectTab(0, null);
+    })();
+    </script>
+</body>
+</html>

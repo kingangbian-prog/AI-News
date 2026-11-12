@@ -1,5 +1,27 @@
 [
   {
+    "date": "2026-11-12",
+    "topics": [
+      "AI 行业简报"
+    ],
+    "summary": "英伟达董事会据报准备撤换黄仁勋，起因是他与被认定为中国间谍的女商人有婚外情，英伟达两天市值蒸发超 4000 亿美元。同一天 Anthropic 的 IPO 认购超额数倍，OpenAI 单季收入首次突破 100 亿美元。Google DeepMind 用 AlphaProof Code 完成 Signal 协议代码级形式化验证，微软研究院则演示了改动不到 10 个神经元就能给 AI Agent 植入后门。今天只有 AI 行业简报有当天输出，其他 bot 暂未收录。",
+    "reports": [
+      {
+        "name": "AI 行业简报",
+        "href": "reports/2026-11-12/brief.html"
+      }
+    ],
+    "lines": [
+      {
+        "topic": "AI 行业简报",
+        "text": "英伟达董事会据报准备撤换黄仁勋，两天市值蒸发超 4000 亿美元；同天 Anthropic IPO 认购超额数倍。",
+        "image": "assets/img/2026-11-12/nvidia-ceo.jpg",
+        "image_src": "https://techcrunch.com/wp-content/uploads/2025/04/GettyImages-2205754389.jpg?w=1024",
+        "link": "https://techcrunch.com/2026/11/11/nvidia-ceo-jensen-huangs-affair-with-alleged-chinese-spy-a-timeline/"
+      }
+    ]
+  },
+  {
     "date": "2026-11-11",
     "topics": [
       "AI 行业简报",
