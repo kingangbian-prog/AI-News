@@ -1,5 +1,99 @@
 [
   {
+    "date": "2026-11-13",
+    "topics": [
+      "AI 行业简报",
+      "科技高管观点",
+      "PC 行业动向",
+      "Apple 洞察",
+      "X 热门新点子",
+      "AI 大拿",
+      "GitHub 涨星"
+    ],
+    "summary": "黄仁勋已辞去英伟达 CEO、总裁和董事职务，CFO Colette Kress 兼任临时 CEO，Harvey Jones 出任公司首任董事长。周四早盘股价一度跌近 12%，自上周五以来市值蒸发超过 8550 亿美元，11 月 17 日还有财报。同一天谷歌把 Gemini 4 Hydrogen 推到了 Gemini App、AI Studio 和搜索，官方称比 3.8 Flash 完成任务快 2.5 倍。PC 这边，技嘉发布了约 1 升、可装 Windows 11 的 RTX Spark 主机 AI TOP AERO；Apple 的 HomeView 和新款 Apple TV 4K 也从今天开始送达。",
+    "reports": [
+      {
+        "name": "AI 行业简报",
+        "href": "reports/2026-11-13/brief.html"
+      },
+      {
+        "name": "科技高管观点",
+        "href": "reports/2026-11-13/exec.html"
+      },
+      {
+        "name": "PC 行业动向",
+        "href": "reports/2026-11-13/pc.html"
+      },
+      {
+        "name": "Apple 洞察",
+        "href": "reports/2026-11-13/apple.html"
+      },
+      {
+        "name": "X 热门新点子",
+        "href": "reports/2026-11-13/x-ideas.html"
+      },
+      {
+        "name": "AI 大拿",
+        "href": "reports/2026-11-13/ai-leaders.html"
+      },
+      {
+        "name": "GitHub 涨星",
+        "href": "github-trend/index.html"
+      }
+    ],
+    "lines": [
+      {
+        "topic": "AI 行业简报",
+        "text": "黄仁勋辞去英伟达 CEO，CFO Colette Kress 任临时 CEO；同天谷歌发布 Gemini 4 Hydrogen。",
+        "image": "",
+        "image_src": "",
+        "link": "https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition"
+      },
+      {
+        "topic": "科技高管观点",
+        "text": "硅谷对黄仁勋离任反应分化；OpenAI 发布 Daybreak 网络安全产品，Microsoft 365 当天大面积故障。",
+        "image": "",
+        "image_src": "",
+        "link": "https://x.com/AravSrinivas/status/2120891190333607989"
+      },
+      {
+        "topic": "PC 行业动向",
+        "text": "技嘉发布约 1 升、预装 Windows 11 的 RTX Spark 主机 AI TOP AERO。",
+        "image": "",
+        "image_src": "",
+        "link": "https://videocardz.com/newz/gigabyte-launches-1-liter-nvidia-rtx-spark-desktop-with-dlss-5"
+      },
+      {
+        "topic": "Apple 洞察",
+        "text": "HomeView 和新款 Apple TV 4K 开始送达，Siri 控制门锁要等下个月更新。",
+        "image": "",
+        "image_src": "",
+        "link": "https://www.macrumors.com/2026/11/12/apple-homeview-software-27-2-24v526/"
+      },
+      {
+        "topic": "X 热门新点子",
+        "text": "Claude Meetings 上线，发布帖赞 4.2 万、浏览 260 万，是当天互动最高的 AI 帖。",
+        "image": "",
+        "image_src": "",
+        "link": "https://x.com/claudeai/status/2120973994191094179"
+      },
+      {
+        "topic": "AI 大拿",
+        "text": "Anthropic 提交 IPO 招股书（代码 ANT）；李飞飞开放 World Labs Atlas。",
+        "image": "",
+        "image_src": "",
+        "link": "https://x.com/AnthropicAI/status/2120841731302154708"
+      },
+      {
+        "topic": "GitHub 涨星",
+        "text": "涨星榜仍用 11-12 数据，meta/astryx 以 +2,776 连续第二天排第 1。",
+        "image": "",
+        "image_src": "",
+        "link": "github-trend/index.html"
+      }
+    ]
+  },
+  {
     "date": "2026-11-12",
     "topics": [
       "AI 行业简报",

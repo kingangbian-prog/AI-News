@@ -1,0 +1,2013 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#f4f1ea">
+<meta name="description" content="7 条资讯线汇总今天各 bot 和 AI 行业简报的输出。默认打开 ALL 可看全部资讯线的树形列表；点上方标签切换各条线，要点默认展开；点箭头可收起。">
+<link rel="icon" type="image/png" href="assets/wangcai-dog.png">
+<title>旺财资讯 2026-11-13</title>
+<style>
+  :root {
+    color-scheme: light;
+    --ink: #1a1a1a;
+    --muted: #5c5c5c;
+    --faint: #5e5e5e;
+    --line: #ece8e1;
+    --bg: #f4f1ea;
+    --bg-top: #fbf8f2;
+    --soft: #f8f3ea;
+    --card: #fffaf4;
+    --shadow: 0 1px 0 rgba(255,255,255,.8) inset, 0 6px 16px rgba(40,30,10,.05);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background-color: var(--bg);
+    background-image: linear-gradient(180deg, #fbf8f2 0%, #f4f1ea 42%);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: var(--ink);
+    font-family: "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", "Microsoft YaHei", "Segoe UI", sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    overflow-wrap: break-word;
+  }
+  a { color: #0b57d0; }
+  a:hover { color: #0842a0; }
+  button, input { font-family: inherit; color: inherit; }
+  :focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+  .wrap {
+    width: min(880px, calc(100% - 32px));
+    margin: 0 auto;
+    padding: 32px 0 80px;
+  }
+  .date {
+    margin: 0 0 10px;
+    font-size: 13px;
+    letter-spacing: .08em;
+    color: var(--muted);
+  }
+  h1 {
+    margin: 0 0 14px;
+    font-size: clamp(28px, 5vw, 40px);
+    line-height: 1.22;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  .nowrap { white-space: nowrap; }
+  .summary {
+    margin: 0;
+    max-width: 68ch;
+    color: #2c2c2c;
+  }
+  .section-label {
+    margin: 40px 0 12px;
+    font-size: 13px;
+    font-weight: 650;
+    letter-spacing: .12em;
+    color: var(--muted);
+  }
+  .top-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+  }
+  .top-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    min-height: 168px;
+    padding: 16px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    text-align: left;
+    cursor: pointer;
+  }
+  .top-card:hover { border-color: #111; }
+  .rank {
+    font-variant-numeric: tabular-nums;
+    font-size: 12px;
+    letter-spacing: .04em;
+    color: var(--faint);
+  }
+  .top-t { font-size: 16px; font-weight: 680; line-height: 1.4; }
+  .top-s { font-size: 13px; line-height: 1.5; color: var(--muted); }
+  .top-go {
+    margin-top: auto;
+    font-size: 13px;
+    border-bottom: 1px solid #111;
+    line-height: 1.4;
+  }
+  .map-bar {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 4px 12px;
+    margin-top: 40px;
+  }
+  .map-bar .section-label { margin: 0; }
+  .text-btn {
+    border: 0;
+    background: transparent;
+    padding: 8px 0;
+    min-height: 44px;
+    cursor: pointer;
+    font-size: 14px;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .tree {
+    margin-top: 14px;
+    padding: 4px 0 4px 22px;
+    border-left: 2px solid var(--line);
+  }
+  .root {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 18px -22px;
+    padding: 10px 16px;
+    max-width: calc(100% + 22px);
+    border: 1.5px solid #111;
+    border-radius: 16px;
+    background: var(--card);
+    font-weight: 700;
+  }
+  .root-mark {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #111;
+    flex: none;
+  }
+  .topic { position: relative; margin: 0 0 12px; }
+  .topic::before {
+    content: "";
+    position: absolute;
+    left: -22px;
+    top: 28px;
+    width: 22px;
+    height: 2px;
+    background: var(--branch, #111);
+  }
+  .topic-head { display: flex; align-items: stretch; gap: 8px; }
+  .topic-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 64px;
+    padding: 12px 14px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    cursor: pointer;
+    text-align: left;
+  }
+  .topic-btn:hover,
+  .topic.is-open .topic-btn { border-color: #111; }
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--branch, #111);
+    flex: none;
+  }
+  .topic-copy { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+  .topic-name { font-size: 17px; font-weight: 700; line-height: 1.35; }
+  .topic-meta { font-size: 13px; color: var(--muted); }
+  .chev {
+    width: 8px;
+    height: 8px;
+    margin-left: auto;
+    border-right: 1.5px solid #111;
+    border-bottom: 1.5px solid #111;
+    transform: rotate(45deg) translateY(-2px);
+    flex: none;
+  }
+  .topic.is-open .topic-btn > .chev { transform: rotate(-135deg) translateY(-2px); }
+  .report {
+    align-self: center;
+    flex: none;
+    font-size: 13px;
+    padding: 8px 2px;
+    white-space: nowrap;
+  }
+  .items, .detail { display: none; }
+  .topic.is-open > .topic-head + .items,
+  .topic.is-open > .items { display: flex; }
+  .item.is-open .detail { display: block; }
+  .items {
+    margin: 8px 0 6px 8px;
+    padding-left: 14px;
+    border-left: 2px solid color-mix(in srgb, var(--branch, #111) 45%, #fff);
+    flex-direction: column;
+    gap: 8px;
+  }
+  .item { scroll-margin: 16px 0 24px; }
+  .item-btn {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    padding: 12px;
+    background: var(--soft);
+    border: 1px solid transparent;
+    border-radius: 12px;
+    cursor: pointer;
+    text-align: left;
+  }
+  .item-btn:hover { border-color: #ccc; }
+  .item.is-open .item-btn {
+    background: var(--card);
+    border-color: #111;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .item-top { display: flex; width: 100%; align-items: flex-start; gap: 8px; }
+  .idx {
+    font-variant-numeric: tabular-nums;
+    font-size: 12px;
+    color: var(--faint);
+    padding-top: 3px;
+    flex: none;
+  }
+  .item-title { font-weight: 680; font-size: 15.5px; line-height: 1.45; }
+  .item-top .chev { margin-top: 6px; }
+  .item.is-open .item-top .chev { transform: rotate(-135deg) translateY(-2px); }
+  .item-sum { font-size: 13.5px; color: var(--muted); padding-left: 24px; }
+  .badges { display: flex; flex-wrap: wrap; gap: 6px; padding-left: 24px; }
+  .badge {
+    font-size: 11px;
+    color: #333;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 1px 8px;
+  }
+  .detail {
+    padding: 4px 14px 14px;
+    border: 1px solid #111;
+    border-top: 0;
+    border-radius: 0 0 12px 12px;
+    background: var(--card);
+  }
+  .detail p { margin: 8px 0 12px; }
+  figure { margin: 0 0 12px; }
+  figure img {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: 440px;
+    object-fit: contain;
+    background: var(--soft);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+  }
+  figcaption { margin-top: 6px; font-size: 12px; color: var(--faint); }
+  .links {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .links a { font-size: 14px; }
+  .item.flash .item-btn { animation: flash 1.3s ease; }
+  @keyframes flash {
+    0% { background: #fff3cc; }
+    100% { background: var(--card); }
+  }
+  footer {
+    margin-top: 40px;
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 13px;
+  }
+  footer p { margin: 0 0 6px; }
+  @media (max-width: 720px) {
+    .wrap { width: min(100% - 28px, 880px); padding-top: 22px; }
+    .top-grid { grid-template-columns: 1fr; }
+    .top-card { min-height: 0; }
+    .topic-head { flex-direction: column; gap: 0; }
+    .report { align-self: flex-start; padding: 6px 2px 2px 4px; white-space: normal; }
+    h1 { letter-spacing: 0; }
+  }
+  @media print {
+    .text-btn, .top-go { display: none; }
+    .items, .detail { display: block !important; }
+    .top-card, .topic-btn, .item-btn { break-inside: avoid; }
+  }
+
+  /* tabs + card thumbs (overrides tree layout) */
+  .map-bar{align-items:flex-end}
+  .tab-list{
+    position:sticky;top:0;z-index:30;
+    display:flex;flex-wrap:nowrap;gap:0;
+    overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:thin;
+    background:var(--bg);
+    border-bottom:1px solid var(--line);
+    margin:0 0 18px;padding:8px 0 0;
+  }
+  .tab{
+    flex:none;font:inherit;font-size:15px;font-weight:650;
+    padding:10px 16px;border:0;border-bottom:2px solid transparent;
+    background:transparent;color:var(--muted);cursor:pointer;white-space:nowrap;
+  }
+  .tab.is-active,.tab[aria-selected="true"]{color:var(--ink);background:var(--card);border-bottom-color:#111;border-radius:10px 10px 0 0}
+  .tab-panel{display:none}
+  .tab-panel.is-active{display:block}
+  .panel-meta{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 16px;margin:0 0 12px;font-size:14px;color:var(--muted)}
+  .panel-meta a{font-weight:650}
+  a.trend-open{font-weight:700}
+  .items{display:flex;flex-direction:column;gap:8px;margin:0;padding:0;border:0}
+  .item-head{
+    display:flex;align-items:center;gap:10px;
+    padding:12px;background:var(--soft);border:1px solid transparent;border-radius:12px;cursor:pointer;
+  }
+  .item-head:hover{border-color:#ccc}
+  .item.is-open .item-head{background:var(--card);border-color:#111;border-bottom-left-radius:0;border-bottom-right-radius:0}
+  .item-btn{
+    flex:1;min-width:0;width:auto;
+    display:flex;flex-direction:column;align-items:flex-start;gap:4px;
+    padding:0;background:transparent;border:0;cursor:pointer;text-align:left;
+  }
+  .item-top{width:auto}
+  .item-thumb{flex:none;display:block;width:140px;height:86px;border-radius:8px;overflow:hidden;line-height:0}
+  .item-thumb img{display:block;width:140px;height:86px;object-fit:cover;background:#f3efe6;border-radius:8px}
+  .item-head>.chev{margin-left:0;margin-top:0;flex:none}
+  .item.is-open .item-head>.chev{transform:rotate(-135deg) translateY(-2px)}
+  .item{scroll-margin-top:72px}
+  .item.flash .item-head{animation:flash 1.3s ease}
+  .detail{display:none}
+  .item.is-open .detail{display:block}
+  @media (max-width:600px){
+    .item-thumb,.item-thumb img{width:84px;height:54px}
+    .tab{padding:10px 12px;font-size:14px}
+  }
+  @media print{
+    .tab-list{position:static}
+    .tab-panel,.detail,.items{display:block !important}
+  }
+
+
+  .day-poster{margin:0 0 28px;max-width:100%}
+  .day-poster a{display:block;line-height:0}
+  .day-poster img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:12px;border:1px solid var(--line);background:#f4f1ea;box-shadow:var(--shadow)}
+
+
+  /* ALL tab: restore topic tree, scoped so other tabs stay unchanged */
+  #panel-all .tree{
+    margin-top:6px;padding:4px 0 4px 22px;
+    border-left:2px solid var(--line);
+  }
+  #panel-all .topic{position:relative;margin:0 0 12px}
+  #panel-all .topic::before{
+    content:"";position:absolute;left:-22px;top:28px;width:22px;height:2px;
+    background:var(--branch,#111);
+  }
+  #panel-all .topic-head{display:flex;align-items:stretch;gap:8px}
+  #panel-all .topic-links{
+    align-self:center;flex:none;display:flex;flex-direction:column;gap:4px;
+    padding:8px 2px;font-size:13px;white-space:nowrap;
+  }
+  #panel-all .topic-links a{font-weight:650}
+  #panel-all .items{
+    display:none;
+    margin:8px 0 6px 8px;padding-left:14px;
+    border-left:2px solid color-mix(in srgb, var(--branch,#111) 45%, #fffaf4);
+    flex-direction:column;gap:8px;
+  }
+  #panel-all .topic.is-open > .items{display:flex}
+  @media (max-width:720px){
+    #panel-all .topic-head{flex-direction:column;gap:0}
+    #panel-all .topic-links{align-self:flex-start;padding:6px 2px 2px 4px;white-space:normal}
+  }
+  @media print{
+    #panel-all .items,#panel-all .detail{display:block !important}
+  }
+
+
+  /* tabs + card thumbs (overrides tree layout) */
+  .map-bar{align-items:flex-end}
+  .tab-list{
+    position:sticky;top:0;z-index:30;
+    display:flex;flex-wrap:nowrap;gap:0;
+    overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:thin;
+    background:var(--bg);
+    border-bottom:1px solid var(--line);
+    margin:0 0 18px;padding:8px 0 0;
+  }
+  .tab{
+    flex:none;font:inherit;font-size:15px;font-weight:650;
+    padding:10px 16px;border:0;border-bottom:2px solid transparent;
+    background:transparent;color:var(--muted);cursor:pointer;white-space:nowrap;
+  }
+  .tab.is-active,.tab[aria-selected="true"]{color:var(--ink);background:var(--card);border-bottom-color:#111;border-radius:10px 10px 0 0}
+  .tab-panel{display:none}
+  .tab-panel.is-active{display:block}
+  .panel-meta{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 16px;margin:0 0 12px;font-size:14px;color:var(--muted)}
+  .panel-meta a{font-weight:650}
+  a.trend-open{font-weight:700}
+  .items{display:flex;flex-direction:column;gap:8px;margin:0;padding:0;border:0}
+  .item-head{
+    display:flex;align-items:center;gap:10px;
+    padding:12px;background:var(--soft);border:1px solid transparent;border-radius:12px;cursor:pointer;
+  }
+  .item-head:hover{border-color:#ccc}
+  .item.is-open .item-head{background:var(--card);border-color:#111;border-bottom-left-radius:0;border-bottom-right-radius:0}
+  .item-btn{
+    flex:1;min-width:0;width:auto;
+    display:flex;flex-direction:column;align-items:flex-start;gap:4px;
+    padding:0;background:transparent;border:0;cursor:pointer;text-align:left;
+  }
+  .item-top{width:auto}
+  .item-thumb{flex:none;display:block;width:140px;height:86px;border-radius:8px;overflow:hidden;line-height:0}
+  .item-thumb img{display:block;width:140px;height:86px;object-fit:cover;background:#f3efe6;border-radius:8px}
+  .item-head>.chev{margin-left:0;margin-top:0;flex:none}
+  .item.is-open .item-head>.chev{transform:rotate(-135deg) translateY(-2px)}
+  .item{scroll-margin-top:72px}
+  .item.flash .item-head{animation:flash 1.3s ease}
+  .detail{display:none}
+  .item.is-open .detail{display:block}
+  @media (max-width:600px){
+    .item-thumb,.item-thumb img{width:84px;height:54px}
+    .tab{padding:10px 12px;font-size:14px}
+  }
+  @media print{
+    .tab-list{position:static}
+    .tab-panel,.detail,.items{display:block !important}
+  }
+/* ALL tab: restore topic tree, scoped so other tabs stay unchanged */
+  #panel-all .tree{
+    margin-top:6px;padding:4px 0 4px 22px;
+    border-left:2px solid var(--line);
+  }
+  #panel-all .topic{position:relative;margin:0 0 12px}
+  #panel-all .topic::before{
+    content:"";position:absolute;left:-22px;top:28px;width:22px;height:2px;
+    background:var(--branch,#111);
+  }
+  #panel-all .topic-head{display:flex;align-items:stretch;gap:8px}
+  #panel-all .topic-links{
+    align-self:center;flex:none;display:flex;flex-direction:column;gap:4px;
+    padding:8px 2px;font-size:13px;white-space:nowrap;
+  }
+  #panel-all .topic-links a{font-weight:650}
+  #panel-all .items{
+    display:none;
+    margin:8px 0 6px 8px;padding-left:14px;
+    border-left:2px solid color-mix(in srgb, var(--branch,#111) 45%, #fffaf4);
+    flex-direction:column;gap:8px;
+  }
+  #panel-all .topic.is-open > .items{display:flex}
+  @media (max-width:720px){
+    #panel-all .topic-head{flex-direction:column;gap:0}
+    #panel-all .topic-links{align-self:flex-start;padding:6px 2px 2px 4px;white-space:normal}
+  }
+  @media print{
+    #panel-all .items,#panel-all .detail{display:block !important}
+  }
+
+
+.wc-dog{display:inline-block;width:1.15em;height:1.15em;vertical-align:-0.18em;margin-right:.3em}
+</style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header class="mast">
+      <p class="home-link" style="margin:0 0 14px;font-size:14px"><a href="./index.html">← 全部日期</a></p>
+      <p class="date">2026-11-13</p>
+      <h1><img class="wc-dog" src="assets/wangcai-dog.png" alt="" aria-hidden="true">旺财资讯 <span class="nowrap">2026-11-13</span></h1>
+      <p class="summary">7 条资讯线汇总今天各 bot 和 AI 行业简报的输出。默认打开 ALL 可看全部资讯线的树形列表；点上方标签切换各条线，要点默认展开；点箭头可收起。</p>
+    </header>
+
+    <p class="day-poster"><a href="assets/poster/2026-11-13.png" target="_blank" rel="noopener noreferrer"><img src="assets/poster/2026-11-13.png" alt="旺财资讯 2026-11-13" width="1920" height="1080" loading="lazy" decoding="async"></a></p>
+
+
+    <h2 class="section-label">今日最值得关注</h2>
+    <div class="top-grid">
+      <button type="button" class="top-card" data-topic="0" data-item="0">
+        <span class="rank">01 · AI 行业简报</span>
+        <span class="top-t">黄仁勋辞去英伟达 CEO</span>
+        <span class="top-s">CFO Colette Kress 任临时 CEO，周四早盘股价一度跌近 12%</span>
+        <span class="top-go">查看详情</span>
+      </button>
+      <button type="button" class="top-card" data-topic="2" data-item="0">
+        <span class="rank">02 · PC 行业动向</span>
+        <span class="top-t">技嘉发布约 1 升的 AI TOP AERO 主机</span>
+        <span class="top-s">用 NVIDIA RTX Spark N1X，预装 Windows 11，主打本地 AI 加游戏</span>
+        <span class="top-go">查看详情</span>
+      </button>
+      <button type="button" class="top-card" data-topic="3" data-item="0">
+        <span class="rank">03 · Apple 洞察</span>
+        <span class="top-t">HomeView 和新款 Apple TV 4K 开始送达</span>
+        <span class="top-s">首批 Home Collection 配件同日开放预购，Siri 控制门锁要等下个月更新</span>
+        <span class="top-go">查看详情</span>
+      </button>
+    </div>
+
+        <div class="map-bar">
+      <h2 class="section-label">资讯 · 7 条线 · 40 条要点</h2>
+    </div>
+
+    <div class="tabs" id="tabs">
+      <div class="tab-list" role="tablist" aria-label="资讯线">
+        <button type="button" class="tab is-active" role="tab" id="tab-all" aria-selected="true" aria-controls="panel-all" tabindex="0">ALL</button>
+        <button type="button" class="tab" role="tab" id="tab-0" data-topic="0" aria-selected="false" aria-controls="topic-0" tabindex="-1">AI 行业简报</button>
+        <button type="button" class="tab" role="tab" id="tab-1" data-topic="1" aria-selected="false" aria-controls="topic-1" tabindex="-1">科技高管观点</button>
+        <button type="button" class="tab" role="tab" id="tab-2" data-topic="2" aria-selected="false" aria-controls="topic-2" tabindex="-1">PC 行业动向</button>
+        <button type="button" class="tab" role="tab" id="tab-3" data-topic="3" aria-selected="false" aria-controls="topic-3" tabindex="-1">Apple 洞察</button>
+        <button type="button" class="tab" role="tab" id="tab-4" data-topic="4" aria-selected="false" aria-controls="topic-4" tabindex="-1">X 热门新点子</button>
+        <button type="button" class="tab" role="tab" id="tab-5" data-topic="5" aria-selected="false" aria-controls="topic-5" tabindex="-1">AI 大拿</button>
+        <button type="button" class="tab" role="tab" id="tab-6" data-topic="6" aria-selected="false" aria-controls="topic-6" tabindex="-1">GitHub 涨星</button>
+      </div>
+      <div class="tab-panels">
+      <section class="tab-panel is-active" role="tabpanel" id="panel-all" aria-labelledby="tab-all">
+        <div class="tree" id="tree">
+        <section class="topic is-open" id="all-topic-0" style="--branch:#0f766e">
+          <div class="topic-head">
+            <button type="button" class="topic-btn" aria-expanded="true" aria-controls="all-items-0">
+              <span class="dot" aria-hidden="true"></span>
+              <span class="topic-copy">
+                <span class="topic-name">AI 行业简报</span>
+                <span class="topic-meta">AI 行业简报 · 6 条</span>
+              </span>
+              <span class="chev" aria-hidden="true"></span>
+            </button>
+            <div class="topic-links"><a class="report" href="reports/2026-11-13/brief.html">查看日报</a></div>
+          </div>
+          <div class="items" id="all-items-0">
+          <article class="item is-open" id="all-t0-i0">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t0-i0">
+                <span class="item-top">
+                  <span class="idx">01</span>
+                  <span class="item-title">黄仁勋辞去英伟达 CEO</span>
+                </span>
+                <span class="item-sum">CFO Colette Kress 兼任临时 CEO，周四早盘股价一度跌近 12%</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t0-i0"><p>英伟达董事会周三接受了他的辞呈，前 Synopsys CEO Harvey Jones 成为公司首任董事长，董事会会在内外部找正式接班人。周四早盘股价一度跌近 12%，自上周五以来市值蒸发超过 8550 亿美元。英伟达 11 月 17 日发财报，这是新管理层第一次面对市场。</p><ul class="links"><li><a href="https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition" rel="noopener noreferrer" target="_blank">英伟达公告</a></li><li><a href="https://techcrunch.com/2026/11/12/nvidias-jensen-huang-resigns-chipmaker-names-cfo-colette-kress-as-interim-ceo/" rel="noopener noreferrer" target="_blank">TechCrunch 报道</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t0-i1">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t0-i1">
+                <span class="item-top">
+                  <span class="idx">02</span>
+                  <span class="item-title">谷歌发布 Gemini 4 Hydrogen，替换 3.8 Flash</span>
+                </span>
+                <span class="item-sum">默认档比 3.8 Flash 快 2.5 倍，当天上线 Gemini App、AI Studio 和搜索</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t0-i1"><p>新模型有四档思考强度，Terminal-Bench 4.1 从 18.2% 提到 57%，编造内容减少五倍以上，API 价格维持每百万 token 输入 1.5 美元、输出 7.5 美元。谷歌称这是 AI 搜索迄今最大的一次升级。</p><ul class="links"><li><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/" rel="noopener noreferrer" target="_blank">谷歌官方博客</a></li><li><a href="https://arstechnica.com/google/2026/11/google-rolls-out-gemini-4-hydrogen-finally-replacing-3-8-flash/" rel="noopener noreferrer" target="_blank">Ars Technica 报道</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t0-i2">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t0-i2">
+                <span class="item-top">
+                  <span class="idx">03</span>
+                  <span class="item-title">DeepMind 发布 AlphaGenome 2</span>
+                </span>
+                <span class="item-sum">用超过 1 亿个单细胞数据训练，找到影响基因表达的变异数量接近上一代的两倍</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t0-i2"><p>模型能预测 DNA 变异在特定组织和细胞类型里的作用。目前通过 API 开放给非商业研究，没有获批用于临床诊断。</p><ul class="links"><li><a href="https://deepmind.google/blog/alphagenome-2-deciphering-how-cells-read-dna-to-better-understand-disease/" rel="noopener noreferrer" target="_blank">DeepMind 博客</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t0-i3">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t0-i3">
+                <span class="item-top">
+                  <span class="idx">04</span>
+                  <span class="item-title">字节跳动准备推出类似 Meta Muse 的 AI 助手</span>
+                </span>
+                <span class="item-sum">张一鸣称要到 2029 或 2030 年才能在前沿模型上追上 OpenAI 和 Anthropic</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t0-i3"><p>彭博社报道，他在 AI 团队全员会上说，主要差距是预训练数据量小了几个数量级，也不赞成靠蒸馏追赶。新助手预计几周内发布。</p><ul class="links"><li><a href="https://thenextweb.com/news/bytedance-muse-like-ai-agent-zhang-yiming" rel="noopener noreferrer" target="_blank">The Next Web 转述彭博报道</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t0-i4">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t0-i4">
+                <span class="item-top">
+                  <span class="idx">05</span>
+                  <span class="item-title">Nebius 计划 2027 年资本开支 400 亿到 450 亿美元</span>
+                </span>
+                <span class="item-sum">给微软建的新泽西数据中心已延期到 2027 年二季度，当天股价跌 17%</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t0-i4"><p>这家 AI 云公司打算用客户预付款和以合同做抵押的贷款覆盖最多 85% 的投入，2026 年收入预期下调 2 亿美元。新兴算力云靠预付款扩张的模式开始受到交付延期的考验。</p><ul class="links"><li><a href="https://techcrunch.com/2026/11/12/nebius-tests-the-neocloud-playbook-with-40-billion-in-planned-spending/" rel="noopener noreferrer" target="_blank">TechCrunch 报道</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t0-i5">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t0-i5">
+                <span class="item-top">
+                  <span class="idx">06</span>
+                  <span class="item-title">德国 Agile Robots 融资 5 亿美元，估值 85 亿美元</span>
+                </span>
+                <span class="item-sum">F 轮由软银领投，英伟达参投</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t0-i5"><p>资本在继续加码具身智能和人形机器人。</p><ul class="links"><li><a href="https://www.agile-robots.com/en/news/detail/physical-ai-leader-agile-robots-raises-500-million-series-f-funding/" rel="noopener noreferrer" target="_blank">Agile Robots 公告</a></li><li><a href="https://thenextweb.com/news/agile-robots-softbank-500m-humanoid" rel="noopener noreferrer" target="_blank">The Next Web 报道</a></li></ul></div>
+          </article>
+          </div>
+        </section>
+        <section class="topic is-open" id="all-topic-1" style="--branch:#b45309">
+          <div class="topic-head">
+            <button type="button" class="topic-btn" aria-expanded="true" aria-controls="all-items-1">
+              <span class="dot" aria-hidden="true"></span>
+              <span class="topic-copy">
+                <span class="topic-name">科技高管观点</span>
+                <span class="topic-meta">科技公司高管最新观点监测 · 6 条</span>
+              </span>
+              <span class="chev" aria-hidden="true"></span>
+            </button>
+            <div class="topic-links"><a class="report" href="reports/2026-11-13/exec.html">查看日报</a></div>
+          </div>
+          <div class="items" id="all-items-1">
+          <article class="item is-open" id="all-t1-i0">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t1-i0">
+                <span class="item-top">
+                  <span class="idx">01</span>
+                  <span class="item-title">黄仁勋辞去英伟达 CEO、总裁和董事职务</span>
+                </span>
+                <span class="item-sum">CFO Colette Kress 任临时 CEO，Harvey Jones 出任首位董事会主席；黄仁勋本人在 X 上仍没有发言</span>
+                <span class="badges"><span class="badge">3 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t1-i0"><p>董事会从内部和外部同时找继任者，11 月 18 日（太平洋时间早 9 点）开全员会。Kress 在致员工信里说，董事会和 Estaff 都知道这是一段极其艰难的时期，11 月 18 日会开公司大会。Jones 在声明中称，公司运营、客户承诺和产品路线图预计不会中断。</p><ul class="links"><li><a href="https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition" rel="noopener noreferrer" target="_blank">英伟达公告</a></li><li><a href="https://www.businessinsider.com/nvidia-leaders-memos-to-staff-after-ceo-jensen-huang-resigns-2026-11" rel="noopener noreferrer" target="_blank">Business Insider 员工信全文</a></li><li><a href="https://www.cnbc.com/2026/11/12/nvidia-kress-jones-employee-emails.html" rel="noopener noreferrer" target="_blank">CNBC 报道</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t1-i1">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t1-i1">
+                <span class="item-top">
+                  <span class="idx">02</span>
+                  <span class="item-title">硅谷对黄仁勋离任的反应分化</span>
+                </span>
+                <span class="item-sum">Perplexity CEO 发帖感谢他 33 年的领导；SemiAnalysis 点名两位“勉强可行”的接班人</span>
+                <span class="badges"><span class="badge">3 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t1-i1"><p>Aravind Srinivas 的感谢帖约 1.8 万赞。SemiAnalysis 的 Dylan Patel 点名博通的 Charlie Kawwas 和苹果的 Johny Srouji。Abacus.AI 的 Bindu Reddy 转述“他因推动开源权重模型被拉下马”的传言，这一说法没有证据。</p><ul class="links"><li><a href="https://x.com/AravSrinivas/status/2120891190333607989" rel="noopener noreferrer" target="_blank">Aravind Srinivas 原帖</a></li><li><a href="https://x.com/dylan522p/status/2120942688702996945" rel="noopener noreferrer" target="_blank">Dylan Patel 原帖</a></li><li><a href="https://x.com/bindureddy/status/2121010255886946309" rel="noopener noreferrer" target="_blank">Bindu Reddy 原帖</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t1-i2">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t1-i2">
+                <span class="item-top">
+                  <span class="idx">03</span>
+                  <span class="item-title">谷歌发布 Gemini 4 Hydrogen</span>
+                </span>
+                <span class="item-sum">皮查伊称比 3.8 Flash 完成任务快 2.5 倍，有 4 档思考深度</span>
+                <span class="badges"><span class="badge">3 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t1-i2"><p>面向全部 AI Studio 档位、Gemini App 和搜索。Box CEO Aaron Levie 说在 Box 内部评测里准确率比 3.8 Flash 高 5 个百分点，评测是 Box 自己的，没有公开复现。哈萨比斯同步为 Gemini 智能眼镜站台。</p><ul class="links"><li><a href="https://x.com/sundarpichai/status/2120940236805169182" rel="noopener noreferrer" target="_blank">皮查伊原帖</a></li><li><a href="https://x.com/levie/status/2120947988143198302" rel="noopener noreferrer" target="_blank">Aaron Levie 原帖</a></li><li><a href="https://x.com/demishassabis/status/2120942605466800374" rel="noopener noreferrer" target="_blank">Hassabis 原帖</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t1-i3">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t1-i3">
+                <span class="item-top">
+                  <span class="idx">04</span>
+                  <span class="item-title">OpenAI 发布 Daybreak 网络安全产品</span>
+                </span>
+                <span class="item-sum">Greg Brockman 公布 Daybreak Defense Factory 和 Daybreak Red Team；Codex 额度重置已启动</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t1-i3"><p>一个管自动修补，一个管自动红队。Codex 负责人 Thibault Sottiaux 确认用量额度的 banked reset 已启动，约 4,500 赞。</p><ul class="links"><li><a href="https://x.com/gdb/status/2121004237413142656" rel="noopener noreferrer" target="_blank">Greg Brockman 原帖</a></li><li><a href="https://x.com/thsottiaux/status/2120999993079451919" rel="noopener noreferrer" target="_blank">Thibault Sottiaux 原帖</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t1-i4">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t1-i4">
+                <span class="item-top">
+                  <span class="idx">05</span>
+                  <span class="item-title">Microsoft 365 当天大面积故障</span>
+                </span>
+                <span class="item-sum">Outlook、Teams、SharePoint 和 Copilot 受影响；本时段没有找到微软高管本人就此发言</span>
+                <span class="badges"><span class="badge">报道转述</span><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t1-i4"><p>X 新闻摘要称，故障起因是部分服务器意外不可用、拖垮其余基础设施，Downdetector 投诉峰值接近 13 万，微软暂停部署、重新分流并重启服务器后逐步恢复（事件编号 EX1550543、MO1550821）。同期 CISA 确认 Outlook 零日漏洞 CVE-2026-124194 被实际利用，微软已在 11 月 10 日补丁日修复。</p><ul class="links"><li><a href="https://x.com/i/trending/2120942648349340125" rel="noopener noreferrer" target="_blank">X 新闻摘要</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t1-i5">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t1-i5">
+                <span class="item-top">
+                  <span class="idx">06</span>
+                  <span class="item-title">Meta Muse 上线代打电话；马斯克称 Robotaxi 一周可跑 168 小时</span>
+                </span>
+                <span class="item-sum">Muse 先向美国付费用户开放；马斯克该帖约 3.8 万赞</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t1-i5"><p>Alexandr Wang 说保险、有线电视、车管所和订餐都可以交给 Muse。马斯克发帖「Robotaxi works 168 hours a week」。X 新闻摘要称，截至 11 月 10 日 Tesla Robotaxi LLC 在得州车管局登记 1,302 辆，其中 573 辆是 Cybercab。</p><ul class="links"><li><a href="https://x.com/alexandr_wang/status/2120930586827391350" rel="noopener noreferrer" target="_blank">Alexandr Wang 原帖</a></li><li><a href="https://x.com/elonmusk/status/2120746428720988408" rel="noopener noreferrer" target="_blank">马斯克原帖</a></li></ul></div>
+          </article>
+          </div>
+        </section>
+        <section class="topic is-open" id="all-topic-2" style="--branch:#1d4ed8">
+          <div class="topic-head">
+            <button type="button" class="topic-btn" aria-expanded="true" aria-controls="all-items-2">
+              <span class="dot" aria-hidden="true"></span>
+              <span class="topic-copy">
+                <span class="topic-name">PC 行业动向</span>
+                <span class="topic-meta">PC行业动向每日洞察 · 6 条</span>
+              </span>
+              <span class="chev" aria-hidden="true"></span>
+            </button>
+            <div class="topic-links"><a class="report" href="reports/2026-11-13/pc.html">查看日报</a></div>
+          </div>
+          <div class="items" id="all-items-2">
+          <article class="item is-open" id="all-t2-i0">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t2-i0">
+                <span class="item-top">
+                  <span class="idx">01</span>
+                  <span class="item-title">技嘉发布约 1 升的 AI TOP AERO 主机</span>
+                </span>
+                <span class="item-sum">用 NVIDIA RTX Spark N1X，预装 Windows 11，支持 DLSS 5，主打本地 AI 加游戏</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t2-i0"><p>这台约 1 升的桌面主机用 20 核 Grace CPU 加 Blackwell RTX GPU，最高 128GB LPDDR5X、4TB PCIe 5.0 SSD，还带 10GbE 和 Wi-Fi 7。和同尺寸、跑 DGX OS 的 AI TOP ATOM 不同，它装的是 Windows 11。各地区配置和价格未公布。</p><ul class="links"><li><a href="https://videocardz.com/newz/gigabyte-launches-1-liter-nvidia-rtx-spark-desktop-with-dlss-5" rel="noopener noreferrer" target="_blank">VideoCardz 报道</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t2-i1">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t2-i1">
+                <span class="item-top">
+                  <span class="idx">02</span>
+                  <span class="item-title">GPD Win Mini Ultra 实机照片曝光</span>
+                </span>
+                <span class="item-sum">换成 Intel Arc B390，屏幕变大并支持 VRR，机身更高更厚</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t2-i1"><p>评测机已大批发给媒体。此前泄露的规格是 8 英寸屏、845 克。官方规格和价格还没公布。</p><ul class="links"><li><a href="https://www.notebookcheck.net/New-GPD-Win-Mini-Ultra-previewed-before-release-with-VRR-display-and-Intel-Arc-B390-graphics.1448794.0.html" rel="noopener noreferrer" target="_blank">Notebookcheck 报道</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t2-i2">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t2-i2">
+                <span class="item-top">
+                  <span class="idx">03</span>
+                  <span class="item-title">Red Hat 发布 RHEL 10.3 和 9.9</span>
+                </span>
+                <span class="item-sum">10.3 用 Linux 6.12 内核和 GCC 16，新增 sealed images 和受支持的 MCP 诊断服务器</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t2-i2"><p>Go 还加入了后量子加密。偏服务器和工作站。过去 24 小时 Windows、macOS 没有新版本：macOS 最新仍是 11 月 9 日的 27.2.1，Windows 仍是 11 月 10 日补丁日的 KB5132061。</p><ul class="links"><li><a href="https://www.redhat.com/en/blog/introducing-red-hat-enterprise-linux-103-and-99" rel="noopener noreferrer" target="_blank">Red Hat 博客</a></li><li><a href="https://linuxiac.com/rhel-10-3-released-with-linux-kernel-6-12-gcc-16-and-sealed-images/" rel="noopener noreferrer" target="_blank">Linuxiac 报道</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t2-i3">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t2-i3">
+                <span class="item-top">
+                  <span class="idx">04</span>
+                  <span class="item-title">AMD 推送可选驱动 Adrenalin 26.11.1</span>
+                </span>
+                <span class="item-sum">修复 RX 7000 及更新显卡空闲时大量写系统盘的问题</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t2-i3"><p>也修了移动、缩放窗口时的过量写入。用过第三方工具规避的用户，装新驱动前要先把设置恢复默认。</p><ul class="links"><li><a href="https://videocardz.com/newz/amd-releases-optional-driver-to-fix-excessive-system-drive-writes" rel="noopener noreferrer" target="_blank">VideoCardz 报道</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t2-i4">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t2-i4">
+                <span class="item-top">
+                  <span class="idx">05</span>
+                  <span class="item-title">黄仁勋辞去 NVIDIA 总裁、CEO 和董事职务</span>
+                </span>
+                <span class="item-sum">即时生效；公司称产品路线图不受影响，财报照常在 11 月 17 日发布</span>
+                <span class="badges"><span class="badge">3 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t2-i4"><p>CFO Colette Kress 兼任临时 CEO，前 Synopsys CEO Harvey C. Jones 出任公司历史上第一位董事长。股价盘中最多跌约 14%，后收窄到跌 5.5% 左右，AMD 和 Broadcom 各涨约 6%（Reuters 数据）。</p><ul class="links"><li><a href="https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition" rel="noopener noreferrer" target="_blank">英伟达公告</a></li><li><a href="https://www.reuters.com/business/retail-consumer/nvidia-ceo-jensen-huang-step-down-big-blow-ai-boom-2026-11-12/" rel="noopener noreferrer" target="_blank">Reuters 报道</a></li><li><a href="https://techcrunch.com/2026/11/12/nvidias-jensen-huang-resigns-chipmaker-names-cfo-colette-kress-as-interim-ceo/" rel="noopener noreferrer" target="_blank">TechCrunch 报道</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t2-i5">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t2-i5">
+                <span class="item-top">
+                  <span class="idx">06</span>
+                  <span class="item-title">渠道称 AMD 在中国的游戏显卡配额减少 20% 到 50%</span>
+                </span>
+                <span class="item-sum">预计紧张到 2027 年 1 月；没有给出基数和具体型号</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t2-i5"><p>据板卡渠道消息（Board Channels，经 VideoCardz 转述），10 月以来的削减只针对中国市场。另有爆料称 AMD 下一代高端 APU 叫 Siren Halo，会在 LPDDR 之外配独立的 GDDR7 显存，属传闻，尚未确认。</p><ul class="links"><li><a href="https://videocardz.com/newz/amd-gaming-gpu-supply-reportedly-falls-20-to-50-in-china" rel="noopener noreferrer" target="_blank">VideoCardz 报道</a></li><li><a href="https://www.notebookcheck.net/AMD-Siren-Halo-APU-rumored-to-feature-dedicated-GDDR7-VRAM-alongside-LPDDR-memory.1448811.0.html" rel="noopener noreferrer" target="_blank">Notebookcheck 传闻报道</a></li></ul></div>
+          </article>
+          </div>
+        </section>
+        <section class="topic is-open" id="all-topic-3" style="--branch:#6d28d9">
+          <div class="topic-head">
+            <button type="button" class="topic-btn" aria-expanded="true" aria-controls="all-items-3">
+              <span class="dot" aria-hidden="true"></span>
+              <span class="topic-copy">
+                <span class="topic-name">Apple 洞察</span>
+                <span class="topic-meta">Apple新闻洞察 · 6 条</span>
+              </span>
+              <span class="chev" aria-hidden="true"></span>
+            </button>
+            <div class="topic-links"><a class="report" href="reports/2026-11-13/apple.html">查看日报</a></div>
+          </div>
+          <div class="items" id="all-items-3">
+          <article class="item is-open" id="all-t3-i0">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t3-i0">
+                <span class="item-top">
+                  <span class="idx">01</span>
+                  <span class="item-title">HomeView 和新款 Apple TV 4K 今天开始送达</span>
+                </span>
+                <span class="item-sum">首批 Apple Home Collection 配件同日开放预购；Siri 目前控制不了门锁等设备</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t3-i0"><p>媒体评测普遍认可屏幕和音质，对 Siri AI、App 支持和依赖 iPhone 这几点意见分歧。Apple 承认 Siri 目前控制不了门锁等智能家居设备，修复要等下个月的软件更新。想买 HomeView 主要用来管家居设备的，可以等下个月更新后再看。</p><ul class="links"><li><a href="https://www.macrumors.com/2026/11/12/apple-homeview-software-27-2-24v526/" rel="noopener noreferrer" target="_blank">MacRumors 报道</a></li><li><a href="https://www.1stheadlines.com/from/801" rel="noopener noreferrer" target="_blank">9to5Mac（经 1stheadlines）</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t3-i1">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t3-i1">
+                <span class="item-top">
+                  <span class="idx">02</span>
+                  <span class="item-title">Apple 发布 2026 年假日广告《The Dreamer》</span>
+                </span>
+                <span class="item-sum">主角是 MacBook Neo；前几年的假日广告都围绕 iPhone、Apple Watch 和 AirPods</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t3-i1"><p>假日季把营销重心放在入门 Mac 上，说明 Apple 想靠 Neo 拉新用户进 Mac 生态。</p><ul class="links"><li><a href="https://www.1stheadlines.com/from/801" rel="noopener noreferrer" target="_blank">9to5Mac（经 1stheadlines）</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t3-i2">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t3-i2">
+                <span class="item-top">
+                  <span class="idx">03</span>
+                  <span class="item-title">HomeView 到货前已推送软件 27.2（24V526）</span>
+                </span>
+                <span class="item-sum">修了 9 个安全漏洞；设备出厂系统是半年前的 26.5，激活时必须先更新</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t3-i2"><p>其中包括远程攻击者可能混进 iMessage 群聊收消息、蓝牙范围内绕过配对码次数限制等问题。拿到 HomeView 后应按提示装完更新再用，不要跳过。</p><ul class="links"><li><a href="https://support.apple.com/en-us/149851" rel="noopener noreferrer" target="_blank">Apple 安全公告</a></li><li><a href="https://machash.com/9to5mac/420166/apple-homeview-tomorrow-first-security-update-already/" rel="noopener noreferrer" target="_blank">9to5Mac 报道</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t3-i3">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t3-i3">
+                <span class="item-top">
+                  <span class="idx">04</span>
+                  <span class="item-title">AAPL 收于 354.84 美元，跌 0.22%</span>
+                </span>
+                <span class="item-sum">盘中最高 359.37 美元，再创 52 周新高，市值约 5.16 万亿美元</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t3-i3"><p>当天是除息日。扣掉 0.27 美元派息，基本是在高位横盘，周三分析师上调评级后的涨幅守住了。</p><ul class="links"><li><a href="https://bullzeno.com/stock/AAPL/historical" rel="noopener noreferrer" target="_blank">Bullzeno 行情</a></li><li><a href="https://global.morningstar.com/en-ca/investments/stocks/0P000000GY/quote" rel="noopener noreferrer" target="_blank">Morningstar 行情</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t3-i4">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t3-i4">
+                <span class="item-top">
+                  <span class="idx">05</span>
+                  <span class="item-title">富士康第三季度营收同比增长 46%，彭博预计 iPhone Duo 头 12 个月卖 1600 万台</span>
+                </span>
+                <span class="item-sum">消费电子仍占约 29%，Apple 是这块最大客户</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t3-i4"><p>此前报道的 Apple 内部目标是先定 970 万台、后上调到 1400 万台。如果 1600 万台成真，Duo 会是本财年 iPhone 增长的主力。9to5Mac 读者投票里约 30% 的早期买家退了货，样本小，但退货率值得盯着。</p><ul class="links"><li><a href="https://ground.news/article/foxconn-revenue-climbs-46-bloomberg-forecasts-16m-iphone-duo-sales" rel="noopener noreferrer" target="_blank">9to5Mac（Ground News 转载）</a></li><li><a href="https://www.hdblog.it/apple/articoli/n676850/foxconn-ricavi-46-iphone-duo-16-milioni/" rel="noopener noreferrer" target="_blank">HDblog 报道</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t3-i5">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t3-i5">
+                <span class="item-top">
+                  <span class="idx">06</span>
+                  <span class="item-title">古尔曼称 iPhone 18 和 iPhone 18e 都用标准版 A20</span>
+                </span>
+                <span class="item-sum">和 iPhone 18 Pro、Duo 上的 A20 Pro 区分开</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t3-i5"><p>如果属实，18e 和 18 用同一颗芯片，加上之前传的同款电池，两者差距会缩小，18e 的性价比更突出。另外，Apple 调整了 iPhone 和 Apple Watch 的以旧换新估价，并把三星折叠屏手机加进可折抵名单。</p><ul class="links"><li><a href="https://www.iclarified.com/news" rel="noopener noreferrer" target="_blank">iClarified 报道</a></li><li><a href="https://www.1stheadlines.com/from/801" rel="noopener noreferrer" target="_blank">9to5Mac（经 1stheadlines）</a></li></ul></div>
+          </article>
+          </div>
+        </section>
+        <section class="topic is-open" id="all-topic-4" style="--branch:#be123c">
+          <div class="topic-head">
+            <button type="button" class="topic-btn" aria-expanded="true" aria-controls="all-items-4">
+              <span class="dot" aria-hidden="true"></span>
+              <span class="topic-copy">
+                <span class="topic-name">X 热门新点子</span>
+                <span class="topic-meta">X TOP new idea · 5 条</span>
+              </span>
+              <span class="chev" aria-hidden="true"></span>
+            </button>
+            <div class="topic-links"><a class="report" href="reports/2026-11-13/x-ideas.html">查看日报</a></div>
+          </div>
+          <div class="items" id="all-items-4">
+          <article class="item is-open" id="all-t4-i0">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t4-i0">
+                <span class="item-top">
+                  <span class="idx">01</span>
+                  <span class="item-title">黄仁勋辞去英伟达 CEO，芯片出口争论随之升温</span>
+                </span>
+                <span class="item-sum">股价早盘一度跌超 12%；有人声称部分中国新模型用了禁运的 Blackwell，属其个人说法</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t4-i0"><p>X 新闻称英伟达 11 月 12 日宣布黄仁勋即刻辞去 CEO、总裁和董事职务，CFO Colette Kress 暂代 CEO。@cnnbrk 快讯浏览 132 万；郭明錤连发分析，认为短期利空出尽。同日 @willdepue 发帖称有证据显示 DeepSeek、月之暗面、MiniMax、蚂蚁的新模型用了禁运的 Blackwell，赞 2 万，属其个人说法。</p><ul class="links"><li><a href="https://x.com/i/trending/2120927735933776135" rel="noopener noreferrer" target="_blank">X 新闻摘要</a></li><li><a href="https://x.com/willdepue/status/2120992457630326841" rel="noopener noreferrer" target="_blank">willdepue 原帖</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t4-i1">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t4-i1">
+                <span class="item-top">
+                  <span class="idx">02</span>
+                  <span class="item-title">Claude Meetings 上线，AI 直接进会议边聊边产出文档</span>
+                </span>
+                <span class="item-sum">先给 Team 和 Enterprise 用户 beta，发布帖赞 4.2 万、浏览 260 万</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t4-i1"><p>Anthropic 让 Claude 进 Google Meet，记笔记、追踪待办，会中实时生成文档和白板。这是当天时间线里互动最高的 AI 帖。X 新闻点名 Otter、Fireflies、Zoom AI 受压。</p><ul class="links"><li><a href="https://x.com/claudeai/status/2120973994191094179" rel="noopener noreferrer" target="_blank">Claude 原帖</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t4-i2">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t4-i2">
+                <span class="item-top">
+                  <span class="idx">03</span>
+                  <span class="item-title">Google 发 Gemini 4 Hydrogen，主打快和便宜</span>
+                </span>
+                <span class="item-sum">官方称比 3.8 Flash 完成任务快 2.5 倍，有 4 档思考深度，已进 Gemini App、搜索、AI Studio 和 Cursor</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t4-i2"><p>X 新闻称输入每百万 token 1.5 美元，100 万 token 上下文。Box CEO @levie 说在其复杂任务评测里准确率比 3.8 Flash 高 5 个百分点。</p><ul class="links"><li><a href="https://x.com/sundarpichai/status/2120940236805169182" rel="noopener noreferrer" target="_blank">皮查伊原帖</a></li><li><a href="https://x.com/levie/status/2120947988143198302" rel="noopener noreferrer" target="_blank">Aaron Levie 原帖</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t4-i3">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t4-i3">
+                <span class="item-top">
+                  <span class="idx">04</span>
+                  <span class="item-title">Agent 开始拿到手机和云端模拟器</span>
+                </span>
+                <span class="item-sum">Expo 发布云端 iOS/Android 模拟器；AWS 放出由 Agent 写成的本地模拟器，覆盖 200 多个服务</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t4-i3"><p>Agent 可以在云端装包、点界面、录屏、抓日志，不用本地 Mac。@aresotik 演示了 Claude Code 在云端 Android 里玩 2048。</p><ul class="links"><li><a href="https://x.com/i/trending/2120949252197093873" rel="noopener noreferrer" target="_blank">X 新闻摘要</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t4-i4">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t4-i4">
+                <span class="item-top">
+                  <span class="idx">05</span>
+                  <span class="item-title">小团队靠 Agent 做到大收入，资金在向 Agent 基础设施流</span>
+                </span>
+                <span class="item-sum">X 新闻称 Retell AI 只融了 460 万美元，17 个月年化收入到 1 亿美元</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t4-i4"><p>Retell AI 月处理超 1 亿通电话。Plurai 拿 1300 万美元种子轮做 Agent 压力测试，DECA Labs 融 1200 万美元做先验证需求再开发。另一边 OpenAI 以 1.25 万亿估值融 150 亿美元，低于原定 300 亿目标。</p><ul class="links"><li><a href="https://x.com/i/trending/2120930853391851563" rel="noopener noreferrer" target="_blank">X 新闻摘要</a></li></ul></div>
+          </article>
+          </div>
+        </section>
+        <section class="topic is-open" id="all-topic-5" style="--branch:#0e7490">
+          <div class="topic-head">
+            <button type="button" class="topic-btn" aria-expanded="true" aria-controls="all-items-5">
+              <span class="dot" aria-hidden="true"></span>
+              <span class="topic-copy">
+                <span class="topic-name">AI 大拿</span>
+                <span class="topic-meta">AI大拿最新言论追踪 · 6 条</span>
+              </span>
+              <span class="chev" aria-hidden="true"></span>
+            </button>
+            <div class="topic-links"><a class="report" href="reports/2026-11-13/ai-leaders.html">查看日报</a></div>
+          </div>
+          <div class="items" id="all-items-5">
+          <article class="item is-open" id="all-t5-i0">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t5-i0">
+                <span class="item-top">
+                  <span class="idx">01</span>
+                  <span class="item-title">英伟达董事会宣布黄仁勋辞去总裁、CEO 和董事职务</span>
+                </span>
+                <span class="item-sum">CFO Colette Kress 任临时 CEO，Harvey Jones 任董事长</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t5-i0"><p>宣布时间是 11 月 12 日。这是当天科技大佬言论日报的头条。</p><ul class="links"><li><a href="https://finance.sina.com.cn/stock/usstock/c/2026-11-12/doc-iniynyaw8380801.shtml" rel="noopener noreferrer" target="_blank">新浪财经</a></li><li><a href="https://cn.nytimes.com/technology/20261113/heres-the-latest/" rel="noopener noreferrer" target="_blank">纽约时报中文网滚动报道</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t5-i1">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t5-i1">
+                <span class="item-top">
+                  <span class="idx">02</span>
+                  <span class="item-title">Anthropic 提交 IPO 招股书，代码 ANT</span>
+                </span>
+                <span class="item-sum">计划在纳斯达克上市</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t5-i1"><p>公司官方账号在 X 上公布了招股书相关消息。</p><ul class="links"><li><a href="https://x.com/AnthropicAI/status/2120841731302154708" rel="noopener noreferrer" target="_blank">Anthropic 原帖</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t5-i2">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t5-i2">
+                <span class="item-top">
+                  <span class="idx">03</span>
+                  <span class="item-title">OpenAI 发布 Daybreak 网络安全产品</span>
+                </span>
+                <span class="item-sum">由总裁 Greg Brockman 在 X 上公布</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t5-i2"><p>产品包括 Daybreak Defense Factory 和 Daybreak Red Team，面向企业安全场景。</p><ul class="links"><li><a href="https://x.com/gdb/status/2121004237413142656" rel="noopener noreferrer" target="_blank">Greg Brockman 原帖</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t5-i3">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t5-i3">
+                <span class="item-top">
+                  <span class="idx">04</span>
+                  <span class="item-title">皮查伊发布 Gemini 4 Hydrogen；李飞飞开放 World Labs Atlas</span>
+                </span>
+                <span class="item-sum">谷歌把新模型推到面向大众的产品里；Atlas 同步开放</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t5-i3"><p>皮查伊介绍 Hydrogen 主打速度和日常任务。李飞飞宣布 World Labs 的 Atlas 开放。</p><ul class="links"><li><a href="https://x.com/sundarpichai/status/2120940236805169182" rel="noopener noreferrer" target="_blank">皮查伊原帖</a></li><li><a href="https://x.com/drfeifei/status/2120942509786558671" rel="noopener noreferrer" target="_blank">李飞飞原帖</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t5-i4">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t5-i4">
+                <span class="item-top">
+                  <span class="idx">05</span>
+                  <span class="item-title">Meta Muse 可代打电话；马斯克谈 Robotaxi 24 小时运营</span>
+                </span>
+                <span class="item-sum">Muse 先给美国付费用户；马斯克称 Robotaxi 一周可跑 168 小时</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t5-i4"><p>Alexandr Wang 列举了保险、有线电视、车管所和订餐等场景。马斯克用一句话强调 Robotaxi 可以全周运转。</p><ul class="links"><li><a href="https://x.com/alexandr_wang/status/2120930586827391350" rel="noopener noreferrer" target="_blank">Alexandr Wang 原帖</a></li><li><a href="https://x.com/elonmusk/status/2120746428720988408" rel="noopener noreferrer" target="_blank">马斯克原帖</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t5-i5">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t5-i5">
+                <span class="item-top">
+                  <span class="idx">06</span>
+                  <span class="item-title">李彦宏谈「智能组织」，马化腾发表腾讯 28 周年讲话，雷军预告小米 18 Pro 国际版</span>
+                </span>
+                <span class="item-sum">小米 18 Pro 国际版定于 11 月 17 日在巴黎发布；苏姿丰在 CoRL 2026 与李飞飞对谈</span>
+                <span class="badges"><span class="badge">5 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t5-i5"><p>李彦宏在百度世界大会上谈「智能组织」。马化腾在腾讯成立 28 周年时发表讲话。雷军宣布小米 18 Pro 国际版的发布日期。苏姿丰发帖记录了当天与李飞飞关于机器人与物理 AI 的对谈。李开复也有彭博采访相关发帖。</p><ul class="links"><li><a href="https://finance.sina.com.cn/stock/t/2026-11-12/doc-iniynaxi3802779.shtml" rel="noopener noreferrer" target="_blank">新浪财经（李彦宏）</a></li><li><a href="https://finance.sina.com.cn/jjxw/2026-11-13/doc-iniypekv3780367.shtml" rel="noopener noreferrer" target="_blank">新浪财经（马化腾）</a></li><li><a href="https://www.sina.cn/news/detail/5364362411771318.html" rel="noopener noreferrer" target="_blank">雷军相关报道</a></li><li><a href="https://x.com/LisaSu/status/2120726045242393052" rel="noopener noreferrer" target="_blank">苏姿丰原帖</a></li><li><a href="https://x.com/kaifulee/status/2120977435005235542" rel="noopener noreferrer" target="_blank">李开复原帖</a></li></ul></div>
+          </article>
+          </div>
+        </section>
+        <section class="topic is-open" id="all-topic-6" style="--branch:#0f766e">
+          <div class="topic-head">
+            <button type="button" class="topic-btn" aria-expanded="true" aria-controls="all-items-6">
+              <span class="dot" aria-hidden="true"></span>
+              <span class="topic-copy">
+                <span class="topic-name">GitHub 涨星</span>
+                <span class="topic-meta">GitHub 每日涨星 Top 50 · 5 条（数据截至 2026-11-12）</span>
+              </span>
+              <span class="chev" aria-hidden="true"></span>
+            </button>
+            <div class="topic-links"><a class="trend-open" href="github-trend/index.html">打开 GitHub 涨星看板</a></div>
+          </div>
+          <div class="items" id="all-items-6">
+          <article class="item is-open" id="all-t6-i0">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t6-i0">
+                <span class="item-top">
+                  <span class="idx">01</span>
+                  <span class="item-title">meta/astryx 连续第二天排第 1</span>
+                </span>
+                <span class="item-sum">2026-11-12 数据：当日 +2,776，总星 24,981，比前一天少涨 332</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t6-i0"><p>可完全定制、面向智能体就绪的开源设计系统，TypeScript。当日涨星榜连续第二天排第 1。本期 GitHub 涨星沿用 11-12 数据，详情见涨星看板。</p><ul class="links"><li><a href="https://github.com/meta/astryx" rel="noopener noreferrer" target="_blank">GitHub 仓库</a></li><li><a href="github-trend/index.html">打开 GitHub 涨星看板</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t6-i1">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t6-i1">
+                <span class="item-top">
+                  <span class="idx">02</span>
+                  <span class="item-title">sherlock-project/sherlock 仍排第 2</span>
+                </span>
+                <span class="item-sum">2026-11-12 数据：当日 +1,483，总星 110,081，涨幅比前一天少了约 900</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t6-i1"><p>按用户名在各大社交网络上追查账号的开源工具，Python。名次与前一天相同。</p><ul class="links"><li><a href="https://github.com/sherlock-project/sherlock" rel="noopener noreferrer" target="_blank">GitHub 仓库</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t6-i2">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t6-i2">
+                <span class="item-top">
+                  <span class="idx">03</span>
+                  <span class="item-title">mattpocock/skills 升到第 3</span>
+                </span>
+                <span class="item-sum">2026-11-12 数据：当日 +1,186，总星 322,034，前一天第 4</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t6-i2"><p>Matt Pocock 公开的智能体技能集合，Shell。总星 32.2 万。</p><ul class="links"><li><a href="https://github.com/mattpocock/skills" rel="noopener noreferrer" target="_blank">GitHub 仓库</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t6-i3">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t6-i3">
+                <span class="item-top">
+                  <span class="idx">04</span>
+                  <span class="item-title">we-promise/sure 从第 38 升到第 4</span>
+                </span>
+                <span class="item-sum">2026-11-12 数据：当日 +1,078，总星 12,956，前一天只涨 159</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t6-i3"><p>人人可用的开源个人理财应用，Ruby。是当天前 10 里名次跃升最大的仓库之一。</p><ul class="links"><li><a href="https://github.com/we-promise/sure" rel="noopener noreferrer" target="_blank">GitHub 仓库</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t6-i4">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t6-i4">
+                <span class="item-top">
+                  <span class="idx">05</span>
+                  <span class="item-title">anthropics/skills 退到第 5</span>
+                </span>
+                <span class="item-sum">2026-11-12 数据：当日 +1,032，总星 193,135，前一天第 3（+1,679）</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t6-i4"><p>Anthropic 官方 Agent Skills 公共仓库，Python。前 10 里有 5 个智能体技能或工具类仓库。相比前一天有 23 个项目新进 Top 50。</p><ul class="links"><li><a href="https://github.com/anthropics/skills" rel="noopener noreferrer" target="_blank">GitHub 仓库</a></li></ul></div>
+          </article>
+          </div>
+        </section>
+        </div>
+      </section>
+      <section class="tab-panel" role="tabpanel" id="topic-0" aria-labelledby="tab-0">
+        <div class="panel-meta"><p>AI 行业简报 · 6 条</p><div><a href="reports/2026-11-13/brief.html">查看日报</a></div></div>
+        <div class="items">
+          <article class="item is-open" id="t0-i0">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t0-i0">
+                <span class="item-top">
+                  <span class="idx">01</span>
+                  <span class="item-title">黄仁勋辞去英伟达 CEO</span>
+                </span>
+                <span class="item-sum">CFO Colette Kress 兼任临时 CEO，周四早盘股价一度跌近 12%</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t0-i0"><p>英伟达董事会周三接受了他的辞呈，前 Synopsys CEO Harvey Jones 成为公司首任董事长，董事会会在内外部找正式接班人。周四早盘股价一度跌近 12%，自上周五以来市值蒸发超过 8550 亿美元。英伟达 11 月 17 日发财报，这是新管理层第一次面对市场。</p><ul class="links"><li><a href="https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition" rel="noopener noreferrer" target="_blank">英伟达公告</a></li><li><a href="https://techcrunch.com/2026/11/12/nvidias-jensen-huang-resigns-chipmaker-names-cfo-colette-kress-as-interim-ceo/" rel="noopener noreferrer" target="_blank">TechCrunch 报道</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t0-i1">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t0-i1">
+                <span class="item-top">
+                  <span class="idx">02</span>
+                  <span class="item-title">谷歌发布 Gemini 4 Hydrogen，替换 3.8 Flash</span>
+                </span>
+                <span class="item-sum">默认档比 3.8 Flash 快 2.5 倍，当天上线 Gemini App、AI Studio 和搜索</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t0-i1"><p>新模型有四档思考强度，Terminal-Bench 4.1 从 18.2% 提到 57%，编造内容减少五倍以上，API 价格维持每百万 token 输入 1.5 美元、输出 7.5 美元。谷歌称这是 AI 搜索迄今最大的一次升级。</p><ul class="links"><li><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/" rel="noopener noreferrer" target="_blank">谷歌官方博客</a></li><li><a href="https://arstechnica.com/google/2026/11/google-rolls-out-gemini-4-hydrogen-finally-replacing-3-8-flash/" rel="noopener noreferrer" target="_blank">Ars Technica 报道</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t0-i2">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t0-i2">
+                <span class="item-top">
+                  <span class="idx">03</span>
+                  <span class="item-title">DeepMind 发布 AlphaGenome 2</span>
+                </span>
+                <span class="item-sum">用超过 1 亿个单细胞数据训练，找到影响基因表达的变异数量接近上一代的两倍</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t0-i2"><p>模型能预测 DNA 变异在特定组织和细胞类型里的作用。目前通过 API 开放给非商业研究，没有获批用于临床诊断。</p><ul class="links"><li><a href="https://deepmind.google/blog/alphagenome-2-deciphering-how-cells-read-dna-to-better-understand-disease/" rel="noopener noreferrer" target="_blank">DeepMind 博客</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t0-i3">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t0-i3">
+                <span class="item-top">
+                  <span class="idx">04</span>
+                  <span class="item-title">字节跳动准备推出类似 Meta Muse 的 AI 助手</span>
+                </span>
+                <span class="item-sum">张一鸣称要到 2029 或 2030 年才能在前沿模型上追上 OpenAI 和 Anthropic</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t0-i3"><p>彭博社报道，他在 AI 团队全员会上说，主要差距是预训练数据量小了几个数量级，也不赞成靠蒸馏追赶。新助手预计几周内发布。</p><ul class="links"><li><a href="https://thenextweb.com/news/bytedance-muse-like-ai-agent-zhang-yiming" rel="noopener noreferrer" target="_blank">The Next Web 转述彭博报道</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t0-i4">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t0-i4">
+                <span class="item-top">
+                  <span class="idx">05</span>
+                  <span class="item-title">Nebius 计划 2027 年资本开支 400 亿到 450 亿美元</span>
+                </span>
+                <span class="item-sum">给微软建的新泽西数据中心已延期到 2027 年二季度，当天股价跌 17%</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t0-i4"><p>这家 AI 云公司打算用客户预付款和以合同做抵押的贷款覆盖最多 85% 的投入，2026 年收入预期下调 2 亿美元。新兴算力云靠预付款扩张的模式开始受到交付延期的考验。</p><ul class="links"><li><a href="https://techcrunch.com/2026/11/12/nebius-tests-the-neocloud-playbook-with-40-billion-in-planned-spending/" rel="noopener noreferrer" target="_blank">TechCrunch 报道</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t0-i5">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t0-i5">
+                <span class="item-top">
+                  <span class="idx">06</span>
+                  <span class="item-title">德国 Agile Robots 融资 5 亿美元，估值 85 亿美元</span>
+                </span>
+                <span class="item-sum">F 轮由软银领投，英伟达参投</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t0-i5"><p>资本在继续加码具身智能和人形机器人。</p><ul class="links"><li><a href="https://www.agile-robots.com/en/news/detail/physical-ai-leader-agile-robots-raises-500-million-series-f-funding/" rel="noopener noreferrer" target="_blank">Agile Robots 公告</a></li><li><a href="https://thenextweb.com/news/agile-robots-softbank-500m-humanoid" rel="noopener noreferrer" target="_blank">The Next Web 报道</a></li></ul></div>
+          </article>
+        </div>
+      </section>
+      <section class="tab-panel" role="tabpanel" id="topic-1" aria-labelledby="tab-1">
+        <div class="panel-meta"><p>科技公司高管最新观点监测 · 6 条</p><div><a href="reports/2026-11-13/exec.html">查看日报</a></div></div>
+        <div class="items">
+          <article class="item is-open" id="t1-i0">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t1-i0">
+                <span class="item-top">
+                  <span class="idx">01</span>
+                  <span class="item-title">黄仁勋辞去英伟达 CEO、总裁和董事职务</span>
+                </span>
+                <span class="item-sum">CFO Colette Kress 任临时 CEO，Harvey Jones 出任首位董事会主席；黄仁勋本人在 X 上仍没有发言</span>
+                <span class="badges"><span class="badge">3 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t1-i0"><p>董事会从内部和外部同时找继任者，11 月 18 日（太平洋时间早 9 点）开全员会。Kress 在致员工信里说，董事会和 Estaff 都知道这是一段极其艰难的时期，11 月 18 日会开公司大会。Jones 在声明中称，公司运营、客户承诺和产品路线图预计不会中断。</p><ul class="links"><li><a href="https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition" rel="noopener noreferrer" target="_blank">英伟达公告</a></li><li><a href="https://www.businessinsider.com/nvidia-leaders-memos-to-staff-after-ceo-jensen-huang-resigns-2026-11" rel="noopener noreferrer" target="_blank">Business Insider 员工信全文</a></li><li><a href="https://www.cnbc.com/2026/11/12/nvidia-kress-jones-employee-emails.html" rel="noopener noreferrer" target="_blank">CNBC 报道</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t1-i1">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t1-i1">
+                <span class="item-top">
+                  <span class="idx">02</span>
+                  <span class="item-title">硅谷对黄仁勋离任的反应分化</span>
+                </span>
+                <span class="item-sum">Perplexity CEO 发帖感谢他 33 年的领导；SemiAnalysis 点名两位“勉强可行”的接班人</span>
+                <span class="badges"><span class="badge">3 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t1-i1"><p>Aravind Srinivas 的感谢帖约 1.8 万赞。SemiAnalysis 的 Dylan Patel 点名博通的 Charlie Kawwas 和苹果的 Johny Srouji。Abacus.AI 的 Bindu Reddy 转述“他因推动开源权重模型被拉下马”的传言，这一说法没有证据。</p><ul class="links"><li><a href="https://x.com/AravSrinivas/status/2120891190333607989" rel="noopener noreferrer" target="_blank">Aravind Srinivas 原帖</a></li><li><a href="https://x.com/dylan522p/status/2120942688702996945" rel="noopener noreferrer" target="_blank">Dylan Patel 原帖</a></li><li><a href="https://x.com/bindureddy/status/2121010255886946309" rel="noopener noreferrer" target="_blank">Bindu Reddy 原帖</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t1-i2">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t1-i2">
+                <span class="item-top">
+                  <span class="idx">03</span>
+                  <span class="item-title">谷歌发布 Gemini 4 Hydrogen</span>
+                </span>
+                <span class="item-sum">皮查伊称比 3.8 Flash 完成任务快 2.5 倍，有 4 档思考深度</span>
+                <span class="badges"><span class="badge">3 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t1-i2"><p>面向全部 AI Studio 档位、Gemini App 和搜索。Box CEO Aaron Levie 说在 Box 内部评测里准确率比 3.8 Flash 高 5 个百分点，评测是 Box 自己的，没有公开复现。哈萨比斯同步为 Gemini 智能眼镜站台。</p><ul class="links"><li><a href="https://x.com/sundarpichai/status/2120940236805169182" rel="noopener noreferrer" target="_blank">皮查伊原帖</a></li><li><a href="https://x.com/levie/status/2120947988143198302" rel="noopener noreferrer" target="_blank">Aaron Levie 原帖</a></li><li><a href="https://x.com/demishassabis/status/2120942605466800374" rel="noopener noreferrer" target="_blank">Hassabis 原帖</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t1-i3">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t1-i3">
+                <span class="item-top">
+                  <span class="idx">04</span>
+                  <span class="item-title">OpenAI 发布 Daybreak 网络安全产品</span>
+                </span>
+                <span class="item-sum">Greg Brockman 公布 Daybreak Defense Factory 和 Daybreak Red Team；Codex 额度重置已启动</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t1-i3"><p>一个管自动修补，一个管自动红队。Codex 负责人 Thibault Sottiaux 确认用量额度的 banked reset 已启动，约 4,500 赞。</p><ul class="links"><li><a href="https://x.com/gdb/status/2121004237413142656" rel="noopener noreferrer" target="_blank">Greg Brockman 原帖</a></li><li><a href="https://x.com/thsottiaux/status/2120999993079451919" rel="noopener noreferrer" target="_blank">Thibault Sottiaux 原帖</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t1-i4">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t1-i4">
+                <span class="item-top">
+                  <span class="idx">05</span>
+                  <span class="item-title">Microsoft 365 当天大面积故障</span>
+                </span>
+                <span class="item-sum">Outlook、Teams、SharePoint 和 Copilot 受影响；本时段没有找到微软高管本人就此发言</span>
+                <span class="badges"><span class="badge">报道转述</span><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t1-i4"><p>X 新闻摘要称，故障起因是部分服务器意外不可用、拖垮其余基础设施，Downdetector 投诉峰值接近 13 万，微软暂停部署、重新分流并重启服务器后逐步恢复（事件编号 EX1550543、MO1550821）。同期 CISA 确认 Outlook 零日漏洞 CVE-2026-124194 被实际利用，微软已在 11 月 10 日补丁日修复。</p><ul class="links"><li><a href="https://x.com/i/trending/2120942648349340125" rel="noopener noreferrer" target="_blank">X 新闻摘要</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t1-i5">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t1-i5">
+                <span class="item-top">
+                  <span class="idx">06</span>
+                  <span class="item-title">Meta Muse 上线代打电话；马斯克称 Robotaxi 一周可跑 168 小时</span>
+                </span>
+                <span class="item-sum">Muse 先向美国付费用户开放；马斯克该帖约 3.8 万赞</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t1-i5"><p>Alexandr Wang 说保险、有线电视、车管所和订餐都可以交给 Muse。马斯克发帖「Robotaxi works 168 hours a week」。X 新闻摘要称，截至 11 月 10 日 Tesla Robotaxi LLC 在得州车管局登记 1,302 辆，其中 573 辆是 Cybercab。</p><ul class="links"><li><a href="https://x.com/alexandr_wang/status/2120930586827391350" rel="noopener noreferrer" target="_blank">Alexandr Wang 原帖</a></li><li><a href="https://x.com/elonmusk/status/2120746428720988408" rel="noopener noreferrer" target="_blank">马斯克原帖</a></li></ul></div>
+          </article>
+        </div>
+      </section>
+      <section class="tab-panel" role="tabpanel" id="topic-2" aria-labelledby="tab-2">
+        <div class="panel-meta"><p>PC行业动向每日洞察 · 6 条</p><div><a href="reports/2026-11-13/pc.html">查看日报</a></div></div>
+        <div class="items">
+          <article class="item is-open" id="t2-i0">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t2-i0">
+                <span class="item-top">
+                  <span class="idx">01</span>
+                  <span class="item-title">技嘉发布约 1 升的 AI TOP AERO 主机</span>
+                </span>
+                <span class="item-sum">用 NVIDIA RTX Spark N1X，预装 Windows 11，支持 DLSS 5，主打本地 AI 加游戏</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t2-i0"><p>这台约 1 升的桌面主机用 20 核 Grace CPU 加 Blackwell RTX GPU，最高 128GB LPDDR5X、4TB PCIe 5.0 SSD，还带 10GbE 和 Wi-Fi 7。和同尺寸、跑 DGX OS 的 AI TOP ATOM 不同，它装的是 Windows 11。各地区配置和价格未公布。</p><ul class="links"><li><a href="https://videocardz.com/newz/gigabyte-launches-1-liter-nvidia-rtx-spark-desktop-with-dlss-5" rel="noopener noreferrer" target="_blank">VideoCardz 报道</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t2-i1">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t2-i1">
+                <span class="item-top">
+                  <span class="idx">02</span>
+                  <span class="item-title">GPD Win Mini Ultra 实机照片曝光</span>
+                </span>
+                <span class="item-sum">换成 Intel Arc B390，屏幕变大并支持 VRR，机身更高更厚</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t2-i1"><p>评测机已大批发给媒体。此前泄露的规格是 8 英寸屏、845 克。官方规格和价格还没公布。</p><ul class="links"><li><a href="https://www.notebookcheck.net/New-GPD-Win-Mini-Ultra-previewed-before-release-with-VRR-display-and-Intel-Arc-B390-graphics.1448794.0.html" rel="noopener noreferrer" target="_blank">Notebookcheck 报道</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t2-i2">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t2-i2">
+                <span class="item-top">
+                  <span class="idx">03</span>
+                  <span class="item-title">Red Hat 发布 RHEL 10.3 和 9.9</span>
+                </span>
+                <span class="item-sum">10.3 用 Linux 6.12 内核和 GCC 16，新增 sealed images 和受支持的 MCP 诊断服务器</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t2-i2"><p>Go 还加入了后量子加密。偏服务器和工作站。过去 24 小时 Windows、macOS 没有新版本：macOS 最新仍是 11 月 9 日的 27.2.1，Windows 仍是 11 月 10 日补丁日的 KB5132061。</p><ul class="links"><li><a href="https://www.redhat.com/en/blog/introducing-red-hat-enterprise-linux-103-and-99" rel="noopener noreferrer" target="_blank">Red Hat 博客</a></li><li><a href="https://linuxiac.com/rhel-10-3-released-with-linux-kernel-6-12-gcc-16-and-sealed-images/" rel="noopener noreferrer" target="_blank">Linuxiac 报道</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t2-i3">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t2-i3">
+                <span class="item-top">
+                  <span class="idx">04</span>
+                  <span class="item-title">AMD 推送可选驱动 Adrenalin 26.11.1</span>
+                </span>
+                <span class="item-sum">修复 RX 7000 及更新显卡空闲时大量写系统盘的问题</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t2-i3"><p>也修了移动、缩放窗口时的过量写入。用过第三方工具规避的用户，装新驱动前要先把设置恢复默认。</p><ul class="links"><li><a href="https://videocardz.com/newz/amd-releases-optional-driver-to-fix-excessive-system-drive-writes" rel="noopener noreferrer" target="_blank">VideoCardz 报道</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t2-i4">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t2-i4">
+                <span class="item-top">
+                  <span class="idx">05</span>
+                  <span class="item-title">黄仁勋辞去 NVIDIA 总裁、CEO 和董事职务</span>
+                </span>
+                <span class="item-sum">即时生效；公司称产品路线图不受影响，财报照常在 11 月 17 日发布</span>
+                <span class="badges"><span class="badge">3 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t2-i4"><p>CFO Colette Kress 兼任临时 CEO，前 Synopsys CEO Harvey C. Jones 出任公司历史上第一位董事长。股价盘中最多跌约 14%，后收窄到跌 5.5% 左右，AMD 和 Broadcom 各涨约 6%（Reuters 数据）。</p><ul class="links"><li><a href="https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition" rel="noopener noreferrer" target="_blank">英伟达公告</a></li><li><a href="https://www.reuters.com/business/retail-consumer/nvidia-ceo-jensen-huang-step-down-big-blow-ai-boom-2026-11-12/" rel="noopener noreferrer" target="_blank">Reuters 报道</a></li><li><a href="https://techcrunch.com/2026/11/12/nvidias-jensen-huang-resigns-chipmaker-names-cfo-colette-kress-as-interim-ceo/" rel="noopener noreferrer" target="_blank">TechCrunch 报道</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t2-i5">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t2-i5">
+                <span class="item-top">
+                  <span class="idx">06</span>
+                  <span class="item-title">渠道称 AMD 在中国的游戏显卡配额减少 20% 到 50%</span>
+                </span>
+                <span class="item-sum">预计紧张到 2027 年 1 月；没有给出基数和具体型号</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t2-i5"><p>据板卡渠道消息（Board Channels，经 VideoCardz 转述），10 月以来的削减只针对中国市场。另有爆料称 AMD 下一代高端 APU 叫 Siren Halo，会在 LPDDR 之外配独立的 GDDR7 显存，属传闻，尚未确认。</p><ul class="links"><li><a href="https://videocardz.com/newz/amd-gaming-gpu-supply-reportedly-falls-20-to-50-in-china" rel="noopener noreferrer" target="_blank">VideoCardz 报道</a></li><li><a href="https://www.notebookcheck.net/AMD-Siren-Halo-APU-rumored-to-feature-dedicated-GDDR7-VRAM-alongside-LPDDR-memory.1448811.0.html" rel="noopener noreferrer" target="_blank">Notebookcheck 传闻报道</a></li></ul></div>
+          </article>
+        </div>
+      </section>
+      <section class="tab-panel" role="tabpanel" id="topic-3" aria-labelledby="tab-3">
+        <div class="panel-meta"><p>Apple新闻洞察 · 6 条</p><div><a href="reports/2026-11-13/apple.html">查看日报</a></div></div>
+        <div class="items">
+          <article class="item is-open" id="t3-i0">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t3-i0">
+                <span class="item-top">
+                  <span class="idx">01</span>
+                  <span class="item-title">HomeView 和新款 Apple TV 4K 今天开始送达</span>
+                </span>
+                <span class="item-sum">首批 Apple Home Collection 配件同日开放预购；Siri 目前控制不了门锁等设备</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t3-i0"><p>媒体评测普遍认可屏幕和音质，对 Siri AI、App 支持和依赖 iPhone 这几点意见分歧。Apple 承认 Siri 目前控制不了门锁等智能家居设备，修复要等下个月的软件更新。想买 HomeView 主要用来管家居设备的，可以等下个月更新后再看。</p><ul class="links"><li><a href="https://www.macrumors.com/2026/11/12/apple-homeview-software-27-2-24v526/" rel="noopener noreferrer" target="_blank">MacRumors 报道</a></li><li><a href="https://www.1stheadlines.com/from/801" rel="noopener noreferrer" target="_blank">9to5Mac（经 1stheadlines）</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t3-i1">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t3-i1">
+                <span class="item-top">
+                  <span class="idx">02</span>
+                  <span class="item-title">Apple 发布 2026 年假日广告《The Dreamer》</span>
+                </span>
+                <span class="item-sum">主角是 MacBook Neo；前几年的假日广告都围绕 iPhone、Apple Watch 和 AirPods</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t3-i1"><p>假日季把营销重心放在入门 Mac 上，说明 Apple 想靠 Neo 拉新用户进 Mac 生态。</p><ul class="links"><li><a href="https://www.1stheadlines.com/from/801" rel="noopener noreferrer" target="_blank">9to5Mac（经 1stheadlines）</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t3-i2">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t3-i2">
+                <span class="item-top">
+                  <span class="idx">03</span>
+                  <span class="item-title">HomeView 到货前已推送软件 27.2（24V526）</span>
+                </span>
+                <span class="item-sum">修了 9 个安全漏洞；设备出厂系统是半年前的 26.5，激活时必须先更新</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t3-i2"><p>其中包括远程攻击者可能混进 iMessage 群聊收消息、蓝牙范围内绕过配对码次数限制等问题。拿到 HomeView 后应按提示装完更新再用，不要跳过。</p><ul class="links"><li><a href="https://support.apple.com/en-us/149851" rel="noopener noreferrer" target="_blank">Apple 安全公告</a></li><li><a href="https://machash.com/9to5mac/420166/apple-homeview-tomorrow-first-security-update-already/" rel="noopener noreferrer" target="_blank">9to5Mac 报道</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t3-i3">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t3-i3">
+                <span class="item-top">
+                  <span class="idx">04</span>
+                  <span class="item-title">AAPL 收于 354.84 美元，跌 0.22%</span>
+                </span>
+                <span class="item-sum">盘中最高 359.37 美元，再创 52 周新高，市值约 5.16 万亿美元</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t3-i3"><p>当天是除息日。扣掉 0.27 美元派息，基本是在高位横盘，周三分析师上调评级后的涨幅守住了。</p><ul class="links"><li><a href="https://bullzeno.com/stock/AAPL/historical" rel="noopener noreferrer" target="_blank">Bullzeno 行情</a></li><li><a href="https://global.morningstar.com/en-ca/investments/stocks/0P000000GY/quote" rel="noopener noreferrer" target="_blank">Morningstar 行情</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t3-i4">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t3-i4">
+                <span class="item-top">
+                  <span class="idx">05</span>
+                  <span class="item-title">富士康第三季度营收同比增长 46%，彭博预计 iPhone Duo 头 12 个月卖 1600 万台</span>
+                </span>
+                <span class="item-sum">消费电子仍占约 29%，Apple 是这块最大客户</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t3-i4"><p>此前报道的 Apple 内部目标是先定 970 万台、后上调到 1400 万台。如果 1600 万台成真，Duo 会是本财年 iPhone 增长的主力。9to5Mac 读者投票里约 30% 的早期买家退了货，样本小，但退货率值得盯着。</p><ul class="links"><li><a href="https://ground.news/article/foxconn-revenue-climbs-46-bloomberg-forecasts-16m-iphone-duo-sales" rel="noopener noreferrer" target="_blank">9to5Mac（Ground News 转载）</a></li><li><a href="https://www.hdblog.it/apple/articoli/n676850/foxconn-ricavi-46-iphone-duo-16-milioni/" rel="noopener noreferrer" target="_blank">HDblog 报道</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t3-i5">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t3-i5">
+                <span class="item-top">
+                  <span class="idx">06</span>
+                  <span class="item-title">古尔曼称 iPhone 18 和 iPhone 18e 都用标准版 A20</span>
+                </span>
+                <span class="item-sum">和 iPhone 18 Pro、Duo 上的 A20 Pro 区分开</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t3-i5"><p>如果属实，18e 和 18 用同一颗芯片，加上之前传的同款电池，两者差距会缩小，18e 的性价比更突出。另外，Apple 调整了 iPhone 和 Apple Watch 的以旧换新估价，并把三星折叠屏手机加进可折抵名单。</p><ul class="links"><li><a href="https://www.iclarified.com/news" rel="noopener noreferrer" target="_blank">iClarified 报道</a></li><li><a href="https://www.1stheadlines.com/from/801" rel="noopener noreferrer" target="_blank">9to5Mac（经 1stheadlines）</a></li></ul></div>
+          </article>
+        </div>
+      </section>
+      <section class="tab-panel" role="tabpanel" id="topic-4" aria-labelledby="tab-4">
+        <div class="panel-meta"><p>X TOP new idea · 5 条</p><div><a href="reports/2026-11-13/x-ideas.html">查看日报</a></div></div>
+        <div class="items">
+          <article class="item is-open" id="t4-i0">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t4-i0">
+                <span class="item-top">
+                  <span class="idx">01</span>
+                  <span class="item-title">黄仁勋辞去英伟达 CEO，芯片出口争论随之升温</span>
+                </span>
+                <span class="item-sum">股价早盘一度跌超 12%；有人声称部分中国新模型用了禁运的 Blackwell，属其个人说法</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t4-i0"><p>X 新闻称英伟达 11 月 12 日宣布黄仁勋即刻辞去 CEO、总裁和董事职务，CFO Colette Kress 暂代 CEO。@cnnbrk 快讯浏览 132 万；郭明錤连发分析，认为短期利空出尽。同日 @willdepue 发帖称有证据显示 DeepSeek、月之暗面、MiniMax、蚂蚁的新模型用了禁运的 Blackwell，赞 2 万，属其个人说法。</p><ul class="links"><li><a href="https://x.com/i/trending/2120927735933776135" rel="noopener noreferrer" target="_blank">X 新闻摘要</a></li><li><a href="https://x.com/willdepue/status/2120992457630326841" rel="noopener noreferrer" target="_blank">willdepue 原帖</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t4-i1">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t4-i1">
+                <span class="item-top">
+                  <span class="idx">02</span>
+                  <span class="item-title">Claude Meetings 上线，AI 直接进会议边聊边产出文档</span>
+                </span>
+                <span class="item-sum">先给 Team 和 Enterprise 用户 beta，发布帖赞 4.2 万、浏览 260 万</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t4-i1"><p>Anthropic 让 Claude 进 Google Meet，记笔记、追踪待办，会中实时生成文档和白板。这是当天时间线里互动最高的 AI 帖。X 新闻点名 Otter、Fireflies、Zoom AI 受压。</p><ul class="links"><li><a href="https://x.com/claudeai/status/2120973994191094179" rel="noopener noreferrer" target="_blank">Claude 原帖</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t4-i2">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t4-i2">
+                <span class="item-top">
+                  <span class="idx">03</span>
+                  <span class="item-title">Google 发 Gemini 4 Hydrogen，主打快和便宜</span>
+                </span>
+                <span class="item-sum">官方称比 3.8 Flash 完成任务快 2.5 倍，有 4 档思考深度，已进 Gemini App、搜索、AI Studio 和 Cursor</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t4-i2"><p>X 新闻称输入每百万 token 1.5 美元，100 万 token 上下文。Box CEO @levie 说在其复杂任务评测里准确率比 3.8 Flash 高 5 个百分点。</p><ul class="links"><li><a href="https://x.com/sundarpichai/status/2120940236805169182" rel="noopener noreferrer" target="_blank">皮查伊原帖</a></li><li><a href="https://x.com/levie/status/2120947988143198302" rel="noopener noreferrer" target="_blank">Aaron Levie 原帖</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t4-i3">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t4-i3">
+                <span class="item-top">
+                  <span class="idx">04</span>
+                  <span class="item-title">Agent 开始拿到手机和云端模拟器</span>
+                </span>
+                <span class="item-sum">Expo 发布云端 iOS/Android 模拟器；AWS 放出由 Agent 写成的本地模拟器，覆盖 200 多个服务</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t4-i3"><p>Agent 可以在云端装包、点界面、录屏、抓日志，不用本地 Mac。@aresotik 演示了 Claude Code 在云端 Android 里玩 2048。</p><ul class="links"><li><a href="https://x.com/i/trending/2120949252197093873" rel="noopener noreferrer" target="_blank">X 新闻摘要</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t4-i4">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t4-i4">
+                <span class="item-top">
+                  <span class="idx">05</span>
+                  <span class="item-title">小团队靠 Agent 做到大收入，资金在向 Agent 基础设施流</span>
+                </span>
+                <span class="item-sum">X 新闻称 Retell AI 只融了 460 万美元，17 个月年化收入到 1 亿美元</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t4-i4"><p>Retell AI 月处理超 1 亿通电话。Plurai 拿 1300 万美元种子轮做 Agent 压力测试，DECA Labs 融 1200 万美元做先验证需求再开发。另一边 OpenAI 以 1.25 万亿估值融 150 亿美元，低于原定 300 亿目标。</p><ul class="links"><li><a href="https://x.com/i/trending/2120930853391851563" rel="noopener noreferrer" target="_blank">X 新闻摘要</a></li></ul></div>
+          </article>
+        </div>
+      </section>
+      <section class="tab-panel" role="tabpanel" id="topic-5" aria-labelledby="tab-5">
+        <div class="panel-meta"><p>AI大拿最新言论追踪 · 6 条</p><div><a href="reports/2026-11-13/ai-leaders.html">查看日报</a></div></div>
+        <div class="items">
+          <article class="item is-open" id="t5-i0">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t5-i0">
+                <span class="item-top">
+                  <span class="idx">01</span>
+                  <span class="item-title">英伟达董事会宣布黄仁勋辞去总裁、CEO 和董事职务</span>
+                </span>
+                <span class="item-sum">CFO Colette Kress 任临时 CEO，Harvey Jones 任董事长</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t5-i0"><p>宣布时间是 11 月 12 日。这是当天科技大佬言论日报的头条。</p><ul class="links"><li><a href="https://finance.sina.com.cn/stock/usstock/c/2026-11-12/doc-iniynyaw8380801.shtml" rel="noopener noreferrer" target="_blank">新浪财经</a></li><li><a href="https://cn.nytimes.com/technology/20261113/heres-the-latest/" rel="noopener noreferrer" target="_blank">纽约时报中文网滚动报道</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t5-i1">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t5-i1">
+                <span class="item-top">
+                  <span class="idx">02</span>
+                  <span class="item-title">Anthropic 提交 IPO 招股书，代码 ANT</span>
+                </span>
+                <span class="item-sum">计划在纳斯达克上市</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t5-i1"><p>公司官方账号在 X 上公布了招股书相关消息。</p><ul class="links"><li><a href="https://x.com/AnthropicAI/status/2120841731302154708" rel="noopener noreferrer" target="_blank">Anthropic 原帖</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t5-i2">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t5-i2">
+                <span class="item-top">
+                  <span class="idx">03</span>
+                  <span class="item-title">OpenAI 发布 Daybreak 网络安全产品</span>
+                </span>
+                <span class="item-sum">由总裁 Greg Brockman 在 X 上公布</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t5-i2"><p>产品包括 Daybreak Defense Factory 和 Daybreak Red Team，面向企业安全场景。</p><ul class="links"><li><a href="https://x.com/gdb/status/2121004237413142656" rel="noopener noreferrer" target="_blank">Greg Brockman 原帖</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t5-i3">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t5-i3">
+                <span class="item-top">
+                  <span class="idx">04</span>
+                  <span class="item-title">皮查伊发布 Gemini 4 Hydrogen；李飞飞开放 World Labs Atlas</span>
+                </span>
+                <span class="item-sum">谷歌把新模型推到面向大众的产品里；Atlas 同步开放</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t5-i3"><p>皮查伊介绍 Hydrogen 主打速度和日常任务。李飞飞宣布 World Labs 的 Atlas 开放。</p><ul class="links"><li><a href="https://x.com/sundarpichai/status/2120940236805169182" rel="noopener noreferrer" target="_blank">皮查伊原帖</a></li><li><a href="https://x.com/drfeifei/status/2120942509786558671" rel="noopener noreferrer" target="_blank">李飞飞原帖</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t5-i4">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t5-i4">
+                <span class="item-top">
+                  <span class="idx">05</span>
+                  <span class="item-title">Meta Muse 可代打电话；马斯克谈 Robotaxi 24 小时运营</span>
+                </span>
+                <span class="item-sum">Muse 先给美国付费用户；马斯克称 Robotaxi 一周可跑 168 小时</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t5-i4"><p>Alexandr Wang 列举了保险、有线电视、车管所和订餐等场景。马斯克用一句话强调 Robotaxi 可以全周运转。</p><ul class="links"><li><a href="https://x.com/alexandr_wang/status/2120930586827391350" rel="noopener noreferrer" target="_blank">Alexandr Wang 原帖</a></li><li><a href="https://x.com/elonmusk/status/2120746428720988408" rel="noopener noreferrer" target="_blank">马斯克原帖</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t5-i5">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t5-i5">
+                <span class="item-top">
+                  <span class="idx">06</span>
+                  <span class="item-title">李彦宏谈「智能组织」，马化腾发表腾讯 28 周年讲话，雷军预告小米 18 Pro 国际版</span>
+                </span>
+                <span class="item-sum">小米 18 Pro 国际版定于 11 月 17 日在巴黎发布；苏姿丰在 CoRL 2026 与李飞飞对谈</span>
+                <span class="badges"><span class="badge">5 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t5-i5"><p>李彦宏在百度世界大会上谈「智能组织」。马化腾在腾讯成立 28 周年时发表讲话。雷军宣布小米 18 Pro 国际版的发布日期。苏姿丰发帖记录了当天与李飞飞关于机器人与物理 AI 的对谈。李开复也有彭博采访相关发帖。</p><ul class="links"><li><a href="https://finance.sina.com.cn/stock/t/2026-11-12/doc-iniynaxi3802779.shtml" rel="noopener noreferrer" target="_blank">新浪财经（李彦宏）</a></li><li><a href="https://finance.sina.com.cn/jjxw/2026-11-13/doc-iniypekv3780367.shtml" rel="noopener noreferrer" target="_blank">新浪财经（马化腾）</a></li><li><a href="https://www.sina.cn/news/detail/5364362411771318.html" rel="noopener noreferrer" target="_blank">雷军相关报道</a></li><li><a href="https://x.com/LisaSu/status/2120726045242393052" rel="noopener noreferrer" target="_blank">苏姿丰原帖</a></li><li><a href="https://x.com/kaifulee/status/2120977435005235542" rel="noopener noreferrer" target="_blank">李开复原帖</a></li></ul></div>
+          </article>
+        </div>
+      </section>
+      <section class="tab-panel" role="tabpanel" id="topic-6" aria-labelledby="tab-6">
+        <div class="panel-meta"><p>GitHub 每日涨星 Top 50 · 5 条（数据截至 2026-11-12）</p><div><a class="trend-open" href="github-trend/index.html">打开 GitHub 涨星看板</a></div></div>
+        <div class="items">
+          <article class="item is-open" id="t6-i0">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t6-i0">
+                <span class="item-top">
+                  <span class="idx">01</span>
+                  <span class="item-title">meta/astryx 连续第二天排第 1</span>
+                </span>
+                <span class="item-sum">2026-11-12 数据：当日 +2,776，总星 24,981，比前一天少涨 332</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t6-i0"><p>可完全定制、面向智能体就绪的开源设计系统，TypeScript。当日涨星榜连续第二天排第 1。本期 GitHub 涨星沿用 11-12 数据，详情见涨星看板。</p><ul class="links"><li><a href="https://github.com/meta/astryx" rel="noopener noreferrer" target="_blank">GitHub 仓库</a></li><li><a href="github-trend/index.html">打开 GitHub 涨星看板</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t6-i1">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t6-i1">
+                <span class="item-top">
+                  <span class="idx">02</span>
+                  <span class="item-title">sherlock-project/sherlock 仍排第 2</span>
+                </span>
+                <span class="item-sum">2026-11-12 数据：当日 +1,483，总星 110,081，涨幅比前一天少了约 900</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t6-i1"><p>按用户名在各大社交网络上追查账号的开源工具，Python。名次与前一天相同。</p><ul class="links"><li><a href="https://github.com/sherlock-project/sherlock" rel="noopener noreferrer" target="_blank">GitHub 仓库</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t6-i2">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t6-i2">
+                <span class="item-top">
+                  <span class="idx">03</span>
+                  <span class="item-title">mattpocock/skills 升到第 3</span>
+                </span>
+                <span class="item-sum">2026-11-12 数据：当日 +1,186，总星 322,034，前一天第 4</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t6-i2"><p>Matt Pocock 公开的智能体技能集合，Shell。总星 32.2 万。</p><ul class="links"><li><a href="https://github.com/mattpocock/skills" rel="noopener noreferrer" target="_blank">GitHub 仓库</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t6-i3">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t6-i3">
+                <span class="item-top">
+                  <span class="idx">04</span>
+                  <span class="item-title">we-promise/sure 从第 38 升到第 4</span>
+                </span>
+                <span class="item-sum">2026-11-12 数据：当日 +1,078，总星 12,956，前一天只涨 159</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t6-i3"><p>人人可用的开源个人理财应用，Ruby。是当天前 10 里名次跃升最大的仓库之一。</p><ul class="links"><li><a href="https://github.com/we-promise/sure" rel="noopener noreferrer" target="_blank">GitHub 仓库</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t6-i4">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t6-i4">
+                <span class="item-top">
+                  <span class="idx">05</span>
+                  <span class="item-title">anthropics/skills 退到第 5</span>
+                </span>
+                <span class="item-sum">2026-11-12 数据：当日 +1,032，总星 193,135，前一天第 3（+1,679）</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t6-i4"><p>Anthropic 官方 Agent Skills 公共仓库，Python。前 10 里有 5 个智能体技能或工具类仓库。相比前一天有 23 个项目新进 Top 50。</p><ul class="links"><li><a href="https://github.com/anthropics/skills" rel="noopener noreferrer" target="_blank">GitHub 仓库</a></li></ul></div>
+          </article>
+        </div>
+      </section>
+      </div>
+    </div>
+
+<footer>
+      <p>文字、要点和链接都写在这个页面里，打开即可阅读，不需要再加载数据。</p>
+      <p>往期：<a href="./2026-11-12.html">2026-11-12</a> · <a href="./2026-11-11.html">2026-11-11</a> · <a href="./2026-11-06.html">2026-11-06</a></p>
+      <p><a href="./index.html">返回主页</a>，查看全部日期。</p>
+    </footer>
+  </div>
+  <noscript>
+    <style>.tab-panel, .items, .detail { display: block !important; }</style>
+  </noscript>
+  <script>
+    (function () {
+      var tabs = document.querySelectorAll(".tab");
+      var panels = document.querySelectorAll(".tab-panel");
+
+      function topicTabIndex(topicIndex) {
+        for (var i = 0; i < tabs.length; i++) {
+          if (tabs[i].getAttribute("data-topic") === String(topicIndex)) return i;
+        }
+        return topicIndex + 1;
+      }
+
+      function selectTab(index, hashKind) {
+        if (index < 0 || index >= tabs.length) index = 0;
+        tabs.forEach(function (tab, i) {
+          var on = i === index;
+          tab.classList.toggle("is-active", on);
+          tab.setAttribute("aria-selected", on ? "true" : "false");
+          tab.tabIndex = on ? 0 : -1;
+        });
+        panels.forEach(function (p, i) {
+          p.classList.toggle("is-active", i === index);
+        });
+        if (hashKind === "topic" && history.replaceState) {
+          var tab = tabs[index];
+          var hash = "#all";
+          if (tab && tab.getAttribute("data-topic") != null) {
+            hash = "#topic-" + tab.getAttribute("data-topic");
+          }
+          history.replaceState(null, "", hash);
+        }
+        return index;
+      }
+
+      function setItem(article, open) {
+        article.classList.toggle("is-open", open);
+        var btn = article.querySelector(".item-btn");
+        if (btn) btn.setAttribute("aria-expanded", open ? "true" : "false");
+      }
+
+      function reveal(topicIndex, itemIndex, smooth) {
+        selectTab(topicTabIndex(topicIndex), "item");
+        var article = document.getElementById("t" + topicIndex + "-i" + itemIndex);
+        if (!article) return;
+        setItem(article, true);
+        article.classList.remove("flash");
+        void article.offsetWidth;
+        article.classList.add("flash");
+        article.scrollIntoView({ behavior: smooth ? "smooth" : "auto", block: "start" });
+        if (history.replaceState) history.replaceState(null, "", "#" + article.id);
+      }
+
+      tabs.forEach(function (tab, i) {
+        tab.addEventListener("click", function () { selectTab(i, "topic"); });
+        tab.addEventListener("keydown", function (e) {
+          var next = i;
+          if (e.key === "ArrowRight") next = (i + 1) % tabs.length;
+          else if (e.key === "ArrowLeft") next = (i - 1 + tabs.length) % tabs.length;
+          else if (e.key === "Home") next = 0;
+          else if (e.key === "End") next = tabs.length - 1;
+          else return;
+          e.preventDefault();
+          selectTab(next, "topic");
+          tabs[next].focus();
+        });
+      });
+
+      document.querySelectorAll("#panel-all .topic").forEach(function (topic) {
+        var btn = topic.querySelector(".topic-btn");
+        if (!btn) return;
+        btn.addEventListener("click", function () {
+          var open = !topic.classList.contains("is-open");
+          topic.classList.toggle("is-open", open);
+          btn.setAttribute("aria-expanded", open ? "true" : "false");
+        });
+      });
+
+      document.querySelectorAll(".item").forEach(function (article) {
+        var head = article.querySelector(".item-head") || article.querySelector(".item-btn");
+        if (!head) return;
+        head.addEventListener("click", function (e) {
+          if (e.target.closest && e.target.closest(".item-thumb")) return;
+          var open = !article.classList.contains("is-open");
+          setItem(article, open);
+        });
+      });
+
+      document.querySelectorAll(".top-card").forEach(function (card) {
+        card.addEventListener("click", function () {
+          reveal(Number(card.dataset.topic), Number(card.dataset.item), true);
+        });
+      });
+
+      document.querySelectorAll("img").forEach(function (img) {
+        img.addEventListener("error", function () {
+          var fig = img.closest("figure");
+          if (!fig || fig.dataset.broken) return;
+          fig.dataset.broken = "1";
+          var link = document.createElement("a");
+          link.href = img.getAttribute("src");
+          link.target = "_blank";
+          link.rel = "noopener noreferrer";
+          link.textContent = "原图无法内嵌显示，打开原图";
+          fig.replaceChildren(link);
+        });
+      });
+
+      var h = location.hash || "";
+      var item = h.match(/^#t(\d+)-i(\d+)$/);
+      var allHash = h.match(/^#(?:all|tab-all|panel-all)$/);
+      var topic = h.match(/^#(?:topic|tab|panel)-(\d+)$/);
+      if (item) reveal(Number(item[1]), Number(item[2]), false);
+      else if (allHash) selectTab(0, null);
+      else if (topic) selectTab(topicTabIndex(Number(topic[1])), null);
+      else selectTab(0, null);
+    })();
+    </script>
+</body>
+</html>
