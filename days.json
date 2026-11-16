@@ -1,5 +1,99 @@
 [
   {
+    "date": "2026-11-16",
+    "topics": [
+      "AI 行业简报",
+      "科技高管观点",
+      "PC 行业动向",
+      "Apple 洞察",
+      "X 热门新点子",
+      "AI 大拿",
+      "GitHub 涨星"
+    ],
+    "summary": "周末到周一的主线仍是英伟达换帅后的拉扯：要求黄仁勋回归的请愿超过 11.5 万人签名，FT 称他正和亲信讨论回任，美国财长贝森特则要求从外部找 CEO，公司 11 月 17 日发财报。OpenAI 推出了 ChatGPT Wallet，并开设科学博客，首篇介绍物理学家与 GPT-6 Astra 给出的标准模型格点定义候选方案。PC 这边，华为 MateBook Fold S 在国内开订，微软给 26H1 推了 Insider 版本；Apple 则给老款 Apple TV 4K 送上了 Siri AI，古尔曼还称首款智能眼镜计划 2027 年发布。GitHub 涨星榜上，Chrome 团队的现代 Web 开发指引升到第 1，前 10 里有 8 个是新面孔。",
+    "reports": [
+      {
+        "name": "AI 行业简报",
+        "href": "reports/2026-11-16/brief.html"
+      },
+      {
+        "name": "科技高管观点",
+        "href": "reports/2026-11-16/exec.html"
+      },
+      {
+        "name": "PC 行业动向",
+        "href": "reports/2026-11-16/pc.html"
+      },
+      {
+        "name": "Apple 洞察",
+        "href": "reports/2026-11-16/apple.html"
+      },
+      {
+        "name": "X 热门新点子",
+        "href": "reports/2026-11-16/x-ideas.html"
+      },
+      {
+        "name": "AI 大拿",
+        "href": "reports/2026-11-16/ai-leaders.html"
+      },
+      {
+        "name": "GitHub 涨星",
+        "href": "github-trend/index.html"
+      }
+    ],
+    "lines": [
+      {
+        "topic": "AI 行业简报",
+        "text": "要求恢复黄仁勋职务的请愿超过 11.5 万人签名；同天还有 ChatGPT Wallet 和美联储把 AI 列为主要风险。",
+        "image": "",
+        "image_src": "",
+        "link": "https://techcrunch.com/2026/11/14/elon-musk-other-tech-execs-sign-petition-calling-on-nvidia-to-reinstate-jensen-huang/"
+      },
+      {
+        "topic": "科技高管观点",
+        "text": "FT 称黄仁勋正和亲信讨论回任，贝森特要求从外部找 CEO；OpenAI 上线科学博客。",
+        "image": "",
+        "image_src": "",
+        "link": "https://www.reuters.com/world/china/jensen-huang-discusses-comeback-nvidia-ceo-with-allies-ft-reports-2026-11-15/"
+      },
+      {
+        "topic": "PC 行业动向",
+        "text": "华为 MateBook Fold S 在国内开订，展开 14.7 英寸，跑鸿蒙 PC，11 月 24 日付尾款。",
+        "image": "",
+        "image_src": "",
+        "link": "https://www.notebookcheck.net/Huawei-s-foldable-laptop-with-up-to-32GB-RAM-and-1TB-storage-opens-for-pre-orders.1450194.0.html"
+      },
+      {
+        "topic": "Apple 洞察",
+        "text": "古尔曼称 Apple 首款智能眼镜计划 2027 年 WWDC 发布；tvOS 27.2.1 让老款 Apple TV 4K 用上 Siri AI。",
+        "image": "",
+        "image_src": "",
+        "link": "https://www.macrumors.com/2026/11/15/apple-smart-glasses-hinge-on-siri/"
+      },
+      {
+        "topic": "X 热门新点子",
+        "text": "马斯克称英伟达不少供应链协议是和黄仁勋握手达成的，这条赞 9.3 万、浏览 734 万。",
+        "image": "",
+        "image_src": "",
+        "link": "https://x.com/elonmusk/status/2121613402846204253"
+      },
+      {
+        "topic": "AI 大拿",
+        "text": "LeCun 谈 p(doom) 和开放基础模型；OpenAI 用 GPT-6 Astra 参与标准模型格点定义的科研案例。",
+        "image": "",
+        "image_src": "",
+        "link": "https://x.com/ylecun/status/2121995284196602013"
+      },
+      {
+        "topic": "GitHub 涨星",
+        "text": "Chrome 团队的 modern-web-guidance-src 升到第 1，当日 +1,219；前 10 里 8 个是新面孔。",
+        "image": "",
+        "image_src": "",
+        "link": "https://github.com/GoogleChrome/modern-web-guidance-src"
+      }
+    ]
+  },
+  {
     "date": "2026-11-13",
     "topics": [
       "AI 行业简报",

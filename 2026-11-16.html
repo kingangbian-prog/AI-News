@@ -1,0 +1,1952 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#f4f1ea">
+<meta name="description" content="7 条资讯线汇总今天各 bot 和 AI 行业简报的输出。默认打开 ALL 可看全部资讯线的树形列表；点上方标签切换各条线，要点默认展开；点箭头可收起。本期覆盖周五到周一。">
+<link rel="icon" type="image/png" href="assets/wangcai-dog.png">
+<title>旺财资讯 2026-11-16</title>
+<style>
+  :root {
+    color-scheme: light;
+    --ink: #1a1a1a;
+    --muted: #5c5c5c;
+    --faint: #5e5e5e;
+    --line: #ece8e1;
+    --bg: #f4f1ea;
+    --bg-top: #fbf8f2;
+    --soft: #f8f3ea;
+    --card: #fffaf4;
+    --shadow: 0 1px 0 rgba(255,255,255,.8) inset, 0 6px 16px rgba(40,30,10,.05);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background-color: var(--bg);
+    background-image: linear-gradient(180deg, #fbf8f2 0%, #f4f1ea 42%);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: var(--ink);
+    font-family: "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", "Microsoft YaHei", "Segoe UI", sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    overflow-wrap: break-word;
+  }
+  a { color: #0b57d0; }
+  a:hover { color: #0842a0; }
+  button, input { font-family: inherit; color: inherit; }
+  :focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+  .wrap {
+    width: min(880px, calc(100% - 32px));
+    margin: 0 auto;
+    padding: 32px 0 80px;
+  }
+  .date {
+    margin: 0 0 10px;
+    font-size: 13px;
+    letter-spacing: .08em;
+    color: var(--muted);
+  }
+  h1 {
+    margin: 0 0 14px;
+    font-size: clamp(28px, 5vw, 40px);
+    line-height: 1.22;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  .nowrap { white-space: nowrap; }
+  .summary {
+    margin: 0;
+    max-width: 68ch;
+    color: #2c2c2c;
+  }
+  .section-label {
+    margin: 40px 0 12px;
+    font-size: 13px;
+    font-weight: 650;
+    letter-spacing: .12em;
+    color: var(--muted);
+  }
+  .top-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+  }
+  .top-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    min-height: 168px;
+    padding: 16px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    text-align: left;
+    cursor: pointer;
+  }
+  .top-card:hover { border-color: #111; }
+  .rank {
+    font-variant-numeric: tabular-nums;
+    font-size: 12px;
+    letter-spacing: .04em;
+    color: var(--faint);
+  }
+  .top-t { font-size: 16px; font-weight: 680; line-height: 1.4; }
+  .top-s { font-size: 13px; line-height: 1.5; color: var(--muted); }
+  .top-go {
+    margin-top: auto;
+    font-size: 13px;
+    border-bottom: 1px solid #111;
+    line-height: 1.4;
+  }
+  .map-bar {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 4px 12px;
+    margin-top: 40px;
+  }
+  .map-bar .section-label { margin: 0; }
+  .text-btn {
+    border: 0;
+    background: transparent;
+    padding: 8px 0;
+    min-height: 44px;
+    cursor: pointer;
+    font-size: 14px;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .tree {
+    margin-top: 14px;
+    padding: 4px 0 4px 22px;
+    border-left: 2px solid var(--line);
+  }
+  .root {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 18px -22px;
+    padding: 10px 16px;
+    max-width: calc(100% + 22px);
+    border: 1.5px solid #111;
+    border-radius: 16px;
+    background: var(--card);
+    font-weight: 700;
+  }
+  .root-mark {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #111;
+    flex: none;
+  }
+  .topic { position: relative; margin: 0 0 12px; }
+  .topic::before {
+    content: "";
+    position: absolute;
+    left: -22px;
+    top: 28px;
+    width: 22px;
+    height: 2px;
+    background: var(--branch, #111);
+  }
+  .topic-head { display: flex; align-items: stretch; gap: 8px; }
+  .topic-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 64px;
+    padding: 12px 14px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    cursor: pointer;
+    text-align: left;
+  }
+  .topic-btn:hover,
+  .topic.is-open .topic-btn { border-color: #111; }
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--branch, #111);
+    flex: none;
+  }
+  .topic-copy { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+  .topic-name { font-size: 17px; font-weight: 700; line-height: 1.35; }
+  .topic-meta { font-size: 13px; color: var(--muted); }
+  .chev {
+    width: 8px;
+    height: 8px;
+    margin-left: auto;
+    border-right: 1.5px solid #111;
+    border-bottom: 1.5px solid #111;
+    transform: rotate(45deg) translateY(-2px);
+    flex: none;
+  }
+  .topic.is-open .topic-btn > .chev { transform: rotate(-135deg) translateY(-2px); }
+  .report {
+    align-self: center;
+    flex: none;
+    font-size: 13px;
+    padding: 8px 2px;
+    white-space: nowrap;
+  }
+  .items, .detail { display: none; }
+  .topic.is-open > .topic-head + .items,
+  .topic.is-open > .items { display: flex; }
+  .item.is-open .detail { display: block; }
+  .items {
+    margin: 8px 0 6px 8px;
+    padding-left: 14px;
+    border-left: 2px solid color-mix(in srgb, var(--branch, #111) 45%, #fff);
+    flex-direction: column;
+    gap: 8px;
+  }
+  .item { scroll-margin: 16px 0 24px; }
+  .item-btn {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    padding: 12px;
+    background: var(--soft);
+    border: 1px solid transparent;
+    border-radius: 12px;
+    cursor: pointer;
+    text-align: left;
+  }
+  .item-btn:hover { border-color: #ccc; }
+  .item.is-open .item-btn {
+    background: var(--card);
+    border-color: #111;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .item-top { display: flex; width: 100%; align-items: flex-start; gap: 8px; }
+  .idx {
+    font-variant-numeric: tabular-nums;
+    font-size: 12px;
+    color: var(--faint);
+    padding-top: 3px;
+    flex: none;
+  }
+  .item-title { font-weight: 680; font-size: 15.5px; line-height: 1.45; }
+  .item-top .chev { margin-top: 6px; }
+  .item.is-open .item-top .chev { transform: rotate(-135deg) translateY(-2px); }
+  .item-sum { font-size: 13.5px; color: var(--muted); padding-left: 24px; }
+  .badges { display: flex; flex-wrap: wrap; gap: 6px; padding-left: 24px; }
+  .badge {
+    font-size: 11px;
+    color: #333;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 1px 8px;
+  }
+  .detail {
+    padding: 4px 14px 14px;
+    border: 1px solid #111;
+    border-top: 0;
+    border-radius: 0 0 12px 12px;
+    background: var(--card);
+  }
+  .detail p { margin: 8px 0 12px; }
+  figure { margin: 0 0 12px; }
+  figure img {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: 440px;
+    object-fit: contain;
+    background: var(--soft);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+  }
+  figcaption { margin-top: 6px; font-size: 12px; color: var(--faint); }
+  .links {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .links a { font-size: 14px; }
+  .item.flash .item-btn { animation: flash 1.3s ease; }
+  @keyframes flash {
+    0% { background: #fff3cc; }
+    100% { background: var(--card); }
+  }
+  footer {
+    margin-top: 40px;
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 13px;
+  }
+  footer p { margin: 0 0 6px; }
+  @media (max-width: 720px) {
+    .wrap { width: min(100% - 28px, 880px); padding-top: 22px; }
+    .top-grid { grid-template-columns: 1fr; }
+    .top-card { min-height: 0; }
+    .topic-head { flex-direction: column; gap: 0; }
+    .report { align-self: flex-start; padding: 6px 2px 2px 4px; white-space: normal; }
+    h1 { letter-spacing: 0; }
+  }
+  @media print {
+    .text-btn, .top-go { display: none; }
+    .items, .detail { display: block !important; }
+    .top-card, .topic-btn, .item-btn { break-inside: avoid; }
+  }
+
+  /* tabs + card thumbs (overrides tree layout) */
+  .map-bar{align-items:flex-end}
+  .tab-list{
+    position:sticky;top:0;z-index:30;
+    display:flex;flex-wrap:nowrap;gap:0;
+    overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:thin;
+    background:var(--bg);
+    border-bottom:1px solid var(--line);
+    margin:0 0 18px;padding:8px 0 0;
+  }
+  .tab{
+    flex:none;font:inherit;font-size:15px;font-weight:650;
+    padding:10px 16px;border:0;border-bottom:2px solid transparent;
+    background:transparent;color:var(--muted);cursor:pointer;white-space:nowrap;
+  }
+  .tab.is-active,.tab[aria-selected="true"]{color:var(--ink);background:var(--card);border-bottom-color:#111;border-radius:10px 10px 0 0}
+  .tab-panel{display:none}
+  .tab-panel.is-active{display:block}
+  .panel-meta{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 16px;margin:0 0 12px;font-size:14px;color:var(--muted)}
+  .panel-meta a{font-weight:650}
+  a.trend-open{font-weight:700}
+  .items{display:flex;flex-direction:column;gap:8px;margin:0;padding:0;border:0}
+  .item-head{
+    display:flex;align-items:center;gap:10px;
+    padding:12px;background:var(--soft);border:1px solid transparent;border-radius:12px;cursor:pointer;
+  }
+  .item-head:hover{border-color:#ccc}
+  .item.is-open .item-head{background:var(--card);border-color:#111;border-bottom-left-radius:0;border-bottom-right-radius:0}
+  .item-btn{
+    flex:1;min-width:0;width:auto;
+    display:flex;flex-direction:column;align-items:flex-start;gap:4px;
+    padding:0;background:transparent;border:0;cursor:pointer;text-align:left;
+  }
+  .item-top{width:auto}
+  .item-thumb{flex:none;display:block;width:140px;height:86px;border-radius:8px;overflow:hidden;line-height:0}
+  .item-thumb img{display:block;width:140px;height:86px;object-fit:cover;background:#f3efe6;border-radius:8px}
+  .item-head>.chev{margin-left:0;margin-top:0;flex:none}
+  .item.is-open .item-head>.chev{transform:rotate(-135deg) translateY(-2px)}
+  .item{scroll-margin-top:72px}
+  .item.flash .item-head{animation:flash 1.3s ease}
+  .detail{display:none}
+  .item.is-open .detail{display:block}
+  @media (max-width:600px){
+    .item-thumb,.item-thumb img{width:84px;height:54px}
+    .tab{padding:10px 12px;font-size:14px}
+  }
+  @media print{
+    .tab-list{position:static}
+    .tab-panel,.detail,.items{display:block !important}
+  }
+
+
+  .day-poster{margin:0 0 28px;max-width:100%}
+  .day-poster a{display:block;line-height:0}
+  .day-poster img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:12px;border:1px solid var(--line);background:#f4f1ea;box-shadow:var(--shadow)}
+
+
+  /* ALL tab: restore topic tree, scoped so other tabs stay unchanged */
+  #panel-all .tree{
+    margin-top:6px;padding:4px 0 4px 22px;
+    border-left:2px solid var(--line);
+  }
+  #panel-all .topic{position:relative;margin:0 0 12px}
+  #panel-all .topic::before{
+    content:"";position:absolute;left:-22px;top:28px;width:22px;height:2px;
+    background:var(--branch,#111);
+  }
+  #panel-all .topic-head{display:flex;align-items:stretch;gap:8px}
+  #panel-all .topic-links{
+    align-self:center;flex:none;display:flex;flex-direction:column;gap:4px;
+    padding:8px 2px;font-size:13px;white-space:nowrap;
+  }
+  #panel-all .topic-links a{font-weight:650}
+  #panel-all .items{
+    display:none;
+    margin:8px 0 6px 8px;padding-left:14px;
+    border-left:2px solid color-mix(in srgb, var(--branch,#111) 45%, #fffaf4);
+    flex-direction:column;gap:8px;
+  }
+  #panel-all .topic.is-open > .items{display:flex}
+  @media (max-width:720px){
+    #panel-all .topic-head{flex-direction:column;gap:0}
+    #panel-all .topic-links{align-self:flex-start;padding:6px 2px 2px 4px;white-space:normal}
+  }
+  @media print{
+    #panel-all .items,#panel-all .detail{display:block !important}
+  }
+
+
+  /* tabs + card thumbs (overrides tree layout) */
+  .map-bar{align-items:flex-end}
+  .tab-list{
+    position:sticky;top:0;z-index:30;
+    display:flex;flex-wrap:nowrap;gap:0;
+    overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:thin;
+    background:var(--bg);
+    border-bottom:1px solid var(--line);
+    margin:0 0 18px;padding:8px 0 0;
+  }
+  .tab{
+    flex:none;font:inherit;font-size:15px;font-weight:650;
+    padding:10px 16px;border:0;border-bottom:2px solid transparent;
+    background:transparent;color:var(--muted);cursor:pointer;white-space:nowrap;
+  }
+  .tab.is-active,.tab[aria-selected="true"]{color:var(--ink);background:var(--card);border-bottom-color:#111;border-radius:10px 10px 0 0}
+  .tab-panel{display:none}
+  .tab-panel.is-active{display:block}
+  .panel-meta{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 16px;margin:0 0 12px;font-size:14px;color:var(--muted)}
+  .panel-meta a{font-weight:650}
+  a.trend-open{font-weight:700}
+  .items{display:flex;flex-direction:column;gap:8px;margin:0;padding:0;border:0}
+  .item-head{
+    display:flex;align-items:center;gap:10px;
+    padding:12px;background:var(--soft);border:1px solid transparent;border-radius:12px;cursor:pointer;
+  }
+  .item-head:hover{border-color:#ccc}
+  .item.is-open .item-head{background:var(--card);border-color:#111;border-bottom-left-radius:0;border-bottom-right-radius:0}
+  .item-btn{
+    flex:1;min-width:0;width:auto;
+    display:flex;flex-direction:column;align-items:flex-start;gap:4px;
+    padding:0;background:transparent;border:0;cursor:pointer;text-align:left;
+  }
+  .item-top{width:auto}
+  .item-thumb{flex:none;display:block;width:140px;height:86px;border-radius:8px;overflow:hidden;line-height:0}
+  .item-thumb img{display:block;width:140px;height:86px;object-fit:cover;background:#f3efe6;border-radius:8px}
+  .item-head>.chev{margin-left:0;margin-top:0;flex:none}
+  .item.is-open .item-head>.chev{transform:rotate(-135deg) translateY(-2px)}
+  .item{scroll-margin-top:72px}
+  .item.flash .item-head{animation:flash 1.3s ease}
+  .detail{display:none}
+  .item.is-open .detail{display:block}
+  @media (max-width:600px){
+    .item-thumb,.item-thumb img{width:84px;height:54px}
+    .tab{padding:10px 12px;font-size:14px}
+  }
+  @media print{
+    .tab-list{position:static}
+    .tab-panel,.detail,.items{display:block !important}
+  }
+/* ALL tab: restore topic tree, scoped so other tabs stay unchanged */
+  #panel-all .tree{
+    margin-top:6px;padding:4px 0 4px 22px;
+    border-left:2px solid var(--line);
+  }
+  #panel-all .topic{position:relative;margin:0 0 12px}
+  #panel-all .topic::before{
+    content:"";position:absolute;left:-22px;top:28px;width:22px;height:2px;
+    background:var(--branch,#111);
+  }
+  #panel-all .topic-head{display:flex;align-items:stretch;gap:8px}
+  #panel-all .topic-links{
+    align-self:center;flex:none;display:flex;flex-direction:column;gap:4px;
+    padding:8px 2px;font-size:13px;white-space:nowrap;
+  }
+  #panel-all .topic-links a{font-weight:650}
+  #panel-all .items{
+    display:none;
+    margin:8px 0 6px 8px;padding-left:14px;
+    border-left:2px solid color-mix(in srgb, var(--branch,#111) 45%, #fffaf4);
+    flex-direction:column;gap:8px;
+  }
+  #panel-all .topic.is-open > .items{display:flex}
+  @media (max-width:720px){
+    #panel-all .topic-head{flex-direction:column;gap:0}
+    #panel-all .topic-links{align-self:flex-start;padding:6px 2px 2px 4px;white-space:normal}
+  }
+  @media print{
+    #panel-all .items,#panel-all .detail{display:block !important}
+  }
+
+
+.wc-dog{display:inline-block;width:1.15em;height:1.15em;vertical-align:-0.18em;margin-right:.3em}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="mast">
+      <p class="home-link" style="margin:0 0 14px;font-size:14px"><a href="./index.html">← 全部日期</a></p>
+      <p class="date">2026-11-16</p>
+      <h1><img class="wc-dog" src="assets/wangcai-dog.png" alt="" aria-hidden="true">旺财资讯 <span class="nowrap">2026-11-16</span></h1>
+      <p class="summary">7 条资讯线汇总今天各 bot 和 AI 行业简报的输出。默认打开 ALL 可看全部资讯线的树形列表；点上方标签切换各条线，要点默认展开；点箭头可收起。本期覆盖周五到周一。</p>
+    </header>
+
+    <p class="day-poster"><a href="assets/poster/2026-11-16.png" target="_blank" rel="noopener noreferrer"><img src="assets/poster/2026-11-16.png" alt="旺财资讯 2026-11-16" width="1920" height="1080" loading="lazy" decoding="async"></a></p>
+
+
+    <h2 class="section-label">今日最值得关注</h2>
+    <div class="top-grid">
+      <button type="button" class="top-card" data-topic="0" data-item="0">
+        <span class="rank">01 · AI 行业简报</span>
+        <span class="top-t">要求恢复黄仁勋职务的请愿超过 11.5 万人签名</span>
+        <span class="top-s">签名者里有在职员工和股东；他已同意在感恩节前到国会闭门作证，公司 11 月 17 日发财报</span>
+        <span class="top-go">查看详情</span>
+      </button>
+      <button type="button" class="top-card" data-topic="2" data-item="1">
+        <span class="rank">02 · PC 行业动向</span>
+        <span class="top-t">华为 MateBook Fold S 在国内开订</span>
+        <span class="top-s">展开 14.7 英寸、合上 10.7 英寸，跑鸿蒙 PC，11 月 24 日付尾款，价格未公布</span>
+        <span class="top-go">查看详情</span>
+      </button>
+      <button type="button" class="top-card" data-topic="3" data-item="1">
+        <span class="rank">03 · Apple 洞察</span>
+        <span class="top-t">古尔曼称 Apple 首款智能眼镜计划 2027 年发布</span>
+        <span class="top-s">代号 N50，计划 6 月 WWDC 发布、年底前出货，没有显示屏，必须配近款 iPhone</span>
+        <span class="top-go">查看详情</span>
+      </button>
+    </div>
+
+        <div class="map-bar">
+      <h2 class="section-label">资讯 · 7 条线 · 38 条要点</h2>
+    </div>
+
+    <div class="tabs" id="tabs">
+      <div class="tab-list" role="tablist" aria-label="资讯线">
+        <button type="button" class="tab is-active" role="tab" id="tab-all" aria-selected="true" aria-controls="panel-all" tabindex="0">ALL</button>
+        <button type="button" class="tab" role="tab" id="tab-0" data-topic="0" aria-selected="false" aria-controls="topic-0" tabindex="-1">AI 行业简报</button>
+        <button type="button" class="tab" role="tab" id="tab-1" data-topic="1" aria-selected="false" aria-controls="topic-1" tabindex="-1">科技高管观点</button>
+        <button type="button" class="tab" role="tab" id="tab-2" data-topic="2" aria-selected="false" aria-controls="topic-2" tabindex="-1">PC 行业动向</button>
+        <button type="button" class="tab" role="tab" id="tab-3" data-topic="3" aria-selected="false" aria-controls="topic-3" tabindex="-1">Apple 洞察</button>
+        <button type="button" class="tab" role="tab" id="tab-4" data-topic="4" aria-selected="false" aria-controls="topic-4" tabindex="-1">X 热门新点子</button>
+        <button type="button" class="tab" role="tab" id="tab-5" data-topic="5" aria-selected="false" aria-controls="topic-5" tabindex="-1">AI 大拿</button>
+        <button type="button" class="tab" role="tab" id="tab-6" data-topic="6" aria-selected="false" aria-controls="topic-6" tabindex="-1">GitHub 涨星</button>
+      </div>
+      <div class="tab-panels">
+      <section class="tab-panel is-active" role="tabpanel" id="panel-all" aria-labelledby="tab-all">
+        <div class="tree" id="tree">
+        <section class="topic is-open" id="all-topic-0" style="--branch:#0f766e">
+          <div class="topic-head">
+            <button type="button" class="topic-btn" aria-expanded="true" aria-controls="all-items-0">
+              <span class="dot" aria-hidden="true"></span>
+              <span class="topic-copy">
+                <span class="topic-name">AI 行业简报</span>
+                <span class="topic-meta">AI 行业简报 · 6 条</span>
+              </span>
+              <span class="chev" aria-hidden="true"></span>
+            </button>
+            <div class="topic-links"><a class="report" href="reports/2026-11-16/brief.html">查看日报</a></div>
+          </div>
+          <div class="items" id="all-items-0">
+          <article class="item is-open" id="all-t0-i0">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t0-i0">
+                <span class="item-top">
+                  <span class="idx">01</span>
+                  <span class="item-title">要求英伟达恢复黄仁勋职务的请愿超过 11.5 万人签名</span>
+                </span>
+                <span class="item-sum">签名者里有 5965 名在职员工和 6.3 万多名股东；黄仁勋已同意在感恩节前到国会闭门作证</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t0-i0"><p>马斯克、Replit 的 Amjad Masad、Epic 的 Tim Sweeney、YC 的 Garry Tan 都签了，诉求是在独立调查期间先让他复职。英伟达 11 月 17 日发财报，管理层是否稳定会直接影响市场判断。上一份简报是 11-13，这份覆盖周五到周日。</p><ul class="links"><li><a href="https://techcrunch.com/2026/11/14/elon-musk-other-tech-execs-sign-petition-calling-on-nvidia-to-reinstate-jensen-huang/" rel="noopener noreferrer" target="_blank">TechCrunch：请愿</a></li><li><a href="https://techcrunch.com/2026/11/12/jensen-huang-agrees-to-testify-before-congress/" rel="noopener noreferrer" target="_blank">TechCrunch：同意作证</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t0-i1">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t0-i1">
+                <span class="item-top">
+                  <span class="idx">02</span>
+                  <span class="item-title">研究称 DeepSeek V4 和 Kimi K3 带有 Blackwell 训练的痕迹</span>
+                </span>
+                <span class="item-sum">前 OpenAI 研究员 Will DePue 分析了 DeepSeek、月之暗面、MiniMax 和蚂蚁的开源权重</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t0-i1"><p>他认为能看出训练所用芯片的配置。这不等于违法，芯片可能放在马来西亚等海外数据中心。这件事会给美国收紧芯片使用者管控增加理由，也让英伟达的出口合规风险更受关注。</p><ul class="links"><li><a href="https://techcrunch.com/2026/11/13/export-banned-nvidia-chips-are-behind-chinas-most-powerful-ai-models-uh-oh-jensen/" rel="noopener noreferrer" target="_blank">TechCrunch 报道</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t0-i2">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t0-i2">
+                <span class="item-top">
+                  <span class="idx">03</span>
+                  <span class="item-title">美联储金融稳定报告把 AI 列为市场最常提到的风险</span>
+                </span>
+                <span class="item-sum">与先进算力相关的债务发行到 2026 年 10 月已超过 6800 亿美元，约为 2023 年全年的五倍</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t0-i2"><p>这部分发债占投资级非金融公司发债的约 31%。AI 基建越来越靠借钱撑着，监管层开始正式盯这块。</p><ul class="links"><li><a href="https://www.federalreserve.gov/publications/files/financial-stability-report-20261113.pdf" rel="noopener noreferrer" target="_blank">美联储报告 PDF</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t0-i3">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t0-i3">
+                <span class="item-top">
+                  <span class="idx">04</span>
+                  <span class="item-title">OpenAI 推出 ChatGPT Wallet，让智能体替用户付款</span>
+                </span>
+                <span class="item-sum">和美国运通、万事达、Visa 合作，智能体拿不到真实卡号，每笔购买都要用户确认</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t0-i3"><p>先向美国 ChatGPT Pro 用户开放。AI 购物从帮你比价走到了帮你下单，商家需要调整风控才能接住这类订单。</p><ul class="links"><li><a href="https://openai.com/index/introducing-chatgpt-wallet/" rel="noopener noreferrer" target="_blank">OpenAI 官方</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t0-i4">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t0-i4">
+                <span class="item-top">
+                  <span class="idx">05</span>
+                  <span class="item-title">亚马逊计划建 World Product Graph，收录全网商品数据</span>
+                </span>
+                <span class="item-sum">据路透社看到的内部文件，亚马逊想把各处在售商品（包括自己不卖的）都纳入索引</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t0-i4"><p>部分靠抓取竞争对手网站，用来对抗外部 AI 购物智能体，也修补自家购物助手答错的问题。谁掌握商品数据，谁就在智能体购物里占住入口。</p><ul class="links"><li><a href="https://www.theverge.com/tech/1033697/amazon-world-product-graph-ai-search" rel="noopener noreferrer" target="_blank">The Verge 转述路透报道</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t0-i5">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t0-i5">
+                <span class="item-top">
+                  <span class="idx">06</span>
+                  <span class="item-title">OpenAI 解散独立机器人团队</span>
+                </span>
+                <span class="item-sum">研究人员并入 Mark Chen 管的主研究组，应用机器人和硬件团队并入 Greg Brockman 管的 Applied 部门</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t0-i5"><p>OpenAI 说这是为了加快机器人进展，思路是让通用模型直接控制机器人，不再单独做专用的机器人大脑。</p><ul class="links"><li><a href="https://tech.yahoo.com/ai/articles/exclusive-openai-disbands-stand-alone-170530559.html" rel="noopener noreferrer" target="_blank">Fortune（Yahoo 转载）</a></li></ul></div>
+          </article>
+          </div>
+        </section>
+        <section class="topic is-open" id="all-topic-1" style="--branch:#b45309">
+          <div class="topic-head">
+            <button type="button" class="topic-btn" aria-expanded="true" aria-controls="all-items-1">
+              <span class="dot" aria-hidden="true"></span>
+              <span class="topic-copy">
+                <span class="topic-name">科技高管观点</span>
+                <span class="topic-meta">科技公司高管最新观点监测 · 6 条</span>
+              </span>
+              <span class="chev" aria-hidden="true"></span>
+            </button>
+            <div class="topic-links"><a class="report" href="reports/2026-11-16/exec.html">查看日报</a></div>
+          </div>
+          <div class="items" id="all-items-1">
+          <article class="item is-open" id="all-t1-i0">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t1-i0">
+                <span class="item-top">
+                  <span class="idx">01</span>
+                  <span class="item-title">英伟达 CEO 之争出现反转迹象</span>
+                </span>
+                <span class="item-sum">FT 报道黄仁勋正和亲信讨论回任；美国财长贝森特则要求从外部找 CEO，并要 10 天内给答案</span>
+                <span class="badges"><span class="badge">4 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t1-i0"><p>一位盟友在组织硅谷高管游说董事会和白宫，并称黄仁勋支持这一行动。Jason Calacanis、Tobi Lütke、DHH、Yuchen Jin 在 X 上公开站黄仁勋。英伟达周二发财报。黄仁勋没有控股，不能推翻董事会决定。本时段没有检索到黄仁勋本人的新原帖。</p><ul class="links"><li><a href="https://tech.yahoo.com/general/breaking-news/article/jensen-huang-weighs-comeback-as-nvidia-ceo-as-allies-lobby-board-ft-reports-bessent-calls-for-dramatic-shakeup-204839950.html" rel="noopener noreferrer" target="_blank">Yahoo 转述 FT 与贝森特表态</a></li><li><a href="https://www.reuters.com/world/china/jensen-huang-discusses-comeback-nvidia-ceo-with-allies-ft-reports-2026-11-15/" rel="noopener noreferrer" target="_blank">路透报道</a></li><li><a href="https://x.com/Jason/status/2122085871038202038" rel="noopener noreferrer" target="_blank">Jason Calacanis 原帖</a></li><li><a href="https://x.com/tobi/status/2122112620711096470" rel="noopener noreferrer" target="_blank">Tobi Lütke 原帖</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t1-i1">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t1-i1">
+                <span class="item-top">
+                  <span class="idx">02</span>
+                  <span class="item-title">OpenAI 上线科学博客，首篇谈 GPT-6 Astra 与标准模型格点定义</span>
+                </span>
+                <span class="item-sum">UCSB 物理学家 Nathaniel Craig 的客座文章；Greg Brockman 和 OpenAI 官方账号都转发了</span>
+                <span class="badges"><span class="badge">3 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t1-i1"><p>Craig 先给出思路，GPT-6 Astra 把它推成完整构造和规范不变测度的证明。文章自己说这是候选方案，还有不少技术问题待解。配套 arXiv 预印本在 2026 年 10 月发布。</p><ul class="links"><li><a href="https://openai.com/index/step-toward-defining-the-standard-model" rel="noopener noreferrer" target="_blank">OpenAI 科学博客</a></li><li><a href="https://x.com/OpenAI/status/2122123437141553630" rel="noopener noreferrer" target="_blank">OpenAI 原帖</a></li><li><a href="https://x.com/gdb/status/2122126010691060185" rel="noopener noreferrer" target="_blank">Greg Brockman 原帖</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t1-i2">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t1-i2">
+                <span class="item-top">
+                  <span class="idx">03</span>
+                  <span class="item-title">Google Research 介绍 Antigravity 的 /teamwork 多智能体系统</span>
+                </span>
+                <span class="item-sum">多个 Gemini 4 智能体并行探索，再用 Lean 4 证明检查器、原版测试集和独立复核智能体把关</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t1-i2"><p>Google Fellow Vahab Mirrokni 等人 11 月 13 日发文。据二手报道，团队和学者一起完整证明了 Courtade–Kumar 猜想并在 Lean 4 里形式化。皮查伊转发了 Gemini 4 Carbon 第一个提示就解决一个研究问题的帖子，以及 Antigravity 上下文窗口翻倍的消息。</p><ul class="links"><li><a href="https://research.google/blog/advancing-science-engineering-with-antigravitys-teamwork-feature/" rel="noopener noreferrer" target="_blank">Google Research 博客</a></li><li><a href="https://x.com/sundarpichai/status/2122120482950685080" rel="noopener noreferrer" target="_blank">皮查伊转发</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t1-i3">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t1-i3">
+                <span class="item-top">
+                  <span class="idx">04</span>
+                  <span class="item-title">马斯克检查 Ship 42：翻修几周可能再飞，即刻复用还早</span>
+                </span>
+                <span class="item-sum">他说隔热罩和发动机整体状况很好，但要做到立即复用还得改很多小地方</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t1-i3"><p>这是星舰第 15 次试飞、上面级被塔臂接住之后。哈萨比斯也发帖祝贺着陆负责人 Lars Blackmore。</p><ul class="links"><li><a href="https://x.com/elonmusk/status/2122092374016806969" rel="noopener noreferrer" target="_blank">马斯克原帖</a></li><li><a href="https://x.com/demishassabis/status/2122125211994611770" rel="noopener noreferrer" target="_blank">Hassabis 原帖</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t1-i4">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t1-i4">
+                <span class="item-top">
+                  <span class="idx">05</span>
+                  <span class="item-title">X 新闻称 Anthropic 计划本周 IPO，区间 70 到 78 美元</span>
+                </span>
+                <span class="item-sum">最多募 644 亿美元，目标估值约 1.4 万亿美元，最快 11 月 19 日在纳斯达克上市</span>
+                <span class="badges"><span class="badge">X 新闻摘要</span><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t1-i4"><p>这是 X 新闻摘要，未见 Anthropic 高管本人发帖确认。另一条摘要说 Claude Code 推出可选的 Code Mode，token 用量降 37%。</p><ul class="links"><li><a href="https://x.com/i/trending/2122061888335057289" rel="noopener noreferrer" target="_blank">X 新闻摘要（IPO）</a></li><li><a href="https://x.com/i/trending/2121809895708324313" rel="noopener noreferrer" target="_blank">X 新闻摘要（Code Mode）</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t1-i5">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t1-i5">
+                <span class="item-top">
+                  <span class="idx">06</span>
+                  <span class="item-title">Meta Muse 推出代打电话；Perplexity 强调 Teammates 可自选模型</span>
+                </span>
+                <span class="item-sum">Muse 限美国付费用户；Srinivas 称没有其他产品能让用户用任意前沿模型搭 Teammates</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t1-i5"><p>Alexandr Wang 11 月 15 日还发过一条可穿戴设备概念帖。本时段没有检索到 Andrej Karpathy、Sam Altman、Dario Amodei、Satya Nadella 的新原帖。</p><ul class="links"><li><a href="https://x.com/alexandr_wang/status/2122104505538121821" rel="noopener noreferrer" target="_blank">Alexandr Wang 原帖</a></li><li><a href="https://x.com/AravSrinivas/status/2122054319776452618" rel="noopener noreferrer" target="_blank">Aravind Srinivas 原帖</a></li></ul></div>
+          </article>
+          </div>
+        </section>
+        <section class="topic is-open" id="all-topic-2" style="--branch:#1d4ed8">
+          <div class="topic-head">
+            <button type="button" class="topic-btn" aria-expanded="true" aria-controls="all-items-2">
+              <span class="dot" aria-hidden="true"></span>
+              <span class="topic-copy">
+                <span class="topic-name">PC 行业动向</span>
+                <span class="topic-meta">PC行业动向每日洞察 · 6 条</span>
+              </span>
+              <span class="chev" aria-hidden="true"></span>
+            </button>
+            <div class="topic-links"><a class="report" href="reports/2026-11-16/pc.html">查看日报</a></div>
+          </div>
+          <div class="items" id="all-items-2">
+          <article class="item is-open" id="all-t2-i0">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t2-i0">
+                <span class="item-top">
+                  <span class="idx">01</span>
+                  <span class="item-title">TCL 华星展出 14 英寸喷墨打印 OLED 笔记本屏</span>
+                </span>
+                <span class="item-sum">面板厚 0.6mm、重 66 克，1920×1200，官方称 99% 以上环境光被吸收或透过</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t2-i0"><p>目前没有触屏版，商用笔记本可能 2027 年上市。同场还有 16 英寸 360Hz 和 1.6mm 窄边框的 IJP OLED 样品。展会是 DTC 2026。</p><ul class="links"><li><a href="https://www.notebookcheck.net/Super-slim-low-reflection-IJP-OLED-display-debuts-for-thin-and-light-laptops.1450215.0.html" rel="noopener noreferrer" target="_blank">Notebookcheck 报道</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t2-i1">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t2-i1">
+                <span class="item-top">
+                  <span class="idx">02</span>
+                  <span class="item-title">华为 MateBook Fold S 11 月 14 日在国内开订</span>
+                </span>
+                <span class="item-sum">展开 14.7 英寸、合上 10.7 英寸，比 18 英寸的 MateBook Fold 小一号，跑鸿蒙 PC</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t2-i1"><p>UTG 外盖加玄武水滴铰链，预计用麒麟 X9 系列。四档配置从 16GB/256GB 到 32GB/1TB，都带键盘，价格未公布，11 月 24 日付尾款。</p><ul class="links"><li><a href="https://www.notebookcheck.net/Huawei-s-foldable-laptop-with-up-to-32GB-RAM-and-1TB-storage-opens-for-pre-orders.1450194.0.html" rel="noopener noreferrer" target="_blank">Notebookcheck 报道</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t2-i2">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t2-i2">
+                <span class="item-top">
+                  <span class="idx">03</span>
+                  <span class="item-title">ASUS ExpertBook A7 在英德比上架 8GB 内存版</span>
+                </span>
+                <span class="item-sum">英国 899 英镑，比评测的 16GB 版便宜 400 英镑；德国 1,219 欧元</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t2-i2"><p>处理器是 Core 5 320，保留 1800p 120Hz OLED 和 65Wh 电池，官方视频续航 26 小时，荷兰 11 月 30 日到货。</p><ul class="links"><li><a href="https://www.notebookcheck.net/Asus-releases-new-14-inch-laptop-with-cheaper-pricing-and-over-24-hours-battery-life.1450902.0.html" rel="noopener noreferrer" target="_blank">Notebookcheck 报道</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t2-i3">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t2-i3">
+                <span class="item-top">
+                  <span class="idx">04</span>
+                  <span class="item-title">MSI 全球推出 Claw 8 EX 低配版</span>
+                </span>
+                <span class="item-sum">换成 Intel Arc G3 / Arc B370 核显，32GB 内存、512GB，美国 1,499 美元，比原版便宜 300 美元</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t2-i3"><p>蓝色机身。Notebookcheck 测得游戏性能只低约 6%。同日松下在日本发布 Toughbook FZ-G3 三防平板，用 Core Ultra 5 335（Panther Lake）。</p><ul class="links"><li><a href="https://www.notebookcheck.net/MSI-releases-new-Claw-8-EX-gaming-handheld-with-cheaper-pricing-and-Intel-Arc-B370-graphics.1449866.0.html" rel="noopener noreferrer" target="_blank">Notebookcheck：Claw 8 EX</a></li><li><a href="https://www.notebookcheck.net/Japanese-rugged-tablet-arrives-with-16-GB-RAM-and-8-core-Intel-Panther-Lake-CPU.1449481.0.html" rel="noopener noreferrer" target="_blank">Notebookcheck：Toughbook FZ-G3</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t2-i4">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t2-i4">
+                <span class="item-top">
+                  <span class="idx">05</span>
+                  <span class="item-title">微软 11 月 13 日给 26H1 推送 Insider 版本</span>
+                </span>
+                <span class="item-sum">Beta 28020.3532、Experimental 28120.3542、Future Platforms 29708.1003；Release Preview 同步更新</span>
+                <span class="badges"><span class="badge">3 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t2-i4"><p>26H1 两个版本都允许托管设备上的标准用户自己设 BitLocker 开机 PIN。Experimental 版加入可选的新版「运行」对话框。26H1 只预装在骁龙 X2 等新机上，不能从 26H2 升级。同日 Linux 7.4-rc3 发布；macOS 没有新版本，正式版仍是 11 月 9 日的 27.2.1。</p><ul class="links"><li><a href="https://blogs.windows.com/windows-insider/2026/11/13/announcing-new-builds-for-13-november-2026/" rel="noopener noreferrer" target="_blank">Windows Insider 博客</a></li><li><a href="https://pureinfotech.com/builds-28020-3532-28120-3542-windows-11-26h1/" rel="noopener noreferrer" target="_blank">Pureinfotech 报道</a></li><li><a href="https://lkml.iu.edu/hypermail/linux/kernel/2611.1/24313.html" rel="noopener noreferrer" target="_blank">LKML：Linux 7.4-rc3</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t2-i5">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t2-i5">
+                <span class="item-top">
+                  <span class="idx">06</span>
+                  <span class="item-title">微软确认下一代 Xbox Project Helix 是能玩 PC 游戏的主机</span>
+                </span>
+                <span class="item-sum">Xbox 副总裁 Jason Ronald 说它不是能玩主机游戏的 PC，默认不让用户管系统更新和驱动</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t2-i5"><p>会给进阶用户开放设置。另有传闻称 Intel Razor Lake 会有一款不锁频的 12+0+4 桌面芯片，带 bLLC 大缓存，用 Intel 18A-P，属传闻，尚未确认。</p><ul class="links"><li><a href="https://videocardz.com/newz/microsoft-confirms-project-helix-is-a-console-that-plays-pc-games-not-a-pc-that-plays-console-games" rel="noopener noreferrer" target="_blank">VideoCardz：Project Helix</a></li><li><a href="https://videocardz.com/newz/intel-razor-lake-reportedly-gets-12-p-core-only-die-with-bllc-on-intel-18a-p" rel="noopener noreferrer" target="_blank">VideoCardz：Razor Lake 传闻</a></li></ul></div>
+          </article>
+          </div>
+        </section>
+        <section class="topic is-open" id="all-topic-3" style="--branch:#6d28d9">
+          <div class="topic-head">
+            <button type="button" class="topic-btn" aria-expanded="true" aria-controls="all-items-3">
+              <span class="dot" aria-hidden="true"></span>
+              <span class="topic-copy">
+                <span class="topic-name">Apple 洞察</span>
+                <span class="topic-meta">Apple新闻洞察 · 4 条</span>
+              </span>
+              <span class="chev" aria-hidden="true"></span>
+            </button>
+            <div class="topic-links"><a class="report" href="reports/2026-11-16/apple.html">查看日报</a></div>
+          </div>
+          <div class="items" id="all-items-3">
+          <article class="item is-open" id="all-t3-i0">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t3-i0">
+                <span class="item-top">
+                  <span class="idx">01</span>
+                  <span class="item-title">Apple 周五推送 tvOS 27.2.1，老款 Apple TV 4K 也用上 Siri AI</span>
+                </span>
+                <span class="item-sum">前提是配对一台支持 Apple Intelligence 的 iPhone（iPhone 15 Pro 及以后）</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t3-i0"><p>第二代和第三代 Apple TV 4K 因此也能用 Siri AI。HomePod 软件 27.2.1 同时推出，但 HomePod mini 2 的 Siri AI 还没到。老款用户为了 Siri AI 换新机的理由少了一个，299 美元的新款主要剩下远场麦克风、Wi-Fi 7 和 A19 芯片这些差别。</p><ul class="links"><li><a href="https://www.macrumors.com/2026/11/13/apple-releases-tvos-27-2-1/" rel="noopener noreferrer" target="_blank">MacRumors 报道</a></li><li><a href="https://www.iclarified.com/103521/tvos-2721-release-notes" rel="noopener noreferrer" target="_blank">iClarified 更新说明</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t3-i1">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t3-i1">
+                <span class="item-top">
+                  <span class="idx">02</span>
+                  <span class="item-title">古尔曼称 Apple 首款智能眼镜计划 2027 年 6 月 WWDC 发布</span>
+                </span>
+                <span class="item-sum">代号 N50，年底前出货；没有显示屏，跑精简版 visionOS 28，必须配近款 iPhone</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t3-i1"><p>原型机比 Meta 第二代雷朋略薄，芯片由旧款 Apple Watch 芯片改来，交互全靠 Siri 加摄像头。第三方功能不用单独做 App，由开发者开放 iPhone App 给 Siri 调用。软件进度落后，仍可能延期。不支持安卓。</p><ul class="links"><li><a href="https://www.macrumors.com/2026/11/15/apple-smart-glasses-hinge-on-siri/" rel="noopener noreferrer" target="_blank">MacRumors 报道</a></li><li><a href="https://www.iclarified.com/103539/apple-smart-glasses-prototypes-reportedly-run-visionos-28" rel="noopener noreferrer" target="_blank">iClarified 报道</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t3-i2">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t3-i2">
+                <span class="item-top">
+                  <span class="idx">03</span>
+                  <span class="item-title">同一期 Power On：iPhone Duo 2 的 Face ID 仍未定</span>
+                </span>
+                <span class="item-sum">代号 V78，计划 2027 年秋季；Apple 已测过带 Face ID 的原型，时间很紧</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t3-i2"><p>工程师在想办法把它放进外屏，但硬件差不多要现在锁定。操作按钮也在计划里，长焦镜头和更轻薄要再等一两代。一代 Duo 用户的反馈赶不上 Duo 2 的硬件设计。</p><ul class="links"><li><a href="https://www.iclarified.com/103542/iphone-duo-2-face-id-upgrade-faces-tight-design-deadline-report" rel="noopener noreferrer" target="_blank">iClarified 报道</a></li><li><a href="https://www.macobserver.com/news/apple-tests-iphone-duo-2-with-face-id-but-2027-launch-deadline-puts-upgrade-at-risk/" rel="noopener noreferrer" target="_blank">The Mac Observer 报道</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t3-i3">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t3-i3">
+                <span class="item-top">
+                  <span class="idx">04</span>
+                  <span class="item-title">周五 AAPL 收于 356.27 美元，涨 0.39%</span>
+                </span>
+                <span class="item-sum">市值约 5.18 万亿美元，盘后小跌到 355.4 美元</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t3-i3"><p>连续几天在 52 周高点附近窄幅波动，HomeView 和新 Apple TV 开卖没有带来明显行情。周末没有新品发布。</p><ul class="links"><li><a href="https://www.gurufocus.com/stock/AAPL/article" rel="noopener noreferrer" target="_blank">GuruFocus 行情</a></li></ul></div>
+          </article>
+          </div>
+        </section>
+        <section class="topic is-open" id="all-topic-4" style="--branch:#be123c">
+          <div class="topic-head">
+            <button type="button" class="topic-btn" aria-expanded="true" aria-controls="all-items-4">
+              <span class="dot" aria-hidden="true"></span>
+              <span class="topic-copy">
+                <span class="topic-name">X 热门新点子</span>
+                <span class="topic-meta">X TOP new idea · 5 条</span>
+              </span>
+              <span class="chev" aria-hidden="true"></span>
+            </button>
+            <div class="topic-links"><a class="report" href="reports/2026-11-16/x-ideas.html">查看日报</a></div>
+          </div>
+          <div class="items" id="all-items-4">
+          <article class="item is-open" id="all-t4-i0">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t4-i0">
+                <span class="item-top">
+                  <span class="idx">01</span>
+                  <span class="item-title">黄仁勋离职后，要求他回归英伟达的声音越来越大</span>
+                </span>
+                <span class="item-sum">马斯克周六发帖称不少关键供应链协议是和黄仁勋握手达成的，这条赞 9.3 万、浏览 734 万</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t4-i0"><p>这是这三天时间线里互动最高的帖。X 新闻称恢复其职务的请愿签名超过 15 万，马斯克、Tim Sweeney、Brad Gerstner、Gavin Baker 公开支持。董事会调查仍在进行，暂代 CEO Colette Kress 在准备财报。请愿人数与行业简报所引 11.5 万不是同一口径。</p><ul class="links"><li><a href="https://x.com/elonmusk/status/2121613402846204253" rel="noopener noreferrer" target="_blank">马斯克原帖</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t4-i1">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t4-i1">
+                <span class="item-top">
+                  <span class="idx">02</span>
+                  <span class="item-title">Google 一周发完 Gemini 4 家族，开始拿价格和编排抢 Agent 场景</span>
+                </span>
+                <span class="item-sum">Pichai 的周报帖列出 8 代 TPU、Gemini 4 Carbon、Gemini Decisions API、Gemini 4 Hydrogen 等，赞 1.9 万</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t4-i1"><p>X 新闻称 Hydrogen 输入每百万 token 1.5 美元、100 万上下文，替换 3.8 Flash。Antigravity 的 Orchestrator 让 Carbon 规划、Hydrogen 写代码和测试，有转述称快 19%、省 24% 配额。</p><ul class="links"><li><a href="https://x.com/sundarpichai/status/2121338095664808238" rel="noopener noreferrer" target="_blank">皮查伊原帖</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t4-i2">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t4-i2">
+                <span class="item-top">
+                  <span class="idx">03</span>
+                  <span class="item-title">常驻型 AI 员工在扩散，Perplexity 和 Grok Bot 都给出了用量信号</span>
+                </span>
+                <span class="item-sum">Perplexity CEO 说 Teammate 的周 Agent 工时一周内从 7 倍涨到 11 倍，周环比增长超 50%</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t4-i2"><p>X 新闻称 Grok Bot 1.0 已能进 Slack、Teams 和视频会议，有用户在 200 美元 Ultra 档跑几十个 bot。有观点认为 Grok Bot 和 ChatGPT Dots 会把 Claude Code 对工程的影响带到运营、销售、客服。</p><ul class="links"><li><a href="https://x.com/AravSrinivas/status/2121803009432953255" rel="noopener noreferrer" target="_blank">Aravind Srinivas 原帖</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t4-i3">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t4-i3">
+                <span class="item-top">
+                  <span class="idx">04</span>
+                  <span class="item-title">Agent 购物和支付的标准开始落地</span>
+                </span>
+                <span class="item-sum">Sierra 发布开放协议 Poppy 1.0，Shopify 对全部商家默认开启；OpenAI 上线 ChatGPT Wallet</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t4-i3"><p>Wix 跟进，Meta Muse 已接入，100 多家合作方。ChatGPT Wallet 11 月 13 日先给美国 Pro 用户，由 Dots 在对话里下单，生物识别确认，卡组织提供一次性令牌。Google 同日把 Google Wallet 只读接入 Gemini。</p><ul class="links"><li><a href="https://x.com/i/trending/2121330558781554819" rel="noopener noreferrer" target="_blank">X 新闻摘要（Poppy）</a></li><li><a href="https://x.com/i/trending/2121260659975573668" rel="noopener noreferrer" target="_blank">X 新闻摘要（Wallet）</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t4-i4">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t4-i4">
+                <span class="item-top">
+                  <span class="idx">05</span>
+                  <span class="item-title">Anthropic 定 IPO 区间，同时把常驻 Agent 的架构和私有部署拿出来</span>
+                </span>
+                <span class="item-sum">X 新闻称发行价 70 到 78 美元，代码 ANT，最多募 644 亿美元，高端完全摊薄估值约 1.4 万亿美元</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t4-i4"><p>约 11 月 19 日定价。产品侧放出 Claude Managed Agents 自托管私有 beta，并发布 always-on agents 架构文章。</p><ul class="links"><li><a href="https://x.com/i/trending/2120701155583926488" rel="noopener noreferrer" target="_blank">X 新闻摘要</a></li></ul></div>
+          </article>
+          </div>
+        </section>
+        <section class="topic is-open" id="all-topic-5" style="--branch:#0e7490">
+          <div class="topic-head">
+            <button type="button" class="topic-btn" aria-expanded="true" aria-controls="all-items-5">
+              <span class="dot" aria-hidden="true"></span>
+              <span class="topic-copy">
+                <span class="topic-name">AI 大拿</span>
+                <span class="topic-meta">AI大拿最新言论追踪 · 6 条</span>
+              </span>
+              <span class="chev" aria-hidden="true"></span>
+            </button>
+            <div class="topic-links"><a class="report" href="reports/2026-11-16/ai-leaders.html">查看日报</a></div>
+          </div>
+          <div class="items" id="all-items-5">
+          <article class="item is-open" id="all-t5-i0">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t5-i0">
+                <span class="item-top">
+                  <span class="idx">01</span>
+                  <span class="item-title">OpenAI 开设科学博客，首篇讲 GPT-6 Astra 参与标准模型格点定义</span>
+                </span>
+                <span class="item-sum">作者是 UCSB 物理学家 Nathaniel Craig；详细证明主要由 Astra 推导完成，结果还要经过同行检验</span>
+                <span class="badges"><span class="badge">3 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t5-i0"><p>文章说这个问题悬了 50 多年。Craig 自己也说这更多是原则上的答案，离真正做格点模拟还远。Greg Brockman 随后转发推荐。OpenAI 现在开始用具体的科研案例证明模型能做理论物理。</p><ul class="links"><li><a href="https://openai.com/index/step-toward-defining-the-standard-model" rel="noopener noreferrer" target="_blank">OpenAI 博客原文</a></li><li><a href="https://x.com/OpenAI/status/2122123437141553630" rel="noopener noreferrer" target="_blank">OpenAI 原帖</a></li><li><a href="https://x.com/gdb/status/2122126010691060185" rel="noopener noreferrer" target="_blank">Brockman 的转发</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t5-i1">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t5-i1">
+                <span class="item-top">
+                  <span class="idx">02</span>
+                  <span class="item-title">LeCun 谈 p(doom)、与 Hinton 的分歧，以及开放基础模型</span>
+                </span>
+                <span class="item-sum">他认为人类灭绝和「就业末日」这类设想站不住；主张开放基础模型由政府、产业和学界一起训练</span>
+                <span class="badges"><span class="badge">4 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t5-i1"><p>他说和 Hinton 的分歧有两处：一对人类有没有信心，二智能等不等于权力。他认为超级智能会听人类指挥。原话是 “We need diverse AI assistants for the same reason we need a diverse press.” 他还澄清自己 2018 年就不带团队了，之后到 2025 年 12 月实际是个人贡献者。</p><ul class="links"><li><a href="https://x.com/ylecun/status/2121995284196602013" rel="noopener noreferrer" target="_blank">谈 p(doom)</a></li><li><a href="https://x.com/ylecun/status/2122050446634471770" rel="noopener noreferrer" target="_blank">谈开放基础模型</a></li><li><a href="https://x.com/ylecun/status/2121996500309815345" rel="noopener noreferrer" target="_blank">谈和 Hinton 的分歧</a></li><li><a href="https://x.com/ylecun/status/2122013722839240710" rel="noopener noreferrer" target="_blank">谈自己在 Meta 的角色</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t5-i2">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t5-i2">
+                <span class="item-top">
+                  <span class="idx">03</span>
+                  <span class="item-title">Perplexity 公布内部代理 Teammate 数据；Meta Muse 能替用户打电话</span>
+                </span>
+                <span class="item-sum">Srinivas 称员工每周从代理拿到的工作时长是 9 月的 11 倍；Muse 打电话目前只给美国付费用户</span>
+                <span class="badges"><span class="badge">3 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t5-i2"><p>他估算这些工作折合每年 8000 万到 1.8 亿美元的人工价值，token 成本大约 1000 万美元。这些是公司自己报的数字，没有外部核实。Hassabis 则为星舰第 15 次试飞发帖祝贺。</p><ul class="links"><li><a href="https://x.com/AravSrinivas/status/2121803009432953255" rel="noopener noreferrer" target="_blank">Srinivas 原帖</a></li><li><a href="https://x.com/alexandr_wang/status/2122104505538121821" rel="noopener noreferrer" target="_blank">Alexandr Wang 原帖</a></li><li><a href="https://x.com/demishassabis/status/2121773351093895413" rel="noopener noreferrer" target="_blank">Hassabis 原帖</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t5-i3">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t5-i3">
+                <span class="item-top">
+                  <span class="idx">04</span>
+                  <span class="item-title">马斯克检查 Ship 42：翻修几周可再飞，即刻复用还要改很多小地方</span>
+                </span>
+                <span class="item-sum">他说隔热罩和发动机整体状况很好；这是他对星舰复用进度说得比较具体的一次</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t5-i3"><p>英伟达的事他这 24 小时里没有发原创内容，只转发了一条问「Is Jensen being railroaded?」的帖子。他替黄仁勋说话的那几条发在 14 日晚上，不在这期范围里。</p><ul class="links"><li><a href="https://x.com/elonmusk/status/2122092374016806969" rel="noopener noreferrer" target="_blank">检查飞船的帖子</a></li><li><a href="https://x.com/elonmusk/status/2122068455415234856" rel="noopener noreferrer" target="_blank">转发</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t5-i4">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t5-i4">
+                <span class="item-top">
+                  <span class="idx">05</span>
+                  <span class="item-title">余承东预热 Mate X8；黄仁勋本人仍无公开发言</span>
+                </span>
+                <span class="item-sum">余承东称下一代 Mate X8 会在屏幕、影像和性能上有新突破；FT 称黄仁勋在考虑回任</span>
+                <span class="badges"><span class="badge">3 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t5-i4"><p>美国财长贝森特 15 日上 Fox News，要求英伟达从公司外部找新 CEO，还要董事会 10 天内说明出口管制的合规情况。苏姿丰去了奥斯汀 Micro Center 的社区活动，是 AMD 官方账号发的，没有实质内容。</p><ul class="links"><li><a href="https://finance.sina.com.cn/jjxw/2026-11-15/doc-iniyuuaf2075791.shtml" rel="noopener noreferrer" target="_blank">新浪财经（余承东）</a></li><li><a href="https://udn.com/news/story/125066/9880796" rel="noopener noreferrer" target="_blank">联合新闻网（黄仁勋后续）</a></li><li><a href="https://x.com/AMD/status/2122016850875998256" rel="noopener noreferrer" target="_blank">AMD 原帖</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t5-i5">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t5-i5">
+                <span class="item-top">
+                  <span class="idx">06</span>
+                  <span class="item-title">Sam Altman、Amodei、Karpathy、雷军、马化腾等人这 24 小时没有新内容</span>
+                </span>
+                <span class="item-sum">本期覆盖的是 11 月 15 日到 16 日约 24 小时的公开言论</span>
+                <span class="badges"></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t5-i5"><p>没有新内容的还包括 Hinton、陈立武、Cristiano Amon、何小鹏、李想、李斌、王传福、李彦宏、张一鸣、杨植麟、梁文锋。</p></div>
+          </article>
+          </div>
+        </section>
+        <section class="topic is-open" id="all-topic-6" style="--branch:#0f766e">
+          <div class="topic-head">
+            <button type="button" class="topic-btn" aria-expanded="true" aria-controls="all-items-6">
+              <span class="dot" aria-hidden="true"></span>
+              <span class="topic-copy">
+                <span class="topic-name">GitHub 涨星</span>
+                <span class="topic-meta">GitHub 每日涨星 Top 50 · 5 条（数据截至 2026-11-16）</span>
+              </span>
+              <span class="chev" aria-hidden="true"></span>
+            </button>
+            <div class="topic-links"><a class="trend-open" href="github-trend/index.html">打开 GitHub 涨星看板</a></div>
+          </div>
+          <div class="items" id="all-items-6">
+          <article class="item is-open" id="all-t6-i0">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t6-i0">
+                <span class="item-top">
+                  <span class="idx">01</span>
+                  <span class="item-title">GoogleChrome/modern-web-guidance-src 升到第 1</span>
+                </span>
+                <span class="item-sum">2026-11-16 数据：当日 +1,219，总星 7,173；上周五第 6（+739）</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t6-i0"><p>Chrome 团队的现代 Web 开发指引，让编码智能体跟上最新最佳实践，TypeScript。周末没跑，今天对比的是上周五 11-13。前 10 名里 8 个是新面孔。</p><ul class="links"><li><a href="https://github.com/GoogleChrome/modern-web-guidance-src" rel="noopener noreferrer" target="_blank">GitHub 仓库</a></li><li><a href="github-trend/index.html">打开 GitHub 涨星看板</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t6-i1">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t6-i1">
+                <span class="item-top">
+                  <span class="idx">02</span>
+                  <span class="item-title">dream-num/univer 新进第 2</span>
+                </span>
+                <span class="item-sum">2026-11-16 数据：当日 +988，总星 25,724，上周五不在榜上</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t6-i1"><p>Univer Office SDK，在应用里嵌入编辑、计算、协作和文件处理能力，TypeScript。</p><ul class="links"><li><a href="https://github.com/dream-num/univer" rel="noopener noreferrer" target="_blank">GitHub 仓库</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t6-i2">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t6-i2">
+                <span class="item-top">
+                  <span class="idx">03</span>
+                  <span class="item-title">backnotprop/plannotator 新进第 3</span>
+                </span>
+                <span class="item-sum">2026-11-16 数据：当日 +866，总星 11,840，上周五不在榜上</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t6-i2"><p>让人参与智能体工作流程的工作区，可规划、批注、审查代码并把反馈发回智能体，TypeScript。</p><ul class="links"><li><a href="https://github.com/backnotprop/plannotator" rel="noopener noreferrer" target="_blank">GitHub 仓库</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t6-i3">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t6-i3">
+                <span class="item-top">
+                  <span class="idx">04</span>
+                  <span class="item-title">Likely7/Veyra-NRVideo 新进第 4</span>
+                </span>
+                <span class="item-sum">2026-11-16 数据：当日 +736，总星 2,804，上周五不在榜上</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t6-i3"><p>Windows 视频播放与采集增强工具，主打实时预览和 DLSS 插帧，宣称能把主机游戏画面提到 120FPS，C++。总星不到 3 千，靠单日爆发冲进前 10。</p><ul class="links"><li><a href="https://github.com/Likely7/Veyra-NRVideo" rel="noopener noreferrer" target="_blank">GitHub 仓库</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t6-i4">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t6-i4">
+                <span class="item-top">
+                  <span class="idx">05</span>
+                  <span class="item-title">ChromeDevTools/chrome-devtools-mcp 新进第 5</span>
+                </span>
+                <span class="item-sum">2026-11-16 数据：当日 +717，总星 56,935，上周五不在榜上</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t6-i4"><p>给编码智能体用的 Chrome DevTools MCP 服务，TypeScript。Chrome 团队的 Web 开发指引和 DevTools MCP 同时进了前 5。本期榜首涨幅 +1,219，低于上周五的 +1,830；第 50 名只有 +66。42 个仓库相对上周五新进榜。</p><ul class="links"><li><a href="https://github.com/ChromeDevTools/chrome-devtools-mcp" rel="noopener noreferrer" target="_blank">GitHub 仓库</a></li></ul></div>
+          </article>
+          </div>
+        </section>
+        </div>
+      </section>
+      <section class="tab-panel" role="tabpanel" id="topic-0" aria-labelledby="tab-0">
+        <div class="panel-meta"><p>AI 行业简报 · 6 条</p><div><a href="reports/2026-11-16/brief.html">查看日报</a></div></div>
+        <div class="items">
+          <article class="item is-open" id="t0-i0">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t0-i0">
+                <span class="item-top">
+                  <span class="idx">01</span>
+                  <span class="item-title">要求英伟达恢复黄仁勋职务的请愿超过 11.5 万人签名</span>
+                </span>
+                <span class="item-sum">签名者里有 5965 名在职员工和 6.3 万多名股东；黄仁勋已同意在感恩节前到国会闭门作证</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t0-i0"><p>马斯克、Replit 的 Amjad Masad、Epic 的 Tim Sweeney、YC 的 Garry Tan 都签了，诉求是在独立调查期间先让他复职。英伟达 11 月 17 日发财报，管理层是否稳定会直接影响市场判断。上一份简报是 11-13，这份覆盖周五到周日。</p><ul class="links"><li><a href="https://techcrunch.com/2026/11/14/elon-musk-other-tech-execs-sign-petition-calling-on-nvidia-to-reinstate-jensen-huang/" rel="noopener noreferrer" target="_blank">TechCrunch：请愿</a></li><li><a href="https://techcrunch.com/2026/11/12/jensen-huang-agrees-to-testify-before-congress/" rel="noopener noreferrer" target="_blank">TechCrunch：同意作证</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t0-i1">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t0-i1">
+                <span class="item-top">
+                  <span class="idx">02</span>
+                  <span class="item-title">研究称 DeepSeek V4 和 Kimi K3 带有 Blackwell 训练的痕迹</span>
+                </span>
+                <span class="item-sum">前 OpenAI 研究员 Will DePue 分析了 DeepSeek、月之暗面、MiniMax 和蚂蚁的开源权重</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t0-i1"><p>他认为能看出训练所用芯片的配置。这不等于违法，芯片可能放在马来西亚等海外数据中心。这件事会给美国收紧芯片使用者管控增加理由，也让英伟达的出口合规风险更受关注。</p><ul class="links"><li><a href="https://techcrunch.com/2026/11/13/export-banned-nvidia-chips-are-behind-chinas-most-powerful-ai-models-uh-oh-jensen/" rel="noopener noreferrer" target="_blank">TechCrunch 报道</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t0-i2">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t0-i2">
+                <span class="item-top">
+                  <span class="idx">03</span>
+                  <span class="item-title">美联储金融稳定报告把 AI 列为市场最常提到的风险</span>
+                </span>
+                <span class="item-sum">与先进算力相关的债务发行到 2026 年 10 月已超过 6800 亿美元，约为 2023 年全年的五倍</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t0-i2"><p>这部分发债占投资级非金融公司发债的约 31%。AI 基建越来越靠借钱撑着，监管层开始正式盯这块。</p><ul class="links"><li><a href="https://www.federalreserve.gov/publications/files/financial-stability-report-20261113.pdf" rel="noopener noreferrer" target="_blank">美联储报告 PDF</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t0-i3">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t0-i3">
+                <span class="item-top">
+                  <span class="idx">04</span>
+                  <span class="item-title">OpenAI 推出 ChatGPT Wallet，让智能体替用户付款</span>
+                </span>
+                <span class="item-sum">和美国运通、万事达、Visa 合作，智能体拿不到真实卡号，每笔购买都要用户确认</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t0-i3"><p>先向美国 ChatGPT Pro 用户开放。AI 购物从帮你比价走到了帮你下单，商家需要调整风控才能接住这类订单。</p><ul class="links"><li><a href="https://openai.com/index/introducing-chatgpt-wallet/" rel="noopener noreferrer" target="_blank">OpenAI 官方</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t0-i4">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t0-i4">
+                <span class="item-top">
+                  <span class="idx">05</span>
+                  <span class="item-title">亚马逊计划建 World Product Graph，收录全网商品数据</span>
+                </span>
+                <span class="item-sum">据路透社看到的内部文件，亚马逊想把各处在售商品（包括自己不卖的）都纳入索引</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t0-i4"><p>部分靠抓取竞争对手网站，用来对抗外部 AI 购物智能体，也修补自家购物助手答错的问题。谁掌握商品数据，谁就在智能体购物里占住入口。</p><ul class="links"><li><a href="https://www.theverge.com/tech/1033697/amazon-world-product-graph-ai-search" rel="noopener noreferrer" target="_blank">The Verge 转述路透报道</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t0-i5">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t0-i5">
+                <span class="item-top">
+                  <span class="idx">06</span>
+                  <span class="item-title">OpenAI 解散独立机器人团队</span>
+                </span>
+                <span class="item-sum">研究人员并入 Mark Chen 管的主研究组，应用机器人和硬件团队并入 Greg Brockman 管的 Applied 部门</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t0-i5"><p>OpenAI 说这是为了加快机器人进展，思路是让通用模型直接控制机器人，不再单独做专用的机器人大脑。</p><ul class="links"><li><a href="https://tech.yahoo.com/ai/articles/exclusive-openai-disbands-stand-alone-170530559.html" rel="noopener noreferrer" target="_blank">Fortune（Yahoo 转载）</a></li></ul></div>
+          </article>
+        </div>
+      </section>
+      <section class="tab-panel" role="tabpanel" id="topic-1" aria-labelledby="tab-1">
+        <div class="panel-meta"><p>科技公司高管最新观点监测 · 6 条</p><div><a href="reports/2026-11-16/exec.html">查看日报</a></div></div>
+        <div class="items">
+          <article class="item is-open" id="t1-i0">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t1-i0">
+                <span class="item-top">
+                  <span class="idx">01</span>
+                  <span class="item-title">英伟达 CEO 之争出现反转迹象</span>
+                </span>
+                <span class="item-sum">FT 报道黄仁勋正和亲信讨论回任；美国财长贝森特则要求从外部找 CEO，并要 10 天内给答案</span>
+                <span class="badges"><span class="badge">4 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t1-i0"><p>一位盟友在组织硅谷高管游说董事会和白宫，并称黄仁勋支持这一行动。Jason Calacanis、Tobi Lütke、DHH、Yuchen Jin 在 X 上公开站黄仁勋。英伟达周二发财报。黄仁勋没有控股，不能推翻董事会决定。本时段没有检索到黄仁勋本人的新原帖。</p><ul class="links"><li><a href="https://tech.yahoo.com/general/breaking-news/article/jensen-huang-weighs-comeback-as-nvidia-ceo-as-allies-lobby-board-ft-reports-bessent-calls-for-dramatic-shakeup-204839950.html" rel="noopener noreferrer" target="_blank">Yahoo 转述 FT 与贝森特表态</a></li><li><a href="https://www.reuters.com/world/china/jensen-huang-discusses-comeback-nvidia-ceo-with-allies-ft-reports-2026-11-15/" rel="noopener noreferrer" target="_blank">路透报道</a></li><li><a href="https://x.com/Jason/status/2122085871038202038" rel="noopener noreferrer" target="_blank">Jason Calacanis 原帖</a></li><li><a href="https://x.com/tobi/status/2122112620711096470" rel="noopener noreferrer" target="_blank">Tobi Lütke 原帖</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t1-i1">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t1-i1">
+                <span class="item-top">
+                  <span class="idx">02</span>
+                  <span class="item-title">OpenAI 上线科学博客，首篇谈 GPT-6 Astra 与标准模型格点定义</span>
+                </span>
+                <span class="item-sum">UCSB 物理学家 Nathaniel Craig 的客座文章；Greg Brockman 和 OpenAI 官方账号都转发了</span>
+                <span class="badges"><span class="badge">3 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t1-i1"><p>Craig 先给出思路，GPT-6 Astra 把它推成完整构造和规范不变测度的证明。文章自己说这是候选方案，还有不少技术问题待解。配套 arXiv 预印本在 2026 年 10 月发布。</p><ul class="links"><li><a href="https://openai.com/index/step-toward-defining-the-standard-model" rel="noopener noreferrer" target="_blank">OpenAI 科学博客</a></li><li><a href="https://x.com/OpenAI/status/2122123437141553630" rel="noopener noreferrer" target="_blank">OpenAI 原帖</a></li><li><a href="https://x.com/gdb/status/2122126010691060185" rel="noopener noreferrer" target="_blank">Greg Brockman 原帖</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t1-i2">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t1-i2">
+                <span class="item-top">
+                  <span class="idx">03</span>
+                  <span class="item-title">Google Research 介绍 Antigravity 的 /teamwork 多智能体系统</span>
+                </span>
+                <span class="item-sum">多个 Gemini 4 智能体并行探索，再用 Lean 4 证明检查器、原版测试集和独立复核智能体把关</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t1-i2"><p>Google Fellow Vahab Mirrokni 等人 11 月 13 日发文。据二手报道，团队和学者一起完整证明了 Courtade–Kumar 猜想并在 Lean 4 里形式化。皮查伊转发了 Gemini 4 Carbon 第一个提示就解决一个研究问题的帖子，以及 Antigravity 上下文窗口翻倍的消息。</p><ul class="links"><li><a href="https://research.google/blog/advancing-science-engineering-with-antigravitys-teamwork-feature/" rel="noopener noreferrer" target="_blank">Google Research 博客</a></li><li><a href="https://x.com/sundarpichai/status/2122120482950685080" rel="noopener noreferrer" target="_blank">皮查伊转发</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t1-i3">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t1-i3">
+                <span class="item-top">
+                  <span class="idx">04</span>
+                  <span class="item-title">马斯克检查 Ship 42：翻修几周可能再飞，即刻复用还早</span>
+                </span>
+                <span class="item-sum">他说隔热罩和发动机整体状况很好，但要做到立即复用还得改很多小地方</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t1-i3"><p>这是星舰第 15 次试飞、上面级被塔臂接住之后。哈萨比斯也发帖祝贺着陆负责人 Lars Blackmore。</p><ul class="links"><li><a href="https://x.com/elonmusk/status/2122092374016806969" rel="noopener noreferrer" target="_blank">马斯克原帖</a></li><li><a href="https://x.com/demishassabis/status/2122125211994611770" rel="noopener noreferrer" target="_blank">Hassabis 原帖</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t1-i4">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t1-i4">
+                <span class="item-top">
+                  <span class="idx">05</span>
+                  <span class="item-title">X 新闻称 Anthropic 计划本周 IPO，区间 70 到 78 美元</span>
+                </span>
+                <span class="item-sum">最多募 644 亿美元，目标估值约 1.4 万亿美元，最快 11 月 19 日在纳斯达克上市</span>
+                <span class="badges"><span class="badge">X 新闻摘要</span><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t1-i4"><p>这是 X 新闻摘要，未见 Anthropic 高管本人发帖确认。另一条摘要说 Claude Code 推出可选的 Code Mode，token 用量降 37%。</p><ul class="links"><li><a href="https://x.com/i/trending/2122061888335057289" rel="noopener noreferrer" target="_blank">X 新闻摘要（IPO）</a></li><li><a href="https://x.com/i/trending/2121809895708324313" rel="noopener noreferrer" target="_blank">X 新闻摘要（Code Mode）</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t1-i5">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t1-i5">
+                <span class="item-top">
+                  <span class="idx">06</span>
+                  <span class="item-title">Meta Muse 推出代打电话；Perplexity 强调 Teammates 可自选模型</span>
+                </span>
+                <span class="item-sum">Muse 限美国付费用户；Srinivas 称没有其他产品能让用户用任意前沿模型搭 Teammates</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t1-i5"><p>Alexandr Wang 11 月 15 日还发过一条可穿戴设备概念帖。本时段没有检索到 Andrej Karpathy、Sam Altman、Dario Amodei、Satya Nadella 的新原帖。</p><ul class="links"><li><a href="https://x.com/alexandr_wang/status/2122104505538121821" rel="noopener noreferrer" target="_blank">Alexandr Wang 原帖</a></li><li><a href="https://x.com/AravSrinivas/status/2122054319776452618" rel="noopener noreferrer" target="_blank">Aravind Srinivas 原帖</a></li></ul></div>
+          </article>
+        </div>
+      </section>
+      <section class="tab-panel" role="tabpanel" id="topic-2" aria-labelledby="tab-2">
+        <div class="panel-meta"><p>PC行业动向每日洞察 · 6 条</p><div><a href="reports/2026-11-16/pc.html">查看日报</a></div></div>
+        <div class="items">
+          <article class="item is-open" id="t2-i0">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t2-i0">
+                <span class="item-top">
+                  <span class="idx">01</span>
+                  <span class="item-title">TCL 华星展出 14 英寸喷墨打印 OLED 笔记本屏</span>
+                </span>
+                <span class="item-sum">面板厚 0.6mm、重 66 克，1920×1200，官方称 99% 以上环境光被吸收或透过</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t2-i0"><p>目前没有触屏版，商用笔记本可能 2027 年上市。同场还有 16 英寸 360Hz 和 1.6mm 窄边框的 IJP OLED 样品。展会是 DTC 2026。</p><ul class="links"><li><a href="https://www.notebookcheck.net/Super-slim-low-reflection-IJP-OLED-display-debuts-for-thin-and-light-laptops.1450215.0.html" rel="noopener noreferrer" target="_blank">Notebookcheck 报道</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t2-i1">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t2-i1">
+                <span class="item-top">
+                  <span class="idx">02</span>
+                  <span class="item-title">华为 MateBook Fold S 11 月 14 日在国内开订</span>
+                </span>
+                <span class="item-sum">展开 14.7 英寸、合上 10.7 英寸，比 18 英寸的 MateBook Fold 小一号，跑鸿蒙 PC</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t2-i1"><p>UTG 外盖加玄武水滴铰链，预计用麒麟 X9 系列。四档配置从 16GB/256GB 到 32GB/1TB，都带键盘，价格未公布，11 月 24 日付尾款。</p><ul class="links"><li><a href="https://www.notebookcheck.net/Huawei-s-foldable-laptop-with-up-to-32GB-RAM-and-1TB-storage-opens-for-pre-orders.1450194.0.html" rel="noopener noreferrer" target="_blank">Notebookcheck 报道</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t2-i2">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t2-i2">
+                <span class="item-top">
+                  <span class="idx">03</span>
+                  <span class="item-title">ASUS ExpertBook A7 在英德比上架 8GB 内存版</span>
+                </span>
+                <span class="item-sum">英国 899 英镑，比评测的 16GB 版便宜 400 英镑；德国 1,219 欧元</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t2-i2"><p>处理器是 Core 5 320，保留 1800p 120Hz OLED 和 65Wh 电池，官方视频续航 26 小时，荷兰 11 月 30 日到货。</p><ul class="links"><li><a href="https://www.notebookcheck.net/Asus-releases-new-14-inch-laptop-with-cheaper-pricing-and-over-24-hours-battery-life.1450902.0.html" rel="noopener noreferrer" target="_blank">Notebookcheck 报道</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t2-i3">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t2-i3">
+                <span class="item-top">
+                  <span class="idx">04</span>
+                  <span class="item-title">MSI 全球推出 Claw 8 EX 低配版</span>
+                </span>
+                <span class="item-sum">换成 Intel Arc G3 / Arc B370 核显，32GB 内存、512GB，美国 1,499 美元，比原版便宜 300 美元</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t2-i3"><p>蓝色机身。Notebookcheck 测得游戏性能只低约 6%。同日松下在日本发布 Toughbook FZ-G3 三防平板，用 Core Ultra 5 335（Panther Lake）。</p><ul class="links"><li><a href="https://www.notebookcheck.net/MSI-releases-new-Claw-8-EX-gaming-handheld-with-cheaper-pricing-and-Intel-Arc-B370-graphics.1449866.0.html" rel="noopener noreferrer" target="_blank">Notebookcheck：Claw 8 EX</a></li><li><a href="https://www.notebookcheck.net/Japanese-rugged-tablet-arrives-with-16-GB-RAM-and-8-core-Intel-Panther-Lake-CPU.1449481.0.html" rel="noopener noreferrer" target="_blank">Notebookcheck：Toughbook FZ-G3</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t2-i4">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t2-i4">
+                <span class="item-top">
+                  <span class="idx">05</span>
+                  <span class="item-title">微软 11 月 13 日给 26H1 推送 Insider 版本</span>
+                </span>
+                <span class="item-sum">Beta 28020.3532、Experimental 28120.3542、Future Platforms 29708.1003；Release Preview 同步更新</span>
+                <span class="badges"><span class="badge">3 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t2-i4"><p>26H1 两个版本都允许托管设备上的标准用户自己设 BitLocker 开机 PIN。Experimental 版加入可选的新版「运行」对话框。26H1 只预装在骁龙 X2 等新机上，不能从 26H2 升级。同日 Linux 7.4-rc3 发布；macOS 没有新版本，正式版仍是 11 月 9 日的 27.2.1。</p><ul class="links"><li><a href="https://blogs.windows.com/windows-insider/2026/11/13/announcing-new-builds-for-13-november-2026/" rel="noopener noreferrer" target="_blank">Windows Insider 博客</a></li><li><a href="https://pureinfotech.com/builds-28020-3532-28120-3542-windows-11-26h1/" rel="noopener noreferrer" target="_blank">Pureinfotech 报道</a></li><li><a href="https://lkml.iu.edu/hypermail/linux/kernel/2611.1/24313.html" rel="noopener noreferrer" target="_blank">LKML：Linux 7.4-rc3</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t2-i5">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t2-i5">
+                <span class="item-top">
+                  <span class="idx">06</span>
+                  <span class="item-title">微软确认下一代 Xbox Project Helix 是能玩 PC 游戏的主机</span>
+                </span>
+                <span class="item-sum">Xbox 副总裁 Jason Ronald 说它不是能玩主机游戏的 PC，默认不让用户管系统更新和驱动</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t2-i5"><p>会给进阶用户开放设置。另有传闻称 Intel Razor Lake 会有一款不锁频的 12+0+4 桌面芯片，带 bLLC 大缓存，用 Intel 18A-P，属传闻，尚未确认。</p><ul class="links"><li><a href="https://videocardz.com/newz/microsoft-confirms-project-helix-is-a-console-that-plays-pc-games-not-a-pc-that-plays-console-games" rel="noopener noreferrer" target="_blank">VideoCardz：Project Helix</a></li><li><a href="https://videocardz.com/newz/intel-razor-lake-reportedly-gets-12-p-core-only-die-with-bllc-on-intel-18a-p" rel="noopener noreferrer" target="_blank">VideoCardz：Razor Lake 传闻</a></li></ul></div>
+          </article>
+        </div>
+      </section>
+      <section class="tab-panel" role="tabpanel" id="topic-3" aria-labelledby="tab-3">
+        <div class="panel-meta"><p>Apple新闻洞察 · 4 条</p><div><a href="reports/2026-11-16/apple.html">查看日报</a></div></div>
+        <div class="items">
+          <article class="item is-open" id="t3-i0">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t3-i0">
+                <span class="item-top">
+                  <span class="idx">01</span>
+                  <span class="item-title">Apple 周五推送 tvOS 27.2.1，老款 Apple TV 4K 也用上 Siri AI</span>
+                </span>
+                <span class="item-sum">前提是配对一台支持 Apple Intelligence 的 iPhone（iPhone 15 Pro 及以后）</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t3-i0"><p>第二代和第三代 Apple TV 4K 因此也能用 Siri AI。HomePod 软件 27.2.1 同时推出，但 HomePod mini 2 的 Siri AI 还没到。老款用户为了 Siri AI 换新机的理由少了一个，299 美元的新款主要剩下远场麦克风、Wi-Fi 7 和 A19 芯片这些差别。</p><ul class="links"><li><a href="https://www.macrumors.com/2026/11/13/apple-releases-tvos-27-2-1/" rel="noopener noreferrer" target="_blank">MacRumors 报道</a></li><li><a href="https://www.iclarified.com/103521/tvos-2721-release-notes" rel="noopener noreferrer" target="_blank">iClarified 更新说明</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t3-i1">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t3-i1">
+                <span class="item-top">
+                  <span class="idx">02</span>
+                  <span class="item-title">古尔曼称 Apple 首款智能眼镜计划 2027 年 6 月 WWDC 发布</span>
+                </span>
+                <span class="item-sum">代号 N50，年底前出货；没有显示屏，跑精简版 visionOS 28，必须配近款 iPhone</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t3-i1"><p>原型机比 Meta 第二代雷朋略薄，芯片由旧款 Apple Watch 芯片改来，交互全靠 Siri 加摄像头。第三方功能不用单独做 App，由开发者开放 iPhone App 给 Siri 调用。软件进度落后，仍可能延期。不支持安卓。</p><ul class="links"><li><a href="https://www.macrumors.com/2026/11/15/apple-smart-glasses-hinge-on-siri/" rel="noopener noreferrer" target="_blank">MacRumors 报道</a></li><li><a href="https://www.iclarified.com/103539/apple-smart-glasses-prototypes-reportedly-run-visionos-28" rel="noopener noreferrer" target="_blank">iClarified 报道</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t3-i2">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t3-i2">
+                <span class="item-top">
+                  <span class="idx">03</span>
+                  <span class="item-title">同一期 Power On：iPhone Duo 2 的 Face ID 仍未定</span>
+                </span>
+                <span class="item-sum">代号 V78，计划 2027 年秋季；Apple 已测过带 Face ID 的原型，时间很紧</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t3-i2"><p>工程师在想办法把它放进外屏，但硬件差不多要现在锁定。操作按钮也在计划里，长焦镜头和更轻薄要再等一两代。一代 Duo 用户的反馈赶不上 Duo 2 的硬件设计。</p><ul class="links"><li><a href="https://www.iclarified.com/103542/iphone-duo-2-face-id-upgrade-faces-tight-design-deadline-report" rel="noopener noreferrer" target="_blank">iClarified 报道</a></li><li><a href="https://www.macobserver.com/news/apple-tests-iphone-duo-2-with-face-id-but-2027-launch-deadline-puts-upgrade-at-risk/" rel="noopener noreferrer" target="_blank">The Mac Observer 报道</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t3-i3">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t3-i3">
+                <span class="item-top">
+                  <span class="idx">04</span>
+                  <span class="item-title">周五 AAPL 收于 356.27 美元，涨 0.39%</span>
+                </span>
+                <span class="item-sum">市值约 5.18 万亿美元，盘后小跌到 355.4 美元</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t3-i3"><p>连续几天在 52 周高点附近窄幅波动，HomeView 和新 Apple TV 开卖没有带来明显行情。周末没有新品发布。</p><ul class="links"><li><a href="https://www.gurufocus.com/stock/AAPL/article" rel="noopener noreferrer" target="_blank">GuruFocus 行情</a></li></ul></div>
+          </article>
+        </div>
+      </section>
+      <section class="tab-panel" role="tabpanel" id="topic-4" aria-labelledby="tab-4">
+        <div class="panel-meta"><p>X TOP new idea · 5 条</p><div><a href="reports/2026-11-16/x-ideas.html">查看日报</a></div></div>
+        <div class="items">
+          <article class="item is-open" id="t4-i0">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t4-i0">
+                <span class="item-top">
+                  <span class="idx">01</span>
+                  <span class="item-title">黄仁勋离职后，要求他回归英伟达的声音越来越大</span>
+                </span>
+                <span class="item-sum">马斯克周六发帖称不少关键供应链协议是和黄仁勋握手达成的，这条赞 9.3 万、浏览 734 万</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t4-i0"><p>这是这三天时间线里互动最高的帖。X 新闻称恢复其职务的请愿签名超过 15 万，马斯克、Tim Sweeney、Brad Gerstner、Gavin Baker 公开支持。董事会调查仍在进行，暂代 CEO Colette Kress 在准备财报。请愿人数与行业简报所引 11.5 万不是同一口径。</p><ul class="links"><li><a href="https://x.com/elonmusk/status/2121613402846204253" rel="noopener noreferrer" target="_blank">马斯克原帖</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t4-i1">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t4-i1">
+                <span class="item-top">
+                  <span class="idx">02</span>
+                  <span class="item-title">Google 一周发完 Gemini 4 家族，开始拿价格和编排抢 Agent 场景</span>
+                </span>
+                <span class="item-sum">Pichai 的周报帖列出 8 代 TPU、Gemini 4 Carbon、Gemini Decisions API、Gemini 4 Hydrogen 等，赞 1.9 万</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t4-i1"><p>X 新闻称 Hydrogen 输入每百万 token 1.5 美元、100 万上下文，替换 3.8 Flash。Antigravity 的 Orchestrator 让 Carbon 规划、Hydrogen 写代码和测试，有转述称快 19%、省 24% 配额。</p><ul class="links"><li><a href="https://x.com/sundarpichai/status/2121338095664808238" rel="noopener noreferrer" target="_blank">皮查伊原帖</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t4-i2">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t4-i2">
+                <span class="item-top">
+                  <span class="idx">03</span>
+                  <span class="item-title">常驻型 AI 员工在扩散，Perplexity 和 Grok Bot 都给出了用量信号</span>
+                </span>
+                <span class="item-sum">Perplexity CEO 说 Teammate 的周 Agent 工时一周内从 7 倍涨到 11 倍，周环比增长超 50%</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t4-i2"><p>X 新闻称 Grok Bot 1.0 已能进 Slack、Teams 和视频会议，有用户在 200 美元 Ultra 档跑几十个 bot。有观点认为 Grok Bot 和 ChatGPT Dots 会把 Claude Code 对工程的影响带到运营、销售、客服。</p><ul class="links"><li><a href="https://x.com/AravSrinivas/status/2121803009432953255" rel="noopener noreferrer" target="_blank">Aravind Srinivas 原帖</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t4-i3">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t4-i3">
+                <span class="item-top">
+                  <span class="idx">04</span>
+                  <span class="item-title">Agent 购物和支付的标准开始落地</span>
+                </span>
+                <span class="item-sum">Sierra 发布开放协议 Poppy 1.0，Shopify 对全部商家默认开启；OpenAI 上线 ChatGPT Wallet</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t4-i3"><p>Wix 跟进，Meta Muse 已接入，100 多家合作方。ChatGPT Wallet 11 月 13 日先给美国 Pro 用户，由 Dots 在对话里下单，生物识别确认，卡组织提供一次性令牌。Google 同日把 Google Wallet 只读接入 Gemini。</p><ul class="links"><li><a href="https://x.com/i/trending/2121330558781554819" rel="noopener noreferrer" target="_blank">X 新闻摘要（Poppy）</a></li><li><a href="https://x.com/i/trending/2121260659975573668" rel="noopener noreferrer" target="_blank">X 新闻摘要（Wallet）</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t4-i4">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t4-i4">
+                <span class="item-top">
+                  <span class="idx">05</span>
+                  <span class="item-title">Anthropic 定 IPO 区间，同时把常驻 Agent 的架构和私有部署拿出来</span>
+                </span>
+                <span class="item-sum">X 新闻称发行价 70 到 78 美元，代码 ANT，最多募 644 亿美元，高端完全摊薄估值约 1.4 万亿美元</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t4-i4"><p>约 11 月 19 日定价。产品侧放出 Claude Managed Agents 自托管私有 beta，并发布 always-on agents 架构文章。</p><ul class="links"><li><a href="https://x.com/i/trending/2120701155583926488" rel="noopener noreferrer" target="_blank">X 新闻摘要</a></li></ul></div>
+          </article>
+        </div>
+      </section>
+      <section class="tab-panel" role="tabpanel" id="topic-5" aria-labelledby="tab-5">
+        <div class="panel-meta"><p>AI大拿最新言论追踪 · 6 条</p><div><a href="reports/2026-11-16/ai-leaders.html">查看日报</a></div></div>
+        <div class="items">
+          <article class="item is-open" id="t5-i0">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t5-i0">
+                <span class="item-top">
+                  <span class="idx">01</span>
+                  <span class="item-title">OpenAI 开设科学博客，首篇讲 GPT-6 Astra 参与标准模型格点定义</span>
+                </span>
+                <span class="item-sum">作者是 UCSB 物理学家 Nathaniel Craig；详细证明主要由 Astra 推导完成，结果还要经过同行检验</span>
+                <span class="badges"><span class="badge">3 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t5-i0"><p>文章说这个问题悬了 50 多年。Craig 自己也说这更多是原则上的答案，离真正做格点模拟还远。Greg Brockman 随后转发推荐。OpenAI 现在开始用具体的科研案例证明模型能做理论物理。</p><ul class="links"><li><a href="https://openai.com/index/step-toward-defining-the-standard-model" rel="noopener noreferrer" target="_blank">OpenAI 博客原文</a></li><li><a href="https://x.com/OpenAI/status/2122123437141553630" rel="noopener noreferrer" target="_blank">OpenAI 原帖</a></li><li><a href="https://x.com/gdb/status/2122126010691060185" rel="noopener noreferrer" target="_blank">Brockman 的转发</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t5-i1">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t5-i1">
+                <span class="item-top">
+                  <span class="idx">02</span>
+                  <span class="item-title">LeCun 谈 p(doom)、与 Hinton 的分歧，以及开放基础模型</span>
+                </span>
+                <span class="item-sum">他认为人类灭绝和「就业末日」这类设想站不住；主张开放基础模型由政府、产业和学界一起训练</span>
+                <span class="badges"><span class="badge">4 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t5-i1"><p>他说和 Hinton 的分歧有两处：一对人类有没有信心，二智能等不等于权力。他认为超级智能会听人类指挥。原话是 “We need diverse AI assistants for the same reason we need a diverse press.” 他还澄清自己 2018 年就不带团队了，之后到 2025 年 12 月实际是个人贡献者。</p><ul class="links"><li><a href="https://x.com/ylecun/status/2121995284196602013" rel="noopener noreferrer" target="_blank">谈 p(doom)</a></li><li><a href="https://x.com/ylecun/status/2122050446634471770" rel="noopener noreferrer" target="_blank">谈开放基础模型</a></li><li><a href="https://x.com/ylecun/status/2121996500309815345" rel="noopener noreferrer" target="_blank">谈和 Hinton 的分歧</a></li><li><a href="https://x.com/ylecun/status/2122013722839240710" rel="noopener noreferrer" target="_blank">谈自己在 Meta 的角色</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t5-i2">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t5-i2">
+                <span class="item-top">
+                  <span class="idx">03</span>
+                  <span class="item-title">Perplexity 公布内部代理 Teammate 数据；Meta Muse 能替用户打电话</span>
+                </span>
+                <span class="item-sum">Srinivas 称员工每周从代理拿到的工作时长是 9 月的 11 倍；Muse 打电话目前只给美国付费用户</span>
+                <span class="badges"><span class="badge">3 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t5-i2"><p>他估算这些工作折合每年 8000 万到 1.8 亿美元的人工价值，token 成本大约 1000 万美元。这些是公司自己报的数字，没有外部核实。Hassabis 则为星舰第 15 次试飞发帖祝贺。</p><ul class="links"><li><a href="https://x.com/AravSrinivas/status/2121803009432953255" rel="noopener noreferrer" target="_blank">Srinivas 原帖</a></li><li><a href="https://x.com/alexandr_wang/status/2122104505538121821" rel="noopener noreferrer" target="_blank">Alexandr Wang 原帖</a></li><li><a href="https://x.com/demishassabis/status/2121773351093895413" rel="noopener noreferrer" target="_blank">Hassabis 原帖</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t5-i3">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t5-i3">
+                <span class="item-top">
+                  <span class="idx">04</span>
+                  <span class="item-title">马斯克检查 Ship 42：翻修几周可再飞，即刻复用还要改很多小地方</span>
+                </span>
+                <span class="item-sum">他说隔热罩和发动机整体状况很好；这是他对星舰复用进度说得比较具体的一次</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t5-i3"><p>英伟达的事他这 24 小时里没有发原创内容，只转发了一条问「Is Jensen being railroaded?」的帖子。他替黄仁勋说话的那几条发在 14 日晚上，不在这期范围里。</p><ul class="links"><li><a href="https://x.com/elonmusk/status/2122092374016806969" rel="noopener noreferrer" target="_blank">检查飞船的帖子</a></li><li><a href="https://x.com/elonmusk/status/2122068455415234856" rel="noopener noreferrer" target="_blank">转发</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t5-i4">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t5-i4">
+                <span class="item-top">
+                  <span class="idx">05</span>
+                  <span class="item-title">余承东预热 Mate X8；黄仁勋本人仍无公开发言</span>
+                </span>
+                <span class="item-sum">余承东称下一代 Mate X8 会在屏幕、影像和性能上有新突破；FT 称黄仁勋在考虑回任</span>
+                <span class="badges"><span class="badge">3 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t5-i4"><p>美国财长贝森特 15 日上 Fox News，要求英伟达从公司外部找新 CEO，还要董事会 10 天内说明出口管制的合规情况。苏姿丰去了奥斯汀 Micro Center 的社区活动，是 AMD 官方账号发的，没有实质内容。</p><ul class="links"><li><a href="https://finance.sina.com.cn/jjxw/2026-11-15/doc-iniyuuaf2075791.shtml" rel="noopener noreferrer" target="_blank">新浪财经（余承东）</a></li><li><a href="https://udn.com/news/story/125066/9880796" rel="noopener noreferrer" target="_blank">联合新闻网（黄仁勋后续）</a></li><li><a href="https://x.com/AMD/status/2122016850875998256" rel="noopener noreferrer" target="_blank">AMD 原帖</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t5-i5">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t5-i5">
+                <span class="item-top">
+                  <span class="idx">06</span>
+                  <span class="item-title">Sam Altman、Amodei、Karpathy、雷军、马化腾等人这 24 小时没有新内容</span>
+                </span>
+                <span class="item-sum">本期覆盖的是 11 月 15 日到 16 日约 24 小时的公开言论</span>
+                <span class="badges"></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t5-i5"><p>没有新内容的还包括 Hinton、陈立武、Cristiano Amon、何小鹏、李想、李斌、王传福、李彦宏、张一鸣、杨植麟、梁文锋。</p></div>
+          </article>
+        </div>
+      </section>
+      <section class="tab-panel" role="tabpanel" id="topic-6" aria-labelledby="tab-6">
+        <div class="panel-meta"><p>GitHub 每日涨星 Top 50 · 5 条（数据截至 2026-11-16）</p><div><a class="trend-open" href="github-trend/index.html">打开 GitHub 涨星看板</a></div></div>
+        <div class="items">
+          <article class="item is-open" id="t6-i0">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t6-i0">
+                <span class="item-top">
+                  <span class="idx">01</span>
+                  <span class="item-title">GoogleChrome/modern-web-guidance-src 升到第 1</span>
+                </span>
+                <span class="item-sum">2026-11-16 数据：当日 +1,219，总星 7,173；上周五第 6（+739）</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t6-i0"><p>Chrome 团队的现代 Web 开发指引，让编码智能体跟上最新最佳实践，TypeScript。周末没跑，今天对比的是上周五 11-13。前 10 名里 8 个是新面孔。</p><ul class="links"><li><a href="https://github.com/GoogleChrome/modern-web-guidance-src" rel="noopener noreferrer" target="_blank">GitHub 仓库</a></li><li><a href="github-trend/index.html">打开 GitHub 涨星看板</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t6-i1">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t6-i1">
+                <span class="item-top">
+                  <span class="idx">02</span>
+                  <span class="item-title">dream-num/univer 新进第 2</span>
+                </span>
+                <span class="item-sum">2026-11-16 数据：当日 +988，总星 25,724，上周五不在榜上</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t6-i1"><p>Univer Office SDK，在应用里嵌入编辑、计算、协作和文件处理能力，TypeScript。</p><ul class="links"><li><a href="https://github.com/dream-num/univer" rel="noopener noreferrer" target="_blank">GitHub 仓库</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t6-i2">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t6-i2">
+                <span class="item-top">
+                  <span class="idx">03</span>
+                  <span class="item-title">backnotprop/plannotator 新进第 3</span>
+                </span>
+                <span class="item-sum">2026-11-16 数据：当日 +866，总星 11,840，上周五不在榜上</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t6-i2"><p>让人参与智能体工作流程的工作区，可规划、批注、审查代码并把反馈发回智能体，TypeScript。</p><ul class="links"><li><a href="https://github.com/backnotprop/plannotator" rel="noopener noreferrer" target="_blank">GitHub 仓库</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t6-i3">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t6-i3">
+                <span class="item-top">
+                  <span class="idx">04</span>
+                  <span class="item-title">Likely7/Veyra-NRVideo 新进第 4</span>
+                </span>
+                <span class="item-sum">2026-11-16 数据：当日 +736，总星 2,804，上周五不在榜上</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t6-i3"><p>Windows 视频播放与采集增强工具，主打实时预览和 DLSS 插帧，宣称能把主机游戏画面提到 120FPS，C++。总星不到 3 千，靠单日爆发冲进前 10。</p><ul class="links"><li><a href="https://github.com/Likely7/Veyra-NRVideo" rel="noopener noreferrer" target="_blank">GitHub 仓库</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t6-i4">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t6-i4">
+                <span class="item-top">
+                  <span class="idx">05</span>
+                  <span class="item-title">ChromeDevTools/chrome-devtools-mcp 新进第 5</span>
+                </span>
+                <span class="item-sum">2026-11-16 数据：当日 +717，总星 56,935，上周五不在榜上</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t6-i4"><p>给编码智能体用的 Chrome DevTools MCP 服务，TypeScript。Chrome 团队的 Web 开发指引和 DevTools MCP 同时进了前 5。本期榜首涨幅 +1,219，低于上周五的 +1,830；第 50 名只有 +66。42 个仓库相对上周五新进榜。</p><ul class="links"><li><a href="https://github.com/ChromeDevTools/chrome-devtools-mcp" rel="noopener noreferrer" target="_blank">GitHub 仓库</a></li></ul></div>
+          </article>
+        </div>
+      </section>
+      </div>
+    </div>
+
+<footer>
+      <p>文字、要点和链接都写在这个页面里，打开即可阅读，不需要再加载数据。</p>
+      <p>往期：<a href="./2026-11-13.html">2026-11-13</a> · <a href="./2026-11-12.html">2026-11-12</a> · <a href="./2026-11-11.html">2026-11-11</a></p>
+      <p><a href="./index.html">返回主页</a>，查看全部日期。</p>
+    </footer>
+  </div>
+  <noscript>
+    <style>.tab-panel, .items, .detail { display: block !important; }</style>
+  </noscript>
+  <script>
+    (function () {
+      var tabs = document.querySelectorAll(".tab");
+      var panels = document.querySelectorAll(".tab-panel");
+
+      function topicTabIndex(topicIndex) {
+        for (var i = 0; i < tabs.length; i++) {
+          if (tabs[i].getAttribute("data-topic") === String(topicIndex)) return i;
+        }
+        return topicIndex + 1;
+      }
+
+      function selectTab(index, hashKind) {
+        if (index < 0 || index >= tabs.length) index = 0;
+        tabs.forEach(function (tab, i) {
+          var on = i === index;
+          tab.classList.toggle("is-active", on);
+          tab.setAttribute("aria-selected", on ? "true" : "false");
+          tab.tabIndex = on ? 0 : -1;
+        });
+        panels.forEach(function (p, i) {
+          p.classList.toggle("is-active", i === index);
+        });
+        if (hashKind === "topic" && history.replaceState) {
+          var tab = tabs[index];
+          var hash = "#all";
+          if (tab && tab.getAttribute("data-topic") != null) {
+            hash = "#topic-" + tab.getAttribute("data-topic");
+          }
+          history.replaceState(null, "", hash);
+        }
+        return index;
+      }
+
+      function setItem(article, open) {
+        article.classList.toggle("is-open", open);
+        var btn = article.querySelector(".item-btn");
+        if (btn) btn.setAttribute("aria-expanded", open ? "true" : "false");
+      }
+
+      function reveal(topicIndex, itemIndex, smooth) {
+        selectTab(topicTabIndex(topicIndex), "item");
+        var article = document.getElementById("t" + topicIndex + "-i" + itemIndex);
+        if (!article) return;
+        setItem(article, true);
+        article.classList.remove("flash");
+        void article.offsetWidth;
+        article.classList.add("flash");
+        article.scrollIntoView({ behavior: smooth ? "smooth" : "auto", block: "start" });
+        if (history.replaceState) history.replaceState(null, "", "#" + article.id);
+      }
+
+      tabs.forEach(function (tab, i) {
+        tab.addEventListener("click", function () { selectTab(i, "topic"); });
+        tab.addEventListener("keydown", function (e) {
+          var next = i;
+          if (e.key === "ArrowRight") next = (i + 1) % tabs.length;
+          else if (e.key === "ArrowLeft") next = (i - 1 + tabs.length) % tabs.length;
+          else if (e.key === "Home") next = 0;
+          else if (e.key === "End") next = tabs.length - 1;
+          else return;
+          e.preventDefault();
+          selectTab(next, "topic");
+          tabs[next].focus();
+        });
+      });
+
+      document.querySelectorAll("#panel-all .topic").forEach(function (topic) {
+        var btn = topic.querySelector(".topic-btn");
+        if (!btn) return;
+        btn.addEventListener("click", function () {
+          var open = !topic.classList.contains("is-open");
+          topic.classList.toggle("is-open", open);
+          btn.setAttribute("aria-expanded", open ? "true" : "false");
+        });
+      });
+
+      document.querySelectorAll(".item").forEach(function (article) {
+        var head = article.querySelector(".item-head") || article.querySelector(".item-btn");
+        if (!head) return;
+        head.addEventListener("click", function (e) {
+          if (e.target.closest && e.target.closest(".item-thumb")) return;
+          var open = !article.classList.contains("is-open");
+          setItem(article, open);
+        });
+      });
+
+      document.querySelectorAll(".top-card").forEach(function (card) {
+        card.addEventListener("click", function () {
+          reveal(Number(card.dataset.topic), Number(card.dataset.item), true);
+        });
+      });
+
+      document.querySelectorAll("img").forEach(function (img) {
+        img.addEventListener("error", function () {
+          var fig = img.closest("figure");
+          if (!fig || fig.dataset.broken) return;
+          fig.dataset.broken = "1";
+          var link = document.createElement("a");
+          link.href = img.getAttribute("src");
+          link.target = "_blank";
+          link.rel = "noopener noreferrer";
+          link.textContent = "原图无法内嵌显示，打开原图";
+          fig.replaceChildren(link);
+        });
+      });
+
+      var h = location.hash || "";
+      var item = h.match(/^#t(\d+)-i(\d+)$/);
+      var allHash = h.match(/^#(?:all|tab-all|panel-all)$/);
+      var topic = h.match(/^#(?:topic|tab|panel)-(\d+)$/);
+      if (item) reveal(Number(item[1]), Number(item[2]), false);
+      else if (allHash) selectTab(0, null);
+      else if (topic) selectTab(topicTabIndex(Number(topic[1])), null);
+      else selectTab(0, null);
+    })();
+    </script>
+</body>
+</html>
