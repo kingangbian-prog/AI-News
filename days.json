@@ -1,5 +1,87 @@
 [
   {
+    "date": "2026-11-17",
+    "topics": [
+      "AI 行业简报",
+      "科技高管观点",
+      "PC 行业动向",
+      "X 热门新点子",
+      "AI 大拿",
+      "GitHub 涨星"
+    ],
+    "summary": "英伟达北京时间周三早上发出黄仁勋辞职后的第一份财报，代理 CEO Colette Kress 主持，分析师预期营收 1091 亿美元、同比增 91%。AMD 完成约 82 亿美元收购 World Labs，李飞飞出任 AMD 首席科学家；OpenAI 一天内发了嵌入式安全评估、面向 20 万名科学家的免费计划和医疗电脑操作智能体三件事。阿里把 2.4 万亿参数的 Qwen4-Max 全面开放，成本比自家测试降了约 58%。PC 这边，Windows Insider 新版本加入通行密钥管理和 Intune 远程锁定，macOS 27.3 beta 2 为 AI 代理收紧权限，十铨称内存最紧的时候在 2027 年上半年。GitHub 涨星榜首是 Univer，当日 +1,878。",
+    "reports": [
+      {
+        "name": "AI 行业简报",
+        "href": "reports/2026-11-17/brief.html"
+      },
+      {
+        "name": "科技高管观点",
+        "href": "reports/2026-11-17/exec.html"
+      },
+      {
+        "name": "PC 行业动向",
+        "href": "reports/2026-11-17/pc.html"
+      },
+      {
+        "name": "X 热门新点子",
+        "href": "reports/2026-11-17/x-ideas.html"
+      },
+      {
+        "name": "AI 大拿",
+        "href": "reports/2026-11-17/ai-leaders.html"
+      },
+      {
+        "name": "GitHub 涨星",
+        "href": "github-trend/index.html"
+      }
+    ],
+    "lines": [
+      {
+        "topic": "AI 行业简报",
+        "text": "英伟达发黄仁勋辞职后的第一份财报，预期营收 1091 亿美元；阿里 Qwen4-Max 全面开放。",
+        "image": "",
+        "image_src": "",
+        "link": "https://www.cnbc.com/2026/11/16/nvidia-earnings-jensen-huang-resignation.html"
+      },
+      {
+        "topic": "科技高管观点",
+        "text": "AMD 完成收购 World Labs，李飞飞任首席科学家；OpenAI 一天内发三件安全和科研的事。",
+        "image": "",
+        "image_src": "",
+        "link": "https://ir.amd.com/news-events/press-releases/detail/1306/amd-completes-acquisition-of-world-labs"
+      },
+      {
+        "topic": "PC 行业动向",
+        "text": "Windows Insider 新版本加入通行密钥管理和 Intune 远程锁定；MacBook Pro OLED 低亮度 PWM 引发头疼反馈。",
+        "image": "",
+        "image_src": "",
+        "link": "https://blogs.windows.com/windows-insider/2026/11/16/announcing-new-builds-for-16-november-2026/"
+      },
+      {
+        "topic": "X 热门新点子",
+        "text": "OpenAI 一天连发 4 条科研相关消息，前沿模型免费开放给最多 20 万名科学家；Perplexity 投入至少 1 万张 GPU。",
+        "image": "",
+        "image_src": "",
+        "link": "https://x.com/OpenAI/status/2122377585523126615"
+      },
+      {
+        "topic": "AI 大拿",
+        "text": "Altman 回应“Anthropic 的 Lyft”之问，说 OpenAI 最终会上市；纳德拉承认 Claude Code 让微软措手不及。",
+        "image": "",
+        "image_src": "",
+        "link": "https://www.businessinsider.com/sam-altman-openai-ipo-plan-investor-demand-2026-11"
+      },
+      {
+        "topic": "GitHub 涨星",
+        "text": "dream-num/univer 升到第 1，当日 +1,878；本期 29 个仓库相对上一期新进榜。",
+        "image": "",
+        "image_src": "",
+        "link": "https://github.com/dream-num/univer"
+      }
+    ]
+  },
+  {
     "date": "2026-11-16",
     "topics": [
       "AI 行业简报",

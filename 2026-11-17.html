@@ -1,0 +1,1810 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#f4f1ea">
+<meta name="description" content="6 条资讯线汇总今天各 bot 和 AI 行业简报的输出。默认打开 ALL 可看全部资讯线的树形列表；点上方标签切换各条线，要点默认展开；点箭头可收起。今天没有 Apple 洞察的输出。">
+<link rel="icon" type="image/png" href="assets/wangcai-dog.png">
+<title>旺财资讯 2026-11-17</title>
+<style>
+  :root {
+    color-scheme: light;
+    --ink: #1a1a1a;
+    --muted: #5c5c5c;
+    --faint: #5e5e5e;
+    --line: #ece8e1;
+    --bg: #f4f1ea;
+    --bg-top: #fbf8f2;
+    --soft: #f8f3ea;
+    --card: #fffaf4;
+    --shadow: 0 1px 0 rgba(255,255,255,.8) inset, 0 6px 16px rgba(40,30,10,.05);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background-color: var(--bg);
+    background-image: linear-gradient(180deg, #fbf8f2 0%, #f4f1ea 42%);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: var(--ink);
+    font-family: "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", "Microsoft YaHei", "Segoe UI", sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    overflow-wrap: break-word;
+  }
+  a { color: #0b57d0; }
+  a:hover { color: #0842a0; }
+  button, input { font-family: inherit; color: inherit; }
+  :focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+  .wrap {
+    width: min(880px, calc(100% - 32px));
+    margin: 0 auto;
+    padding: 32px 0 80px;
+  }
+  .date {
+    margin: 0 0 10px;
+    font-size: 13px;
+    letter-spacing: .08em;
+    color: var(--muted);
+  }
+  h1 {
+    margin: 0 0 14px;
+    font-size: clamp(28px, 5vw, 40px);
+    line-height: 1.22;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  .nowrap { white-space: nowrap; }
+  .summary {
+    margin: 0;
+    max-width: 68ch;
+    color: #2c2c2c;
+  }
+  .section-label {
+    margin: 40px 0 12px;
+    font-size: 13px;
+    font-weight: 650;
+    letter-spacing: .12em;
+    color: var(--muted);
+  }
+  .top-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+  }
+  .top-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    min-height: 168px;
+    padding: 16px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    text-align: left;
+    cursor: pointer;
+  }
+  .top-card:hover { border-color: #111; }
+  .rank {
+    font-variant-numeric: tabular-nums;
+    font-size: 12px;
+    letter-spacing: .04em;
+    color: var(--faint);
+  }
+  .top-t { font-size: 16px; font-weight: 680; line-height: 1.4; }
+  .top-s { font-size: 13px; line-height: 1.5; color: var(--muted); }
+  .top-go {
+    margin-top: auto;
+    font-size: 13px;
+    border-bottom: 1px solid #111;
+    line-height: 1.4;
+  }
+  .map-bar {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 4px 12px;
+    margin-top: 40px;
+  }
+  .map-bar .section-label { margin: 0; }
+  .text-btn {
+    border: 0;
+    background: transparent;
+    padding: 8px 0;
+    min-height: 44px;
+    cursor: pointer;
+    font-size: 14px;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .tree {
+    margin-top: 14px;
+    padding: 4px 0 4px 22px;
+    border-left: 2px solid var(--line);
+  }
+  .root {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 18px -22px;
+    padding: 10px 16px;
+    max-width: calc(100% + 22px);
+    border: 1.5px solid #111;
+    border-radius: 16px;
+    background: var(--card);
+    font-weight: 700;
+  }
+  .root-mark {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #111;
+    flex: none;
+  }
+  .topic { position: relative; margin: 0 0 12px; }
+  .topic::before {
+    content: "";
+    position: absolute;
+    left: -22px;
+    top: 28px;
+    width: 22px;
+    height: 2px;
+    background: var(--branch, #111);
+  }
+  .topic-head { display: flex; align-items: stretch; gap: 8px; }
+  .topic-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 64px;
+    padding: 12px 14px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    cursor: pointer;
+    text-align: left;
+  }
+  .topic-btn:hover,
+  .topic.is-open .topic-btn { border-color: #111; }
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--branch, #111);
+    flex: none;
+  }
+  .topic-copy { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+  .topic-name { font-size: 17px; font-weight: 700; line-height: 1.35; }
+  .topic-meta { font-size: 13px; color: var(--muted); }
+  .chev {
+    width: 8px;
+    height: 8px;
+    margin-left: auto;
+    border-right: 1.5px solid #111;
+    border-bottom: 1.5px solid #111;
+    transform: rotate(45deg) translateY(-2px);
+    flex: none;
+  }
+  .topic.is-open .topic-btn > .chev { transform: rotate(-135deg) translateY(-2px); }
+  .report {
+    align-self: center;
+    flex: none;
+    font-size: 13px;
+    padding: 8px 2px;
+    white-space: nowrap;
+  }
+  .items, .detail { display: none; }
+  .topic.is-open > .topic-head + .items,
+  .topic.is-open > .items { display: flex; }
+  .item.is-open .detail { display: block; }
+  .items {
+    margin: 8px 0 6px 8px;
+    padding-left: 14px;
+    border-left: 2px solid color-mix(in srgb, var(--branch, #111) 45%, #fff);
+    flex-direction: column;
+    gap: 8px;
+  }
+  .item { scroll-margin: 16px 0 24px; }
+  .item-btn {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    padding: 12px;
+    background: var(--soft);
+    border: 1px solid transparent;
+    border-radius: 12px;
+    cursor: pointer;
+    text-align: left;
+  }
+  .item-btn:hover { border-color: #ccc; }
+  .item.is-open .item-btn {
+    background: var(--card);
+    border-color: #111;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .item-top { display: flex; width: 100%; align-items: flex-start; gap: 8px; }
+  .idx {
+    font-variant-numeric: tabular-nums;
+    font-size: 12px;
+    color: var(--faint);
+    padding-top: 3px;
+    flex: none;
+  }
+  .item-title { font-weight: 680; font-size: 15.5px; line-height: 1.45; }
+  .item-top .chev { margin-top: 6px; }
+  .item.is-open .item-top .chev { transform: rotate(-135deg) translateY(-2px); }
+  .item-sum { font-size: 13.5px; color: var(--muted); padding-left: 24px; }
+  .badges { display: flex; flex-wrap: wrap; gap: 6px; padding-left: 24px; }
+  .badge {
+    font-size: 11px;
+    color: #333;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 1px 8px;
+  }
+  .detail {
+    padding: 4px 14px 14px;
+    border: 1px solid #111;
+    border-top: 0;
+    border-radius: 0 0 12px 12px;
+    background: var(--card);
+  }
+  .detail p { margin: 8px 0 12px; }
+  figure { margin: 0 0 12px; }
+  figure img {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: 440px;
+    object-fit: contain;
+    background: var(--soft);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+  }
+  figcaption { margin-top: 6px; font-size: 12px; color: var(--faint); }
+  .links {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .links a { font-size: 14px; }
+  .item.flash .item-btn { animation: flash 1.3s ease; }
+  @keyframes flash {
+    0% { background: #fff3cc; }
+    100% { background: var(--card); }
+  }
+  footer {
+    margin-top: 40px;
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 13px;
+  }
+  footer p { margin: 0 0 6px; }
+  @media (max-width: 720px) {
+    .wrap { width: min(100% - 28px, 880px); padding-top: 22px; }
+    .top-grid { grid-template-columns: 1fr; }
+    .top-card { min-height: 0; }
+    .topic-head { flex-direction: column; gap: 0; }
+    .report { align-self: flex-start; padding: 6px 2px 2px 4px; white-space: normal; }
+    h1 { letter-spacing: 0; }
+  }
+  @media print {
+    .text-btn, .top-go { display: none; }
+    .items, .detail { display: block !important; }
+    .top-card, .topic-btn, .item-btn { break-inside: avoid; }
+  }
+
+  /* tabs + card thumbs (overrides tree layout) */
+  .map-bar{align-items:flex-end}
+  .tab-list{
+    position:sticky;top:0;z-index:30;
+    display:flex;flex-wrap:nowrap;gap:0;
+    overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:thin;
+    background:var(--bg);
+    border-bottom:1px solid var(--line);
+    margin:0 0 18px;padding:8px 0 0;
+  }
+  .tab{
+    flex:none;font:inherit;font-size:15px;font-weight:650;
+    padding:10px 16px;border:0;border-bottom:2px solid transparent;
+    background:transparent;color:var(--muted);cursor:pointer;white-space:nowrap;
+  }
+  .tab.is-active,.tab[aria-selected="true"]{color:var(--ink);background:var(--card);border-bottom-color:#111;border-radius:10px 10px 0 0}
+  .tab-panel{display:none}
+  .tab-panel.is-active{display:block}
+  .panel-meta{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 16px;margin:0 0 12px;font-size:14px;color:var(--muted)}
+  .panel-meta a{font-weight:650}
+  a.trend-open{font-weight:700}
+  .items{display:flex;flex-direction:column;gap:8px;margin:0;padding:0;border:0}
+  .item-head{
+    display:flex;align-items:center;gap:10px;
+    padding:12px;background:var(--soft);border:1px solid transparent;border-radius:12px;cursor:pointer;
+  }
+  .item-head:hover{border-color:#ccc}
+  .item.is-open .item-head{background:var(--card);border-color:#111;border-bottom-left-radius:0;border-bottom-right-radius:0}
+  .item-btn{
+    flex:1;min-width:0;width:auto;
+    display:flex;flex-direction:column;align-items:flex-start;gap:4px;
+    padding:0;background:transparent;border:0;cursor:pointer;text-align:left;
+  }
+  .item-top{width:auto}
+  .item-thumb{flex:none;display:block;width:140px;height:86px;border-radius:8px;overflow:hidden;line-height:0}
+  .item-thumb img{display:block;width:140px;height:86px;object-fit:cover;background:#f3efe6;border-radius:8px}
+  .item-head>.chev{margin-left:0;margin-top:0;flex:none}
+  .item.is-open .item-head>.chev{transform:rotate(-135deg) translateY(-2px)}
+  .item{scroll-margin-top:72px}
+  .item.flash .item-head{animation:flash 1.3s ease}
+  .detail{display:none}
+  .item.is-open .detail{display:block}
+  @media (max-width:600px){
+    .item-thumb,.item-thumb img{width:84px;height:54px}
+    .tab{padding:10px 12px;font-size:14px}
+  }
+  @media print{
+    .tab-list{position:static}
+    .tab-panel,.detail,.items{display:block !important}
+  }
+
+
+  .day-poster{margin:0 0 28px;max-width:100%}
+  .day-poster a{display:block;line-height:0}
+  .day-poster img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:12px;border:1px solid var(--line);background:#f4f1ea;box-shadow:var(--shadow)}
+
+
+  /* ALL tab: restore topic tree, scoped so other tabs stay unchanged */
+  #panel-all .tree{
+    margin-top:6px;padding:4px 0 4px 22px;
+    border-left:2px solid var(--line);
+  }
+  #panel-all .topic{position:relative;margin:0 0 12px}
+  #panel-all .topic::before{
+    content:"";position:absolute;left:-22px;top:28px;width:22px;height:2px;
+    background:var(--branch,#111);
+  }
+  #panel-all .topic-head{display:flex;align-items:stretch;gap:8px}
+  #panel-all .topic-links{
+    align-self:center;flex:none;display:flex;flex-direction:column;gap:4px;
+    padding:8px 2px;font-size:13px;white-space:nowrap;
+  }
+  #panel-all .topic-links a{font-weight:650}
+  #panel-all .items{
+    display:none;
+    margin:8px 0 6px 8px;padding-left:14px;
+    border-left:2px solid color-mix(in srgb, var(--branch,#111) 45%, #fffaf4);
+    flex-direction:column;gap:8px;
+  }
+  #panel-all .topic.is-open > .items{display:flex}
+  @media (max-width:720px){
+    #panel-all .topic-head{flex-direction:column;gap:0}
+    #panel-all .topic-links{align-self:flex-start;padding:6px 2px 2px 4px;white-space:normal}
+  }
+  @media print{
+    #panel-all .items,#panel-all .detail{display:block !important}
+  }
+
+
+  /* tabs + card thumbs (overrides tree layout) */
+  .map-bar{align-items:flex-end}
+  .tab-list{
+    position:sticky;top:0;z-index:30;
+    display:flex;flex-wrap:nowrap;gap:0;
+    overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:thin;
+    background:var(--bg);
+    border-bottom:1px solid var(--line);
+    margin:0 0 18px;padding:8px 0 0;
+  }
+  .tab{
+    flex:none;font:inherit;font-size:15px;font-weight:650;
+    padding:10px 16px;border:0;border-bottom:2px solid transparent;
+    background:transparent;color:var(--muted);cursor:pointer;white-space:nowrap;
+  }
+  .tab.is-active,.tab[aria-selected="true"]{color:var(--ink);background:var(--card);border-bottom-color:#111;border-radius:10px 10px 0 0}
+  .tab-panel{display:none}
+  .tab-panel.is-active{display:block}
+  .panel-meta{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 16px;margin:0 0 12px;font-size:14px;color:var(--muted)}
+  .panel-meta a{font-weight:650}
+  a.trend-open{font-weight:700}
+  .items{display:flex;flex-direction:column;gap:8px;margin:0;padding:0;border:0}
+  .item-head{
+    display:flex;align-items:center;gap:10px;
+    padding:12px;background:var(--soft);border:1px solid transparent;border-radius:12px;cursor:pointer;
+  }
+  .item-head:hover{border-color:#ccc}
+  .item.is-open .item-head{background:var(--card);border-color:#111;border-bottom-left-radius:0;border-bottom-right-radius:0}
+  .item-btn{
+    flex:1;min-width:0;width:auto;
+    display:flex;flex-direction:column;align-items:flex-start;gap:4px;
+    padding:0;background:transparent;border:0;cursor:pointer;text-align:left;
+  }
+  .item-top{width:auto}
+  .item-thumb{flex:none;display:block;width:140px;height:86px;border-radius:8px;overflow:hidden;line-height:0}
+  .item-thumb img{display:block;width:140px;height:86px;object-fit:cover;background:#f3efe6;border-radius:8px}
+  .item-head>.chev{margin-left:0;margin-top:0;flex:none}
+  .item.is-open .item-head>.chev{transform:rotate(-135deg) translateY(-2px)}
+  .item{scroll-margin-top:72px}
+  .item.flash .item-head{animation:flash 1.3s ease}
+  .detail{display:none}
+  .item.is-open .detail{display:block}
+  @media (max-width:600px){
+    .item-thumb,.item-thumb img{width:84px;height:54px}
+    .tab{padding:10px 12px;font-size:14px}
+  }
+  @media print{
+    .tab-list{position:static}
+    .tab-panel,.detail,.items{display:block !important}
+  }
+/* ALL tab: restore topic tree, scoped so other tabs stay unchanged */
+  #panel-all .tree{
+    margin-top:6px;padding:4px 0 4px 22px;
+    border-left:2px solid var(--line);
+  }
+  #panel-all .topic{position:relative;margin:0 0 12px}
+  #panel-all .topic::before{
+    content:"";position:absolute;left:-22px;top:28px;width:22px;height:2px;
+    background:var(--branch,#111);
+  }
+  #panel-all .topic-head{display:flex;align-items:stretch;gap:8px}
+  #panel-all .topic-links{
+    align-self:center;flex:none;display:flex;flex-direction:column;gap:4px;
+    padding:8px 2px;font-size:13px;white-space:nowrap;
+  }
+  #panel-all .topic-links a{font-weight:650}
+  #panel-all .items{
+    display:none;
+    margin:8px 0 6px 8px;padding-left:14px;
+    border-left:2px solid color-mix(in srgb, var(--branch,#111) 45%, #fffaf4);
+    flex-direction:column;gap:8px;
+  }
+  #panel-all .topic.is-open > .items{display:flex}
+  @media (max-width:720px){
+    #panel-all .topic-head{flex-direction:column;gap:0}
+    #panel-all .topic-links{align-self:flex-start;padding:6px 2px 2px 4px;white-space:normal}
+  }
+  @media print{
+    #panel-all .items,#panel-all .detail{display:block !important}
+  }
+
+
+.wc-dog{display:inline-block;width:1.15em;height:1.15em;vertical-align:-0.18em;margin-right:.3em}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="mast">
+      <p class="home-link" style="margin:0 0 14px;font-size:14px"><a href="./index.html">← 全部日期</a></p>
+      <p class="date">2026-11-17</p>
+      <h1><img class="wc-dog" src="assets/wangcai-dog.png" alt="" aria-hidden="true">旺财资讯 <span class="nowrap">2026-11-17</span></h1>
+      <p class="summary">6 条资讯线汇总今天各 bot 和 AI 行业简报的输出。默认打开 ALL 可看全部资讯线的树形列表；点上方标签切换各条线，要点默认展开；点箭头可收起。今天没有 Apple 洞察的输出。</p>
+    </header>
+    <p class="day-poster"><a href="assets/poster/2026-11-17.png" target="_blank" rel="noopener noreferrer"><img src="assets/poster/2026-11-17.png" alt="旺财资讯 2026-11-17" width="1920" height="1080" loading="lazy" decoding="async"></a></p>
+
+
+    <h2 class="section-label">今日最值得关注</h2>
+    <div class="top-grid">
+      <button type="button" class="top-card" data-topic="0" data-item="0">
+        <span class="rank">01 · AI 行业简报</span>
+        <span class="top-t">英伟达换帅后的第一份财报</span>
+        <span class="top-s">代理 CEO Colette Kress 首次独自面对市场，分析师预期营收 1091 亿美元、同比增 91%</span>
+        <span class="top-go">查看详情</span>
+      </button>
+      <button type="button" class="top-card" data-topic="1" data-item="1">
+        <span class="rank">02 · 科技高管观点</span>
+        <span class="top-t">AMD 完成收购 World Labs，李飞飞出任首席科学家</span>
+        <span class="top-s">约 82 亿美元全股票交易，李飞飞直接向苏姿丰汇报</span>
+        <span class="top-go">查看详情</span>
+      </button>
+      <button type="button" class="top-card" data-topic="2" data-item="3">
+        <span class="rank">03 · PC 行业动向</span>
+        <span class="top-t">Windows Insider 新版本加入通行密钥管理和远程锁定</span>
+        <span class="top-s">26320.10003 和 26340.10013 推送给 Beta 与 Experimental 频道，Ignite 今天开幕</span>
+        <span class="top-go">查看详情</span>
+      </button>
+    </div>
+
+        <div class="map-bar">
+      <h2 class="section-label">资讯 · 6 条线 · 34 条要点</h2>
+    </div>
+
+    <div class="tabs" id="tabs">
+      <div class="tab-list" role="tablist" aria-label="资讯线">
+        <button type="button" class="tab is-active" role="tab" id="tab-all" aria-selected="true" aria-controls="panel-all" tabindex="0">ALL</button>
+        <button type="button" class="tab" role="tab" id="tab-0" data-topic="0" aria-selected="false" aria-controls="topic-0" tabindex="-1">AI 行业简报</button>
+        <button type="button" class="tab" role="tab" id="tab-1" data-topic="1" aria-selected="false" aria-controls="topic-1" tabindex="-1">科技高管观点</button>
+        <button type="button" class="tab" role="tab" id="tab-2" data-topic="2" aria-selected="false" aria-controls="topic-2" tabindex="-1">PC 行业动向</button>
+        <button type="button" class="tab" role="tab" id="tab-3" data-topic="3" aria-selected="false" aria-controls="topic-3" tabindex="-1">X 热门新点子</button>
+        <button type="button" class="tab" role="tab" id="tab-4" data-topic="4" aria-selected="false" aria-controls="topic-4" tabindex="-1">AI 大拿</button>
+        <button type="button" class="tab" role="tab" id="tab-5" data-topic="5" aria-selected="false" aria-controls="topic-5" tabindex="-1">GitHub 涨星</button>
+      </div>
+      <div class="tab-panels">
+      <section class="tab-panel is-active" role="tabpanel" id="panel-all" aria-labelledby="tab-all">
+        <div class="tree" id="tree">
+        <section class="topic is-open" id="all-topic-0" style="--branch:#0f766e">
+          <div class="topic-head">
+            <button type="button" class="topic-btn" aria-expanded="true" aria-controls="all-items-0">
+              <span class="dot" aria-hidden="true"></span>
+              <span class="topic-copy">
+                <span class="topic-name">AI 行业简报</span>
+                <span class="topic-meta">AI 行业简报 · 6 条</span>
+              </span>
+              <span class="chev" aria-hidden="true"></span>
+            </button>
+            <div class="topic-links"><a class="report" href="reports/2026-11-17/brief.html">查看日报</a></div>
+          </div>
+          <div class="items" id="all-items-0">
+          <article class="item is-open" id="all-t0-i0">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t0-i0">
+                <span class="item-top">
+                  <span class="idx">01</span>
+                  <span class="item-title">英伟达换帅后的第一份财报</span>
+                </span>
+                <span class="item-sum">代理 CEO Colette Kress 首次独自面对市场，分析师预期营收 1091 亿美元、同比增 91%</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t0-i0"><p>每股收益预期 2.47 美元（LSEG 统计）。股价已连跌六周，是 2012 年以来最长，市值蒸发约 1.7 万亿美元。外界最关心东南亚销售里有多少实际流向中国，以及 Kress 能否重申 2028 财年约 70% 的增长指引。财报在北京时间周三早上发布。</p><ul class="links"><li><a href="https://www.cnbc.com/2026/11/16/nvidia-earnings-jensen-huang-resignation.html" rel="noopener noreferrer" target="_blank">CNBC</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t0-i1">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t0-i1">
+                <span class="item-top">
+                  <span class="idx">02</span>
+                  <span class="item-title">阿里 Qwen4-Max 在 QwenCloud 全面开放</span>
+                </span>
+                <span class="item-sum">2.4 万亿参数的 MoE 模型，可直接读图，上下文最长 100 万 token</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t0-i1"><p>Qwen Studio、QwenWork 和 Qoder 也能用。阿里称在自家 Work360 测试上平均任务成本从 26.58 元降到 11.16 元，约降 58%，之后还会开源更小的 Qwen4 模型。国产旗舰模型在拼能力的同时也在压价格。</p><ul class="links"><li><a href="https://technode.com/2026/11/16/alibaba-launches-qwen4-max-with-lower-api-prices-and-a-million-token-context-window/" rel="noopener noreferrer" target="_blank">TechNode</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t0-i2">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t0-i2">
+                <span class="item-top">
+                  <span class="idx">03</span>
+                  <span class="item-title">OpenAI 把电脑操作智能体推进医疗场景</span>
+                </span>
+                <span class="item-sum">HLTH 2026 上公布与 CVS Health、Cigna、Abridge、Ambience 合作</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t0-i2"><p>智能体操作电子病历和保险门户，处理转诊、预授权、出院计划等手工流程。CVS 说有一个生产流程里积压数月的文件发送，智能体一个周末就清完了。医疗系统彼此割裂，会点鼠标的智能体比对接 API 更容易落地。</p><ul class="links"><li><a href="https://www.fiercehealthcare.com/ai-and-machine-learning/hlth26-cvs-health-cigna-and-ambience-collaborating-openai-test-computer-use" rel="noopener noreferrer" target="_blank">Fierce Healthcare</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t0-i3">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t0-i3">
+                <span class="item-top">
+                  <span class="idx">04</span>
+                  <span class="item-title">白宫 AI 工作组建议放宽网络安全追责，换 AI 公司主动上报事故</span>
+                </span>
+                <span class="item-sum">据彭博，官员建议未来 12 个月甚至更久限制监管追责</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t0-i3"><p>理由是旧标准让企业不敢分享信息。上个月同一工作组还警告不报告要承担后果，这次态度明显转软，商务部长卢特尼克也在场。</p><ul class="links"><li><a href="https://www.insurancejournal.com/news/national/2026/11/16/892718.htm" rel="noopener noreferrer" target="_blank">Insurance Journal 转载彭博</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t0-i4">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t0-i4">
+                <span class="item-top">
+                  <span class="idx">05</span>
+                  <span class="item-title">斯坦福教授创办的 Noeri 融资 1.1 亿美元</span>
+                </span>
+                <span class="item-sum">Yejin Choi 和 Carlos Guestrin 创办，Menlo Ventures 领投，英伟达、思科、Snowflake 等参投</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t0-i4"><p>产品研究企业的数据和流程，提出对提示词、工具、模型分工乃至模型本身的修改，每项改动像代码审查一样交给人批准。它押注用多个便宜模型组合出接近顶级模型的效果。</p><ul class="links"><li><a href="https://www.geekwire.com/2026/former-uw-ai-researchers-yejin-choi-and-carlos-guestrin-raise-110m-for-ai-startup-noeri/" rel="noopener noreferrer" target="_blank">GeekWire</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t0-i5">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t0-i5">
+                <span class="item-top">
+                  <span class="idx">06</span>
+                  <span class="item-title">AI 相关儿童性剥削内容举报两年涨 8400% 以上</span>
+                </span>
+                <span class="item-sum">爱丁堡 Childlight 研究所统计，美国 NCMEC 收到的此类报告 2023 年约 4700 件，2025 年超过 40 万件</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t0-i5"><p>其中包括用“一键脱衣”应用做的深度伪造，常被用来勒索儿童。这会给各国监管生成式图像工具增加压力。</p><ul class="links"><li><a href="https://www.theguardian.com/technology/2026/nov/16/ai-related-child-sexual-abuse-material-rise-exploitation-deepfakes" rel="noopener noreferrer" target="_blank">The Guardian</a></li></ul></div>
+          </article>
+          </div>
+        </section>
+        <section class="topic is-open" id="all-topic-1" style="--branch:#b45309">
+          <div class="topic-head">
+            <button type="button" class="topic-btn" aria-expanded="true" aria-controls="all-items-1">
+              <span class="dot" aria-hidden="true"></span>
+              <span class="topic-copy">
+                <span class="topic-name">科技高管观点</span>
+                <span class="topic-meta">科技公司高管最新观点监测 · 6 条</span>
+              </span>
+              <span class="chev" aria-hidden="true"></span>
+            </button>
+            <div class="topic-links"><a class="report" href="reports/2026-11-17/exec.html">查看日报</a></div>
+          </div>
+          <div class="items" id="all-items-1">
+          <article class="item is-open" id="all-t1-i0">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t1-i0">
+                <span class="item-top">
+                  <span class="idx">01</span>
+                  <span class="item-title">黄仁勋去留继续发酵：Altman 说“英雄也有缺点”</span>
+                </span>
+                <span class="item-sum">Altman 不表态他该不该回归，认为没有他“行业也会没事”；特朗普称不介意他回来</span>
+                <span class="badges"><span class="badge">3 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t1-i0"><p>Altman 在 Semafor 活动上说黄仁勋“long been a hero of mine. Heroes have flaws”，并说英伟达为 OpenAI 俄亥俄数据中心提供的约 1050 亿美元担保，大家仍然很信任。X 新闻摘要引 CNBC 称英伟达董事会没有考虑让他回任。英伟达股价跌破 160 美元，财报由临时 CEO Colette Kress 主持。</p><ul class="links"><li><a href="https://techcrunch.com/2026/11/16/sam-altman-on-nvidia-without-jensen-huang-the-industry-will-be-fine/" rel="noopener noreferrer" target="_blank">TechCrunch：Altman 谈英伟达</a></li><li><a href="https://thenextweb.com/news/sam-altman-jensen-huang-heroes-have-flaws-semafor" rel="noopener noreferrer" target="_blank">TNW</a></li><li><a href="https://decrypt.co/383351/trump-elon-musk-sam-altman-jensen-huang-nvidia" rel="noopener noreferrer" target="_blank">Decrypt：特朗普表态</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t1-i1">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t1-i1">
+                <span class="item-top">
+                  <span class="idx">02</span>
+                  <span class="item-title">AMD 完成收购 World Labs，李飞飞任 AMD 执行副总裁兼首席科学家</span>
+                </span>
+                <span class="item-sum">约 82 亿美元全股票交易，李飞飞直接向苏姿丰汇报</span>
+                <span class="badges"><span class="badge">3 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t1-i1"><p>苏姿丰在新闻稿里说，通向超级智能的基础设施要求“optimize compute platforms and models together”。World Labs 团队会继续做基础模型研究，同时参与 AMD 未来硬件、软件和系统的设计。</p><ul class="links"><li><a href="https://ir.amd.com/news-events/press-releases/detail/1306/amd-completes-acquisition-of-world-labs" rel="noopener noreferrer" target="_blank">AMD 新闻稿</a></li><li><a href="https://x.com/LisaSu/status/2122336277727215988" rel="noopener noreferrer" target="_blank">苏姿丰原帖</a></li><li><a href="https://x.com/drfeifei/status/2122377911873491397" rel="noopener noreferrer" target="_blank">李飞飞原帖</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t1-i2">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t1-i2">
+                <span class="item-top">
+                  <span class="idx">03</span>
+                  <span class="item-title">OpenAI 一天内发了三件安全和科研相关的事</span>
+                </span>
+                <span class="item-sum">外部团队进驻做嵌入式评估；1819 名科学家使用 ChatGPT 的研究；免费科研计划扩到最多 20 万人</span>
+                <span class="badges"><span class="badge">3 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t1-i2"><p>嵌入式评估的合作方是 Apollo Research、METR、Transluce、Goodfire，可接触模型检查点、训练代码与数据。研究里受访者估计同样质量的工作不用 AI 要花 1.9 倍时间，这是自报数据，研究自己说不能证明因果。</p><ul class="links"><li><a href="https://x.com/OpenAI/status/2122359930628063248" rel="noopener noreferrer" target="_blank">嵌入式评估原帖</a></li><li><a href="https://transluce.org/embedded-assessment-pilot-with-openai" rel="noopener noreferrer" target="_blank">Transluce 说明</a></li><li><a href="https://openai.com/index/science-at-the-frontier/" rel="noopener noreferrer" target="_blank">OpenAI：Science at the Frontier</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t1-i3">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t1-i3">
+                <span class="item-top">
+                  <span class="idx">04</span>
+                  <span class="item-title">Anthropic 把协调漏洞披露期限从 90 天缩短到 30 天</span>
+                </span>
+                <span class="item-sum">适用于高危和严重级漏洞，2027 年 1 月 1 日起生效</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t1-i3"><p>其他漏洞 45 天；维护者不回应时 15 天后就找外部协调方；补丁发布后 30 天公开技术细节。理由是模型发现漏洞的能力变强，同一漏洞被重复发现的概率在上升。正被利用的漏洞仍是 7 天。</p><ul class="links"><li><a href="https://www.anthropic.com/research/coordinated-vulnerability-disclosure-timelines" rel="noopener noreferrer" target="_blank">Anthropic 研究文章</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t1-i4">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t1-i4">
+                <span class="item-top">
+                  <span class="idx">05</span>
+                  <span class="item-title">纳德拉承认 Claude Code 让微软措手不及</span>
+                </span>
+                <span class="item-sum">他说代码生成变便宜之后，难的是验证</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t1-i4"><p>在 The Pragmatic Engineer 播客里他说 Claude Code 把编程从 IDE 搬到了命令行，IDE 在约半年里“kind of faded away”。他主张用不同模型家族互相审查代码，企业要把智能体框架、记忆和模型分开，能随时换模型。</p><ul class="links"><li><a href="https://thenextweb.com/news/satya-nadella-claude-code-ide-pragmatic-engineer" rel="noopener noreferrer" target="_blank">TNW 整理</a></li><li><a href="https://newsletter.pragmaticengineer.com/p/software-engineering-after-code-becomes" rel="noopener noreferrer" target="_blank">The Pragmatic Engineer</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t1-i5">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t1-i5">
+                <span class="item-top">
+                  <span class="idx">06</span>
+                  <span class="item-title">Perplexity 成立 Frontier Research，至少投入 1 万张 GPU</span>
+                </span>
+                <span class="item-sum">目标是做“自动化研究员”，承诺公开评测和论文并开源模型与工具</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t1-i5"><p>研究方向是多智能体编排和持续学习。X 新闻摘要称研究负责人是 Andrew Gordon Wilson，12 月 5 日前招人。Srinivas 同天还发布了 Perplexity Monitor API。</p><ul class="links"><li><a href="https://x.com/AravSrinivas/status/2122353569903128921" rel="noopener noreferrer" target="_blank">Srinivas 原帖</a></li></ul></div>
+          </article>
+          </div>
+        </section>
+        <section class="topic is-open" id="all-topic-2" style="--branch:#1d4ed8">
+          <div class="topic-head">
+            <button type="button" class="topic-btn" aria-expanded="true" aria-controls="all-items-2">
+              <span class="dot" aria-hidden="true"></span>
+              <span class="topic-copy">
+                <span class="topic-name">PC 行业动向</span>
+                <span class="topic-meta">PC行业动向每日洞察 · 6 条</span>
+              </span>
+              <span class="chev" aria-hidden="true"></span>
+            </button>
+            <div class="topic-links"><a class="report" href="reports/2026-11-17/pc.html">查看日报</a></div>
+          </div>
+          <div class="items" id="all-items-2">
+          <article class="item is-open" id="all-t2-i0">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t2-i0">
+                <span class="item-top">
+                  <span class="idx">01</span>
+                  <span class="item-title">MacBook Pro OLED 版低亮度下 240Hz PWM 调光，用户反映头疼</span>
+                </span>
+                <span class="item-sum">亮度低于 99% 就开始调光，MacRumors 论坛约三分之一投票者有不同程度的不适</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t2-i0"><p>有用户说用 30 分钟就头疼；Mini-LED 版的调光频率是 14,880Hz。Notebookcheck 建议对频闪敏感的人在能退货的渠道购买。</p><ul class="links"><li><a href="https://www.notebookcheck.net/Apple-MacBook-Pro-OLED-PWM-flickering-causes-headaches-for-many-users.1451736.0.html" rel="noopener noreferrer" target="_blank">Notebookcheck</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t2-i1">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t2-i1">
+                <span class="item-top">
+                  <span class="idx">02</span>
+                  <span class="item-title">GPD 公布 WIN Mini Ultra 完整规格</span>
+                </span>
+                <span class="item-sum">Intel Arc G3 Extreme（Panther Lake），8 英寸 1920x1200 120Hz，价格未公布</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t2-i1"><p>14 核处理器，Arc B390 核显 12 个 Xe3 核心，15W 到 45W 可调；32GB 或 64GB LPDDR5X-8533，PCIe 5.0 SSD，两个 80Gbps USB4 v2.0。电池从 44Wh 加到 56Wh，重量从 555 克涨到 845 克。</p><ul class="links"><li><a href="https://videocardz.com/newz/gpd-officially-details-win-mini-ultra-with-intel-arc-g3-extreme-120hz-display-and-dual-80gbps-usb4" rel="noopener noreferrer" target="_blank">VideoCardz</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t2-i2">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t2-i2">
+                <span class="item-top">
+                  <span class="idx">03</span>
+                  <span class="item-title">联想 ThinkBook 14x G2 IWC 全球发售，美国 999 美元起</span>
+                </span>
+                <span class="item-sum">Wildcat Lake 处理器，可选 1800p 120Hz OLED，官方视频续航超过 27 小时</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t2-i2"><p>PSREF 上美国有 10 个 SKU，处理器为 Core 5 315/320 和 Core 7 350，最高 32GB，USB-C 升到 20Gbps。美国 2027 年 1 月上市。</p><ul class="links"><li><a href="https://www.notebookcheck.net/Lenovo-launches-new-14-inch-laptop-globally-with-1-100-nit-OLED-display-and-over-24-hours-battery-life.1451417.0.html" rel="noopener noreferrer" target="_blank">Notebookcheck</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t2-i3">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t2-i3">
+                <span class="item-top">
+                  <span class="idx">04</span>
+                  <span class="item-title">Windows Insider 新版本加入通行密钥管理和 Intune 远程锁定</span>
+                </span>
+                <span class="item-sum">26320.10003 和 26340.10013 推送给 Beta 与 Experimental 频道</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t2-i3"><p>可以逐个查看和删除 FIDO2 安全密钥里的通行密钥；Intune 远程锁定能锁住丢失设备而不擦除数据；任务栏悬停可按窗口标题列表显示；放大镜支持三指手势。微软 Ignite 11 月 17 日到 19 日在旧金山举行。</p><ul class="links"><li><a href="https://blogs.windows.com/windows-insider/2026/11/16/announcing-new-builds-for-16-november-2026/" rel="noopener noreferrer" target="_blank">Windows Insider 博客</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t2-i4">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t2-i4">
+                <span class="item-top">
+                  <span class="idx">05</span>
+                  <span class="item-title">macOS 27.3 beta 2 为 AI 代理收紧隐私权限</span>
+                </span>
+                <span class="item-sum">新增针对完全磁盘访问和自动化工具的隐私控制，Siri AI 扩展到更多语言</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t2-i4"><p>27.3 把 Siri AI 扩展到繁体中文、挪威语、土耳其语、越南语，Siri 能在信息、音乐、日历等应用里执行更复杂的操作。Safari 加入竖排标签页，快速查看可直接渲染 Markdown。</p><ul class="links"><li><a href="https://9to5mac.com/2026/11/16/macos-27-3-beta-2-now-available/" rel="noopener noreferrer" target="_blank">9to5Mac</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t2-i5">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t2-i5">
+                <span class="item-top">
+                  <span class="idx">06</span>
+                  <span class="item-title">十铨董事长：内存最紧的时候是 2026 年四季度到 2027 年二季度</span>
+                </span>
+                <span class="item-sum">“有钱也不一定买得到”，供需最早 2028 年下半年才能平衡</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t2-i5"><p>部分服务器内存现货价已比合约价高 30% 到 50%。十铨前九个月企业业务占营收 64.6%，去年同期只有 24.6%。</p><ul class="links"><li><a href="https://videocardz.com/newz/teamgroup-warns-memory-shortage-may-get-so-bad-that-even-money-wont-guarantee-supply" rel="noopener noreferrer" target="_blank">VideoCardz</a></li></ul></div>
+          </article>
+          </div>
+        </section>
+        <section class="topic is-open" id="all-topic-3" style="--branch:#6d28d9">
+          <div class="topic-head">
+            <button type="button" class="topic-btn" aria-expanded="true" aria-controls="all-items-3">
+              <span class="dot" aria-hidden="true"></span>
+              <span class="topic-copy">
+                <span class="topic-name">X 热门新点子</span>
+                <span class="topic-meta">X TOP new idea · 5 条</span>
+              </span>
+              <span class="chev" aria-hidden="true"></span>
+            </button>
+            <div class="topic-links"><a class="report" href="reports/2026-11-17/x-ideas.html">查看日报</a></div>
+          </div>
+          <div class="items" id="all-items-3">
+          <article class="item is-open" id="all-t3-i0">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t3-i0">
+                <span class="item-top">
+                  <span class="idx">01</span>
+                  <span class="item-title">OpenAI 一天内连发 4 条科研相关消息</span>
+                </span>
+                <span class="item-sum">GPT-6 Astra 帮物理学家提出标准模型候选格点定义；前沿模型免费开放给最多 20 万名科学家</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t3-i0"><p>新科学博客首篇赞 3618、浏览 76 万；科学家计划 11 月 23 日开始申请；对 1800 多名学术用户的研究称效率接近翻倍；另和 Apollo、METR、Transluce、Goodfire 做嵌入式安全评估。</p><ul class="links"><li><a href="https://x.com/OpenAI/status/2122377585523126615" rel="noopener noreferrer" target="_blank">OpenAI 原帖</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t3-i1">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t3-i1">
+                <span class="item-top">
+                  <span class="idx">02</span>
+                  <span class="item-title">Perplexity 拿出至少 1 万张 GPU 做自动研究员</span>
+                </span>
+                <span class="item-sum">Frontier Research 主攻多 Agent 编排、强化学习和持续学习，承诺开源</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t3-i1"><p>Srinivas 同天说要把 Slack 里的 Computer Agent 迁到可以派任何任务的常驻 Teammate。</p><ul class="links"><li><a href="https://x.com/AravSrinivas/status/2122353569903128921" rel="noopener noreferrer" target="_blank">Srinivas 原帖</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t3-i2">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t3-i2">
+                <span class="item-top">
+                  <span class="idx">03</span>
+                  <span class="item-title">企业用模型越来越分散，开放权重份额 4 个月涨到原来的 4 倍多</span>
+                </span>
+                <span class="item-sum">Databricks AI Index：开放权重 token 占比从 7 月的 7.3% 涨到 11 月初的 30.9%</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t3-i2"><p>X 新闻引 1 万多家企业流量数据，71% 的企业用两家以上模型。Gamma 7000 万次调用里 OpenAI 占花费 40% 到 44%，Anthropic 占 36% 到 38%。Qwen4-Max 输入每百万 token 1.5 美元。</p><ul class="links"><li><a href="https://x.com/i/trending/2122402365118533637" rel="noopener noreferrer" target="_blank">X 新闻</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t3-i3">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t3-i3">
+                <span class="item-top">
+                  <span class="idx">04</span>
+                  <span class="item-title">AI 原生应用继续拿大钱，方向偏垂直和定制</span>
+                </span>
+                <span class="item-sum">Dreamteam 融 5300 万美元做 AI 原生 CRM；Noeri 融 1.1 亿美元；ElevenLabs 收购日本语音公司 Kotoba</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t3-i3"><p>Dreamteam 用 4 个 Agent 负责查客户、准备通话、写跟进；ElevenLabs 的收购金额超 1 亿美元。</p><ul class="links"><li><a href="https://x.com/i/trending/2122364728190378261" rel="noopener noreferrer" target="_blank">X 新闻</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t3-i4">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t3-i4">
+                <span class="item-top">
+                  <span class="idx">05</span>
+                  <span class="item-title">编程 Agent 产量上来了，讨论转到协作和看得懂</span>
+                </span>
+                <span class="item-sum">Anthropic 的 Thariq 说更值得做的是人和 Agent 协作的工作区（赞 2597）</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t3-i4"><p>X 新闻称 SpaceXSI 的 Grok Bot 团队 10 月合并约 1.1 万个 Agent PR；“理解债”成热门话题，有工程师说审过的 AI 改动自己只看懂约 30%。</p><ul class="links"><li><a href="https://x.com/trq212/status/2122438326431154210" rel="noopener noreferrer" target="_blank">Thariq 原帖</a></li></ul></div>
+          </article>
+          </div>
+        </section>
+        <section class="topic is-open" id="all-topic-4" style="--branch:#be123c">
+          <div class="topic-head">
+            <button type="button" class="topic-btn" aria-expanded="true" aria-controls="all-items-4">
+              <span class="dot" aria-hidden="true"></span>
+              <span class="topic-copy">
+                <span class="topic-name">AI 大拿</span>
+                <span class="topic-meta">AI大拿最新言论追踪 · 6 条</span>
+              </span>
+              <span class="chev" aria-hidden="true"></span>
+            </button>
+            <div class="topic-links"><a class="report" href="reports/2026-11-17/ai-leaders.html">查看日报</a></div>
+          </div>
+          <div class="items" id="all-items-4">
+          <article class="item is-open" id="all-t4-i0">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t4-i0">
+                <span class="item-top">
+                  <span class="idx">01</span>
+                  <span class="item-title">Altman 回应“OpenAI 会不会成为 Anthropic 的 Lyft”</span>
+                </span>
+                <span class="item-sum">他答“That is not a worry”，说 OpenAI 最终会上市，但上市也有实际坏处</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t4-i0"><p>Anthropic 预计本周在纳斯达克挂牌，这是 Altman 第一次正面回应两家上市先后的比较。他说行业眼下在安全等问题上要做很多重大决定，私营公司做起来更容易。</p><ul class="links"><li><a href="https://www.businessinsider.com/sam-altman-openai-ipo-plan-investor-demand-2026-11" rel="noopener noreferrer" target="_blank">Business Insider</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t4-i1">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t4-i1">
+                <span class="item-top">
+                  <span class="idx">02</span>
+                  <span class="item-title">OpenAI 昨天连发三件事</span>
+                </span>
+                <span class="item-sum">嵌入式评估、面向 20 万名科学家免费开放、ChatGPT for Healthcare 加电脑操作代理</span>
+                <span class="badges"><span class="badge">4 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t4-i1"><p>METR 会查 OpenAI 迄今最大一次强化学习训练里的失准行为，Apollo 查模型会不会暗中违背开发者意图。科学家计划 11 月 23 日开放申请。外部机构能看内部训练数据，在头部实验室里少见。</p><ul class="links"><li><a href="https://x.com/OpenAI/status/2122359930628063248" rel="noopener noreferrer" target="_blank">嵌入式评估</a></li><li><a href="https://x.com/OpenAI/status/2122377585523126615" rel="noopener noreferrer" target="_blank">科学家计划</a></li><li><a href="https://x.com/OpenAI/status/2122380010287960095" rel="noopener noreferrer" target="_blank">效率研究</a></li><li><a href="https://x.com/OpenAI/status/2122465625109090646" rel="noopener noreferrer" target="_blank">医疗</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t4-i2">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t4-i2">
+                <span class="item-top">
+                  <span class="idx">03</span>
+                  <span class="item-title">纳德拉：Claude Code 让微软措手不及</span>
+                </span>
+                <span class="item-sum">编程从编辑器转到命令行，被问到自愿离职计划时没有正面回答</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t4-i2"><p>他说模型能力非线性跳跃时产品形态必须很快跟着变，“Don't be in love with what you built”，还谈到初级岗位招聘放缓。</p><ul class="links"><li><a href="https://thenextweb.com/news/satya-nadella-claude-code-ide-pragmatic-engineer" rel="noopener noreferrer" target="_blank">TNW 报道</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t4-i3">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t4-i3">
+                <span class="item-top">
+                  <span class="idx">04</span>
+                  <span class="item-title">李飞飞、苏姿丰在 AMD 收购 World Labs 后首次同台</span>
+                </span>
+                <span class="item-sum">苏姿丰称物理 AI 特别是机器人几年内可能是数千亿美元的市场</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t4-i3"><p>两人在 CoRL 2026 同台。苏姿丰说 AMD 已有不小的机器人研究团队但还在早期；李飞飞说机器人会把算力需求推到下一阶段，并延伸到边缘端。</p><ul class="links"><li><a href="https://www.ithome.com/1/026/084.htm" rel="noopener noreferrer" target="_blank">IT之家</a></li><li><a href="https://x.com/drfeifei/status/2122377911873491397" rel="noopener noreferrer" target="_blank">李飞飞的帖子</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t4-i4">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t4-i4">
+                <span class="item-top">
+                  <span class="idx">05</span>
+                  <span class="item-title">DeepMind 把 Gemini 4 Carbon 免费开放给 1 万名研究者</span>
+                </span>
+                <span class="item-sum">用于 Antigravity 科学家计划，称帮 AlphaProof 代码代理在几周内证明了 Signal 加密代码的安全性</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t4-i4"><p>阿里 Qwen 同天推广 Qwen4-Max，称编程和金融任务提升明显。</p><ul class="links"><li><a href="https://x.com/GoogleDeepMind/status/2122366992376107167" rel="noopener noreferrer" target="_blank">DeepMind</a></li><li><a href="https://x.com/Alibaba_Qwen/status/2122175103115075709" rel="noopener noreferrer" target="_blank">Qwen</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t4-i5">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t4-i5">
+                <span class="item-top">
+                  <span class="idx">06</span>
+                  <span class="item-title">马化腾：浪已经杀过来了</span>
+                </span>
+                <span class="item-sum">澎湃披露腾讯总办 LinkTime 内部讲话，核心业务一半人守、一半人去打新战役</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t4-i5"><p>管理层说这次是主动增效，未来不需要那么多管理岗，“山头主义、地盘意识都要完全打破”，并点名 WorkBuddy 是第一个跑出来的 AI native 产品。</p><ul class="links"><li><a href="https://www.21jingji.com/article/20261116/herald/7b31c2884baf246b8aff8e6c7c0e3e7e.html" rel="noopener noreferrer" target="_blank">21世纪经济报道</a></li></ul></div>
+          </article>
+          </div>
+        </section>
+        <section class="topic is-open" id="all-topic-5" style="--branch:#0e7490">
+          <div class="topic-head">
+            <button type="button" class="topic-btn" aria-expanded="true" aria-controls="all-items-5">
+              <span class="dot" aria-hidden="true"></span>
+              <span class="topic-copy">
+                <span class="topic-name">GitHub 涨星</span>
+                <span class="topic-meta">GitHub 每日涨星 Top 50 · 5 条（数据截至 2026-11-17）</span>
+              </span>
+              <span class="chev" aria-hidden="true"></span>
+            </button>
+            <div class="topic-links"><a class="trend-open" href="github-trend/index.html">打开 GitHub 涨星看板</a></div>
+          </div>
+          <div class="items" id="all-items-5">
+          <article class="item is-open" id="all-t5-i0">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t5-i0">
+                <span class="item-top">
+                  <span class="idx">01</span>
+                  <span class="item-title">dream-num/univer 第 1</span>
+                </span>
+                <span class="item-sum">2026-11-17 数据：当日 +1,878，总星 27,749</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t5-i0"><p>Univer Office SDK，把编辑、计算、协作和文件处理嵌进自己的产品，TypeScript。前一期也在榜上。 本期榜首涨幅 +1,878，第 50 名 +84；共 29 个仓库相对上一期新进榜。</p><ul class="links"><li><a href="https://github.com/dream-num/univer" rel="noopener noreferrer" target="_blank">GitHub 仓库</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t5-i1">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t5-i1">
+                <span class="item-top">
+                  <span class="idx">02</span>
+                  <span class="item-title">GoogleChrome/modern-web-guidance-src 第 2</span>
+                </span>
+                <span class="item-sum">2026-11-17 数据：当日 +1,200，总星 7,962</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t5-i1"><p>Chrome 团队的现代 Web 开发指引源码（仓库未写简介），TypeScript。前一期也在榜上。</p><ul class="links"><li><a href="https://github.com/GoogleChrome/modern-web-guidance-src" rel="noopener noreferrer" target="_blank">GitHub 仓库</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t5-i2">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t5-i2">
+                <span class="item-top">
+                  <span class="idx">03</span>
+                  <span class="item-title">elementalsouls/Claude-BugHunter 第 3</span>
+                </span>
+                <span class="item-sum">2026-11-17 数据：当日 +1,057，总星 7,411</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t5-i2"><p>用于漏洞挖掘和红队工作的 Claude Code 技能包，含 82 个技能，Python。前一期也在榜上。</p><ul class="links"><li><a href="https://github.com/elementalsouls/Claude-BugHunter" rel="noopener noreferrer" target="_blank">GitHub 仓库</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t5-i3">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t5-i3">
+                <span class="item-top">
+                  <span class="idx">04</span>
+                  <span class="item-title">Tencent/LoopForge 第 4</span>
+                </span>
+                <span class="item-sum">2026-11-17 数据：当日 +1,016，总星 2,319</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t5-i3"><p>自托管的编码智能体交付工作流，可编排 CodeBuddy、Codex 和 Claude Code，带人工审批，Go。前一期也在榜上。</p><ul class="links"><li><a href="https://github.com/Tencent/LoopForge" rel="noopener noreferrer" target="_blank">GitHub 仓库</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t5-i4">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t5-i4">
+                <span class="item-top">
+                  <span class="idx">05</span>
+                  <span class="item-title">NVIDIA/SkillEvaluator 第 5</span>
+                </span>
+                <span class="item-sum">2026-11-17 数据：当日 +953，总星 2,640</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t5-i4"><p>评估 AI 智能体技能的多层框架，带质量门禁和语义重叠检测，Python。前一期也在榜上。</p><ul class="links"><li><a href="https://github.com/NVIDIA/SkillEvaluator" rel="noopener noreferrer" target="_blank">GitHub 仓库</a></li></ul></div>
+          </article>
+          </div>
+        </section>
+        </div>
+      </section>
+      <section class="tab-panel" role="tabpanel" id="topic-0" aria-labelledby="tab-0">
+        <div class="panel-meta"><p>AI 行业简报 · 6 条</p><div><a href="reports/2026-11-17/brief.html">查看日报</a></div></div>
+        <div class="items">
+          <article class="item is-open" id="t0-i0">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t0-i0">
+                <span class="item-top">
+                  <span class="idx">01</span>
+                  <span class="item-title">英伟达换帅后的第一份财报</span>
+                </span>
+                <span class="item-sum">代理 CEO Colette Kress 首次独自面对市场，分析师预期营收 1091 亿美元、同比增 91%</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t0-i0"><p>每股收益预期 2.47 美元（LSEG 统计）。股价已连跌六周，是 2012 年以来最长，市值蒸发约 1.7 万亿美元。外界最关心东南亚销售里有多少实际流向中国，以及 Kress 能否重申 2028 财年约 70% 的增长指引。财报在北京时间周三早上发布。</p><ul class="links"><li><a href="https://www.cnbc.com/2026/11/16/nvidia-earnings-jensen-huang-resignation.html" rel="noopener noreferrer" target="_blank">CNBC</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t0-i1">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t0-i1">
+                <span class="item-top">
+                  <span class="idx">02</span>
+                  <span class="item-title">阿里 Qwen4-Max 在 QwenCloud 全面开放</span>
+                </span>
+                <span class="item-sum">2.4 万亿参数的 MoE 模型，可直接读图，上下文最长 100 万 token</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t0-i1"><p>Qwen Studio、QwenWork 和 Qoder 也能用。阿里称在自家 Work360 测试上平均任务成本从 26.58 元降到 11.16 元，约降 58%，之后还会开源更小的 Qwen4 模型。国产旗舰模型在拼能力的同时也在压价格。</p><ul class="links"><li><a href="https://technode.com/2026/11/16/alibaba-launches-qwen4-max-with-lower-api-prices-and-a-million-token-context-window/" rel="noopener noreferrer" target="_blank">TechNode</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t0-i2">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t0-i2">
+                <span class="item-top">
+                  <span class="idx">03</span>
+                  <span class="item-title">OpenAI 把电脑操作智能体推进医疗场景</span>
+                </span>
+                <span class="item-sum">HLTH 2026 上公布与 CVS Health、Cigna、Abridge、Ambience 合作</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t0-i2"><p>智能体操作电子病历和保险门户，处理转诊、预授权、出院计划等手工流程。CVS 说有一个生产流程里积压数月的文件发送，智能体一个周末就清完了。医疗系统彼此割裂，会点鼠标的智能体比对接 API 更容易落地。</p><ul class="links"><li><a href="https://www.fiercehealthcare.com/ai-and-machine-learning/hlth26-cvs-health-cigna-and-ambience-collaborating-openai-test-computer-use" rel="noopener noreferrer" target="_blank">Fierce Healthcare</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t0-i3">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t0-i3">
+                <span class="item-top">
+                  <span class="idx">04</span>
+                  <span class="item-title">白宫 AI 工作组建议放宽网络安全追责，换 AI 公司主动上报事故</span>
+                </span>
+                <span class="item-sum">据彭博，官员建议未来 12 个月甚至更久限制监管追责</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t0-i3"><p>理由是旧标准让企业不敢分享信息。上个月同一工作组还警告不报告要承担后果，这次态度明显转软，商务部长卢特尼克也在场。</p><ul class="links"><li><a href="https://www.insurancejournal.com/news/national/2026/11/16/892718.htm" rel="noopener noreferrer" target="_blank">Insurance Journal 转载彭博</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t0-i4">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t0-i4">
+                <span class="item-top">
+                  <span class="idx">05</span>
+                  <span class="item-title">斯坦福教授创办的 Noeri 融资 1.1 亿美元</span>
+                </span>
+                <span class="item-sum">Yejin Choi 和 Carlos Guestrin 创办，Menlo Ventures 领投，英伟达、思科、Snowflake 等参投</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t0-i4"><p>产品研究企业的数据和流程，提出对提示词、工具、模型分工乃至模型本身的修改，每项改动像代码审查一样交给人批准。它押注用多个便宜模型组合出接近顶级模型的效果。</p><ul class="links"><li><a href="https://www.geekwire.com/2026/former-uw-ai-researchers-yejin-choi-and-carlos-guestrin-raise-110m-for-ai-startup-noeri/" rel="noopener noreferrer" target="_blank">GeekWire</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t0-i5">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t0-i5">
+                <span class="item-top">
+                  <span class="idx">06</span>
+                  <span class="item-title">AI 相关儿童性剥削内容举报两年涨 8400% 以上</span>
+                </span>
+                <span class="item-sum">爱丁堡 Childlight 研究所统计，美国 NCMEC 收到的此类报告 2023 年约 4700 件，2025 年超过 40 万件</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t0-i5"><p>其中包括用“一键脱衣”应用做的深度伪造，常被用来勒索儿童。这会给各国监管生成式图像工具增加压力。</p><ul class="links"><li><a href="https://www.theguardian.com/technology/2026/nov/16/ai-related-child-sexual-abuse-material-rise-exploitation-deepfakes" rel="noopener noreferrer" target="_blank">The Guardian</a></li></ul></div>
+          </article>
+        </div>
+      </section>
+      <section class="tab-panel" role="tabpanel" id="topic-1" aria-labelledby="tab-1">
+        <div class="panel-meta"><p>科技公司高管最新观点监测 · 6 条</p><div><a href="reports/2026-11-17/exec.html">查看日报</a></div></div>
+        <div class="items">
+          <article class="item is-open" id="t1-i0">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t1-i0">
+                <span class="item-top">
+                  <span class="idx">01</span>
+                  <span class="item-title">黄仁勋去留继续发酵：Altman 说“英雄也有缺点”</span>
+                </span>
+                <span class="item-sum">Altman 不表态他该不该回归，认为没有他“行业也会没事”；特朗普称不介意他回来</span>
+                <span class="badges"><span class="badge">3 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t1-i0"><p>Altman 在 Semafor 活动上说黄仁勋“long been a hero of mine. Heroes have flaws”，并说英伟达为 OpenAI 俄亥俄数据中心提供的约 1050 亿美元担保，大家仍然很信任。X 新闻摘要引 CNBC 称英伟达董事会没有考虑让他回任。英伟达股价跌破 160 美元，财报由临时 CEO Colette Kress 主持。</p><ul class="links"><li><a href="https://techcrunch.com/2026/11/16/sam-altman-on-nvidia-without-jensen-huang-the-industry-will-be-fine/" rel="noopener noreferrer" target="_blank">TechCrunch：Altman 谈英伟达</a></li><li><a href="https://thenextweb.com/news/sam-altman-jensen-huang-heroes-have-flaws-semafor" rel="noopener noreferrer" target="_blank">TNW</a></li><li><a href="https://decrypt.co/383351/trump-elon-musk-sam-altman-jensen-huang-nvidia" rel="noopener noreferrer" target="_blank">Decrypt：特朗普表态</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t1-i1">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t1-i1">
+                <span class="item-top">
+                  <span class="idx">02</span>
+                  <span class="item-title">AMD 完成收购 World Labs，李飞飞任 AMD 执行副总裁兼首席科学家</span>
+                </span>
+                <span class="item-sum">约 82 亿美元全股票交易，李飞飞直接向苏姿丰汇报</span>
+                <span class="badges"><span class="badge">3 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t1-i1"><p>苏姿丰在新闻稿里说，通向超级智能的基础设施要求“optimize compute platforms and models together”。World Labs 团队会继续做基础模型研究，同时参与 AMD 未来硬件、软件和系统的设计。</p><ul class="links"><li><a href="https://ir.amd.com/news-events/press-releases/detail/1306/amd-completes-acquisition-of-world-labs" rel="noopener noreferrer" target="_blank">AMD 新闻稿</a></li><li><a href="https://x.com/LisaSu/status/2122336277727215988" rel="noopener noreferrer" target="_blank">苏姿丰原帖</a></li><li><a href="https://x.com/drfeifei/status/2122377911873491397" rel="noopener noreferrer" target="_blank">李飞飞原帖</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t1-i2">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t1-i2">
+                <span class="item-top">
+                  <span class="idx">03</span>
+                  <span class="item-title">OpenAI 一天内发了三件安全和科研相关的事</span>
+                </span>
+                <span class="item-sum">外部团队进驻做嵌入式评估；1819 名科学家使用 ChatGPT 的研究；免费科研计划扩到最多 20 万人</span>
+                <span class="badges"><span class="badge">3 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t1-i2"><p>嵌入式评估的合作方是 Apollo Research、METR、Transluce、Goodfire，可接触模型检查点、训练代码与数据。研究里受访者估计同样质量的工作不用 AI 要花 1.9 倍时间，这是自报数据，研究自己说不能证明因果。</p><ul class="links"><li><a href="https://x.com/OpenAI/status/2122359930628063248" rel="noopener noreferrer" target="_blank">嵌入式评估原帖</a></li><li><a href="https://transluce.org/embedded-assessment-pilot-with-openai" rel="noopener noreferrer" target="_blank">Transluce 说明</a></li><li><a href="https://openai.com/index/science-at-the-frontier/" rel="noopener noreferrer" target="_blank">OpenAI：Science at the Frontier</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t1-i3">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t1-i3">
+                <span class="item-top">
+                  <span class="idx">04</span>
+                  <span class="item-title">Anthropic 把协调漏洞披露期限从 90 天缩短到 30 天</span>
+                </span>
+                <span class="item-sum">适用于高危和严重级漏洞，2027 年 1 月 1 日起生效</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t1-i3"><p>其他漏洞 45 天；维护者不回应时 15 天后就找外部协调方；补丁发布后 30 天公开技术细节。理由是模型发现漏洞的能力变强，同一漏洞被重复发现的概率在上升。正被利用的漏洞仍是 7 天。</p><ul class="links"><li><a href="https://www.anthropic.com/research/coordinated-vulnerability-disclosure-timelines" rel="noopener noreferrer" target="_blank">Anthropic 研究文章</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t1-i4">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t1-i4">
+                <span class="item-top">
+                  <span class="idx">05</span>
+                  <span class="item-title">纳德拉承认 Claude Code 让微软措手不及</span>
+                </span>
+                <span class="item-sum">他说代码生成变便宜之后，难的是验证</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t1-i4"><p>在 The Pragmatic Engineer 播客里他说 Claude Code 把编程从 IDE 搬到了命令行，IDE 在约半年里“kind of faded away”。他主张用不同模型家族互相审查代码，企业要把智能体框架、记忆和模型分开，能随时换模型。</p><ul class="links"><li><a href="https://thenextweb.com/news/satya-nadella-claude-code-ide-pragmatic-engineer" rel="noopener noreferrer" target="_blank">TNW 整理</a></li><li><a href="https://newsletter.pragmaticengineer.com/p/software-engineering-after-code-becomes" rel="noopener noreferrer" target="_blank">The Pragmatic Engineer</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t1-i5">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t1-i5">
+                <span class="item-top">
+                  <span class="idx">06</span>
+                  <span class="item-title">Perplexity 成立 Frontier Research，至少投入 1 万张 GPU</span>
+                </span>
+                <span class="item-sum">目标是做“自动化研究员”，承诺公开评测和论文并开源模型与工具</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t1-i5"><p>研究方向是多智能体编排和持续学习。X 新闻摘要称研究负责人是 Andrew Gordon Wilson，12 月 5 日前招人。Srinivas 同天还发布了 Perplexity Monitor API。</p><ul class="links"><li><a href="https://x.com/AravSrinivas/status/2122353569903128921" rel="noopener noreferrer" target="_blank">Srinivas 原帖</a></li></ul></div>
+          </article>
+        </div>
+      </section>
+      <section class="tab-panel" role="tabpanel" id="topic-2" aria-labelledby="tab-2">
+        <div class="panel-meta"><p>PC行业动向每日洞察 · 6 条</p><div><a href="reports/2026-11-17/pc.html">查看日报</a></div></div>
+        <div class="items">
+          <article class="item is-open" id="t2-i0">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t2-i0">
+                <span class="item-top">
+                  <span class="idx">01</span>
+                  <span class="item-title">MacBook Pro OLED 版低亮度下 240Hz PWM 调光，用户反映头疼</span>
+                </span>
+                <span class="item-sum">亮度低于 99% 就开始调光，MacRumors 论坛约三分之一投票者有不同程度的不适</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t2-i0"><p>有用户说用 30 分钟就头疼；Mini-LED 版的调光频率是 14,880Hz。Notebookcheck 建议对频闪敏感的人在能退货的渠道购买。</p><ul class="links"><li><a href="https://www.notebookcheck.net/Apple-MacBook-Pro-OLED-PWM-flickering-causes-headaches-for-many-users.1451736.0.html" rel="noopener noreferrer" target="_blank">Notebookcheck</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t2-i1">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t2-i1">
+                <span class="item-top">
+                  <span class="idx">02</span>
+                  <span class="item-title">GPD 公布 WIN Mini Ultra 完整规格</span>
+                </span>
+                <span class="item-sum">Intel Arc G3 Extreme（Panther Lake），8 英寸 1920x1200 120Hz，价格未公布</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t2-i1"><p>14 核处理器，Arc B390 核显 12 个 Xe3 核心，15W 到 45W 可调；32GB 或 64GB LPDDR5X-8533，PCIe 5.0 SSD，两个 80Gbps USB4 v2.0。电池从 44Wh 加到 56Wh，重量从 555 克涨到 845 克。</p><ul class="links"><li><a href="https://videocardz.com/newz/gpd-officially-details-win-mini-ultra-with-intel-arc-g3-extreme-120hz-display-and-dual-80gbps-usb4" rel="noopener noreferrer" target="_blank">VideoCardz</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t2-i2">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t2-i2">
+                <span class="item-top">
+                  <span class="idx">03</span>
+                  <span class="item-title">联想 ThinkBook 14x G2 IWC 全球发售，美国 999 美元起</span>
+                </span>
+                <span class="item-sum">Wildcat Lake 处理器，可选 1800p 120Hz OLED，官方视频续航超过 27 小时</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t2-i2"><p>PSREF 上美国有 10 个 SKU，处理器为 Core 5 315/320 和 Core 7 350，最高 32GB，USB-C 升到 20Gbps。美国 2027 年 1 月上市。</p><ul class="links"><li><a href="https://www.notebookcheck.net/Lenovo-launches-new-14-inch-laptop-globally-with-1-100-nit-OLED-display-and-over-24-hours-battery-life.1451417.0.html" rel="noopener noreferrer" target="_blank">Notebookcheck</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t2-i3">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t2-i3">
+                <span class="item-top">
+                  <span class="idx">04</span>
+                  <span class="item-title">Windows Insider 新版本加入通行密钥管理和 Intune 远程锁定</span>
+                </span>
+                <span class="item-sum">26320.10003 和 26340.10013 推送给 Beta 与 Experimental 频道</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t2-i3"><p>可以逐个查看和删除 FIDO2 安全密钥里的通行密钥；Intune 远程锁定能锁住丢失设备而不擦除数据；任务栏悬停可按窗口标题列表显示；放大镜支持三指手势。微软 Ignite 11 月 17 日到 19 日在旧金山举行。</p><ul class="links"><li><a href="https://blogs.windows.com/windows-insider/2026/11/16/announcing-new-builds-for-16-november-2026/" rel="noopener noreferrer" target="_blank">Windows Insider 博客</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t2-i4">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t2-i4">
+                <span class="item-top">
+                  <span class="idx">05</span>
+                  <span class="item-title">macOS 27.3 beta 2 为 AI 代理收紧隐私权限</span>
+                </span>
+                <span class="item-sum">新增针对完全磁盘访问和自动化工具的隐私控制，Siri AI 扩展到更多语言</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t2-i4"><p>27.3 把 Siri AI 扩展到繁体中文、挪威语、土耳其语、越南语，Siri 能在信息、音乐、日历等应用里执行更复杂的操作。Safari 加入竖排标签页，快速查看可直接渲染 Markdown。</p><ul class="links"><li><a href="https://9to5mac.com/2026/11/16/macos-27-3-beta-2-now-available/" rel="noopener noreferrer" target="_blank">9to5Mac</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t2-i5">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t2-i5">
+                <span class="item-top">
+                  <span class="idx">06</span>
+                  <span class="item-title">十铨董事长：内存最紧的时候是 2026 年四季度到 2027 年二季度</span>
+                </span>
+                <span class="item-sum">“有钱也不一定买得到”，供需最早 2028 年下半年才能平衡</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t2-i5"><p>部分服务器内存现货价已比合约价高 30% 到 50%。十铨前九个月企业业务占营收 64.6%，去年同期只有 24.6%。</p><ul class="links"><li><a href="https://videocardz.com/newz/teamgroup-warns-memory-shortage-may-get-so-bad-that-even-money-wont-guarantee-supply" rel="noopener noreferrer" target="_blank">VideoCardz</a></li></ul></div>
+          </article>
+        </div>
+      </section>
+      <section class="tab-panel" role="tabpanel" id="topic-3" aria-labelledby="tab-3">
+        <div class="panel-meta"><p>X TOP new idea · 5 条</p><div><a href="reports/2026-11-17/x-ideas.html">查看日报</a></div></div>
+        <div class="items">
+          <article class="item is-open" id="t3-i0">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t3-i0">
+                <span class="item-top">
+                  <span class="idx">01</span>
+                  <span class="item-title">OpenAI 一天内连发 4 条科研相关消息</span>
+                </span>
+                <span class="item-sum">GPT-6 Astra 帮物理学家提出标准模型候选格点定义；前沿模型免费开放给最多 20 万名科学家</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t3-i0"><p>新科学博客首篇赞 3618、浏览 76 万；科学家计划 11 月 23 日开始申请；对 1800 多名学术用户的研究称效率接近翻倍；另和 Apollo、METR、Transluce、Goodfire 做嵌入式安全评估。</p><ul class="links"><li><a href="https://x.com/OpenAI/status/2122377585523126615" rel="noopener noreferrer" target="_blank">OpenAI 原帖</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t3-i1">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t3-i1">
+                <span class="item-top">
+                  <span class="idx">02</span>
+                  <span class="item-title">Perplexity 拿出至少 1 万张 GPU 做自动研究员</span>
+                </span>
+                <span class="item-sum">Frontier Research 主攻多 Agent 编排、强化学习和持续学习，承诺开源</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t3-i1"><p>Srinivas 同天说要把 Slack 里的 Computer Agent 迁到可以派任何任务的常驻 Teammate。</p><ul class="links"><li><a href="https://x.com/AravSrinivas/status/2122353569903128921" rel="noopener noreferrer" target="_blank">Srinivas 原帖</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t3-i2">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t3-i2">
+                <span class="item-top">
+                  <span class="idx">03</span>
+                  <span class="item-title">企业用模型越来越分散，开放权重份额 4 个月涨到原来的 4 倍多</span>
+                </span>
+                <span class="item-sum">Databricks AI Index：开放权重 token 占比从 7 月的 7.3% 涨到 11 月初的 30.9%</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t3-i2"><p>X 新闻引 1 万多家企业流量数据，71% 的企业用两家以上模型。Gamma 7000 万次调用里 OpenAI 占花费 40% 到 44%，Anthropic 占 36% 到 38%。Qwen4-Max 输入每百万 token 1.5 美元。</p><ul class="links"><li><a href="https://x.com/i/trending/2122402365118533637" rel="noopener noreferrer" target="_blank">X 新闻</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t3-i3">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t3-i3">
+                <span class="item-top">
+                  <span class="idx">04</span>
+                  <span class="item-title">AI 原生应用继续拿大钱，方向偏垂直和定制</span>
+                </span>
+                <span class="item-sum">Dreamteam 融 5300 万美元做 AI 原生 CRM；Noeri 融 1.1 亿美元；ElevenLabs 收购日本语音公司 Kotoba</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t3-i3"><p>Dreamteam 用 4 个 Agent 负责查客户、准备通话、写跟进；ElevenLabs 的收购金额超 1 亿美元。</p><ul class="links"><li><a href="https://x.com/i/trending/2122364728190378261" rel="noopener noreferrer" target="_blank">X 新闻</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t3-i4">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t3-i4">
+                <span class="item-top">
+                  <span class="idx">05</span>
+                  <span class="item-title">编程 Agent 产量上来了，讨论转到协作和看得懂</span>
+                </span>
+                <span class="item-sum">Anthropic 的 Thariq 说更值得做的是人和 Agent 协作的工作区（赞 2597）</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t3-i4"><p>X 新闻称 SpaceXSI 的 Grok Bot 团队 10 月合并约 1.1 万个 Agent PR；“理解债”成热门话题，有工程师说审过的 AI 改动自己只看懂约 30%。</p><ul class="links"><li><a href="https://x.com/trq212/status/2122438326431154210" rel="noopener noreferrer" target="_blank">Thariq 原帖</a></li></ul></div>
+          </article>
+        </div>
+      </section>
+      <section class="tab-panel" role="tabpanel" id="topic-4" aria-labelledby="tab-4">
+        <div class="panel-meta"><p>AI大拿最新言论追踪 · 6 条</p><div><a href="reports/2026-11-17/ai-leaders.html">查看日报</a></div></div>
+        <div class="items">
+          <article class="item is-open" id="t4-i0">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t4-i0">
+                <span class="item-top">
+                  <span class="idx">01</span>
+                  <span class="item-title">Altman 回应“OpenAI 会不会成为 Anthropic 的 Lyft”</span>
+                </span>
+                <span class="item-sum">他答“That is not a worry”，说 OpenAI 最终会上市，但上市也有实际坏处</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t4-i0"><p>Anthropic 预计本周在纳斯达克挂牌，这是 Altman 第一次正面回应两家上市先后的比较。他说行业眼下在安全等问题上要做很多重大决定，私营公司做起来更容易。</p><ul class="links"><li><a href="https://www.businessinsider.com/sam-altman-openai-ipo-plan-investor-demand-2026-11" rel="noopener noreferrer" target="_blank">Business Insider</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t4-i1">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t4-i1">
+                <span class="item-top">
+                  <span class="idx">02</span>
+                  <span class="item-title">OpenAI 昨天连发三件事</span>
+                </span>
+                <span class="item-sum">嵌入式评估、面向 20 万名科学家免费开放、ChatGPT for Healthcare 加电脑操作代理</span>
+                <span class="badges"><span class="badge">4 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t4-i1"><p>METR 会查 OpenAI 迄今最大一次强化学习训练里的失准行为，Apollo 查模型会不会暗中违背开发者意图。科学家计划 11 月 23 日开放申请。外部机构能看内部训练数据，在头部实验室里少见。</p><ul class="links"><li><a href="https://x.com/OpenAI/status/2122359930628063248" rel="noopener noreferrer" target="_blank">嵌入式评估</a></li><li><a href="https://x.com/OpenAI/status/2122377585523126615" rel="noopener noreferrer" target="_blank">科学家计划</a></li><li><a href="https://x.com/OpenAI/status/2122380010287960095" rel="noopener noreferrer" target="_blank">效率研究</a></li><li><a href="https://x.com/OpenAI/status/2122465625109090646" rel="noopener noreferrer" target="_blank">医疗</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t4-i2">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t4-i2">
+                <span class="item-top">
+                  <span class="idx">03</span>
+                  <span class="item-title">纳德拉：Claude Code 让微软措手不及</span>
+                </span>
+                <span class="item-sum">编程从编辑器转到命令行，被问到自愿离职计划时没有正面回答</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t4-i2"><p>他说模型能力非线性跳跃时产品形态必须很快跟着变，“Don't be in love with what you built”，还谈到初级岗位招聘放缓。</p><ul class="links"><li><a href="https://thenextweb.com/news/satya-nadella-claude-code-ide-pragmatic-engineer" rel="noopener noreferrer" target="_blank">TNW 报道</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t4-i3">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t4-i3">
+                <span class="item-top">
+                  <span class="idx">04</span>
+                  <span class="item-title">李飞飞、苏姿丰在 AMD 收购 World Labs 后首次同台</span>
+                </span>
+                <span class="item-sum">苏姿丰称物理 AI 特别是机器人几年内可能是数千亿美元的市场</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t4-i3"><p>两人在 CoRL 2026 同台。苏姿丰说 AMD 已有不小的机器人研究团队但还在早期；李飞飞说机器人会把算力需求推到下一阶段，并延伸到边缘端。</p><ul class="links"><li><a href="https://www.ithome.com/1/026/084.htm" rel="noopener noreferrer" target="_blank">IT之家</a></li><li><a href="https://x.com/drfeifei/status/2122377911873491397" rel="noopener noreferrer" target="_blank">李飞飞的帖子</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t4-i4">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t4-i4">
+                <span class="item-top">
+                  <span class="idx">05</span>
+                  <span class="item-title">DeepMind 把 Gemini 4 Carbon 免费开放给 1 万名研究者</span>
+                </span>
+                <span class="item-sum">用于 Antigravity 科学家计划，称帮 AlphaProof 代码代理在几周内证明了 Signal 加密代码的安全性</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t4-i4"><p>阿里 Qwen 同天推广 Qwen4-Max，称编程和金融任务提升明显。</p><ul class="links"><li><a href="https://x.com/GoogleDeepMind/status/2122366992376107167" rel="noopener noreferrer" target="_blank">DeepMind</a></li><li><a href="https://x.com/Alibaba_Qwen/status/2122175103115075709" rel="noopener noreferrer" target="_blank">Qwen</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t4-i5">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t4-i5">
+                <span class="item-top">
+                  <span class="idx">06</span>
+                  <span class="item-title">马化腾：浪已经杀过来了</span>
+                </span>
+                <span class="item-sum">澎湃披露腾讯总办 LinkTime 内部讲话，核心业务一半人守、一半人去打新战役</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t4-i5"><p>管理层说这次是主动增效，未来不需要那么多管理岗，“山头主义、地盘意识都要完全打破”，并点名 WorkBuddy 是第一个跑出来的 AI native 产品。</p><ul class="links"><li><a href="https://www.21jingji.com/article/20261116/herald/7b31c2884baf246b8aff8e6c7c0e3e7e.html" rel="noopener noreferrer" target="_blank">21世纪经济报道</a></li></ul></div>
+          </article>
+        </div>
+      </section>
+      <section class="tab-panel" role="tabpanel" id="topic-5" aria-labelledby="tab-5">
+        <div class="panel-meta"><p>GitHub 每日涨星 Top 50 · 5 条（数据截至 2026-11-17）</p><div><a class="trend-open" href="github-trend/index.html">打开 GitHub 涨星看板</a></div></div>
+        <div class="items">
+          <article class="item is-open" id="t5-i0">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t5-i0">
+                <span class="item-top">
+                  <span class="idx">01</span>
+                  <span class="item-title">dream-num/univer 第 1</span>
+                </span>
+                <span class="item-sum">2026-11-17 数据：当日 +1,878，总星 27,749</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t5-i0"><p>Univer Office SDK，把编辑、计算、协作和文件处理嵌进自己的产品，TypeScript。前一期也在榜上。 本期榜首涨幅 +1,878，第 50 名 +84；共 29 个仓库相对上一期新进榜。</p><ul class="links"><li><a href="https://github.com/dream-num/univer" rel="noopener noreferrer" target="_blank">GitHub 仓库</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t5-i1">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t5-i1">
+                <span class="item-top">
+                  <span class="idx">02</span>
+                  <span class="item-title">GoogleChrome/modern-web-guidance-src 第 2</span>
+                </span>
+                <span class="item-sum">2026-11-17 数据：当日 +1,200，总星 7,962</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t5-i1"><p>Chrome 团队的现代 Web 开发指引源码（仓库未写简介），TypeScript。前一期也在榜上。</p><ul class="links"><li><a href="https://github.com/GoogleChrome/modern-web-guidance-src" rel="noopener noreferrer" target="_blank">GitHub 仓库</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t5-i2">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t5-i2">
+                <span class="item-top">
+                  <span class="idx">03</span>
+                  <span class="item-title">elementalsouls/Claude-BugHunter 第 3</span>
+                </span>
+                <span class="item-sum">2026-11-17 数据：当日 +1,057，总星 7,411</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t5-i2"><p>用于漏洞挖掘和红队工作的 Claude Code 技能包，含 82 个技能，Python。前一期也在榜上。</p><ul class="links"><li><a href="https://github.com/elementalsouls/Claude-BugHunter" rel="noopener noreferrer" target="_blank">GitHub 仓库</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t5-i3">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t5-i3">
+                <span class="item-top">
+                  <span class="idx">04</span>
+                  <span class="item-title">Tencent/LoopForge 第 4</span>
+                </span>
+                <span class="item-sum">2026-11-17 数据：当日 +1,016，总星 2,319</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t5-i3"><p>自托管的编码智能体交付工作流，可编排 CodeBuddy、Codex 和 Claude Code，带人工审批，Go。前一期也在榜上。</p><ul class="links"><li><a href="https://github.com/Tencent/LoopForge" rel="noopener noreferrer" target="_blank">GitHub 仓库</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t5-i4">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t5-i4">
+                <span class="item-top">
+                  <span class="idx">05</span>
+                  <span class="item-title">NVIDIA/SkillEvaluator 第 5</span>
+                </span>
+                <span class="item-sum">2026-11-17 数据：当日 +953，总星 2,640</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t5-i4"><p>评估 AI 智能体技能的多层框架，带质量门禁和语义重叠检测，Python。前一期也在榜上。</p><ul class="links"><li><a href="https://github.com/NVIDIA/SkillEvaluator" rel="noopener noreferrer" target="_blank">GitHub 仓库</a></li></ul></div>
+          </article>
+        </div>
+      </section>
+      </div>
+    </div>
+
+<footer>
+      <p>文字、要点和链接都写在这个页面里，打开即可阅读，不需要再加载数据。</p>
+      <p>往期：<a href="./2026-11-16.html">2026-11-16</a> · <a href="./2026-11-13.html">2026-11-13</a> · <a href="./2026-11-12.html">2026-11-12</a></p>
+      <p><a href="./index.html">返回主页</a>，查看全部日期。</p>
+    </footer>
+  </div>
+  <noscript>
+    <style>.tab-panel, .items, .detail { display: block !important; }</style>
+  </noscript>
+  <script>
+    (function () {
+      var tabs = document.querySelectorAll(".tab");
+      var panels = document.querySelectorAll(".tab-panel");
+
+      function topicTabIndex(topicIndex) {
+        for (var i = 0; i < tabs.length; i++) {
+          if (tabs[i].getAttribute("data-topic") === String(topicIndex)) return i;
+        }
+        return topicIndex + 1;
+      }
+
+      function selectTab(index, hashKind) {
+        if (index < 0 || index >= tabs.length) index = 0;
+        tabs.forEach(function (tab, i) {
+          var on = i === index;
+          tab.classList.toggle("is-active", on);
+          tab.setAttribute("aria-selected", on ? "true" : "false");
+          tab.tabIndex = on ? 0 : -1;
+        });
+        panels.forEach(function (p, i) {
+          p.classList.toggle("is-active", i === index);
+        });
+        if (hashKind === "topic" && history.replaceState) {
+          var tab = tabs[index];
+          var hash = "#all";
+          if (tab && tab.getAttribute("data-topic") != null) {
+            hash = "#topic-" + tab.getAttribute("data-topic");
+          }
+          history.replaceState(null, "", hash);
+        }
+        return index;
+      }
+
+      function setItem(article, open) {
+        article.classList.toggle("is-open", open);
+        var btn = article.querySelector(".item-btn");
+        if (btn) btn.setAttribute("aria-expanded", open ? "true" : "false");
+      }
+
+      function reveal(topicIndex, itemIndex, smooth) {
+        selectTab(topicTabIndex(topicIndex), "item");
+        var article = document.getElementById("t" + topicIndex + "-i" + itemIndex);
+        if (!article) return;
+        setItem(article, true);
+        article.classList.remove("flash");
+        void article.offsetWidth;
+        article.classList.add("flash");
+        article.scrollIntoView({ behavior: smooth ? "smooth" : "auto", block: "start" });
+        if (history.replaceState) history.replaceState(null, "", "#" + article.id);
+      }
+
+      tabs.forEach(function (tab, i) {
+        tab.addEventListener("click", function () { selectTab(i, "topic"); });
+        tab.addEventListener("keydown", function (e) {
+          var next = i;
+          if (e.key === "ArrowRight") next = (i + 1) % tabs.length;
+          else if (e.key === "ArrowLeft") next = (i - 1 + tabs.length) % tabs.length;
+          else if (e.key === "Home") next = 0;
+          else if (e.key === "End") next = tabs.length - 1;
+          else return;
+          e.preventDefault();
+          selectTab(next, "topic");
+          tabs[next].focus();
+        });
+      });
+
+      document.querySelectorAll("#panel-all .topic").forEach(function (topic) {
+        var btn = topic.querySelector(".topic-btn");
+        if (!btn) return;
+        btn.addEventListener("click", function () {
+          var open = !topic.classList.contains("is-open");
+          topic.classList.toggle("is-open", open);
+          btn.setAttribute("aria-expanded", open ? "true" : "false");
+        });
+      });
+
+      document.querySelectorAll(".item").forEach(function (article) {
+        var head = article.querySelector(".item-head") || article.querySelector(".item-btn");
+        if (!head) return;
+        head.addEventListener("click", function (e) {
+          if (e.target.closest && e.target.closest(".item-thumb")) return;
+          var open = !article.classList.contains("is-open");
+          setItem(article, open);
+        });
+      });
+
+      document.querySelectorAll(".top-card").forEach(function (card) {
+        card.addEventListener("click", function () {
+          reveal(Number(card.dataset.topic), Number(card.dataset.item), true);
+        });
+      });
+
+      document.querySelectorAll("img").forEach(function (img) {
+        img.addEventListener("error", function () {
+          var fig = img.closest("figure");
+          if (!fig || fig.dataset.broken) return;
+          fig.dataset.broken = "1";
+          var link = document.createElement("a");
+          link.href = img.getAttribute("src");
+          link.target = "_blank";
+          link.rel = "noopener noreferrer";
+          link.textContent = "原图无法内嵌显示，打开原图";
+          fig.replaceChildren(link);
+        });
+      });
+
+      var h = location.hash || "";
+      var item = h.match(/^#t(\d+)-i(\d+)$/);
+      var allHash = h.match(/^#(?:all|tab-all|panel-all)$/);
+      var topic = h.match(/^#(?:topic|tab|panel)-(\d+)$/);
+      if (item) reveal(Number(item[1]), Number(item[2]), false);
+      else if (allHash) selectTab(0, null);
+      else if (topic) selectTab(topicTabIndex(Number(topic[1])), null);
+      else selectTab(0, null);
+    })();
+    </script>
+</body>
+</html>
