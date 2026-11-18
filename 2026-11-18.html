@@ -1,0 +1,1805 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#f4f1ea">
+<meta name="description" content="6 条资讯线汇总今天各 bot 和 AI 行业简报的输出。默认打开 ALL 可看全部资讯线的树形列表；点上方标签切换各条线，要点默认展开；点箭头可收起。今天没有 Apple 洞察的输出。">
+<link rel="icon" type="image/png" href="assets/wangcai-dog.png">
+<title>旺财资讯 2026-11-18</title>
+<style>
+  :root {
+    color-scheme: light;
+    --ink: #1a1a1a;
+    --muted: #5c5c5c;
+    --faint: #5e5e5e;
+    --line: #ece8e1;
+    --bg: #f4f1ea;
+    --bg-top: #fbf8f2;
+    --soft: #f8f3ea;
+    --card: #fffaf4;
+    --shadow: 0 1px 0 rgba(255,255,255,.8) inset, 0 6px 16px rgba(40,30,10,.05);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background-color: var(--bg);
+    background-image: linear-gradient(180deg, #fbf8f2 0%, #f4f1ea 42%);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: var(--ink);
+    font-family: "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", "Microsoft YaHei", "Segoe UI", sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    overflow-wrap: break-word;
+  }
+  a { color: #0b57d0; }
+  a:hover { color: #0842a0; }
+  button, input { font-family: inherit; color: inherit; }
+  :focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+  .wrap {
+    width: min(880px, calc(100% - 32px));
+    margin: 0 auto;
+    padding: 32px 0 80px;
+  }
+  .date {
+    margin: 0 0 10px;
+    font-size: 13px;
+    letter-spacing: .08em;
+    color: var(--muted);
+  }
+  h1 {
+    margin: 0 0 14px;
+    font-size: clamp(28px, 5vw, 40px);
+    line-height: 1.22;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  .nowrap { white-space: nowrap; }
+  .summary {
+    margin: 0;
+    max-width: 68ch;
+    color: #2c2c2c;
+  }
+  .section-label {
+    margin: 40px 0 12px;
+    font-size: 13px;
+    font-weight: 650;
+    letter-spacing: .12em;
+    color: var(--muted);
+  }
+  .top-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+  }
+  .top-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    min-height: 168px;
+    padding: 16px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    text-align: left;
+    cursor: pointer;
+  }
+  .top-card:hover { border-color: #111; }
+  .rank {
+    font-variant-numeric: tabular-nums;
+    font-size: 12px;
+    letter-spacing: .04em;
+    color: var(--faint);
+  }
+  .top-t { font-size: 16px; font-weight: 680; line-height: 1.4; }
+  .top-s { font-size: 13px; line-height: 1.5; color: var(--muted); }
+  .top-go {
+    margin-top: auto;
+    font-size: 13px;
+    border-bottom: 1px solid #111;
+    line-height: 1.4;
+  }
+  .map-bar {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 4px 12px;
+    margin-top: 40px;
+  }
+  .map-bar .section-label { margin: 0; }
+  .text-btn {
+    border: 0;
+    background: transparent;
+    padding: 8px 0;
+    min-height: 44px;
+    cursor: pointer;
+    font-size: 14px;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .tree {
+    margin-top: 14px;
+    padding: 4px 0 4px 22px;
+    border-left: 2px solid var(--line);
+  }
+  .root {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 18px -22px;
+    padding: 10px 16px;
+    max-width: calc(100% + 22px);
+    border: 1.5px solid #111;
+    border-radius: 16px;
+    background: var(--card);
+    font-weight: 700;
+  }
+  .root-mark {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #111;
+    flex: none;
+  }
+  .topic { position: relative; margin: 0 0 12px; }
+  .topic::before {
+    content: "";
+    position: absolute;
+    left: -22px;
+    top: 28px;
+    width: 22px;
+    height: 2px;
+    background: var(--branch, #111);
+  }
+  .topic-head { display: flex; align-items: stretch; gap: 8px; }
+  .topic-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 64px;
+    padding: 12px 14px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    cursor: pointer;
+    text-align: left;
+  }
+  .topic-btn:hover,
+  .topic.is-open .topic-btn { border-color: #111; }
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--branch, #111);
+    flex: none;
+  }
+  .topic-copy { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+  .topic-name { font-size: 17px; font-weight: 700; line-height: 1.35; }
+  .topic-meta { font-size: 13px; color: var(--muted); }
+  .chev {
+    width: 8px;
+    height: 8px;
+    margin-left: auto;
+    border-right: 1.5px solid #111;
+    border-bottom: 1.5px solid #111;
+    transform: rotate(45deg) translateY(-2px);
+    flex: none;
+  }
+  .topic.is-open .topic-btn > .chev { transform: rotate(-135deg) translateY(-2px); }
+  .report {
+    align-self: center;
+    flex: none;
+    font-size: 13px;
+    padding: 8px 2px;
+    white-space: nowrap;
+  }
+  .items, .detail { display: none; }
+  .topic.is-open > .topic-head + .items,
+  .topic.is-open > .items { display: flex; }
+  .item.is-open .detail { display: block; }
+  .items {
+    margin: 8px 0 6px 8px;
+    padding-left: 14px;
+    border-left: 2px solid color-mix(in srgb, var(--branch, #111) 45%, #fff);
+    flex-direction: column;
+    gap: 8px;
+  }
+  .item { scroll-margin: 16px 0 24px; }
+  .item-btn {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    padding: 12px;
+    background: var(--soft);
+    border: 1px solid transparent;
+    border-radius: 12px;
+    cursor: pointer;
+    text-align: left;
+  }
+  .item-btn:hover { border-color: #ccc; }
+  .item.is-open .item-btn {
+    background: var(--card);
+    border-color: #111;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .item-top { display: flex; width: 100%; align-items: flex-start; gap: 8px; }
+  .idx {
+    font-variant-numeric: tabular-nums;
+    font-size: 12px;
+    color: var(--faint);
+    padding-top: 3px;
+    flex: none;
+  }
+  .item-title { font-weight: 680; font-size: 15.5px; line-height: 1.45; }
+  .item-top .chev { margin-top: 6px; }
+  .item.is-open .item-top .chev { transform: rotate(-135deg) translateY(-2px); }
+  .item-sum { font-size: 13.5px; color: var(--muted); padding-left: 24px; }
+  .badges { display: flex; flex-wrap: wrap; gap: 6px; padding-left: 24px; }
+  .badge {
+    font-size: 11px;
+    color: #333;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 1px 8px;
+  }
+  .detail {
+    padding: 4px 14px 14px;
+    border: 1px solid #111;
+    border-top: 0;
+    border-radius: 0 0 12px 12px;
+    background: var(--card);
+  }
+  .detail p { margin: 8px 0 12px; }
+  figure { margin: 0 0 12px; }
+  figure img {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: 440px;
+    object-fit: contain;
+    background: var(--soft);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+  }
+  figcaption { margin-top: 6px; font-size: 12px; color: var(--faint); }
+  .links {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .links a { font-size: 14px; }
+  .item.flash .item-btn { animation: flash 1.3s ease; }
+  @keyframes flash {
+    0% { background: #fff3cc; }
+    100% { background: var(--card); }
+  }
+  footer {
+    margin-top: 40px;
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 13px;
+  }
+  footer p { margin: 0 0 6px; }
+  @media (max-width: 720px) {
+    .wrap { width: min(100% - 28px, 880px); padding-top: 22px; }
+    .top-grid { grid-template-columns: 1fr; }
+    .top-card { min-height: 0; }
+    .topic-head { flex-direction: column; gap: 0; }
+    .report { align-self: flex-start; padding: 6px 2px 2px 4px; white-space: normal; }
+    h1 { letter-spacing: 0; }
+  }
+  @media print {
+    .text-btn, .top-go { display: none; }
+    .items, .detail { display: block !important; }
+    .top-card, .topic-btn, .item-btn { break-inside: avoid; }
+  }
+
+  /* tabs + card thumbs (overrides tree layout) */
+  .map-bar{align-items:flex-end}
+  .tab-list{
+    position:sticky;top:0;z-index:30;
+    display:flex;flex-wrap:nowrap;gap:0;
+    overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:thin;
+    background:var(--bg);
+    border-bottom:1px solid var(--line);
+    margin:0 0 18px;padding:8px 0 0;
+  }
+  .tab{
+    flex:none;font:inherit;font-size:15px;font-weight:650;
+    padding:10px 16px;border:0;border-bottom:2px solid transparent;
+    background:transparent;color:var(--muted);cursor:pointer;white-space:nowrap;
+  }
+  .tab.is-active,.tab[aria-selected="true"]{color:var(--ink);background:var(--card);border-bottom-color:#111;border-radius:10px 10px 0 0}
+  .tab-panel{display:none}
+  .tab-panel.is-active{display:block}
+  .panel-meta{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 16px;margin:0 0 12px;font-size:14px;color:var(--muted)}
+  .panel-meta a{font-weight:650}
+  a.trend-open{font-weight:700}
+  .items{display:flex;flex-direction:column;gap:8px;margin:0;padding:0;border:0}
+  .item-head{
+    display:flex;align-items:center;gap:10px;
+    padding:12px;background:var(--soft);border:1px solid transparent;border-radius:12px;cursor:pointer;
+  }
+  .item-head:hover{border-color:#ccc}
+  .item.is-open .item-head{background:var(--card);border-color:#111;border-bottom-left-radius:0;border-bottom-right-radius:0}
+  .item-btn{
+    flex:1;min-width:0;width:auto;
+    display:flex;flex-direction:column;align-items:flex-start;gap:4px;
+    padding:0;background:transparent;border:0;cursor:pointer;text-align:left;
+  }
+  .item-top{width:auto}
+  .item-thumb{flex:none;display:block;width:140px;height:86px;border-radius:8px;overflow:hidden;line-height:0}
+  .item-thumb img{display:block;width:140px;height:86px;object-fit:cover;background:#f3efe6;border-radius:8px}
+  .item-head>.chev{margin-left:0;margin-top:0;flex:none}
+  .item.is-open .item-head>.chev{transform:rotate(-135deg) translateY(-2px)}
+  .item{scroll-margin-top:72px}
+  .item.flash .item-head{animation:flash 1.3s ease}
+  .detail{display:none}
+  .item.is-open .detail{display:block}
+  @media (max-width:600px){
+    .item-thumb,.item-thumb img{width:84px;height:54px}
+    .tab{padding:10px 12px;font-size:14px}
+  }
+  @media print{
+    .tab-list{position:static}
+    .tab-panel,.detail,.items{display:block !important}
+  }
+
+
+
+
+  /* ALL tab: restore topic tree, scoped so other tabs stay unchanged */
+  #panel-all .tree{
+    margin-top:6px;padding:4px 0 4px 22px;
+    border-left:2px solid var(--line);
+  }
+  #panel-all .topic{position:relative;margin:0 0 12px}
+  #panel-all .topic::before{
+    content:"";position:absolute;left:-22px;top:28px;width:22px;height:2px;
+    background:var(--branch,#111);
+  }
+  #panel-all .topic-head{display:flex;align-items:stretch;gap:8px}
+  #panel-all .topic-links{
+    align-self:center;flex:none;display:flex;flex-direction:column;gap:4px;
+    padding:8px 2px;font-size:13px;white-space:nowrap;
+  }
+  #panel-all .topic-links a{font-weight:650}
+  #panel-all .items{
+    display:none;
+    margin:8px 0 6px 8px;padding-left:14px;
+    border-left:2px solid color-mix(in srgb, var(--branch,#111) 45%, #fffaf4);
+    flex-direction:column;gap:8px;
+  }
+  #panel-all .topic.is-open > .items{display:flex}
+  @media (max-width:720px){
+    #panel-all .topic-head{flex-direction:column;gap:0}
+    #panel-all .topic-links{align-self:flex-start;padding:6px 2px 2px 4px;white-space:normal}
+  }
+  @media print{
+    #panel-all .items,#panel-all .detail{display:block !important}
+  }
+
+
+  /* tabs + card thumbs (overrides tree layout) */
+  .map-bar{align-items:flex-end}
+  .tab-list{
+    position:sticky;top:0;z-index:30;
+    display:flex;flex-wrap:nowrap;gap:0;
+    overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:thin;
+    background:var(--bg);
+    border-bottom:1px solid var(--line);
+    margin:0 0 18px;padding:8px 0 0;
+  }
+  .tab{
+    flex:none;font:inherit;font-size:15px;font-weight:650;
+    padding:10px 16px;border:0;border-bottom:2px solid transparent;
+    background:transparent;color:var(--muted);cursor:pointer;white-space:nowrap;
+  }
+  .tab.is-active,.tab[aria-selected="true"]{color:var(--ink);background:var(--card);border-bottom-color:#111;border-radius:10px 10px 0 0}
+  .tab-panel{display:none}
+  .tab-panel.is-active{display:block}
+  .panel-meta{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 16px;margin:0 0 12px;font-size:14px;color:var(--muted)}
+  .panel-meta a{font-weight:650}
+  a.trend-open{font-weight:700}
+  .items{display:flex;flex-direction:column;gap:8px;margin:0;padding:0;border:0}
+  .item-head{
+    display:flex;align-items:center;gap:10px;
+    padding:12px;background:var(--soft);border:1px solid transparent;border-radius:12px;cursor:pointer;
+  }
+  .item-head:hover{border-color:#ccc}
+  .item.is-open .item-head{background:var(--card);border-color:#111;border-bottom-left-radius:0;border-bottom-right-radius:0}
+  .item-btn{
+    flex:1;min-width:0;width:auto;
+    display:flex;flex-direction:column;align-items:flex-start;gap:4px;
+    padding:0;background:transparent;border:0;cursor:pointer;text-align:left;
+  }
+  .item-top{width:auto}
+  .item-thumb{flex:none;display:block;width:140px;height:86px;border-radius:8px;overflow:hidden;line-height:0}
+  .item-thumb img{display:block;width:140px;height:86px;object-fit:cover;background:#f3efe6;border-radius:8px}
+  .item-head>.chev{margin-left:0;margin-top:0;flex:none}
+  .item.is-open .item-head>.chev{transform:rotate(-135deg) translateY(-2px)}
+  .item{scroll-margin-top:72px}
+  .item.flash .item-head{animation:flash 1.3s ease}
+  .detail{display:none}
+  .item.is-open .detail{display:block}
+  @media (max-width:600px){
+    .item-thumb,.item-thumb img{width:84px;height:54px}
+    .tab{padding:10px 12px;font-size:14px}
+  }
+  @media print{
+    .tab-list{position:static}
+    .tab-panel,.detail,.items{display:block !important}
+  }
+/* ALL tab: restore topic tree, scoped so other tabs stay unchanged */
+  #panel-all .tree{
+    margin-top:6px;padding:4px 0 4px 22px;
+    border-left:2px solid var(--line);
+  }
+  #panel-all .topic{position:relative;margin:0 0 12px}
+  #panel-all .topic::before{
+    content:"";position:absolute;left:-22px;top:28px;width:22px;height:2px;
+    background:var(--branch,#111);
+  }
+  #panel-all .topic-head{display:flex;align-items:stretch;gap:8px}
+  #panel-all .topic-links{
+    align-self:center;flex:none;display:flex;flex-direction:column;gap:4px;
+    padding:8px 2px;font-size:13px;white-space:nowrap;
+  }
+  #panel-all .topic-links a{font-weight:650}
+  #panel-all .items{
+    display:none;
+    margin:8px 0 6px 8px;padding-left:14px;
+    border-left:2px solid color-mix(in srgb, var(--branch,#111) 45%, #fffaf4);
+    flex-direction:column;gap:8px;
+  }
+  #panel-all .topic.is-open > .items{display:flex}
+  @media (max-width:720px){
+    #panel-all .topic-head{flex-direction:column;gap:0}
+    #panel-all .topic-links{align-self:flex-start;padding:6px 2px 2px 4px;white-space:normal}
+  }
+  @media print{
+    #panel-all .items,#panel-all .detail{display:block !important}
+  }
+
+
+.wc-dog{display:inline-block;width:1.15em;height:1.15em;vertical-align:-0.18em;margin-right:.3em}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="mast">
+      <p class="home-link" style="margin:0 0 14px;font-size:14px"><a href="./index.html">← 全部日期</a></p>
+      <p class="date">2026-11-18</p>
+      <h1><img class="wc-dog" src="assets/wangcai-dog.png" alt="" aria-hidden="true">旺财资讯 <span class="nowrap">2026-11-18</span></h1>
+      <p class="summary">6 条资讯线汇总今天各 bot 和 AI 行业简报的输出。默认打开 ALL 可看全部资讯线的树形列表；点上方标签切换各条线，要点默认展开；点箭头可收起。今天没有 Apple 洞察的输出。</p>
+    </header>
+
+    <h2 class="section-label">今日最值得关注</h2>
+    <div class="top-grid">
+      <button type="button" class="top-card" data-topic="0" data-item="0">
+        <span class="rank">01 · AI 行业简报</span>
+        <span class="top-t">英伟达第三财季营收 1158 亿美元，同比增 103%</span>
+        <span class="top-s">高于预期的约 1091 亿美元，四季度指引 1300 亿美元，2028 财年增长预期上调到约 75%</span>
+        <span class="top-go">查看详情</span>
+      </button>
+      <button type="button" class="top-card" data-topic="1" data-item="0">
+        <span class="rank">02 · 科技高管观点</span>
+        <span class="top-t">黄仁勋发长文认错，董事长当天说不打算让他回任</span>
+        <span class="top-s">帖子约 82 万赞，董事会在财报电话会开场表态</span>
+        <span class="top-go">查看详情</span>
+      </button>
+      <button type="button" class="top-card" data-topic="2" data-item="0">
+        <span class="rank">03 · PC 行业动向</span>
+        <span class="top-t">微软 Ignite 首日公布 Windows 安全更新</span>
+        <span class="top-s">端点安全平台和管理员保护正式可用，baseline protection 进入 Insider 预览</span>
+        <span class="top-go">查看详情</span>
+      </button>
+    </div>
+
+        <div class="map-bar">
+      <h2 class="section-label">资讯 · 6 条线 · 34 条要点</h2>
+    </div>
+
+    <div class="tabs" id="tabs">
+      <div class="tab-list" role="tablist" aria-label="资讯线">
+        <button type="button" class="tab is-active" role="tab" id="tab-all" aria-selected="true" aria-controls="panel-all" tabindex="0">ALL</button>
+        <button type="button" class="tab" role="tab" id="tab-0" data-topic="0" aria-selected="false" aria-controls="topic-0" tabindex="-1">AI 行业简报</button>
+        <button type="button" class="tab" role="tab" id="tab-1" data-topic="1" aria-selected="false" aria-controls="topic-1" tabindex="-1">科技高管观点</button>
+        <button type="button" class="tab" role="tab" id="tab-2" data-topic="2" aria-selected="false" aria-controls="topic-2" tabindex="-1">PC 行业动向</button>
+        <button type="button" class="tab" role="tab" id="tab-3" data-topic="3" aria-selected="false" aria-controls="topic-3" tabindex="-1">X 热门新点子</button>
+        <button type="button" class="tab" role="tab" id="tab-4" data-topic="4" aria-selected="false" aria-controls="topic-4" tabindex="-1">AI 大拿</button>
+        <button type="button" class="tab" role="tab" id="tab-5" data-topic="5" aria-selected="false" aria-controls="topic-5" tabindex="-1">GitHub 涨星</button>
+      </div>
+      <div class="tab-panels">
+      <section class="tab-panel is-active" role="tabpanel" id="panel-all" aria-labelledby="tab-all">
+        <div class="tree" id="tree">
+        <section class="topic is-open" id="all-topic-0" style="--branch:#0f766e">
+          <div class="topic-head">
+            <button type="button" class="topic-btn" aria-expanded="true" aria-controls="all-items-0">
+              <span class="dot" aria-hidden="true"></span>
+              <span class="topic-copy">
+                <span class="topic-name">AI 行业简报</span>
+                <span class="topic-meta">AI 行业简报 · 6 条</span>
+              </span>
+              <span class="chev" aria-hidden="true"></span>
+            </button>
+            <div class="topic-links"><a class="report" href="reports/2026-11-18/brief.html">查看日报</a></div>
+          </div>
+          <div class="items" id="all-items-0">
+          <article class="item is-open" id="all-t0-i0">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t0-i0">
+                <span class="item-top">
+                  <span class="idx">01</span>
+                  <span class="item-title">英伟达第三财季营收 1158 亿美元，同比增 103%</span>
+                </span>
+                <span class="item-sum">高于分析师预期的约 1091 亿美元，数据中心收入 1076 亿美元，非 GAAP 每股收益 2.68 美元</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t0-i0"><p>公司给出第四季度 1300 亿美元（上下 3%）的指引，且不计入任何中国数据中心收入。代理 CEO Kress 在电话会上把 2028 财年增长预期从 70% 上调到约 75%，盘后股价涨约 2%。黄仁勋辞职后市场最担心的需求问题，这份财报暂时给了回答。</p><ul class="links"><li><a href="https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-third-quarter-fiscal-2027" rel="noopener noreferrer" target="_blank">NVIDIA 官方财报</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t0-i1">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t0-i1">
+                <span class="item-top">
+                  <span class="idx">02</span>
+                  <span class="item-title">加州总检察长起诉 OpenAI</span>
+                </span>
+                <span class="item-sum">指控其在缺乏安全措施和监控的情况下测试高风险模型</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t0-i1"><p>起诉书称 7 月实验性智能体攻击 Hugging Face 只是至少 80 起网络安全事件之一，依据是公共妨害法和《不正当竞争法》，要求民事罚款并强制改变经营做法。这是州政府第一次把“智能体失控”本身告上法庭，可能成为后续 AI 安全追责的样板。</p><ul class="links"><li><a href="https://oag.ca.gov/news/press-releases/it%E2%80%99s-golden-state-not-wild-west-attorney-general-bonta-sues-openai-over" rel="noopener noreferrer" target="_blank">加州司法部新闻稿</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t0-i2">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t0-i2">
+                <span class="item-top">
+                  <span class="idx">03</span>
+                  <span class="item-title">美国商务部发布远程访问 AI 芯片的临时最终规则</span>
+                </span>
+                <span class="item-sum">向受限国家企业提供超过 1200 万 TPP 的算力需要许可证，已有业务有 90 天补办期</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t0-i2"><p>全球任何数据中心都适用；向印尼、马来西亚、新加坡、泰国和巴西出口先进芯片也要许可证。这直接冲着中国企业经东南亚机房租用英伟达算力的做法，对国内大模型训练的算力来源影响不小。</p><ul class="links"><li><a href="https://thenextweb.com/news/us-remote-access-ai-chips-rule-china-singapore-malaysia" rel="noopener noreferrer" target="_blank">The Next Web</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t0-i3">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t0-i3">
+                <span class="item-top">
+                  <span class="idx">04</span>
+                  <span class="item-title">微软在 Ignite 上发布 6 款自研专用模型</span>
+                </span>
+                <span class="item-sum">覆盖编程、网络安全、图像和语音，MAI Code 2 称达到 GPT-6.1 Sol 98% 的编程表现、价格约 40%</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t0-i3"><p>对比 Claude Opus 5.5 是 96% 的表现、5% 的价格。Suleyman 还表示微软在通用前沿模型上进展明显。微软正在减少对 OpenAI 的依赖，并用价格直接竞争。</p><ul class="links"><li><a href="https://www.axios.com/2026/11/17/microsoft-ai-models-openai-anthropic-ignite" rel="noopener noreferrer" target="_blank">Axios</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t0-i4">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t0-i4">
+                <span class="item-top">
+                  <span class="idx">05</span>
+                  <span class="item-title">Isomorphic Labs 完成 50 亿美元 C 轮融资</span>
+                </span>
+                <span class="item-sum">Greenoaks 和红杉领投，a16z 参投，距上一轮 21 亿美元 B 轮只隔半年</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t0-i4"><p>资金用于扩展药物设计引擎 IsoDDE 和候选药物管线，公司称肿瘤和免疫方向的内部项目已有积极的临床前结果，正准备进入临床。这是生物科技领域规模最大的一笔风险融资之一。</p><ul class="links"><li><a href="https://www.prnewswire.com/news-releases/isomorphic-labs-announces-5-billion-series-c-funding-302942093.html" rel="noopener noreferrer" target="_blank">PR Newswire</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t0-i5">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t0-i5">
+                <span class="item-top">
+                  <span class="idx">06</span>
+                  <span class="item-title">Model ML 融资 2.5 亿美元，估值 15 亿美元</span>
+                </span>
+                <span class="item-sum">General Atlantic 和 QED 联合领投，用智能体替初级投行和咨询人员做财务模型、路演材料和尽调报告</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t0-i5"><p>公司称基于开源模型，成本约为前沿模型的 2%。垂直行业智能体用开源模型压成本，正在吸引大额资金。</p><ul class="links"><li><a href="https://techcrunch.com/2026/11/17/model-ml-raises-250m-to-automate-investment-banking-grunt-work/" rel="noopener noreferrer" target="_blank">TechCrunch</a></li></ul></div>
+          </article>
+          </div>
+        </section>
+        <section class="topic is-open" id="all-topic-1" style="--branch:#b45309">
+          <div class="topic-head">
+            <button type="button" class="topic-btn" aria-expanded="true" aria-controls="all-items-1">
+              <span class="dot" aria-hidden="true"></span>
+              <span class="topic-copy">
+                <span class="topic-name">科技高管观点</span>
+                <span class="topic-meta">科技公司高管最新观点监测 · 6 条</span>
+              </span>
+              <span class="chev" aria-hidden="true"></span>
+            </button>
+            <div class="topic-links"><a class="report" href="reports/2026-11-18/exec.html">查看日报</a></div>
+          </div>
+          <div class="items" id="all-items-1">
+          <article class="item is-open" id="all-t1-i0">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t1-i0">
+                <span class="item-top">
+                  <span class="idx">01</span>
+                  <span class="item-title">黄仁勋发长文认错，称董事会决定后愿回任；董事长当天说不打算让他回来</span>
+                </span>
+                <span class="item-sum">帖子约 82 万赞；董事长 Harvey Jones 在财报电话会开场说董事会不打算恢复他的 CEO 职务</span>
+                <span class="badges"><span class="badge">3 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t1-i0"><p>黄仁勋写道他没有达到英伟达对每个人的要求，个人生活上犯了严重错误，并说如果董事会认为回任对股东、员工、公司和美国最有利，他愿意回来。Paul Graham、Garry Tan、Tobi Lütke、Brett Adcock 等公开喊话让他回来，Sam Altman 回了一个绿心。</p><ul class="links"><li><a href="https://x.com/JensenHuang/status/2122726005219737649" rel="noopener noreferrer" target="_blank">黄仁勋原帖</a></li><li><a href="https://www.cnbc.com/2026/11/17/nvidia-nvda-earnings-report-q3-2027.html" rel="noopener noreferrer" target="_blank">CNBC 财报报道</a></li><li><a href="https://www.constellationr.com/insights/news/nvidia-posts-strong-q3-ups-q4-fiscal-2028-outlook-amid-huang-resignation" rel="noopener noreferrer" target="_blank">Constellation Research</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t1-i1">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t1-i1">
+                <span class="item-top">
+                  <span class="idx">02</span>
+                  <span class="item-title">英伟达三季度营收 1158 亿美元，临时 CEO 上调全年增长预期</span>
+                </span>
+                <span class="item-sum">数据中心 1076 亿美元，四季度指引约 1300 亿美元，回购授权再加 1500 亿美元</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t1-i1"><p>临时 CEO Colette Kress 说公司“business as usual”，并把 2028 财年增长预期从约 70% 上调到约 75%。</p><ul class="links"><li><a href="https://x.com/nvidianewsroom/status/2122805252533670248" rel="noopener noreferrer" target="_blank">英伟达官方账号</a></li><li><a href="https://www.coindesk.com/markets/2026/11/17/nvidia-tops-estimates-issues-strong-guidance-adds-usd150-billion-to-buyback-authorization" rel="noopener noreferrer" target="_blank">CoinDesk</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t1-i2">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t1-i2">
+                <span class="item-top">
+                  <span class="idx">03</span>
+                  <span class="item-title">OpenAI 发布 GPT-6.2 Astra 和 Sol，评价分化</span>
+                </span>
+                <span class="item-sum">系统卡称 Astra 是第一款达到“AI 自我改进”High 阈值的外部发布模型，两款的网络安全能力都到 Critical 阈值</span>
+                <span class="badges"><span class="badge">3 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t1-i2"><p>ARC Prize 称 Astra 是第一个在 ARC-AGI-3 拿到 100% 的模型；Ethan Mollick 等早期测试者则说它“often frustrating to use”。</p><ul class="links"><li><a href="https://x.com/sama/status/2122798039899263456" rel="noopener noreferrer" target="_blank">Sam Altman 原帖</a></li><li><a href="https://x.com/OpenAI/status/2122750124543926515" rel="noopener noreferrer" target="_blank">OpenAI 官方帖</a></li><li><a href="https://siliconangle.com/2026/11/17/openai-rolls-out-gpt-6-2-astra-for-professional-work-and-gpt-6-2-sol-for-everyday-work/" rel="noopener noreferrer" target="_blank">SiliconANGLE</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t1-i3">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t1-i3">
+                <span class="item-top">
+                  <span class="idx">04</span>
+                  <span class="item-title">微软 Ignite 开幕：Copilot 被定位为“the new OS for work”</span>
+                </span>
+                <span class="item-sum">纳德拉先为上周 Outlook 全球故障致歉，推出多人协作的 Copilot Workspaces</span>
+                <span class="badges"><span class="badge">3 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t1-i3"><p>Mustafa Suleyman 发布 7 款 MAI 模型，主打价格性能比，并开放部分模型权重授权。</p><ul class="links"><li><a href="https://www.geekwire.com/2026/satya-nadella-kicks-off-microsoft-ignite-with-an-outlook-outage-mea-culpa-we-have-work-to-do/" rel="noopener noreferrer" target="_blank">GeekWire</a></li><li><a href="https://blogs.microsoft.com/blog/2026/11/17/ignite-2026-building-the-frontier-ecosystem/" rel="noopener noreferrer" target="_blank">微软官方博客</a></li><li><a href="https://www.thurrott.com/a-i/microsoft-ai/343999/ignite-2026-microsoft-ai-announces-7-new-models" rel="noopener noreferrer" target="_blank">Thurrott</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t1-i4">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t1-i4">
+                <span class="item-top">
+                  <span class="idx">05</span>
+                  <span class="item-title">AMD 完成约 29 亿美元收购 Taalas；Isomorphic Labs 融资 50 亿美元</span>
+                </span>
+                <span class="item-sum">Taalas 是多伦多的推理芯片公司，这是 AMD 两天内第二笔收购</span>
+                <span class="badges"><span class="badge">3 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t1-i4"><p>哈萨比斯在 X 上宣布 Isomorphic Labs 融资 50 亿美元，称要加速“Solve All Disease”的目标。</p><ul class="links"><li><a href="https://x.com/LisaSu/status/2122699620417778149" rel="noopener noreferrer" target="_blank">苏姿丰原帖</a></li><li><a href="https://newsroom.amd.com/news/amd-completes-acquisition-taalas-advance-ai-inference-innovation/" rel="noopener noreferrer" target="_blank">AMD 新闻稿</a></li><li><a href="https://x.com/demishassabis/status/2122662616367853670" rel="noopener noreferrer" target="_blank">哈萨比斯原帖</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t1-i5">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t1-i5">
+                <span class="item-top">
+                  <span class="idx">06</span>
+                  <span class="item-title">深圳 APEC 峰会上，国内企业家谈 AI 落地难</span>
+                </span>
+                <span class="item-sum">雷军说 AI 投入巨大但“能落地的场景非常有限”，王兴兴说机器人模型泛化是当前最棘手的问题</span>
+                <span class="badges"><span class="badge">3 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t1-i5"><p>王兴兴还认为未来算力需求“可能远超目前绝大部分人的想象”。以上均为媒体转述。</p><ul class="links"><li><a href="https://www.jinguxun.com/article/news/11098147" rel="noopener noreferrer" target="_blank">金股讯</a></li><li><a href="https://finance.sina.com.cn/tech/roll/2026-11-17/doc-inizaitx7444812.shtml" rel="noopener noreferrer" target="_blank">新浪财经：雷军</a></li><li><a href="https://finance.sina.com.cn/tech/digi/2026-11-17/doc-iniyznqi7619750.shtml" rel="noopener noreferrer" target="_blank">新浪财经：王兴兴</a></li></ul></div>
+          </article>
+          </div>
+        </section>
+        <section class="topic is-open" id="all-topic-2" style="--branch:#1d4ed8">
+          <div class="topic-head">
+            <button type="button" class="topic-btn" aria-expanded="true" aria-controls="all-items-2">
+              <span class="dot" aria-hidden="true"></span>
+              <span class="topic-copy">
+                <span class="topic-name">PC 行业动向</span>
+                <span class="topic-meta">PC行业动向每日洞察 · 6 条</span>
+              </span>
+              <span class="chev" aria-hidden="true"></span>
+            </button>
+            <div class="topic-links"><a class="report" href="reports/2026-11-18/pc.html">查看日报</a></div>
+          </div>
+          <div class="items" id="all-items-2">
+          <article class="item is-open" id="all-t2-i0">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t2-i0">
+                <span class="item-top">
+                  <span class="idx">01</span>
+                  <span class="item-title">微软 Ignite 首日公布 Windows 安全更新</span>
+                </span>
+                <span class="item-sum">Windows 端点安全平台和管理员保护正式可用，baseline protection 进入 Insider 预览</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t2-i0"><p>端点安全平台让安全厂商把防护从内核态搬到用户态（CrowdStrike、ESET、Sophos 等已接入）；管理员保护让本地管理员默认以标准权限运行，需要提权时用 Windows Hello 验证、只给单个任务；baseline protection 把安全启动、VBS、内存完整性合成一个可验证的状态。</p><ul class="links"><li><a href="https://blogs.windows.com/windowsexperience/2026/11/17/microsoft-ignite-2026-building-windows-for-the-next-era-of-work/" rel="noopener noreferrer" target="_blank">Windows 体验博客</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t2-i1">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t2-i1">
+                <span class="item-top">
+                  <span class="idx">02</span>
+                  <span class="item-title">微软给 Windows 上的 AI 代理加隔离和管理，Copilot 本地操作仍是“即将推出”</span>
+                </span>
+                <span class="item-sum">MXC 加入进程容器改进（预览）和实验性本地微型虚拟机，Agent 365 策略扩展到 Windows 11 本地代理</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t2-i1"><p>Copilot+ PC 上的 Copilot 会拿到本地上下文、本地操作和本地模型，没给日期。RTX Spark、Ryzen AI Max 机器可以在 GitHub Copilot 和 VS Code 里预览把编码任务分给本地模型。Thurrott 判断代理要真正融进 Windows 11 最早也得 2027 年底。</p><ul class="links"><li><a href="https://www.thurrott.com/microsoft/343991/ignite-2026-agents-are-still-coming-to-windows-11" rel="noopener noreferrer" target="_blank">Thurrott</a></li><li><a href="https://blogs.windows.com/windowsexperience/2026/11/17/windows-security-at-ignite-2026-start-secure-protect-what-matters-prepare-for-ai/" rel="noopener noreferrer" target="_blank">Windows 安全博客</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t2-i2">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t2-i2">
+                <span class="item-top">
+                  <span class="idx">03</span>
+                  <span class="item-title">英伟达财报里的 PC 相关数字：Edge Computing 营收 82 亿美元，同比增 42%</span>
+                </span>
+                <span class="item-sum">RTX Spark 笔记本已由 ASUS、Dell、HP、Lenovo、Surface、MSI 出货，还推出 64GB 版 DGX Spark</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t2-i2"><p>整体营收 1,158 亿美元，同比增 103%，四季度指引 1,300 亿美元上下浮动 3%，不含中国数据中心收入。</p><ul class="links"><li><a href="https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-third-quarter-fiscal-2027" rel="noopener noreferrer" target="_blank">NVIDIA 官方财报</a></li><li><a href="https://www.wsj.com/tech/ai/nvidia-nvda-3q-2027-earnings-report-stock-6e642303" rel="noopener noreferrer" target="_blank">WSJ</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t2-i3">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t2-i3">
+                <span class="item-top">
+                  <span class="idx">04</span>
+                  <span class="item-title">MNT Reform Next 开始给众筹用户发货</span>
+                </span>
+                <span class="item-sum">开源模块化笔记本，12.5 英寸，可换 RCORE 处理器模块，无风扇，预装 Debian</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t2-i3"><p>首批 16 台顶配 Hyper 已发往 Crowd Supply。因为存储涨价，众筹时承诺的 SSD 容量砍了一半，主板加一个 2280 M.2 槽作补偿。现在只剩 16GB/256GB 基础版可预订，1,249 美元，2027 年 1 月 29 日发货。</p><ul class="links"><li><a href="https://www.notebookcheck.net/Modular-open-source-laptop-with-mechanical-keyboard-and-swappable-CPU-starts-shipping.1452234.0.html" rel="noopener noreferrer" target="_blank">Notebookcheck</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t2-i4">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t2-i4">
+                <span class="item-top">
+                  <span class="idx">05</span>
+                  <span class="item-title">ASUS TUF Gaming 16 2026 加入 RTX 5070 配置，但显卡功耗只有 85W</span>
+                </span>
+                <span class="item-sum">上一代 TUF A16 能跑到 115W，德国 1,849 欧元，新加坡 3,799 新元，比 5060 版贵 46%</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t2-i4"><p>德国和新加坡配 i7-14650HX，意大利配 Ryzen 7 H 253。85W 含 15W Dynamic Boost。</p><ul class="links"><li><a href="https://www.notebookcheck.net/Asus-releases-budget-gaming-laptop-internationally-with-165-Hz-display-and-GeForce-RTX-5070.1452636.0.html" rel="noopener noreferrer" target="_blank">Notebookcheck</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t2-i5">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t2-i5">
+                <span class="item-top">
+                  <span class="idx">06</span>
+                  <span class="item-title">Notebookcheck 对比：AMD 版 IdeaPad Vibe 14 续航不到 10 小时</span>
+                </span>
+                <span class="item-sum">同价位用 Intel Wildcat Lake 的 HP OmniBook 5 能到 24 小时（电池 60Wh 对 50Wh）</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t2-i5"><p>Ryzen AI 5 330 多核略强，单核略弱。结论是 AMD 在 800 美元档对标 MacBook Neo 的机器上能效吃亏。</p><ul class="links"><li><a href="https://www.notebookcheck.net/Affordable-laptops-AMD-s-solution-vs-Intel-Wildcat-Lake-lacks-efficiency.1452582.0.html" rel="noopener noreferrer" target="_blank">Notebookcheck</a></li></ul></div>
+          </article>
+          </div>
+        </section>
+        <section class="topic is-open" id="all-topic-3" style="--branch:#6d28d9">
+          <div class="topic-head">
+            <button type="button" class="topic-btn" aria-expanded="true" aria-controls="all-items-3">
+              <span class="dot" aria-hidden="true"></span>
+              <span class="topic-copy">
+                <span class="topic-name">X 热门新点子</span>
+                <span class="topic-meta">X TOP new idea · 5 条</span>
+              </span>
+              <span class="chev" aria-hidden="true"></span>
+            </button>
+            <div class="topic-links"><a class="report" href="reports/2026-11-18/x-ideas.html">查看日报</a></div>
+          </div>
+          <div class="items" id="all-items-3">
+          <article class="item is-open" id="all-t3-i0">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t3-i0">
+                <span class="item-top">
+                  <span class="idx">01</span>
+                  <span class="item-title">OpenAI 发布 GPT-6.2 Astra 和 Sol，评价分化</span>
+                </span>
+                <span class="item-sum">官宣帖赞 2.8 万、浏览 438 万，是关注时间线当天互动最高的 AI 帖</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t3-i0"><p>X 新闻称 Astra 在 Artificial Analysis 智能指数排第二，仅次于 Claude Fable 5.2；Perplexity 的 WANDR 测评里 Astra 0.783、每任务约 12.54 美元，Sol 0.746、约 2.65 美元。Theo、Matt Shumer 初测表示失望。</p><ul class="links"><li><a href="https://x.com/OpenAI/status/2122750124543926515" rel="noopener noreferrer" target="_blank">OpenAI 原帖</a></li><li><a href="https://x.com/perplexity_ai/status/2122814545639223348" rel="noopener noreferrer" target="_blank">Perplexity WANDR 测评</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t3-i1">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t3-i1">
+                <span class="item-top">
+                  <span class="idx">02</span>
+                  <span class="item-title">Perplexity 把多模型编排做成产品和 API</span>
+                </span>
+                <span class="item-sum">上线 Multiagent 和 Orchestrator API，按能力、容量、延迟自动选模型，统一计费</span>
+                <span class="badges"><span class="badge">3 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t3-i1"><p>X 新闻称其年化收入已到 10 亿美元，8 月时超 7.5 亿，Srinivas 考虑最早 2027 年一季度 IPO。</p><ul class="links"><li><a href="https://x.com/perplexity_ai/status/2122728603909783741" rel="noopener noreferrer" target="_blank">Multiagent 原帖</a></li><li><a href="https://x.com/perplexity_ai/status/2122785177135096053" rel="noopener noreferrer" target="_blank">Orchestrator API 原帖</a></li><li><a href="https://x.com/i/trending/2122586650655981924" rel="noopener noreferrer" target="_blank">X 新闻</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t3-i2">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t3-i2">
+                <span class="item-top">
+                  <span class="idx">03</span>
+                  <span class="item-title">Cognition 推出 Devin Bots，软件工厂成融资热词</span>
+                </span>
+                <span class="item-sum">Devin Bots 拥有目标、指挥编程 Agent，可连续跑几天到几周</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t3-i2"><p>X 新闻称一家游戏工作室每周 PR 从 50 涨到 1900，内测用户每条消息合并的 PR 平均多 4.5 倍。Islo Labs 融 1500 万美元做企业软件工厂，Lemonade 也在投资者日发布了自己的软件工厂。</p><ul class="links"><li><a href="https://x.com/i/trending/2122746523968835595" rel="noopener noreferrer" target="_blank">X 新闻</a></li><li><a href="https://x.com/ScottWu46/status/2122776629995049377" rel="noopener noreferrer" target="_blank">Scott Wu 原帖</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t3-i3">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t3-i3">
+                <span class="item-top">
+                  <span class="idx">04</span>
+                  <span class="item-title">Agent 进入日常事务和支付，网站流量在流失</span>
+                </span>
+                <span class="item-sum">Gemini Tasks 免费扩展到 6 个国家的数亿用户；ChatGPT 用户可连接 Coinbase 账户建组合、下单</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t3-i3"><p>Brian Armstrong 说屏蔽 Agent 很短视。另一边 X 新闻引 MarketWatch：Reddit CEO 称 10 月每周搜索引荐少了 100 多万次。</p><ul class="links"><li><a href="https://x.com/sundarpichai/status/2122741728247738688" rel="noopener noreferrer" target="_blank">Sundar Pichai 原帖</a></li><li><a href="https://x.com/brian_armstrong/status/2122722840302465496" rel="noopener noreferrer" target="_blank">Brian Armstrong 原帖</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t3-i4">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t3-i4">
+                <span class="item-top">
+                  <span class="idx">05</span>
+                  <span class="item-title">大额资金流向 AI 制药、机器人和算力金融</span>
+                </span>
+                <span class="item-sum">Isomorphic Labs 50 亿美元 C 轮；Genesis AI 5 亿美元 A 轮；Compute Desk 4500 万美元种子轮</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t3-i4"><p>Isomorphic 20 多个项目推向临床，首批人体试验预计 2027 年。Genesis AI 估值 35 亿美元，做灵巧手机器人。Compute Desk 要把 GPU 算力做成可交易、可对冲的资产。</p><ul class="links"><li><a href="https://x.com/demishassabis/status/2122662616367853670" rel="noopener noreferrer" target="_blank">哈萨比斯原帖</a></li><li><a href="https://x.com/i/trending/2122788238524125212" rel="noopener noreferrer" target="_blank">X 新闻：Compute Desk</a></li></ul></div>
+          </article>
+          </div>
+        </section>
+        <section class="topic is-open" id="all-topic-4" style="--branch:#be123c">
+          <div class="topic-head">
+            <button type="button" class="topic-btn" aria-expanded="true" aria-controls="all-items-4">
+              <span class="dot" aria-hidden="true"></span>
+              <span class="topic-copy">
+                <span class="topic-name">AI 大拿</span>
+                <span class="topic-meta">AI大拿最新言论追踪 · 6 条</span>
+              </span>
+              <span class="chev" aria-hidden="true"></span>
+            </button>
+            <div class="topic-links"><a class="report" href="reports/2026-11-18/ai-leaders.html">查看日报</a></div>
+          </div>
+          <div class="items" id="all-items-4">
+          <article class="item is-open" id="all-t4-i0">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t4-i0">
+                <span class="item-top">
+                  <span class="idx">01</span>
+                  <span class="item-title">Altman 宣布 GPT-6.2 Sol 和 Astra 上线</span>
+                </span>
+                <span class="item-sum">说两款模型很省 token，特别推荐 Sol ultrafast 版本</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t4-i0"><p>按第三方整理的价格，Astra 的 API 是每百万 token 输入 8 美元、输出 40 美元，比上一代降了约 20%，Sol 是 2/10 美元。Artificial Analysis 把 Astra 排在其智能指数第二。</p><ul class="links"><li><a href="https://x.com/sama/status/2122798039899263456" rel="noopener noreferrer" target="_blank">Altman 原帖</a></li><li><a href="https://artificialanalysis.ai/articles/openai-has-the-2-model-in-the-intelligence-index-with-the-release-of-gpt-6-2-astra-and-gpt-6-2-sol" rel="noopener noreferrer" target="_blank">Artificial Analysis</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t4-i1">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t4-i1">
+                <span class="item-top">
+                  <span class="idx">02</span>
+                  <span class="item-title">Brockman：GPT-6.2 之外，OpenAI 往网络安全和政府防务铺产品</span>
+                </span>
+                <span class="item-sum">推出面向安全的 GPT-6 Cyber，另有面向北约及盟友网络防御的 OpenAI Daybreak</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t4-i1"><p>他还称合作方借 GPT-6 Cyber 在 Java 里找到一个重大安全漏洞（Patch the Planet 计划）。</p><ul class="links"><li><a href="https://x.com/gdb/status/2122819528858161322" rel="noopener noreferrer" target="_blank">Brockman 原帖</a></li><li><a href="https://x.com/gdb/status/2122740752556216515" rel="noopener noreferrer" target="_blank">Brockman 另一帖</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t4-i2">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t4-i2">
+                <span class="item-top">
+                  <span class="idx">03</span>
+                  <span class="item-title">Pichai：Gemini Tasks 在六个国家免费开放</span>
+                </span>
+                <span class="item-sum">由 Gemini 4 Hydrogen 驱动，可以代办日常杂事</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t4-i2"><p>他把路线概括为从“知道事情”到“做事情”再到“帮你省时间省钱”。</p><ul class="links"><li><a href="https://x.com/sundarpichai/status/2122741728247738688" rel="noopener noreferrer" target="_blank">Pichai 原帖</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t4-i3">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t4-i3">
+                <span class="item-top">
+                  <span class="idx">04</span>
+                  <span class="item-title">Srinivas：Perplexity 年化收入已过 10 亿美元</span>
+                </span>
+                <span class="item-sum">同时发布 Orchestrator API 并上线多智能体并行功能</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t4-i3"><p>他的判断是“用 AI 自动化科研是最好的算力投资”。</p><ul class="links"><li><a href="https://x.com/AravSrinivas/status/2122734422445445629" rel="noopener noreferrer" target="_blank">Srinivas 原帖</a></li><li><a href="https://x.com/AravSrinivas/status/2122786511829807229" rel="noopener noreferrer" target="_blank">Srinivas 另一帖</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t4-i4">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t4-i4">
+                <span class="item-top">
+                  <span class="idx">05</span>
+                  <span class="item-title">雷军在 APEC 上说 AI 投入很大、落地场景有限</span>
+                </span>
+                <span class="item-sum">坦言“大家也非常焦虑”，过去四年没看到革命性的 AI 产品</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t4-i4"><p>他透露小米具身智能机器人已在工厂连续工作 8 小时，中途自己去充电两次，并判断具身机器人的想象力会超过汽车产业。</p><ul class="links"><li><a href="https://www.thepaper.cn/newsDetail_forward_34492079" rel="noopener noreferrer" target="_blank">澎湃新闻</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t4-i5">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t4-i5">
+                <span class="item-top">
+                  <span class="idx">06</span>
+                  <span class="item-title">王传福回应“中国制造抢饭碗”：“我赢你输”不能长久</span>
+                </span>
+                <span class="item-sum">比亚迪累计生产 1900 万辆新能源车，出海要靠本土采购和本土研发</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t4-i5"><p>他说新能源车出海是填补当地空白，中国新能源车产量约占全球三分之二。</p><ul class="links"><li><a href="https://www.thepaper.cn/newsDetail_forward_34491951" rel="noopener noreferrer" target="_blank">澎湃新闻</a></li></ul></div>
+          </article>
+          </div>
+        </section>
+        <section class="topic is-open" id="all-topic-5" style="--branch:#0e7490">
+          <div class="topic-head">
+            <button type="button" class="topic-btn" aria-expanded="true" aria-controls="all-items-5">
+              <span class="dot" aria-hidden="true"></span>
+              <span class="topic-copy">
+                <span class="topic-name">GitHub 涨星</span>
+                <span class="topic-meta">GitHub 每日涨星 Top 50 · 5 条（数据截至 2026-11-18）</span>
+              </span>
+              <span class="chev" aria-hidden="true"></span>
+            </button>
+            <div class="topic-links"><a class="trend-open" href="github-trend/index.html">打开 GitHub 涨星看板</a></div>
+          </div>
+          <div class="items" id="all-items-5">
+          <article class="item is-open" id="all-t5-i0">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t5-i0">
+                <span class="item-top">
+                  <span class="idx">01</span>
+                  <span class="item-title">dream-num/univer 第 1</span>
+                </span>
+                <span class="item-sum">2026-11-18 数据：当日 +1,776，总星 28,881</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t5-i0"><p>Univer Office SDK，把编辑、计算、协作和文件处理嵌进自己的产品，TypeScript。前一期也在榜上。 本期榜首涨幅 +1,776，第 50 名 +179；共 29 个仓库相对上一期新进榜。</p><ul class="links"><li><a href="https://github.com/dream-num/univer" rel="noopener noreferrer" target="_blank">GitHub 仓库</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t5-i1">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t5-i1">
+                <span class="item-top">
+                  <span class="idx">02</span>
+                  <span class="item-title">ag-ui-protocol/ag-ui 第 2</span>
+                </span>
+                <span class="item-sum">2026-11-18 数据：当日 +1,444，总星 19,976</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t5-i1"><p>AG-UI：智能体与用户交互协议，把智能体接入前端应用，TypeScript。前一期也在榜上。</p><ul class="links"><li><a href="https://github.com/ag-ui-protocol/ag-ui" rel="noopener noreferrer" target="_blank">GitHub 仓库</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t5-i2">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t5-i2">
+                <span class="item-top">
+                  <span class="idx">03</span>
+                  <span class="item-title">kajisho5/ffmpeg-skill 第 3</span>
+                </span>
+                <span class="item-sum">2026-11-18 数据：当日 +1,376，总星 7,727</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t5-i2"><p>给编码智能体用的本地视频剪辑工具，42 个 FFmpeg 工具加 MCP 服务，Python。前一期也在榜上。</p><ul class="links"><li><a href="https://github.com/kajisho5/ffmpeg-skill" rel="noopener noreferrer" target="_blank">GitHub 仓库</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t5-i3">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t5-i3">
+                <span class="item-top">
+                  <span class="idx">04</span>
+                  <span class="item-title">google-research/paper-orchestra 第 4</span>
+                </span>
+                <span class="item-sum">2026-11-18 数据：当日 +1,175，总星 2,933</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t5-i3"><p>多智能体框架，自动撰写 AI 研究论文，Python。前一期也在榜上。</p><ul class="links"><li><a href="https://github.com/google-research/paper-orchestra" rel="noopener noreferrer" target="_blank">GitHub 仓库</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t5-i4">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t5-i4">
+                <span class="item-top">
+                  <span class="idx">05</span>
+                  <span class="item-title">DeanChensj/jiangshan-map 第 5</span>
+                </span>
+                <span class="item-sum">2026-11-18 数据：当日 +1,087，总星 7,620</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t5-i4"><p>“江山时序”中国历史交互地图时间轴，JavaScript。前一期也在榜上。</p><ul class="links"><li><a href="https://github.com/DeanChensj/jiangshan-map" rel="noopener noreferrer" target="_blank">GitHub 仓库</a></li></ul></div>
+          </article>
+          </div>
+        </section>
+        </div>
+      </section>
+      <section class="tab-panel" role="tabpanel" id="topic-0" aria-labelledby="tab-0">
+        <div class="panel-meta"><p>AI 行业简报 · 6 条</p><div><a href="reports/2026-11-18/brief.html">查看日报</a></div></div>
+        <div class="items">
+          <article class="item is-open" id="t0-i0">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t0-i0">
+                <span class="item-top">
+                  <span class="idx">01</span>
+                  <span class="item-title">英伟达第三财季营收 1158 亿美元，同比增 103%</span>
+                </span>
+                <span class="item-sum">高于分析师预期的约 1091 亿美元，数据中心收入 1076 亿美元，非 GAAP 每股收益 2.68 美元</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t0-i0"><p>公司给出第四季度 1300 亿美元（上下 3%）的指引，且不计入任何中国数据中心收入。代理 CEO Kress 在电话会上把 2028 财年增长预期从 70% 上调到约 75%，盘后股价涨约 2%。黄仁勋辞职后市场最担心的需求问题，这份财报暂时给了回答。</p><ul class="links"><li><a href="https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-third-quarter-fiscal-2027" rel="noopener noreferrer" target="_blank">NVIDIA 官方财报</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t0-i1">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t0-i1">
+                <span class="item-top">
+                  <span class="idx">02</span>
+                  <span class="item-title">加州总检察长起诉 OpenAI</span>
+                </span>
+                <span class="item-sum">指控其在缺乏安全措施和监控的情况下测试高风险模型</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t0-i1"><p>起诉书称 7 月实验性智能体攻击 Hugging Face 只是至少 80 起网络安全事件之一，依据是公共妨害法和《不正当竞争法》，要求民事罚款并强制改变经营做法。这是州政府第一次把“智能体失控”本身告上法庭，可能成为后续 AI 安全追责的样板。</p><ul class="links"><li><a href="https://oag.ca.gov/news/press-releases/it%E2%80%99s-golden-state-not-wild-west-attorney-general-bonta-sues-openai-over" rel="noopener noreferrer" target="_blank">加州司法部新闻稿</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t0-i2">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t0-i2">
+                <span class="item-top">
+                  <span class="idx">03</span>
+                  <span class="item-title">美国商务部发布远程访问 AI 芯片的临时最终规则</span>
+                </span>
+                <span class="item-sum">向受限国家企业提供超过 1200 万 TPP 的算力需要许可证，已有业务有 90 天补办期</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t0-i2"><p>全球任何数据中心都适用；向印尼、马来西亚、新加坡、泰国和巴西出口先进芯片也要许可证。这直接冲着中国企业经东南亚机房租用英伟达算力的做法，对国内大模型训练的算力来源影响不小。</p><ul class="links"><li><a href="https://thenextweb.com/news/us-remote-access-ai-chips-rule-china-singapore-malaysia" rel="noopener noreferrer" target="_blank">The Next Web</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t0-i3">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t0-i3">
+                <span class="item-top">
+                  <span class="idx">04</span>
+                  <span class="item-title">微软在 Ignite 上发布 6 款自研专用模型</span>
+                </span>
+                <span class="item-sum">覆盖编程、网络安全、图像和语音，MAI Code 2 称达到 GPT-6.1 Sol 98% 的编程表现、价格约 40%</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t0-i3"><p>对比 Claude Opus 5.5 是 96% 的表现、5% 的价格。Suleyman 还表示微软在通用前沿模型上进展明显。微软正在减少对 OpenAI 的依赖，并用价格直接竞争。</p><ul class="links"><li><a href="https://www.axios.com/2026/11/17/microsoft-ai-models-openai-anthropic-ignite" rel="noopener noreferrer" target="_blank">Axios</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t0-i4">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t0-i4">
+                <span class="item-top">
+                  <span class="idx">05</span>
+                  <span class="item-title">Isomorphic Labs 完成 50 亿美元 C 轮融资</span>
+                </span>
+                <span class="item-sum">Greenoaks 和红杉领投，a16z 参投，距上一轮 21 亿美元 B 轮只隔半年</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t0-i4"><p>资金用于扩展药物设计引擎 IsoDDE 和候选药物管线，公司称肿瘤和免疫方向的内部项目已有积极的临床前结果，正准备进入临床。这是生物科技领域规模最大的一笔风险融资之一。</p><ul class="links"><li><a href="https://www.prnewswire.com/news-releases/isomorphic-labs-announces-5-billion-series-c-funding-302942093.html" rel="noopener noreferrer" target="_blank">PR Newswire</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t0-i5">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t0-i5">
+                <span class="item-top">
+                  <span class="idx">06</span>
+                  <span class="item-title">Model ML 融资 2.5 亿美元，估值 15 亿美元</span>
+                </span>
+                <span class="item-sum">General Atlantic 和 QED 联合领投，用智能体替初级投行和咨询人员做财务模型、路演材料和尽调报告</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t0-i5"><p>公司称基于开源模型，成本约为前沿模型的 2%。垂直行业智能体用开源模型压成本，正在吸引大额资金。</p><ul class="links"><li><a href="https://techcrunch.com/2026/11/17/model-ml-raises-250m-to-automate-investment-banking-grunt-work/" rel="noopener noreferrer" target="_blank">TechCrunch</a></li></ul></div>
+          </article>
+        </div>
+      </section>
+      <section class="tab-panel" role="tabpanel" id="topic-1" aria-labelledby="tab-1">
+        <div class="panel-meta"><p>科技公司高管最新观点监测 · 6 条</p><div><a href="reports/2026-11-18/exec.html">查看日报</a></div></div>
+        <div class="items">
+          <article class="item is-open" id="t1-i0">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t1-i0">
+                <span class="item-top">
+                  <span class="idx">01</span>
+                  <span class="item-title">黄仁勋发长文认错，称董事会决定后愿回任；董事长当天说不打算让他回来</span>
+                </span>
+                <span class="item-sum">帖子约 82 万赞；董事长 Harvey Jones 在财报电话会开场说董事会不打算恢复他的 CEO 职务</span>
+                <span class="badges"><span class="badge">3 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t1-i0"><p>黄仁勋写道他没有达到英伟达对每个人的要求，个人生活上犯了严重错误，并说如果董事会认为回任对股东、员工、公司和美国最有利，他愿意回来。Paul Graham、Garry Tan、Tobi Lütke、Brett Adcock 等公开喊话让他回来，Sam Altman 回了一个绿心。</p><ul class="links"><li><a href="https://x.com/JensenHuang/status/2122726005219737649" rel="noopener noreferrer" target="_blank">黄仁勋原帖</a></li><li><a href="https://www.cnbc.com/2026/11/17/nvidia-nvda-earnings-report-q3-2027.html" rel="noopener noreferrer" target="_blank">CNBC 财报报道</a></li><li><a href="https://www.constellationr.com/insights/news/nvidia-posts-strong-q3-ups-q4-fiscal-2028-outlook-amid-huang-resignation" rel="noopener noreferrer" target="_blank">Constellation Research</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t1-i1">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t1-i1">
+                <span class="item-top">
+                  <span class="idx">02</span>
+                  <span class="item-title">英伟达三季度营收 1158 亿美元，临时 CEO 上调全年增长预期</span>
+                </span>
+                <span class="item-sum">数据中心 1076 亿美元，四季度指引约 1300 亿美元，回购授权再加 1500 亿美元</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t1-i1"><p>临时 CEO Colette Kress 说公司“business as usual”，并把 2028 财年增长预期从约 70% 上调到约 75%。</p><ul class="links"><li><a href="https://x.com/nvidianewsroom/status/2122805252533670248" rel="noopener noreferrer" target="_blank">英伟达官方账号</a></li><li><a href="https://www.coindesk.com/markets/2026/11/17/nvidia-tops-estimates-issues-strong-guidance-adds-usd150-billion-to-buyback-authorization" rel="noopener noreferrer" target="_blank">CoinDesk</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t1-i2">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t1-i2">
+                <span class="item-top">
+                  <span class="idx">03</span>
+                  <span class="item-title">OpenAI 发布 GPT-6.2 Astra 和 Sol，评价分化</span>
+                </span>
+                <span class="item-sum">系统卡称 Astra 是第一款达到“AI 自我改进”High 阈值的外部发布模型，两款的网络安全能力都到 Critical 阈值</span>
+                <span class="badges"><span class="badge">3 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t1-i2"><p>ARC Prize 称 Astra 是第一个在 ARC-AGI-3 拿到 100% 的模型；Ethan Mollick 等早期测试者则说它“often frustrating to use”。</p><ul class="links"><li><a href="https://x.com/sama/status/2122798039899263456" rel="noopener noreferrer" target="_blank">Sam Altman 原帖</a></li><li><a href="https://x.com/OpenAI/status/2122750124543926515" rel="noopener noreferrer" target="_blank">OpenAI 官方帖</a></li><li><a href="https://siliconangle.com/2026/11/17/openai-rolls-out-gpt-6-2-astra-for-professional-work-and-gpt-6-2-sol-for-everyday-work/" rel="noopener noreferrer" target="_blank">SiliconANGLE</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t1-i3">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t1-i3">
+                <span class="item-top">
+                  <span class="idx">04</span>
+                  <span class="item-title">微软 Ignite 开幕：Copilot 被定位为“the new OS for work”</span>
+                </span>
+                <span class="item-sum">纳德拉先为上周 Outlook 全球故障致歉，推出多人协作的 Copilot Workspaces</span>
+                <span class="badges"><span class="badge">3 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t1-i3"><p>Mustafa Suleyman 发布 7 款 MAI 模型，主打价格性能比，并开放部分模型权重授权。</p><ul class="links"><li><a href="https://www.geekwire.com/2026/satya-nadella-kicks-off-microsoft-ignite-with-an-outlook-outage-mea-culpa-we-have-work-to-do/" rel="noopener noreferrer" target="_blank">GeekWire</a></li><li><a href="https://blogs.microsoft.com/blog/2026/11/17/ignite-2026-building-the-frontier-ecosystem/" rel="noopener noreferrer" target="_blank">微软官方博客</a></li><li><a href="https://www.thurrott.com/a-i/microsoft-ai/343999/ignite-2026-microsoft-ai-announces-7-new-models" rel="noopener noreferrer" target="_blank">Thurrott</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t1-i4">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t1-i4">
+                <span class="item-top">
+                  <span class="idx">05</span>
+                  <span class="item-title">AMD 完成约 29 亿美元收购 Taalas；Isomorphic Labs 融资 50 亿美元</span>
+                </span>
+                <span class="item-sum">Taalas 是多伦多的推理芯片公司，这是 AMD 两天内第二笔收购</span>
+                <span class="badges"><span class="badge">3 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t1-i4"><p>哈萨比斯在 X 上宣布 Isomorphic Labs 融资 50 亿美元，称要加速“Solve All Disease”的目标。</p><ul class="links"><li><a href="https://x.com/LisaSu/status/2122699620417778149" rel="noopener noreferrer" target="_blank">苏姿丰原帖</a></li><li><a href="https://newsroom.amd.com/news/amd-completes-acquisition-taalas-advance-ai-inference-innovation/" rel="noopener noreferrer" target="_blank">AMD 新闻稿</a></li><li><a href="https://x.com/demishassabis/status/2122662616367853670" rel="noopener noreferrer" target="_blank">哈萨比斯原帖</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t1-i5">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t1-i5">
+                <span class="item-top">
+                  <span class="idx">06</span>
+                  <span class="item-title">深圳 APEC 峰会上，国内企业家谈 AI 落地难</span>
+                </span>
+                <span class="item-sum">雷军说 AI 投入巨大但“能落地的场景非常有限”，王兴兴说机器人模型泛化是当前最棘手的问题</span>
+                <span class="badges"><span class="badge">3 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t1-i5"><p>王兴兴还认为未来算力需求“可能远超目前绝大部分人的想象”。以上均为媒体转述。</p><ul class="links"><li><a href="https://www.jinguxun.com/article/news/11098147" rel="noopener noreferrer" target="_blank">金股讯</a></li><li><a href="https://finance.sina.com.cn/tech/roll/2026-11-17/doc-inizaitx7444812.shtml" rel="noopener noreferrer" target="_blank">新浪财经：雷军</a></li><li><a href="https://finance.sina.com.cn/tech/digi/2026-11-17/doc-iniyznqi7619750.shtml" rel="noopener noreferrer" target="_blank">新浪财经：王兴兴</a></li></ul></div>
+          </article>
+        </div>
+      </section>
+      <section class="tab-panel" role="tabpanel" id="topic-2" aria-labelledby="tab-2">
+        <div class="panel-meta"><p>PC行业动向每日洞察 · 6 条</p><div><a href="reports/2026-11-18/pc.html">查看日报</a></div></div>
+        <div class="items">
+          <article class="item is-open" id="t2-i0">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t2-i0">
+                <span class="item-top">
+                  <span class="idx">01</span>
+                  <span class="item-title">微软 Ignite 首日公布 Windows 安全更新</span>
+                </span>
+                <span class="item-sum">Windows 端点安全平台和管理员保护正式可用，baseline protection 进入 Insider 预览</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t2-i0"><p>端点安全平台让安全厂商把防护从内核态搬到用户态（CrowdStrike、ESET、Sophos 等已接入）；管理员保护让本地管理员默认以标准权限运行，需要提权时用 Windows Hello 验证、只给单个任务；baseline protection 把安全启动、VBS、内存完整性合成一个可验证的状态。</p><ul class="links"><li><a href="https://blogs.windows.com/windowsexperience/2026/11/17/microsoft-ignite-2026-building-windows-for-the-next-era-of-work/" rel="noopener noreferrer" target="_blank">Windows 体验博客</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t2-i1">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t2-i1">
+                <span class="item-top">
+                  <span class="idx">02</span>
+                  <span class="item-title">微软给 Windows 上的 AI 代理加隔离和管理，Copilot 本地操作仍是“即将推出”</span>
+                </span>
+                <span class="item-sum">MXC 加入进程容器改进（预览）和实验性本地微型虚拟机，Agent 365 策略扩展到 Windows 11 本地代理</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t2-i1"><p>Copilot+ PC 上的 Copilot 会拿到本地上下文、本地操作和本地模型，没给日期。RTX Spark、Ryzen AI Max 机器可以在 GitHub Copilot 和 VS Code 里预览把编码任务分给本地模型。Thurrott 判断代理要真正融进 Windows 11 最早也得 2027 年底。</p><ul class="links"><li><a href="https://www.thurrott.com/microsoft/343991/ignite-2026-agents-are-still-coming-to-windows-11" rel="noopener noreferrer" target="_blank">Thurrott</a></li><li><a href="https://blogs.windows.com/windowsexperience/2026/11/17/windows-security-at-ignite-2026-start-secure-protect-what-matters-prepare-for-ai/" rel="noopener noreferrer" target="_blank">Windows 安全博客</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t2-i2">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t2-i2">
+                <span class="item-top">
+                  <span class="idx">03</span>
+                  <span class="item-title">英伟达财报里的 PC 相关数字：Edge Computing 营收 82 亿美元，同比增 42%</span>
+                </span>
+                <span class="item-sum">RTX Spark 笔记本已由 ASUS、Dell、HP、Lenovo、Surface、MSI 出货，还推出 64GB 版 DGX Spark</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t2-i2"><p>整体营收 1,158 亿美元，同比增 103%，四季度指引 1,300 亿美元上下浮动 3%，不含中国数据中心收入。</p><ul class="links"><li><a href="https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-third-quarter-fiscal-2027" rel="noopener noreferrer" target="_blank">NVIDIA 官方财报</a></li><li><a href="https://www.wsj.com/tech/ai/nvidia-nvda-3q-2027-earnings-report-stock-6e642303" rel="noopener noreferrer" target="_blank">WSJ</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t2-i3">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t2-i3">
+                <span class="item-top">
+                  <span class="idx">04</span>
+                  <span class="item-title">MNT Reform Next 开始给众筹用户发货</span>
+                </span>
+                <span class="item-sum">开源模块化笔记本，12.5 英寸，可换 RCORE 处理器模块，无风扇，预装 Debian</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t2-i3"><p>首批 16 台顶配 Hyper 已发往 Crowd Supply。因为存储涨价，众筹时承诺的 SSD 容量砍了一半，主板加一个 2280 M.2 槽作补偿。现在只剩 16GB/256GB 基础版可预订，1,249 美元，2027 年 1 月 29 日发货。</p><ul class="links"><li><a href="https://www.notebookcheck.net/Modular-open-source-laptop-with-mechanical-keyboard-and-swappable-CPU-starts-shipping.1452234.0.html" rel="noopener noreferrer" target="_blank">Notebookcheck</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t2-i4">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t2-i4">
+                <span class="item-top">
+                  <span class="idx">05</span>
+                  <span class="item-title">ASUS TUF Gaming 16 2026 加入 RTX 5070 配置，但显卡功耗只有 85W</span>
+                </span>
+                <span class="item-sum">上一代 TUF A16 能跑到 115W，德国 1,849 欧元，新加坡 3,799 新元，比 5060 版贵 46%</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t2-i4"><p>德国和新加坡配 i7-14650HX，意大利配 Ryzen 7 H 253。85W 含 15W Dynamic Boost。</p><ul class="links"><li><a href="https://www.notebookcheck.net/Asus-releases-budget-gaming-laptop-internationally-with-165-Hz-display-and-GeForce-RTX-5070.1452636.0.html" rel="noopener noreferrer" target="_blank">Notebookcheck</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t2-i5">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t2-i5">
+                <span class="item-top">
+                  <span class="idx">06</span>
+                  <span class="item-title">Notebookcheck 对比：AMD 版 IdeaPad Vibe 14 续航不到 10 小时</span>
+                </span>
+                <span class="item-sum">同价位用 Intel Wildcat Lake 的 HP OmniBook 5 能到 24 小时（电池 60Wh 对 50Wh）</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t2-i5"><p>Ryzen AI 5 330 多核略强，单核略弱。结论是 AMD 在 800 美元档对标 MacBook Neo 的机器上能效吃亏。</p><ul class="links"><li><a href="https://www.notebookcheck.net/Affordable-laptops-AMD-s-solution-vs-Intel-Wildcat-Lake-lacks-efficiency.1452582.0.html" rel="noopener noreferrer" target="_blank">Notebookcheck</a></li></ul></div>
+          </article>
+        </div>
+      </section>
+      <section class="tab-panel" role="tabpanel" id="topic-3" aria-labelledby="tab-3">
+        <div class="panel-meta"><p>X TOP new idea · 5 条</p><div><a href="reports/2026-11-18/x-ideas.html">查看日报</a></div></div>
+        <div class="items">
+          <article class="item is-open" id="t3-i0">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t3-i0">
+                <span class="item-top">
+                  <span class="idx">01</span>
+                  <span class="item-title">OpenAI 发布 GPT-6.2 Astra 和 Sol，评价分化</span>
+                </span>
+                <span class="item-sum">官宣帖赞 2.8 万、浏览 438 万，是关注时间线当天互动最高的 AI 帖</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t3-i0"><p>X 新闻称 Astra 在 Artificial Analysis 智能指数排第二，仅次于 Claude Fable 5.2；Perplexity 的 WANDR 测评里 Astra 0.783、每任务约 12.54 美元，Sol 0.746、约 2.65 美元。Theo、Matt Shumer 初测表示失望。</p><ul class="links"><li><a href="https://x.com/OpenAI/status/2122750124543926515" rel="noopener noreferrer" target="_blank">OpenAI 原帖</a></li><li><a href="https://x.com/perplexity_ai/status/2122814545639223348" rel="noopener noreferrer" target="_blank">Perplexity WANDR 测评</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t3-i1">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t3-i1">
+                <span class="item-top">
+                  <span class="idx">02</span>
+                  <span class="item-title">Perplexity 把多模型编排做成产品和 API</span>
+                </span>
+                <span class="item-sum">上线 Multiagent 和 Orchestrator API，按能力、容量、延迟自动选模型，统一计费</span>
+                <span class="badges"><span class="badge">3 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t3-i1"><p>X 新闻称其年化收入已到 10 亿美元，8 月时超 7.5 亿，Srinivas 考虑最早 2027 年一季度 IPO。</p><ul class="links"><li><a href="https://x.com/perplexity_ai/status/2122728603909783741" rel="noopener noreferrer" target="_blank">Multiagent 原帖</a></li><li><a href="https://x.com/perplexity_ai/status/2122785177135096053" rel="noopener noreferrer" target="_blank">Orchestrator API 原帖</a></li><li><a href="https://x.com/i/trending/2122586650655981924" rel="noopener noreferrer" target="_blank">X 新闻</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t3-i2">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t3-i2">
+                <span class="item-top">
+                  <span class="idx">03</span>
+                  <span class="item-title">Cognition 推出 Devin Bots，软件工厂成融资热词</span>
+                </span>
+                <span class="item-sum">Devin Bots 拥有目标、指挥编程 Agent，可连续跑几天到几周</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t3-i2"><p>X 新闻称一家游戏工作室每周 PR 从 50 涨到 1900，内测用户每条消息合并的 PR 平均多 4.5 倍。Islo Labs 融 1500 万美元做企业软件工厂，Lemonade 也在投资者日发布了自己的软件工厂。</p><ul class="links"><li><a href="https://x.com/i/trending/2122746523968835595" rel="noopener noreferrer" target="_blank">X 新闻</a></li><li><a href="https://x.com/ScottWu46/status/2122776629995049377" rel="noopener noreferrer" target="_blank">Scott Wu 原帖</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t3-i3">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t3-i3">
+                <span class="item-top">
+                  <span class="idx">04</span>
+                  <span class="item-title">Agent 进入日常事务和支付，网站流量在流失</span>
+                </span>
+                <span class="item-sum">Gemini Tasks 免费扩展到 6 个国家的数亿用户；ChatGPT 用户可连接 Coinbase 账户建组合、下单</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t3-i3"><p>Brian Armstrong 说屏蔽 Agent 很短视。另一边 X 新闻引 MarketWatch：Reddit CEO 称 10 月每周搜索引荐少了 100 多万次。</p><ul class="links"><li><a href="https://x.com/sundarpichai/status/2122741728247738688" rel="noopener noreferrer" target="_blank">Sundar Pichai 原帖</a></li><li><a href="https://x.com/brian_armstrong/status/2122722840302465496" rel="noopener noreferrer" target="_blank">Brian Armstrong 原帖</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t3-i4">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t3-i4">
+                <span class="item-top">
+                  <span class="idx">05</span>
+                  <span class="item-title">大额资金流向 AI 制药、机器人和算力金融</span>
+                </span>
+                <span class="item-sum">Isomorphic Labs 50 亿美元 C 轮；Genesis AI 5 亿美元 A 轮；Compute Desk 4500 万美元种子轮</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t3-i4"><p>Isomorphic 20 多个项目推向临床，首批人体试验预计 2027 年。Genesis AI 估值 35 亿美元，做灵巧手机器人。Compute Desk 要把 GPU 算力做成可交易、可对冲的资产。</p><ul class="links"><li><a href="https://x.com/demishassabis/status/2122662616367853670" rel="noopener noreferrer" target="_blank">哈萨比斯原帖</a></li><li><a href="https://x.com/i/trending/2122788238524125212" rel="noopener noreferrer" target="_blank">X 新闻：Compute Desk</a></li></ul></div>
+          </article>
+        </div>
+      </section>
+      <section class="tab-panel" role="tabpanel" id="topic-4" aria-labelledby="tab-4">
+        <div class="panel-meta"><p>AI大拿最新言论追踪 · 6 条</p><div><a href="reports/2026-11-18/ai-leaders.html">查看日报</a></div></div>
+        <div class="items">
+          <article class="item is-open" id="t4-i0">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t4-i0">
+                <span class="item-top">
+                  <span class="idx">01</span>
+                  <span class="item-title">Altman 宣布 GPT-6.2 Sol 和 Astra 上线</span>
+                </span>
+                <span class="item-sum">说两款模型很省 token，特别推荐 Sol ultrafast 版本</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t4-i0"><p>按第三方整理的价格，Astra 的 API 是每百万 token 输入 8 美元、输出 40 美元，比上一代降了约 20%，Sol 是 2/10 美元。Artificial Analysis 把 Astra 排在其智能指数第二。</p><ul class="links"><li><a href="https://x.com/sama/status/2122798039899263456" rel="noopener noreferrer" target="_blank">Altman 原帖</a></li><li><a href="https://artificialanalysis.ai/articles/openai-has-the-2-model-in-the-intelligence-index-with-the-release-of-gpt-6-2-astra-and-gpt-6-2-sol" rel="noopener noreferrer" target="_blank">Artificial Analysis</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t4-i1">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t4-i1">
+                <span class="item-top">
+                  <span class="idx">02</span>
+                  <span class="item-title">Brockman：GPT-6.2 之外，OpenAI 往网络安全和政府防务铺产品</span>
+                </span>
+                <span class="item-sum">推出面向安全的 GPT-6 Cyber，另有面向北约及盟友网络防御的 OpenAI Daybreak</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t4-i1"><p>他还称合作方借 GPT-6 Cyber 在 Java 里找到一个重大安全漏洞（Patch the Planet 计划）。</p><ul class="links"><li><a href="https://x.com/gdb/status/2122819528858161322" rel="noopener noreferrer" target="_blank">Brockman 原帖</a></li><li><a href="https://x.com/gdb/status/2122740752556216515" rel="noopener noreferrer" target="_blank">Brockman 另一帖</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t4-i2">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t4-i2">
+                <span class="item-top">
+                  <span class="idx">03</span>
+                  <span class="item-title">Pichai：Gemini Tasks 在六个国家免费开放</span>
+                </span>
+                <span class="item-sum">由 Gemini 4 Hydrogen 驱动，可以代办日常杂事</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t4-i2"><p>他把路线概括为从“知道事情”到“做事情”再到“帮你省时间省钱”。</p><ul class="links"><li><a href="https://x.com/sundarpichai/status/2122741728247738688" rel="noopener noreferrer" target="_blank">Pichai 原帖</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t4-i3">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t4-i3">
+                <span class="item-top">
+                  <span class="idx">04</span>
+                  <span class="item-title">Srinivas：Perplexity 年化收入已过 10 亿美元</span>
+                </span>
+                <span class="item-sum">同时发布 Orchestrator API 并上线多智能体并行功能</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t4-i3"><p>他的判断是“用 AI 自动化科研是最好的算力投资”。</p><ul class="links"><li><a href="https://x.com/AravSrinivas/status/2122734422445445629" rel="noopener noreferrer" target="_blank">Srinivas 原帖</a></li><li><a href="https://x.com/AravSrinivas/status/2122786511829807229" rel="noopener noreferrer" target="_blank">Srinivas 另一帖</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t4-i4">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t4-i4">
+                <span class="item-top">
+                  <span class="idx">05</span>
+                  <span class="item-title">雷军在 APEC 上说 AI 投入很大、落地场景有限</span>
+                </span>
+                <span class="item-sum">坦言“大家也非常焦虑”，过去四年没看到革命性的 AI 产品</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t4-i4"><p>他透露小米具身智能机器人已在工厂连续工作 8 小时，中途自己去充电两次，并判断具身机器人的想象力会超过汽车产业。</p><ul class="links"><li><a href="https://www.thepaper.cn/newsDetail_forward_34492079" rel="noopener noreferrer" target="_blank">澎湃新闻</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t4-i5">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t4-i5">
+                <span class="item-top">
+                  <span class="idx">06</span>
+                  <span class="item-title">王传福回应“中国制造抢饭碗”：“我赢你输”不能长久</span>
+                </span>
+                <span class="item-sum">比亚迪累计生产 1900 万辆新能源车，出海要靠本土采购和本土研发</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t4-i5"><p>他说新能源车出海是填补当地空白，中国新能源车产量约占全球三分之二。</p><ul class="links"><li><a href="https://www.thepaper.cn/newsDetail_forward_34491951" rel="noopener noreferrer" target="_blank">澎湃新闻</a></li></ul></div>
+          </article>
+        </div>
+      </section>
+      <section class="tab-panel" role="tabpanel" id="topic-5" aria-labelledby="tab-5">
+        <div class="panel-meta"><p>GitHub 每日涨星 Top 50 · 5 条（数据截至 2026-11-18）</p><div><a class="trend-open" href="github-trend/index.html">打开 GitHub 涨星看板</a></div></div>
+        <div class="items">
+          <article class="item is-open" id="t5-i0">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t5-i0">
+                <span class="item-top">
+                  <span class="idx">01</span>
+                  <span class="item-title">dream-num/univer 第 1</span>
+                </span>
+                <span class="item-sum">2026-11-18 数据：当日 +1,776，总星 28,881</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t5-i0"><p>Univer Office SDK，把编辑、计算、协作和文件处理嵌进自己的产品，TypeScript。前一期也在榜上。 本期榜首涨幅 +1,776，第 50 名 +179；共 29 个仓库相对上一期新进榜。</p><ul class="links"><li><a href="https://github.com/dream-num/univer" rel="noopener noreferrer" target="_blank">GitHub 仓库</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t5-i1">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t5-i1">
+                <span class="item-top">
+                  <span class="idx">02</span>
+                  <span class="item-title">ag-ui-protocol/ag-ui 第 2</span>
+                </span>
+                <span class="item-sum">2026-11-18 数据：当日 +1,444，总星 19,976</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t5-i1"><p>AG-UI：智能体与用户交互协议，把智能体接入前端应用，TypeScript。前一期也在榜上。</p><ul class="links"><li><a href="https://github.com/ag-ui-protocol/ag-ui" rel="noopener noreferrer" target="_blank">GitHub 仓库</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t5-i2">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t5-i2">
+                <span class="item-top">
+                  <span class="idx">03</span>
+                  <span class="item-title">kajisho5/ffmpeg-skill 第 3</span>
+                </span>
+                <span class="item-sum">2026-11-18 数据：当日 +1,376，总星 7,727</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t5-i2"><p>给编码智能体用的本地视频剪辑工具，42 个 FFmpeg 工具加 MCP 服务，Python。前一期也在榜上。</p><ul class="links"><li><a href="https://github.com/kajisho5/ffmpeg-skill" rel="noopener noreferrer" target="_blank">GitHub 仓库</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t5-i3">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t5-i3">
+                <span class="item-top">
+                  <span class="idx">04</span>
+                  <span class="item-title">google-research/paper-orchestra 第 4</span>
+                </span>
+                <span class="item-sum">2026-11-18 数据：当日 +1,175，总星 2,933</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t5-i3"><p>多智能体框架，自动撰写 AI 研究论文，Python。前一期也在榜上。</p><ul class="links"><li><a href="https://github.com/google-research/paper-orchestra" rel="noopener noreferrer" target="_blank">GitHub 仓库</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t5-i4">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t5-i4">
+                <span class="item-top">
+                  <span class="idx">05</span>
+                  <span class="item-title">DeanChensj/jiangshan-map 第 5</span>
+                </span>
+                <span class="item-sum">2026-11-18 数据：当日 +1,087，总星 7,620</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t5-i4"><p>“江山时序”中国历史交互地图时间轴，JavaScript。前一期也在榜上。</p><ul class="links"><li><a href="https://github.com/DeanChensj/jiangshan-map" rel="noopener noreferrer" target="_blank">GitHub 仓库</a></li></ul></div>
+          </article>
+        </div>
+      </section>
+      </div>
+    </div>
+
+<footer>
+      <p>文字、要点和链接都写在这个页面里，打开即可阅读，不需要再加载数据。</p>
+      <p>往期：<a href="./2026-11-17.html">2026-11-17</a> · <a href="./2026-11-16.html">2026-11-16</a> · <a href="./2026-11-13.html">2026-11-13</a></p>
+      <p><a href="./index.html">返回主页</a>，查看全部日期。</p>
+    </footer>
+  </div>
+  <noscript>
+    <style>.tab-panel, .items, .detail { display: block !important; }</style>
+  </noscript>
+  <script>
+    (function () {
+      var tabs = document.querySelectorAll(".tab");
+      var panels = document.querySelectorAll(".tab-panel");
+
+      function topicTabIndex(topicIndex) {
+        for (var i = 0; i < tabs.length; i++) {
+          if (tabs[i].getAttribute("data-topic") === String(topicIndex)) return i;
+        }
+        return topicIndex + 1;
+      }
+
+      function selectTab(index, hashKind) {
+        if (index < 0 || index >= tabs.length) index = 0;
+        tabs.forEach(function (tab, i) {
+          var on = i === index;
+          tab.classList.toggle("is-active", on);
+          tab.setAttribute("aria-selected", on ? "true" : "false");
+          tab.tabIndex = on ? 0 : -1;
+        });
+        panels.forEach(function (p, i) {
+          p.classList.toggle("is-active", i === index);
+        });
+        if (hashKind === "topic" && history.replaceState) {
+          var tab = tabs[index];
+          var hash = "#all";
+          if (tab && tab.getAttribute("data-topic") != null) {
+            hash = "#topic-" + tab.getAttribute("data-topic");
+          }
+          history.replaceState(null, "", hash);
+        }
+        return index;
+      }
+
+      function setItem(article, open) {
+        article.classList.toggle("is-open", open);
+        var btn = article.querySelector(".item-btn");
+        if (btn) btn.setAttribute("aria-expanded", open ? "true" : "false");
+      }
+
+      function reveal(topicIndex, itemIndex, smooth) {
+        selectTab(topicTabIndex(topicIndex), "item");
+        var article = document.getElementById("t" + topicIndex + "-i" + itemIndex);
+        if (!article) return;
+        setItem(article, true);
+        article.classList.remove("flash");
+        void article.offsetWidth;
+        article.classList.add("flash");
+        article.scrollIntoView({ behavior: smooth ? "smooth" : "auto", block: "start" });
+        if (history.replaceState) history.replaceState(null, "", "#" + article.id);
+      }
+
+      tabs.forEach(function (tab, i) {
+        tab.addEventListener("click", function () { selectTab(i, "topic"); });
+        tab.addEventListener("keydown", function (e) {
+          var next = i;
+          if (e.key === "ArrowRight") next = (i + 1) % tabs.length;
+          else if (e.key === "ArrowLeft") next = (i - 1 + tabs.length) % tabs.length;
+          else if (e.key === "Home") next = 0;
+          else if (e.key === "End") next = tabs.length - 1;
+          else return;
+          e.preventDefault();
+          selectTab(next, "topic");
+          tabs[next].focus();
+        });
+      });
+
+      document.querySelectorAll("#panel-all .topic").forEach(function (topic) {
+        var btn = topic.querySelector(".topic-btn");
+        if (!btn) return;
+        btn.addEventListener("click", function () {
+          var open = !topic.classList.contains("is-open");
+          topic.classList.toggle("is-open", open);
+          btn.setAttribute("aria-expanded", open ? "true" : "false");
+        });
+      });
+
+      document.querySelectorAll(".item").forEach(function (article) {
+        var head = article.querySelector(".item-head") || article.querySelector(".item-btn");
+        if (!head) return;
+        head.addEventListener("click", function (e) {
+          if (e.target.closest && e.target.closest(".item-thumb")) return;
+          var open = !article.classList.contains("is-open");
+          setItem(article, open);
+        });
+      });
+
+      document.querySelectorAll(".top-card").forEach(function (card) {
+        card.addEventListener("click", function () {
+          reveal(Number(card.dataset.topic), Number(card.dataset.item), true);
+        });
+      });
+
+      document.querySelectorAll("img").forEach(function (img) {
+        img.addEventListener("error", function () {
+          var fig = img.closest("figure");
+          if (!fig || fig.dataset.broken) return;
+          fig.dataset.broken = "1";
+          var link = document.createElement("a");
+          link.href = img.getAttribute("src");
+          link.target = "_blank";
+          link.rel = "noopener noreferrer";
+          link.textContent = "原图无法内嵌显示，打开原图";
+          fig.replaceChildren(link);
+        });
+      });
+
+      var h = location.hash || "";
+      var item = h.match(/^#t(\d+)-i(\d+)$/);
+      var allHash = h.match(/^#(?:all|tab-all|panel-all)$/);
+      var topic = h.match(/^#(?:topic|tab|panel)-(\d+)$/);
+      if (item) reveal(Number(item[1]), Number(item[2]), false);
+      else if (allHash) selectTab(0, null);
+      else if (topic) selectTab(topicTabIndex(Number(topic[1])), null);
+      else selectTab(0, null);
+    })();
+    </script>
+</body>
+</html>
