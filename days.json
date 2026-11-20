@@ -2,14 +2,19 @@
  {
   "date": "2026-11-20",
   "topics": [
+   "AI 行业简报",
    "科技高管观点",
    "PC 行业动向",
    "Apple 洞察",
    "AI 大拿",
    "GitHub 涨星"
   ],
-  "summary": "Anthropic 上市首日收涨 17%，收盘 97.17 美元，Dario 在致辞里承诺按安全需要放慢训练和部署，同日美股大跌。OpenAI 发布 GPT-6.2 Astra 和 Sol，价格比上一代低 20%，Dario 在 CNBC 上说算力承诺宁可低估。PC 方面，Intel 18A 签下首个外部代工客户但未公开名字，AMD Zen 6 桌面版传闻推迟到 Computex 2027 之后。Apple 被曝在招聘自主 AI Agent 负责人，iWork 通过 MCP 向外部大模型开放。GitHub 涨星榜上 obra/superpowers 以 +2,029 居首。",
+  "summary": "Anthropic 周四在纳斯达克挂牌，开盘较发行价高 34%，收盘 97.17 美元，涨 17%，当天纳指跌 2.3%。Google 给 Mac 版 Gemini 加了 computer use，Meta 的 Muse 在员工测试中把不同账户的对话混在一起，花旗等银行把智能体代办的风险推给客户。OpenAI 发布 GPT-6.2 Astra 和 Sol，内部研究显示编程智能体完成 2 到 4 小时任务的成功率从 23% 升到 46%。PC 方面，Intel 18A 签下首个外部代工客户但未公开名字；Apple 被曝在招聘自主 AI Agent 负责人。GitHub 涨星榜上 obra/superpowers 以 +2,029 居首。",
   "reports": [
+   {
+    "name": "AI 行业简报",
+    "href": "reports/2026-11-20/brief.html"
+   },
    {
     "name": "科技高管观点",
     "href": "reports/2026-11-20/exec.html"
@@ -32,6 +37,13 @@
    }
   ],
   "lines": [
+   {
+    "topic": "AI 行业简报",
+    "text": "Anthropic 周四在纳斯达克挂牌，开盘较发行价高 34%，收盘 97.17 美元，涨 17%，当天纳指跌 2.3%。",
+    "image": "",
+    "image_src": "",
+    "link": "https://www.cbsnews.com/news/anthropic-ipo-nasdaq-debut-claude-ai/"
+   },
    {
     "topic": "科技高管观点",
     "text": "Anthropic 上市首日收涨 17%，Dario 致辞承诺按安全需要放慢训练和部署。",
