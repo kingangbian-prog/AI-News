@@ -1,5 +1,75 @@
 [
  {
+  "date": "2026-11-20",
+  "topics": [
+   "科技高管观点",
+   "PC 行业动向",
+   "Apple 洞察",
+   "AI 大拿",
+   "GitHub 涨星"
+  ],
+  "summary": "Anthropic 上市首日收涨 17%，收盘 97.17 美元，Dario 在致辞里承诺按安全需要放慢训练和部署，同日美股大跌。OpenAI 发布 GPT-6.2 Astra 和 Sol，价格比上一代低 20%，Dario 在 CNBC 上说算力承诺宁可低估。PC 方面，Intel 18A 签下首个外部代工客户但未公开名字，AMD Zen 6 桌面版传闻推迟到 Computex 2027 之后。Apple 被曝在招聘自主 AI Agent 负责人，iWork 通过 MCP 向外部大模型开放。GitHub 涨星榜上 obra/superpowers 以 +2,029 居首。",
+  "reports": [
+   {
+    "name": "科技高管观点",
+    "href": "reports/2026-11-20/exec.html"
+   },
+   {
+    "name": "PC 行业动向",
+    "href": "reports/2026-11-20/pc.html"
+   },
+   {
+    "name": "Apple 洞察",
+    "href": "reports/2026-11-20/apple.html"
+   },
+   {
+    "name": "AI 大拿",
+    "href": "reports/2026-11-20/ai-leaders.html"
+   },
+   {
+    "name": "GitHub 涨星",
+    "href": "github-trend/index.html"
+   }
+  ],
+  "lines": [
+   {
+    "topic": "科技高管观点",
+    "text": "Anthropic 上市首日收涨 17%，Dario 致辞承诺按安全需要放慢训练和部署。",
+    "image": "",
+    "image_src": "",
+    "link": "https://x.com/AnthropicAI/status/2123461658890686863"
+   },
+   {
+    "topic": "PC 行业动向",
+    "text": "Intel 18A 签下首个外部代工客户，客户未公开，微软成为 EMIB 封装首个公开客户。",
+    "image": "",
+    "image_src": "",
+    "link": "https://www.cnbc.com/2026/11/18/intel-first-18a-foundry-customer.html"
+   },
+   {
+    "topic": "Apple 洞察",
+    "text": "Bloomberg 称 Apple 在招聘自主 AI Agent 负责人，要求能像人一样用电脑。",
+    "image": "",
+    "image_src": "",
+    "link": "https://www.macrumors.com/2026/11/19/apple-ai-agent-development/"
+   },
+   {
+    "topic": "AI 大拿",
+    "text": "Dario 和 Daniela 上 CNBC，称算力承诺宁可低估，不够再去现货市场买。",
+    "image": "",
+    "image_src": "",
+    "link": "https://www.cnbc.com/2026/11/19/cnbc-exclusive-transcript-anthropic-co-founders-dario-and-daniela-amodei-speak-with-andrew-ross-sorkin-on-cnbc-today.html"
+   },
+   {
+    "topic": "GitHub 涨星",
+    "text": "obra/superpowers 当日 +2,029 居首，总星 322,044；本期 25 个仓库新进榜。",
+    "image": "",
+    "image_src": "",
+    "link": "https://github.com/obra/superpowers"
+   }
+  ]
+ },
+ {
   "date": "2026-11-19",
   "topics": [
    "AI 行业简报",
