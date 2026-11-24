@@ -1,0 +1,1704 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#f4f1ea">
+<meta name="description" content="旺财资讯 2026-11-24：各 bot 的当日输出。">
+<link rel="icon" type="image/png" href="assets/wangcai-dog.png">
+<title>旺财资讯 2026-11-24</title>
+<style>
+  :root {
+    color-scheme: light;
+    --ink: #1a1a1a;
+    --muted: #5c5c5c;
+    --faint: #5e5e5e;
+    --line: #ece8e1;
+    --bg: #f4f1ea;
+    --bg-top: #fbf8f2;
+    --soft: #f8f3ea;
+    --card: #fffaf4;
+    --shadow: 0 1px 0 rgba(255,255,255,.8) inset, 0 6px 16px rgba(40,30,10,.05);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background-color: var(--bg);
+    background-image: linear-gradient(180deg, #fbf8f2 0%, #f4f1ea 42%);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: var(--ink);
+    font-family: "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", "Microsoft YaHei", "Segoe UI", sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    overflow-wrap: break-word;
+  }
+  a { color: #0b57d0; }
+  a:hover { color: #0842a0; }
+  button, input { font-family: inherit; color: inherit; }
+  :focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+  .wrap {
+    width: min(880px, calc(100% - 32px));
+    margin: 0 auto;
+    padding: 32px 0 80px;
+  }
+  .date {
+    margin: 0 0 10px;
+    font-size: 13px;
+    letter-spacing: .08em;
+    color: var(--muted);
+  }
+  h1 {
+    margin: 0 0 14px;
+    font-size: clamp(28px, 5vw, 40px);
+    line-height: 1.22;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  .nowrap { white-space: nowrap; }
+  .summary {
+    margin: 0;
+    max-width: 68ch;
+    color: #2c2c2c;
+  }
+  .section-label {
+    margin: 40px 0 12px;
+    font-size: 13px;
+    font-weight: 650;
+    letter-spacing: .12em;
+    color: var(--muted);
+  }
+  .top-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+  }
+  .top-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    min-height: 168px;
+    padding: 16px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    text-align: left;
+    cursor: pointer;
+  }
+  .top-card:hover { border-color: #111; }
+  .rank {
+    font-variant-numeric: tabular-nums;
+    font-size: 12px;
+    letter-spacing: .04em;
+    color: var(--faint);
+  }
+  .top-t { font-size: 16px; font-weight: 680; line-height: 1.4; }
+  .top-s { font-size: 13px; line-height: 1.5; color: var(--muted); }
+  .top-go {
+    margin-top: auto;
+    font-size: 13px;
+    border-bottom: 1px solid #111;
+    line-height: 1.4;
+  }
+  .map-bar {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 4px 12px;
+    margin-top: 40px;
+  }
+  .map-bar .section-label { margin: 0; }
+  .text-btn {
+    border: 0;
+    background: transparent;
+    padding: 8px 0;
+    min-height: 44px;
+    cursor: pointer;
+    font-size: 14px;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .tree {
+    margin-top: 14px;
+    padding: 4px 0 4px 22px;
+    border-left: 2px solid var(--line);
+  }
+  .root {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 18px -22px;
+    padding: 10px 16px;
+    max-width: calc(100% + 22px);
+    border: 1.5px solid #111;
+    border-radius: 16px;
+    background: var(--card);
+    font-weight: 700;
+  }
+  .root-mark {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #111;
+    flex: none;
+  }
+  .topic { position: relative; margin: 0 0 12px; }
+  .topic::before {
+    content: "";
+    position: absolute;
+    left: -22px;
+    top: 28px;
+    width: 22px;
+    height: 2px;
+    background: var(--branch, #111);
+  }
+  .topic-head { display: flex; align-items: stretch; gap: 8px; }
+  .topic-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 64px;
+    padding: 12px 14px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    cursor: pointer;
+    text-align: left;
+  }
+  .topic-btn:hover,
+  .topic.is-open .topic-btn { border-color: #111; }
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--branch, #111);
+    flex: none;
+  }
+  .topic-copy { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+  .topic-name { font-size: 17px; font-weight: 700; line-height: 1.35; }
+  .topic-meta { font-size: 13px; color: var(--muted); }
+  .chev {
+    width: 8px;
+    height: 8px;
+    margin-left: auto;
+    border-right: 1.5px solid #111;
+    border-bottom: 1.5px solid #111;
+    transform: rotate(45deg) translateY(-2px);
+    flex: none;
+  }
+  .topic.is-open .topic-btn > .chev { transform: rotate(-135deg) translateY(-2px); }
+  .report {
+    align-self: center;
+    flex: none;
+    font-size: 13px;
+    padding: 8px 2px;
+    white-space: nowrap;
+  }
+  .items, .detail { display: none; }
+  .topic.is-open > .topic-head + .items,
+  .topic.is-open > .items { display: flex; }
+  .item.is-open .detail { display: block; }
+  .items {
+    margin: 8px 0 6px 8px;
+    padding-left: 14px;
+    border-left: 2px solid color-mix(in srgb, var(--branch, #111) 45%, #fff);
+    flex-direction: column;
+    gap: 8px;
+  }
+  .item { scroll-margin: 16px 0 24px; }
+  .item-btn {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    padding: 12px;
+    background: var(--soft);
+    border: 1px solid transparent;
+    border-radius: 12px;
+    cursor: pointer;
+    text-align: left;
+  }
+  .item-btn:hover { border-color: #ccc; }
+  .item.is-open .item-btn {
+    background: var(--card);
+    border-color: #111;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .item-top { display: flex; width: 100%; align-items: flex-start; gap: 8px; }
+  .idx {
+    font-variant-numeric: tabular-nums;
+    font-size: 12px;
+    color: var(--faint);
+    padding-top: 3px;
+    flex: none;
+  }
+  .item-title { font-weight: 680; font-size: 15.5px; line-height: 1.45; }
+  .item-top .chev { margin-top: 6px; }
+  .item.is-open .item-top .chev { transform: rotate(-135deg) translateY(-2px); }
+  .item-sum { font-size: 13.5px; color: var(--muted); padding-left: 24px; }
+  .badges { display: flex; flex-wrap: wrap; gap: 6px; padding-left: 24px; }
+  .badge {
+    font-size: 11px;
+    color: #333;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 1px 8px;
+  }
+  .detail {
+    padding: 4px 14px 14px;
+    border: 1px solid #111;
+    border-top: 0;
+    border-radius: 0 0 12px 12px;
+    background: var(--card);
+  }
+  .detail p { margin: 8px 0 12px; }
+  figure { margin: 0 0 12px; }
+  figure img {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: 440px;
+    object-fit: contain;
+    background: var(--soft);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+  }
+  figcaption { margin-top: 6px; font-size: 12px; color: var(--faint); }
+  .links {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .links a { font-size: 14px; }
+  .item.flash .item-btn { animation: flash 1.3s ease; }
+  @keyframes flash {
+    0% { background: #fff3cc; }
+    100% { background: var(--card); }
+  }
+  footer {
+    margin-top: 40px;
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 13px;
+  }
+  footer p { margin: 0 0 6px; }
+  @media (max-width: 720px) {
+    .wrap { width: min(100% - 28px, 880px); padding-top: 22px; }
+    .top-grid { grid-template-columns: 1fr; }
+    .top-card { min-height: 0; }
+    .topic-head { flex-direction: column; gap: 0; }
+    .report { align-self: flex-start; padding: 6px 2px 2px 4px; white-space: normal; }
+    h1 { letter-spacing: 0; }
+  }
+  @media print {
+    .text-btn, .top-go { display: none; }
+    .items, .detail { display: block !important; }
+    .top-card, .topic-btn, .item-btn { break-inside: avoid; }
+  }
+
+  /* tabs + card thumbs (overrides tree layout) */
+  .map-bar{align-items:flex-end}
+  .tab-list{
+    position:sticky;top:0;z-index:30;
+    display:flex;flex-wrap:nowrap;gap:0;
+    overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:thin;
+    background:var(--bg);
+    border-bottom:1px solid var(--line);
+    margin:0 0 18px;padding:8px 0 0;
+  }
+  .tab{
+    flex:none;font:inherit;font-size:15px;font-weight:650;
+    padding:10px 16px;border:0;border-bottom:2px solid transparent;
+    background:transparent;color:var(--muted);cursor:pointer;white-space:nowrap;
+  }
+  .tab.is-active,.tab[aria-selected="true"]{color:var(--ink);background:var(--card);border-bottom-color:#111;border-radius:10px 10px 0 0}
+  .tab-panel{display:none}
+  .tab-panel.is-active{display:block}
+  .panel-meta{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 16px;margin:0 0 12px;font-size:14px;color:var(--muted)}
+  .panel-meta a{font-weight:650}
+  a.trend-open{font-weight:700}
+  .items{display:flex;flex-direction:column;gap:8px;margin:0;padding:0;border:0}
+  .item-head{
+    display:flex;align-items:center;gap:10px;
+    padding:12px;background:var(--soft);border:1px solid transparent;border-radius:12px;cursor:pointer;
+  }
+  .item-head:hover{border-color:#ccc}
+  .item.is-open .item-head{background:var(--card);border-color:#111;border-bottom-left-radius:0;border-bottom-right-radius:0}
+  .item-btn{
+    flex:1;min-width:0;width:auto;
+    display:flex;flex-direction:column;align-items:flex-start;gap:4px;
+    padding:0;background:transparent;border:0;cursor:pointer;text-align:left;
+  }
+  .item-top{width:auto}
+  .item-thumb{flex:none;display:block;width:140px;height:86px;border-radius:8px;overflow:hidden;line-height:0}
+  .item-thumb img{display:block;width:140px;height:86px;object-fit:cover;background:#f3efe6;border-radius:8px}
+  .item-head>.chev{margin-left:0;margin-top:0;flex:none}
+  .item.is-open .item-head>.chev{transform:rotate(-135deg) translateY(-2px)}
+  .item{scroll-margin-top:72px}
+  .item.flash .item-head{animation:flash 1.3s ease}
+  .detail{display:none}
+  .item.is-open .detail{display:block}
+  @media (max-width:600px){
+    .item-thumb,.item-thumb img{width:84px;height:54px}
+    .tab{padding:10px 12px;font-size:14px}
+  }
+  @media print{
+    .tab-list{position:static}
+    .tab-panel,.detail,.items{display:block !important}
+  }
+
+
+
+
+  /* ALL tab: restore topic tree, scoped so other tabs stay unchanged */
+  #panel-all .tree{
+    margin-top:6px;padding:4px 0 4px 22px;
+    border-left:2px solid var(--line);
+  }
+  #panel-all .topic{position:relative;margin:0 0 12px}
+  #panel-all .topic::before{
+    content:"";position:absolute;left:-22px;top:28px;width:22px;height:2px;
+    background:var(--branch,#111);
+  }
+  #panel-all .topic-head{display:flex;align-items:stretch;gap:8px}
+  #panel-all .topic-links{
+    align-self:center;flex:none;display:flex;flex-direction:column;gap:4px;
+    padding:8px 2px;font-size:13px;white-space:nowrap;
+  }
+  #panel-all .topic-links a{font-weight:650}
+  #panel-all .items{
+    display:none;
+    margin:8px 0 6px 8px;padding-left:14px;
+    border-left:2px solid color-mix(in srgb, var(--branch,#111) 45%, #fffaf4);
+    flex-direction:column;gap:8px;
+  }
+  #panel-all .topic.is-open > .items{display:flex}
+  @media (max-width:720px){
+    #panel-all .topic-head{flex-direction:column;gap:0}
+    #panel-all .topic-links{align-self:flex-start;padding:6px 2px 2px 4px;white-space:normal}
+  }
+  @media print{
+    #panel-all .items,#panel-all .detail{display:block !important}
+  }
+
+
+  /* tabs + card thumbs (overrides tree layout) */
+  .map-bar{align-items:flex-end}
+  .tab-list{
+    position:sticky;top:0;z-index:30;
+    display:flex;flex-wrap:nowrap;gap:0;
+    overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:thin;
+    background:var(--bg);
+    border-bottom:1px solid var(--line);
+    margin:0 0 18px;padding:8px 0 0;
+  }
+  .tab{
+    flex:none;font:inherit;font-size:15px;font-weight:650;
+    padding:10px 16px;border:0;border-bottom:2px solid transparent;
+    background:transparent;color:var(--muted);cursor:pointer;white-space:nowrap;
+  }
+  .tab.is-active,.tab[aria-selected="true"]{color:var(--ink);background:var(--card);border-bottom-color:#111;border-radius:10px 10px 0 0}
+  .tab-panel{display:none}
+  .tab-panel.is-active{display:block}
+  .panel-meta{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 16px;margin:0 0 12px;font-size:14px;color:var(--muted)}
+  .panel-meta a{font-weight:650}
+  a.trend-open{font-weight:700}
+  .items{display:flex;flex-direction:column;gap:8px;margin:0;padding:0;border:0}
+  .item-head{
+    display:flex;align-items:center;gap:10px;
+    padding:12px;background:var(--soft);border:1px solid transparent;border-radius:12px;cursor:pointer;
+  }
+  .item-head:hover{border-color:#ccc}
+  .item.is-open .item-head{background:var(--card);border-color:#111;border-bottom-left-radius:0;border-bottom-right-radius:0}
+  .item-btn{
+    flex:1;min-width:0;width:auto;
+    display:flex;flex-direction:column;align-items:flex-start;gap:4px;
+    padding:0;background:transparent;border:0;cursor:pointer;text-align:left;
+  }
+  .item-top{width:auto}
+  .item-thumb{flex:none;display:block;width:140px;height:86px;border-radius:8px;overflow:hidden;line-height:0}
+  .item-thumb img{display:block;width:140px;height:86px;object-fit:cover;background:#f3efe6;border-radius:8px}
+  .item-head>.chev{margin-left:0;margin-top:0;flex:none}
+  .item.is-open .item-head>.chev{transform:rotate(-135deg) translateY(-2px)}
+  .item{scroll-margin-top:72px}
+  .item.flash .item-head{animation:flash 1.3s ease}
+  .detail{display:none}
+  .item.is-open .detail{display:block}
+  @media (max-width:600px){
+    .item-thumb,.item-thumb img{width:84px;height:54px}
+    .tab{padding:10px 12px;font-size:14px}
+  }
+  @media print{
+    .tab-list{position:static}
+    .tab-panel,.detail,.items{display:block !important}
+  }
+/* ALL tab: restore topic tree, scoped so other tabs stay unchanged */
+  #panel-all .tree{
+    margin-top:6px;padding:4px 0 4px 22px;
+    border-left:2px solid var(--line);
+  }
+  #panel-all .topic{position:relative;margin:0 0 12px}
+  #panel-all .topic::before{
+    content:"";position:absolute;left:-22px;top:28px;width:22px;height:2px;
+    background:var(--branch,#111);
+  }
+  #panel-all .topic-head{display:flex;align-items:stretch;gap:8px}
+  #panel-all .topic-links{
+    align-self:center;flex:none;display:flex;flex-direction:column;gap:4px;
+    padding:8px 2px;font-size:13px;white-space:nowrap;
+  }
+  #panel-all .topic-links a{font-weight:650}
+  #panel-all .items{
+    display:none;
+    margin:8px 0 6px 8px;padding-left:14px;
+    border-left:2px solid color-mix(in srgb, var(--branch,#111) 45%, #fffaf4);
+    flex-direction:column;gap:8px;
+  }
+  #panel-all .topic.is-open > .items{display:flex}
+  @media (max-width:720px){
+    #panel-all .topic-head{flex-direction:column;gap:0}
+    #panel-all .topic-links{align-self:flex-start;padding:6px 2px 2px 4px;white-space:normal}
+  }
+  @media print{
+    #panel-all .items,#panel-all .detail{display:block !important}
+  }
+
+
+.wc-dog{display:inline-block;width:1.15em;height:1.15em;vertical-align:-0.18em;margin-right:.3em}
+</style>
+</head>
+
+
+
+<body>
+  <div class="wrap">
+    <header class="mast">
+      <p class="home-link" style="margin:0 0 14px;font-size:14px"><a href="./index.html">← 全部日期</a></p>
+      <p class="date">2026-11-24</p>
+      <h1><img class="wc-dog" src="assets/wangcai-dog.png" alt="" aria-hidden="true">旺财资讯 <span class="nowrap">2026-11-24</span></h1>
+    </header>
+
+        <div class="map-bar">
+      <h2 class="section-label">资讯 · 5 条线 · 32 条要点</h2>
+    </div>
+
+    <div class="tabs" id="tabs">
+      <div class="tab-list" role="tablist" aria-label="资讯线">
+        <button type="button" class="tab is-active" role="tab" id="tab-all" aria-selected="true" aria-controls="panel-all" tabindex="0">ALL</button>
+        <button type="button" class="tab" role="tab" id="tab-0" data-topic="0" aria-selected="false" aria-controls="topic-0" tabindex="-1">AI 行业简报</button>
+        <button type="button" class="tab" role="tab" id="tab-1" data-topic="1" aria-selected="false" aria-controls="topic-1" tabindex="-1">科技高管观点</button>
+        <button type="button" class="tab" role="tab" id="tab-2" data-topic="2" aria-selected="false" aria-controls="topic-2" tabindex="-1">PC 行业动向</button>
+        <button type="button" class="tab" role="tab" id="tab-3" data-topic="3" aria-selected="false" aria-controls="topic-3" tabindex="-1">AI 大拿</button>
+        <button type="button" class="tab" role="tab" id="tab-4" data-topic="4" aria-selected="false" aria-controls="topic-4" tabindex="-1">GitHub 涨星</button>
+      </div>
+      <div class="tab-panels">
+      <section class="tab-panel is-active" role="tabpanel" id="panel-all" aria-labelledby="tab-all">
+        <div class="tree" id="tree">
+        <section class="topic is-open" id="all-topic-0" style="--branch:#0f766e">
+          <div class="topic-head">
+            <button type="button" class="topic-btn" aria-expanded="true" aria-controls="all-items-0">
+              <span class="dot" aria-hidden="true"></span>
+              <span class="topic-copy">
+                <span class="topic-name">AI 行业简报</span>
+                <span class="topic-meta">AI 行业早间简报 · 7 条</span>
+              </span>
+              <span class="chev" aria-hidden="true"></span>
+            </button>
+            <div class="topic-links"><a class="report" href="reports/2026-11-24/brief.html">查看日报</a></div>
+          </div>
+          <div class="items" id="all-items-0">
+          <article class="item is-open" id="all-t0-i0">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t0-i0">
+                <span class="item-top">
+                  <span class="idx">01</span>
+                  <span class="item-title">英伟达董事会让黄仁勋复任 CEO，股价单日涨 30%</span>
+                </span>
+                <span class="item-sum">董事会周一宣布黄仁勋即日起复任 CEO、总裁和董事，距他辞职 11 天，称复任前听取了美国政府高层意见</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t0-i0"><p>CNN 报道英伟达当天收涨 30%，是 2003 年以来最大单日涨幅，市值增加约 9520 亿美元；特朗普表示他直接和董事会谈过此事。简报认为连跌七周的龙头暂时止血，治理问题和政治介入的疑问还在。</p><ul class="links"><li><a href="https://www.cnn.com/2026/11/23/tech/nvidia-reinstates-jensen-huang-ceo" rel="noopener noreferrer" target="_blank">CNN</a></li><li><a href="https://www.engadget.com/2324897/nvidia-reinstates-jensen-huang-as-ceo-and-president-effective-immediately/" rel="noopener noreferrer" target="_blank">Engadget</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t0-i1">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t0-i1">
+                <span class="item-top">
+                  <span class="idx">02</span>
+                  <span class="item-title">智谱发布 GLM-5.4，首个 Loop Transformer 旗舰</span>
+                </span>
+                <span class="item-sum">在 GLM-5 基座上把 28 层在一次前向中跑两遍，规模约 750B，智谱称智能水平接近 2T-3T 参数模型</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t0-i1"><p>目前只在 GLM Coding Plan、ZCode 和 Z.ai Chat 中提供，API 要等安全评估后开放，还没有完整基准表。简报认为循环复用层换参数规模，是降低大模型部署成本的一条新路。</p><ul class="links"><li><a href="https://docs.z.ai/guides/llm/glm-5.4" rel="noopener noreferrer" target="_blank">Z.ai 官方文档</a></li><li><a href="https://www.marktechpost.com/2026/11/23/zai-glm-5-4-loop-transformer/" rel="noopener noreferrer" target="_blank">MarkTechPost</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t0-i2">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t0-i2">
+                <span class="item-top">
+                  <span class="idx">03</span>
+                  <span class="item-title">OpenAI 和思科开源 Linux 防护运行时 Shirudo</span>
+                </span>
+                <span class="item-sum">在补丁上线前给运行中的 Linux 服务加一层临时“护盾”，拦截漏洞利用，不需要重启</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t0-i2"><p>OpenAI 称在受控测试中，Codex 生成的护盾挡住了针对 Elasticsearch 的攻击。简报指出 AI 找漏洞越来越快，补丁跟不上的窗口期成了新的防守重点。</p><ul class="links"><li><a href="https://openai.com/index/introducing-shirudo/" rel="noopener noreferrer" target="_blank">OpenAI 原文</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t0-i3">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t0-i3">
+                <span class="item-top">
+                  <span class="idx">04</span>
+                  <span class="item-title">OpenAI 推出 OpenWorks，出钱请本地专家帮小商户用 AI</span>
+                </span>
+                <span class="item-sum">资助一批“OpenWorks Partners”免费上门帮小商户做获客、投广告或搭建自用工具，试点在 20 个美国城市上线</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t0-i3"><p>简报称这是 OpenAI 把 AI 推向长尾中小企业的一次线下渠道尝试。</p><ul class="links"><li><a href="https://openai.com/openworks/" rel="noopener noreferrer" target="_blank">OpenAI OpenWorks</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t0-i4">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t0-i4">
+                <span class="item-top">
+                  <span class="idx">05</span>
+                  <span class="item-title">蚂蚁开源医疗大模型 LingSante</span>
+                </span>
+                <span class="item-sum">阿福健康 App 上线基于 Ling 基座的模型家族，首批 3.1-air-VL 和 3.1-flash 以 MIT 协议开放权重</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t0-i4"><p>其余模型分批发布，模型卡写明不得用于独立诊断或治疗决策。简报认为国内大厂在医疗这类高门槛垂直领域开始走开源路线。</p><ul class="links"><li><a href="https://www.unite.ai/ant-group-begins-open-weight-release-of-lingsante-medical-ai-models/" rel="noopener noreferrer" target="_blank">Unite.AI</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t0-i5">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t0-i5">
+                <span class="item-top">
+                  <span class="idx">06</span>
+                  <span class="item-title">推理算力创业公司 Marlowe 种子轮融资 2.77 亿美元</span>
+                </span>
+                <span class="item-sum">Accel 领投，估值 11.5 亿美元，专做推理数据中心，首批用 AMD 和 Etched 的芯片而不是英伟达 GPU</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t0-i5"><p>创始人是 Convoy 联合创始人 Dan Lewis 和前微软 AI 负责人 Kutta Srinivasan。简报认为种子轮就成独角兽，说明资本在押注推理需求和非英伟达芯片。</p><ul class="links"><li><a href="https://www.geekwire.com/2026/beyond-nvidia-convoy-co-founder-and-former-microsoft-leader-raise-277m-to-rethink-ai-infrastructure/" rel="noopener noreferrer" target="_blank">GeekWire</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t0-i6">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t0-i6">
+                <span class="item-top">
+                  <span class="idx">07</span>
+                  <span class="item-title">Applied Digital 签下 54 亿美元 AI 数据中心租约</span>
+                </span>
+                <span class="item-sum">与一家投资级超大云厂商签 150MW、18 年租约，基础期收入约 54 亿美元，含续约可达 127 亿美元</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t0-i6"><p>公司合同基础期收入因此超过 410 亿美元，且定价高于以往。简报指出英伟达股价大跌期间，大厂对数据中心的长期锁定需求没有减弱。</p><ul class="links"><li><a href="https://ir.applieddigital.com/news-events/press-releases/detail/165/applied-digital-secures-new-150-mw-18-year-lease-with" rel="noopener noreferrer" target="_blank">Applied Digital 公告</a></li></ul></div>
+          </article>
+          </div>
+        </section>
+        <section class="topic is-open" id="all-topic-1" style="--branch:#b45309">
+          <div class="topic-head">
+            <button type="button" class="topic-btn" aria-expanded="true" aria-controls="all-items-1">
+              <span class="dot" aria-hidden="true"></span>
+              <span class="topic-copy">
+                <span class="topic-name">科技高管观点</span>
+                <span class="topic-meta">科技公司高管最新观点监测 · 6 条</span>
+              </span>
+              <span class="chev" aria-hidden="true"></span>
+            </button>
+            <div class="topic-links"><a class="report" href="reports/2026-11-24/exec.html">查看日报</a></div>
+          </div>
+          <div class="items" id="all-items-1">
+          <article class="item is-open" id="all-t1-i0">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t1-i0">
+                <span class="item-top">
+                  <span class="idx">01</span>
+                  <span class="item-title">NVIDIA 董事会恢复黄仁勋总裁、CEO 和董事职务</span>
+                </span>
+                <span class="item-sum">11-23 21:58 由 NVIDIA 官方账号宣布，X 新闻摘要称董事会与黄仁勋及美国政府高层沟通后一致决定</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t1-i0"><p>当天 NVIDIA 股价涨超 30%，纳指涨约 6%。马斯克、Sam Altman、Aravind Srinivas 都公开表态欢迎。日报注明黄仁勋本人在 X 上没有发帖，复职消息来自官方账号。</p><ul class="links"><li><a href="https://x.com/nvidianewsroom" rel="noopener noreferrer" target="_blank">NVIDIA 官方账号</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t1-i1">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t1-i1">
+                <span class="item-top">
+                  <span class="idx">02</span>
+                  <span class="item-title">Anthropic 放出 VP ≠ VNP 论文和 Lean 4 证明，作者栏写 Claude</span>
+                </span>
+                <span class="item-sum">README 称结果由内部研究用 Claude 模型发现，论文和形式化都由 AI 写成，没有人类数学家检查过</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t1-i1"><p>这是 P vs NP 的代数版本（Valiant 1979），不解决 P vs NP 本身。</p><ul class="links"><li><a href="https://github.com/anthropics/formal-math/tree/main/vp-vnp" rel="noopener noreferrer" target="_blank">GitHub 仓库</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t1-i2">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t1-i2">
+                <span class="item-top">
+                  <span class="idx">03</span>
+                  <span class="item-title">Anthropic 发布 Claude Ship（beta）</span>
+                </span>
+                <span class="item-sum">Claude 审 PR、修失败的检查，并按仓库里写的团队策略自动批准合并</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t1-i2"><p>Boris Cherny 说一年前 Opus 4.5 写了他 100% 的代码，“Shipping PRs hasn’t caught up”。日报认为瓶颈从写代码移到了审代码和合并。</p><ul class="links"><li><a href="https://claude.com/resources/articles/introducing-claude-ship" rel="noopener noreferrer" target="_blank">官方博客</a></li><li><a href="https://x.com/bcherny/status/2124961485801836573" rel="noopener noreferrer" target="_blank">Cherny 原帖</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t1-i3">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t1-i3">
+                <span class="item-top">
+                  <span class="idx">04</span>
+                  <span class="item-title">OpenAI 与思科开源 Shirudo，同日披露 GPT-6 Cyber 的内核漏洞工作</span>
+                </span>
+                <span class="item-sum">智能体用 eBPF 动态写防护规则，在补丁上线前挡住漏洞利用</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t1-i3"><p>OpenAI 研究员介绍 GPT-6 Cyber 一次运行验证 948 个可提权的 Linux 内核漏洞并生成补丁。</p><ul class="links"><li><a href="https://x.com/gdb/status/2124985602722676794" rel="noopener noreferrer" target="_blank">Brockman 原帖</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t1-i4">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t1-i4">
+                <span class="item-top">
+                  <span class="idx">05</span>
+                  <span class="item-title">Gemini 4 Neon 口碑在 X 上继续发酵</span>
+                </span>
+                <span class="item-sum">Aravind Srinivas 称 Neon 在 Perplexity 上的用户自选用量每天复合增长 10.6%（搜索）和 15.0%（智能体任务）</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t1-i4"><p>他说主要是用户从 Opus 5.5 和 Sol 6.2 切过来。Vercel CEO Guillermo Rauch 让智能体分析自己全部编程会话做个人评测，结果选了 Neon。</p><ul class="links"><li><a href="https://x.com/AravSrinivas/status/2124765417378099414" rel="noopener noreferrer" target="_blank">Srinivas 原帖</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t1-i5">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t1-i5">
+                <span class="item-top">
+                  <span class="idx">06</span>
+                  <span class="item-title">DeepMind 用多组 Gemini 4 智能体协作改进量子算法</span>
+                </span>
+                <span class="item-sum">每个结果都用 Lean 证明正确，宣称部分模拟成本最多降到原来的十分之一，并开源 Lean 库</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t1-i5"><p>日报列入“AI 技术人员的论文与观点”一节，博客标题为《Finding faster quantum algorithms with agents and formal verification》。</p><ul class="links"><li><a href="https://deepmind.google/blog/finding-faster-quantum-algorithms-with-agents-and-formal-verification/" rel="noopener noreferrer" target="_blank">DeepMind 博客</a></li><li><a href="https://x.com/GoogleDeepMind/status/2124911073266413634" rel="noopener noreferrer" target="_blank">DeepMind 原帖</a></li></ul></div>
+          </article>
+          </div>
+        </section>
+        <section class="topic is-open" id="all-topic-2" style="--branch:#1d4ed8">
+          <div class="topic-head">
+            <button type="button" class="topic-btn" aria-expanded="true" aria-controls="all-items-2">
+              <span class="dot" aria-hidden="true"></span>
+              <span class="topic-copy">
+                <span class="topic-name">PC 行业动向</span>
+                <span class="topic-meta">PC行业动向每日洞察 · 7 条</span>
+              </span>
+              <span class="chev" aria-hidden="true"></span>
+            </button>
+            <div class="topic-links"><a class="report" href="reports/2026-11-24/pc.html">查看日报</a></div>
+          </div>
+          <div class="items" id="all-items-2">
+          <article class="item is-open" id="all-t2-i0">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t2-i0">
+                <span class="item-top">
+                  <span class="idx">01</span>
+                  <span class="item-title">TCL 华星展出毫瓦级 14 英寸屏的联想 Yoga Pro 原型机</span>
+                </span>
+                <span class="item-sum">1920×1200、自适应 120Hz、300 到 400 尼特，模组功耗不到 1W</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t2-i0"><p>常见 14 英寸 IPS 屏是 3 到 4.5W。来源是 DTC 2026 现场报道。</p><ul class="links"><li><a href="https://www.notebookcheck.net/New-Lenovo-Yoga-Pro-laptop-prototype-debuts-with-ultra-low-power-14-inch-120Hz-display.1457618.0.html" rel="noopener noreferrer" target="_blank">Notebookcheck</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t2-i1">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t2-i1">
+                <span class="item-top">
+                  <span class="idx">02</span>
+                  <span class="item-title">NVIDIA 董事会恢复黄仁勋职务，Colette Kress 回任 CFO</span>
+                </span>
+                <span class="item-sum">Harvey Jones 继续任董事长，相关调查仍在进行，美股开盘涨约 32%</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t2-i1"><p>这推翻了 11 月 19 日日报里董事会“不会让他回任”的表态，市值增加超 1 万亿美元。</p><ul class="links"><li><a href="https://www.neowin.net/news/nvidia-board-reinstates-jensen-huang-as-president--ceo-and-explains-why/" rel="noopener noreferrer" target="_blank">Neowin</a></li><li><a href="https://www.ithome.com/1/031/217.htm" rel="noopener noreferrer" target="_blank">IT之家</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t2-i2">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t2-i2">
+                <span class="item-top">
+                  <span class="idx">03</span>
+                  <span class="item-title">Windows 11 的 Wi-Fi 驱动将在 2027 年移出内核态</span>
+                </span>
+                <span class="item-sum">微软产品经理在 Ignite 的驱动质量计划分会上确认，UMDF 要为此加 DMA 支持</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t2-i2"><p>目的是驱动崩了只断网、不蓝屏。</p><ul class="links"><li><a href="https://www.notebookcheck.net/Windows-11-to-move-Wi-Fi-drivers-out-of-the-kernel-in-2027.1457987.0.html" rel="noopener noreferrer" target="_blank">Notebookcheck</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t2-i3">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t2-i3">
+                <span class="item-top">
+                  <span class="idx">04</span>
+                  <span class="item-title">Windows Server 2028 默认移除 WoW64</span>
+                </span>
+                <span class="item-sum">32 位程序开箱跑不了，管理员可通过按需功能（FOD）装回</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t2-i3"><p>微软说 Windows 11 暂不受影响。</p><ul class="links"><li><a href="https://www.neowin.net/news/windows-server-2028-dropping-support-for-32-bit-apps-wow64-will-be-available-as-fod/" rel="noopener noreferrer" target="_blank">Neowin</a></li><li><a href="https://www.windowslatest.com/2026/11/23/32-bit-apps-days-are-numbered-as-microsoft-strips-support-bit-by-bit-starting-with-windows-server-2028-but-windows-11-is-safe-for-now/" rel="noopener noreferrer" target="_blank">Windows Latest</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t2-i4">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t2-i4">
+                <span class="item-top">
+                  <span class="idx">05</span>
+                  <span class="item-title">WinUI 3 原生搜索推到正式版 Windows 11</span>
+                </span>
+                <span class="item-sum">Windows Latest 测得占用约 26MB 内存，但任务栏移到顶部或侧边时搜索面板仍从底部弹出</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t2-i4"><p>微软产品设计副总裁 Diego Baca 回复“正在修”，没给时间。</p><ul class="links"><li><a href="https://www.windowslatest.com/2026/11/23/microsoft-built-a-near-perfect-native-winui-search-for-windows-11-but-it-ignores-your-moved-taskbar-and-its-design-vp-says-a-fix-is-coming-with-no-date/" rel="noopener noreferrer" target="_blank">Windows Latest</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t2-i5">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t2-i5">
+                <span class="item-top">
+                  <span class="idx">06</span>
+                  <span class="item-title">三星推出 27 英寸 Odyssey G6，号称首款 1100Hz 显示器</span>
+                </span>
+                <span class="item-sum">可在 HD 1100Hz 和 QHD 600Hz 间切换，Fast IPS，美国售价 899.99 美元</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t2-i5"><p>双模式和 600Hz 不支持 macOS。</p><ul class="links"><li><a href="https://www.neowin.net/news/samsung-launches-insane-odyssey-g6-monitor-with-1100hz-refresh-rate/" rel="noopener noreferrer" target="_blank">Neowin</a></li><li><a href="https://www.ithome.com/1/031/231.htm" rel="noopener noreferrer" target="_blank">IT之家</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t2-i6">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t2-i6">
+                <span class="item-top">
+                  <span class="idx">07</span>
+                  <span class="item-title">鸿蒙 HarmonyOS 装机量 11 月 16 日突破 1 亿台</span>
+                </span>
+                <span class="item-sum">数据来自奇妙工具箱，“我的华为”App 已上线一亿用户纪念章</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t2-i6"><p>日报注明要等华为官方公布后才开放领取。</p><ul class="links"><li><a href="https://www.ithome.com/1/031/182.htm" rel="noopener noreferrer" target="_blank">IT之家</a></li></ul></div>
+          </article>
+          </div>
+        </section>
+        <section class="topic is-open" id="all-topic-3" style="--branch:#6d28d9">
+          <div class="topic-head">
+            <button type="button" class="topic-btn" aria-expanded="true" aria-controls="all-items-3">
+              <span class="dot" aria-hidden="true"></span>
+              <span class="topic-copy">
+                <span class="topic-name">AI 大拿</span>
+                <span class="topic-meta">AI大拿言论日报 · 7 条</span>
+              </span>
+              <span class="chev" aria-hidden="true"></span>
+            </button>
+            <div class="topic-links"><a class="report" href="reports/2026-11-24/ai-leaders.html">查看日报</a></div>
+          </div>
+          <div class="items" id="all-items-3">
+          <article class="item is-open" id="all-t3-i0">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t3-i0">
+                <span class="item-top">
+                  <span class="idx">01</span>
+                  <span class="item-title">黄仁勋复任 CEO，称“怀着最大的谦卑和新的投入”</span>
+                </span>
+                <span class="item-sum">董事会 23 日晚一致投票，复任前咨询过美国政府高层，认定不构成国家安全风险</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t3-i0"><p>英伟达当天开盘涨约 30%，此前七周累计跌 46%。几天前董事会还在财报会上说不打算让他回来，这次转向和政府表态直接相关，摘要认为后续治理和出口管制方面的追问不会停。</p><ul class="links"><li><a href="https://nvidianews.nvidia.com/news/nvidia-board-reinstates-jensen-huang-as-president-ceo-and-board-director" rel="noopener noreferrer" target="_blank">英伟达公告</a></li><li><a href="https://techcrunch.com/2026/11/23/nvidia-reverses-course-and-brings-jensen-huang-back-as-ceo/" rel="noopener noreferrer" target="_blank">TechCrunch</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t3-i1">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t3-i1">
+                <span class="item-top">
+                  <span class="idx">02</span>
+                  <span class="item-title">Musk 称“The mistake has been corrected”</span>
+                </span>
+                <span class="item-sum">公告发出后连发两条，22:28 “It is done”，22:41 转发公告</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t3-i1"><p>他此前签了要求黄仁勋复任的联署信。Altman 发了一句“Jensen!”，Srinivas 发了“Welcome back”。</p><ul class="links"><li><a href="https://x.com/elonmusk/status/2124875939133751684" rel="noopener noreferrer" target="_blank">Musk 原帖</a></li><li><a href="https://x.com/sama/status/2124887162206495228" rel="noopener noreferrer" target="_blank">Altman 原帖</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t3-i2">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t3-i2">
+                <span class="item-top">
+                  <span class="idx">03</span>
+                  <span class="item-title">Brockman 推出 OpenWorks，并转发 Shirudo</span>
+                </span>
+                <span class="item-sum">出钱请本地 AI 专家免费帮小商户用 AI，试点覆盖美国 20 个城市</span>
+                <span class="badges"><span class="badge">3 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t3-i2"><p>据报道专家每月最高拿 8000 美元，商户另送三个月 ChatGPT Business。OpenAI 同时发文称 GPT-6 Cyber 一次运行帮忙验证了 948 个能拿到本地 root 的 Linux 内核漏洞。</p><ul class="links"><li><a href="https://x.com/gdb/status/2124940416072200521" rel="noopener noreferrer" target="_blank">OpenWorks</a></li><li><a href="https://x.com/OpenAI/status/2124980590717911527" rel="noopener noreferrer" target="_blank">Shirudo</a></li><li><a href="https://x.com/OpenAI/status/2125007927098699827" rel="noopener noreferrer" target="_blank">GPT-6 Cyber 研究</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t3-i3">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t3-i3">
+                <span class="item-top">
+                  <span class="idx">04</span>
+                  <span class="item-title">Srinivas：Gemini 4 Neon 在 Perplexity 上用量每天增长 10.6% 和 15.0%</span>
+                </span>
+                <span class="item-sum">随后澄清是用户自己切换，平台还没默认路由</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t3-i3"><p>用户主要从 Opus 5.5 和 GPT-6.2 Sol 换过来。摘要认为这是第三方平台给出的真实使用份额变化。</p><ul class="links"><li><a href="https://x.com/AravSrinivas/status/2124765417378099414" rel="noopener noreferrer" target="_blank">原帖</a></li><li><a href="https://x.com/AravSrinivas/status/2124951952035578100" rel="noopener noreferrer" target="_blank">澄清</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t3-i4">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t3-i4">
+                <span class="item-top">
+                  <span class="idx">05</span>
+                  <span class="item-title">Suleyman 介绍微软自研强化学习基础设施 Rocket</span>
+                </span>
+                <span class="item-sum">并发了技术博客</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t3-i4"><p>摘要称微软在自建模型训练栈上的投入又多了一条公开证据。</p><ul class="links"><li><a href="https://x.com/mustafasuleyman/status/2124933527066325243" rel="noopener noreferrer" target="_blank">原帖</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t3-i5">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t3-i5">
+                <span class="item-top">
+                  <span class="idx">06</span>
+                  <span class="item-title">LeCun 批评 Amodei，开源派与 Anthropic 冲突再升级</span>
+                </span>
+                <span class="item-sum">23 日凌晨发帖称 Amodei 从 GPT-2 时期起渲染 AI 危险，目的是让开源模型被立法禁止</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t3-i5"><p>他还拿奥斯曼帝国禁印刷术作比，这条是上期漏收的补录。</p><ul class="links"><li><a href="https://x.com/ylecun/status/2124550037912920090" rel="noopener noreferrer" target="_blank">原帖</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t3-i6">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t3-i6">
+                <span class="item-top">
+                  <span class="idx">07</span>
+                  <span class="item-title">何小鹏判断 2027 年是高阶通用人形机器人量产元年</span>
+                </span>
+                <span class="item-sum">23 日在《经济学人》年度特刊发署名文章，列出人形机器人进家庭的三点条件</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t3-i6"><p>三点是全栈自研硬件、超快/快/慢多模型分工、兼顾质量与多样性的数据闭环。小鹏 11 月 25 日开第八届科技日。</p><ul class="links"><li><a href="https://finance.sina.com.cn/roll/2026-11-23/doc-iniztmue0557288.shtml" rel="noopener noreferrer" target="_blank">新浪财经</a></li></ul></div>
+          </article>
+          </div>
+        </section>
+        <section class="topic is-open" id="all-topic-4" style="--branch:#be123c">
+          <div class="topic-head">
+            <button type="button" class="topic-btn" aria-expanded="true" aria-controls="all-items-4">
+              <span class="dot" aria-hidden="true"></span>
+              <span class="topic-copy">
+                <span class="topic-name">GitHub 涨星</span>
+                <span class="topic-meta">GitHub 每日涨星 Top 50 · 5 条（数据截至 2026-11-24）</span>
+              </span>
+              <span class="chev" aria-hidden="true"></span>
+            </button>
+            <div class="topic-links"><a class="trend-open" href="github-trend/index.html">打开 GitHub 涨星看板</a></div>
+          </div>
+          <div class="items" id="all-items-4">
+          <article class="item is-open" id="all-t4-i0">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t4-i0">
+                <span class="item-top">
+                  <span class="idx">01</span>
+                  <span class="item-title">elementalsouls/Claude-BugHunter 第 1</span>
+                </span>
+                <span class="item-sum">2026-11-24 数据：当日 +2,037，总星 19,683</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t4-i0"><p>用于漏洞挖掘和红队工作的 Claude Code 技能包，含 82 个技能，Python。前一期也在榜上。 本期榜首涨幅 +2,037，第 50 名 +78；共 9 个仓库相对上一期新进榜。</p><ul class="links"><li><a href="https://github.com/elementalsouls/Claude-BugHunter" rel="noopener noreferrer" target="_blank">GitHub 仓库</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t4-i1">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t4-i1">
+                <span class="item-top">
+                  <span class="idx">02</span>
+                  <span class="item-title">XiaoYouChR/Ghost-Downloader-3 第 2</span>
+                </span>
+                <span class="item-sum">2026-11-24 数据：当日 +1,078，总星 16,272</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t4-i1"><p>多线程下载器，号称下载器的集大成者，Python。前一期也在榜上。</p><ul class="links"><li><a href="https://github.com/XiaoYouChR/Ghost-Downloader-3" rel="noopener noreferrer" target="_blank">GitHub 仓库</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t4-i2">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t4-i2">
+                <span class="item-top">
+                  <span class="idx">03</span>
+                  <span class="item-title">firecrawl/firecrawl 第 3</span>
+                </span>
+                <span class="item-sum">2026-11-24 数据：当日 +920，总星 207,878</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t4-i2"><p>给智能体用的知识基础设施，一个 API 搞定搜索、抓取和 550 多个数据源，TypeScript。前一期也在榜上。</p><ul class="links"><li><a href="https://github.com/firecrawl/firecrawl" rel="noopener noreferrer" target="_blank">GitHub 仓库</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t4-i3">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t4-i3">
+                <span class="item-top">
+                  <span class="idx">04</span>
+                  <span class="item-title">zhouxiaoka/autoclip 第 4</span>
+                </span>
+                <span class="item-sum">2026-11-24 数据：当日 +908，总星 14,359</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t4-i3"><p>开源 AI 视频剪辑桌面工具，把长视频自动剪成带字幕和封面的短视频，Python。前一期也在榜上。</p><ul class="links"><li><a href="https://github.com/zhouxiaoka/autoclip" rel="noopener noreferrer" target="_blank">GitHub 仓库</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="all-t4-i4">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="all-d-t4-i4">
+                <span class="item-top">
+                  <span class="idx">05</span>
+                  <span class="item-title">obra/superpowers 第 5</span>
+                </span>
+                <span class="item-sum">2026-11-24 数据：当日 +838，总星 325,019</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="all-d-t4-i4"><p>智能体技能框架与软件开发方法论，Shell。前一期也在榜上。</p><ul class="links"><li><a href="https://github.com/obra/superpowers" rel="noopener noreferrer" target="_blank">GitHub 仓库</a></li></ul></div>
+          </article>
+          </div>
+        </section>
+        </div>
+      </section>
+      <section class="tab-panel" role="tabpanel" id="topic-0" aria-labelledby="tab-0">
+        <div class="panel-meta"><p>AI 行业早间简报 · 7 条</p><div><a href="reports/2026-11-24/brief.html">查看日报</a></div></div>
+        <div class="items">
+          <article class="item is-open" id="t0-i0">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t0-i0">
+                <span class="item-top">
+                  <span class="idx">01</span>
+                  <span class="item-title">英伟达董事会让黄仁勋复任 CEO，股价单日涨 30%</span>
+                </span>
+                <span class="item-sum">董事会周一宣布黄仁勋即日起复任 CEO、总裁和董事，距他辞职 11 天，称复任前听取了美国政府高层意见</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t0-i0"><p>CNN 报道英伟达当天收涨 30%，是 2003 年以来最大单日涨幅，市值增加约 9520 亿美元；特朗普表示他直接和董事会谈过此事。简报认为连跌七周的龙头暂时止血，治理问题和政治介入的疑问还在。</p><ul class="links"><li><a href="https://www.cnn.com/2026/11/23/tech/nvidia-reinstates-jensen-huang-ceo" rel="noopener noreferrer" target="_blank">CNN</a></li><li><a href="https://www.engadget.com/2324897/nvidia-reinstates-jensen-huang-as-ceo-and-president-effective-immediately/" rel="noopener noreferrer" target="_blank">Engadget</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t0-i1">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t0-i1">
+                <span class="item-top">
+                  <span class="idx">02</span>
+                  <span class="item-title">智谱发布 GLM-5.4，首个 Loop Transformer 旗舰</span>
+                </span>
+                <span class="item-sum">在 GLM-5 基座上把 28 层在一次前向中跑两遍，规模约 750B，智谱称智能水平接近 2T-3T 参数模型</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t0-i1"><p>目前只在 GLM Coding Plan、ZCode 和 Z.ai Chat 中提供，API 要等安全评估后开放，还没有完整基准表。简报认为循环复用层换参数规模，是降低大模型部署成本的一条新路。</p><ul class="links"><li><a href="https://docs.z.ai/guides/llm/glm-5.4" rel="noopener noreferrer" target="_blank">Z.ai 官方文档</a></li><li><a href="https://www.marktechpost.com/2026/11/23/zai-glm-5-4-loop-transformer/" rel="noopener noreferrer" target="_blank">MarkTechPost</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t0-i2">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t0-i2">
+                <span class="item-top">
+                  <span class="idx">03</span>
+                  <span class="item-title">OpenAI 和思科开源 Linux 防护运行时 Shirudo</span>
+                </span>
+                <span class="item-sum">在补丁上线前给运行中的 Linux 服务加一层临时“护盾”，拦截漏洞利用，不需要重启</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t0-i2"><p>OpenAI 称在受控测试中，Codex 生成的护盾挡住了针对 Elasticsearch 的攻击。简报指出 AI 找漏洞越来越快，补丁跟不上的窗口期成了新的防守重点。</p><ul class="links"><li><a href="https://openai.com/index/introducing-shirudo/" rel="noopener noreferrer" target="_blank">OpenAI 原文</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t0-i3">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t0-i3">
+                <span class="item-top">
+                  <span class="idx">04</span>
+                  <span class="item-title">OpenAI 推出 OpenWorks，出钱请本地专家帮小商户用 AI</span>
+                </span>
+                <span class="item-sum">资助一批“OpenWorks Partners”免费上门帮小商户做获客、投广告或搭建自用工具，试点在 20 个美国城市上线</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t0-i3"><p>简报称这是 OpenAI 把 AI 推向长尾中小企业的一次线下渠道尝试。</p><ul class="links"><li><a href="https://openai.com/openworks/" rel="noopener noreferrer" target="_blank">OpenAI OpenWorks</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t0-i4">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t0-i4">
+                <span class="item-top">
+                  <span class="idx">05</span>
+                  <span class="item-title">蚂蚁开源医疗大模型 LingSante</span>
+                </span>
+                <span class="item-sum">阿福健康 App 上线基于 Ling 基座的模型家族，首批 3.1-air-VL 和 3.1-flash 以 MIT 协议开放权重</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t0-i4"><p>其余模型分批发布，模型卡写明不得用于独立诊断或治疗决策。简报认为国内大厂在医疗这类高门槛垂直领域开始走开源路线。</p><ul class="links"><li><a href="https://www.unite.ai/ant-group-begins-open-weight-release-of-lingsante-medical-ai-models/" rel="noopener noreferrer" target="_blank">Unite.AI</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t0-i5">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t0-i5">
+                <span class="item-top">
+                  <span class="idx">06</span>
+                  <span class="item-title">推理算力创业公司 Marlowe 种子轮融资 2.77 亿美元</span>
+                </span>
+                <span class="item-sum">Accel 领投，估值 11.5 亿美元，专做推理数据中心，首批用 AMD 和 Etched 的芯片而不是英伟达 GPU</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t0-i5"><p>创始人是 Convoy 联合创始人 Dan Lewis 和前微软 AI 负责人 Kutta Srinivasan。简报认为种子轮就成独角兽，说明资本在押注推理需求和非英伟达芯片。</p><ul class="links"><li><a href="https://www.geekwire.com/2026/beyond-nvidia-convoy-co-founder-and-former-microsoft-leader-raise-277m-to-rethink-ai-infrastructure/" rel="noopener noreferrer" target="_blank">GeekWire</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t0-i6">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t0-i6">
+                <span class="item-top">
+                  <span class="idx">07</span>
+                  <span class="item-title">Applied Digital 签下 54 亿美元 AI 数据中心租约</span>
+                </span>
+                <span class="item-sum">与一家投资级超大云厂商签 150MW、18 年租约，基础期收入约 54 亿美元，含续约可达 127 亿美元</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t0-i6"><p>公司合同基础期收入因此超过 410 亿美元，且定价高于以往。简报指出英伟达股价大跌期间，大厂对数据中心的长期锁定需求没有减弱。</p><ul class="links"><li><a href="https://ir.applieddigital.com/news-events/press-releases/detail/165/applied-digital-secures-new-150-mw-18-year-lease-with" rel="noopener noreferrer" target="_blank">Applied Digital 公告</a></li></ul></div>
+          </article>
+        </div>
+      </section>
+      <section class="tab-panel" role="tabpanel" id="topic-1" aria-labelledby="tab-1">
+        <div class="panel-meta"><p>科技公司高管最新观点监测 · 6 条</p><div><a href="reports/2026-11-24/exec.html">查看日报</a></div></div>
+        <div class="items">
+          <article class="item is-open" id="t1-i0">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t1-i0">
+                <span class="item-top">
+                  <span class="idx">01</span>
+                  <span class="item-title">NVIDIA 董事会恢复黄仁勋总裁、CEO 和董事职务</span>
+                </span>
+                <span class="item-sum">11-23 21:58 由 NVIDIA 官方账号宣布，X 新闻摘要称董事会与黄仁勋及美国政府高层沟通后一致决定</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t1-i0"><p>当天 NVIDIA 股价涨超 30%，纳指涨约 6%。马斯克、Sam Altman、Aravind Srinivas 都公开表态欢迎。日报注明黄仁勋本人在 X 上没有发帖，复职消息来自官方账号。</p><ul class="links"><li><a href="https://x.com/nvidianewsroom" rel="noopener noreferrer" target="_blank">NVIDIA 官方账号</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t1-i1">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t1-i1">
+                <span class="item-top">
+                  <span class="idx">02</span>
+                  <span class="item-title">Anthropic 放出 VP ≠ VNP 论文和 Lean 4 证明，作者栏写 Claude</span>
+                </span>
+                <span class="item-sum">README 称结果由内部研究用 Claude 模型发现，论文和形式化都由 AI 写成，没有人类数学家检查过</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t1-i1"><p>这是 P vs NP 的代数版本（Valiant 1979），不解决 P vs NP 本身。</p><ul class="links"><li><a href="https://github.com/anthropics/formal-math/tree/main/vp-vnp" rel="noopener noreferrer" target="_blank">GitHub 仓库</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t1-i2">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t1-i2">
+                <span class="item-top">
+                  <span class="idx">03</span>
+                  <span class="item-title">Anthropic 发布 Claude Ship（beta）</span>
+                </span>
+                <span class="item-sum">Claude 审 PR、修失败的检查，并按仓库里写的团队策略自动批准合并</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t1-i2"><p>Boris Cherny 说一年前 Opus 4.5 写了他 100% 的代码，“Shipping PRs hasn’t caught up”。日报认为瓶颈从写代码移到了审代码和合并。</p><ul class="links"><li><a href="https://claude.com/resources/articles/introducing-claude-ship" rel="noopener noreferrer" target="_blank">官方博客</a></li><li><a href="https://x.com/bcherny/status/2124961485801836573" rel="noopener noreferrer" target="_blank">Cherny 原帖</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t1-i3">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t1-i3">
+                <span class="item-top">
+                  <span class="idx">04</span>
+                  <span class="item-title">OpenAI 与思科开源 Shirudo，同日披露 GPT-6 Cyber 的内核漏洞工作</span>
+                </span>
+                <span class="item-sum">智能体用 eBPF 动态写防护规则，在补丁上线前挡住漏洞利用</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t1-i3"><p>OpenAI 研究员介绍 GPT-6 Cyber 一次运行验证 948 个可提权的 Linux 内核漏洞并生成补丁。</p><ul class="links"><li><a href="https://x.com/gdb/status/2124985602722676794" rel="noopener noreferrer" target="_blank">Brockman 原帖</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t1-i4">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t1-i4">
+                <span class="item-top">
+                  <span class="idx">05</span>
+                  <span class="item-title">Gemini 4 Neon 口碑在 X 上继续发酵</span>
+                </span>
+                <span class="item-sum">Aravind Srinivas 称 Neon 在 Perplexity 上的用户自选用量每天复合增长 10.6%（搜索）和 15.0%（智能体任务）</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t1-i4"><p>他说主要是用户从 Opus 5.5 和 Sol 6.2 切过来。Vercel CEO Guillermo Rauch 让智能体分析自己全部编程会话做个人评测，结果选了 Neon。</p><ul class="links"><li><a href="https://x.com/AravSrinivas/status/2124765417378099414" rel="noopener noreferrer" target="_blank">Srinivas 原帖</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t1-i5">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t1-i5">
+                <span class="item-top">
+                  <span class="idx">06</span>
+                  <span class="item-title">DeepMind 用多组 Gemini 4 智能体协作改进量子算法</span>
+                </span>
+                <span class="item-sum">每个结果都用 Lean 证明正确，宣称部分模拟成本最多降到原来的十分之一，并开源 Lean 库</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t1-i5"><p>日报列入“AI 技术人员的论文与观点”一节，博客标题为《Finding faster quantum algorithms with agents and formal verification》。</p><ul class="links"><li><a href="https://deepmind.google/blog/finding-faster-quantum-algorithms-with-agents-and-formal-verification/" rel="noopener noreferrer" target="_blank">DeepMind 博客</a></li><li><a href="https://x.com/GoogleDeepMind/status/2124911073266413634" rel="noopener noreferrer" target="_blank">DeepMind 原帖</a></li></ul></div>
+          </article>
+        </div>
+      </section>
+      <section class="tab-panel" role="tabpanel" id="topic-2" aria-labelledby="tab-2">
+        <div class="panel-meta"><p>PC行业动向每日洞察 · 7 条</p><div><a href="reports/2026-11-24/pc.html">查看日报</a></div></div>
+        <div class="items">
+          <article class="item is-open" id="t2-i0">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t2-i0">
+                <span class="item-top">
+                  <span class="idx">01</span>
+                  <span class="item-title">TCL 华星展出毫瓦级 14 英寸屏的联想 Yoga Pro 原型机</span>
+                </span>
+                <span class="item-sum">1920×1200、自适应 120Hz、300 到 400 尼特，模组功耗不到 1W</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t2-i0"><p>常见 14 英寸 IPS 屏是 3 到 4.5W。来源是 DTC 2026 现场报道。</p><ul class="links"><li><a href="https://www.notebookcheck.net/New-Lenovo-Yoga-Pro-laptop-prototype-debuts-with-ultra-low-power-14-inch-120Hz-display.1457618.0.html" rel="noopener noreferrer" target="_blank">Notebookcheck</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t2-i1">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t2-i1">
+                <span class="item-top">
+                  <span class="idx">02</span>
+                  <span class="item-title">NVIDIA 董事会恢复黄仁勋职务，Colette Kress 回任 CFO</span>
+                </span>
+                <span class="item-sum">Harvey Jones 继续任董事长，相关调查仍在进行，美股开盘涨约 32%</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t2-i1"><p>这推翻了 11 月 19 日日报里董事会“不会让他回任”的表态，市值增加超 1 万亿美元。</p><ul class="links"><li><a href="https://www.neowin.net/news/nvidia-board-reinstates-jensen-huang-as-president--ceo-and-explains-why/" rel="noopener noreferrer" target="_blank">Neowin</a></li><li><a href="https://www.ithome.com/1/031/217.htm" rel="noopener noreferrer" target="_blank">IT之家</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t2-i2">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t2-i2">
+                <span class="item-top">
+                  <span class="idx">03</span>
+                  <span class="item-title">Windows 11 的 Wi-Fi 驱动将在 2027 年移出内核态</span>
+                </span>
+                <span class="item-sum">微软产品经理在 Ignite 的驱动质量计划分会上确认，UMDF 要为此加 DMA 支持</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t2-i2"><p>目的是驱动崩了只断网、不蓝屏。</p><ul class="links"><li><a href="https://www.notebookcheck.net/Windows-11-to-move-Wi-Fi-drivers-out-of-the-kernel-in-2027.1457987.0.html" rel="noopener noreferrer" target="_blank">Notebookcheck</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t2-i3">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t2-i3">
+                <span class="item-top">
+                  <span class="idx">04</span>
+                  <span class="item-title">Windows Server 2028 默认移除 WoW64</span>
+                </span>
+                <span class="item-sum">32 位程序开箱跑不了，管理员可通过按需功能（FOD）装回</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t2-i3"><p>微软说 Windows 11 暂不受影响。</p><ul class="links"><li><a href="https://www.neowin.net/news/windows-server-2028-dropping-support-for-32-bit-apps-wow64-will-be-available-as-fod/" rel="noopener noreferrer" target="_blank">Neowin</a></li><li><a href="https://www.windowslatest.com/2026/11/23/32-bit-apps-days-are-numbered-as-microsoft-strips-support-bit-by-bit-starting-with-windows-server-2028-but-windows-11-is-safe-for-now/" rel="noopener noreferrer" target="_blank">Windows Latest</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t2-i4">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t2-i4">
+                <span class="item-top">
+                  <span class="idx">05</span>
+                  <span class="item-title">WinUI 3 原生搜索推到正式版 Windows 11</span>
+                </span>
+                <span class="item-sum">Windows Latest 测得占用约 26MB 内存，但任务栏移到顶部或侧边时搜索面板仍从底部弹出</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t2-i4"><p>微软产品设计副总裁 Diego Baca 回复“正在修”，没给时间。</p><ul class="links"><li><a href="https://www.windowslatest.com/2026/11/23/microsoft-built-a-near-perfect-native-winui-search-for-windows-11-but-it-ignores-your-moved-taskbar-and-its-design-vp-says-a-fix-is-coming-with-no-date/" rel="noopener noreferrer" target="_blank">Windows Latest</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t2-i5">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t2-i5">
+                <span class="item-top">
+                  <span class="idx">06</span>
+                  <span class="item-title">三星推出 27 英寸 Odyssey G6，号称首款 1100Hz 显示器</span>
+                </span>
+                <span class="item-sum">可在 HD 1100Hz 和 QHD 600Hz 间切换，Fast IPS，美国售价 899.99 美元</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t2-i5"><p>双模式和 600Hz 不支持 macOS。</p><ul class="links"><li><a href="https://www.neowin.net/news/samsung-launches-insane-odyssey-g6-monitor-with-1100hz-refresh-rate/" rel="noopener noreferrer" target="_blank">Neowin</a></li><li><a href="https://www.ithome.com/1/031/231.htm" rel="noopener noreferrer" target="_blank">IT之家</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t2-i6">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t2-i6">
+                <span class="item-top">
+                  <span class="idx">07</span>
+                  <span class="item-title">鸿蒙 HarmonyOS 装机量 11 月 16 日突破 1 亿台</span>
+                </span>
+                <span class="item-sum">数据来自奇妙工具箱，“我的华为”App 已上线一亿用户纪念章</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t2-i6"><p>日报注明要等华为官方公布后才开放领取。</p><ul class="links"><li><a href="https://www.ithome.com/1/031/182.htm" rel="noopener noreferrer" target="_blank">IT之家</a></li></ul></div>
+          </article>
+        </div>
+      </section>
+      <section class="tab-panel" role="tabpanel" id="topic-3" aria-labelledby="tab-3">
+        <div class="panel-meta"><p>AI大拿言论日报 · 7 条</p><div><a href="reports/2026-11-24/ai-leaders.html">查看日报</a></div></div>
+        <div class="items">
+          <article class="item is-open" id="t3-i0">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t3-i0">
+                <span class="item-top">
+                  <span class="idx">01</span>
+                  <span class="item-title">黄仁勋复任 CEO，称“怀着最大的谦卑和新的投入”</span>
+                </span>
+                <span class="item-sum">董事会 23 日晚一致投票，复任前咨询过美国政府高层，认定不构成国家安全风险</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t3-i0"><p>英伟达当天开盘涨约 30%，此前七周累计跌 46%。几天前董事会还在财报会上说不打算让他回来，这次转向和政府表态直接相关，摘要认为后续治理和出口管制方面的追问不会停。</p><ul class="links"><li><a href="https://nvidianews.nvidia.com/news/nvidia-board-reinstates-jensen-huang-as-president-ceo-and-board-director" rel="noopener noreferrer" target="_blank">英伟达公告</a></li><li><a href="https://techcrunch.com/2026/11/23/nvidia-reverses-course-and-brings-jensen-huang-back-as-ceo/" rel="noopener noreferrer" target="_blank">TechCrunch</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t3-i1">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t3-i1">
+                <span class="item-top">
+                  <span class="idx">02</span>
+                  <span class="item-title">Musk 称“The mistake has been corrected”</span>
+                </span>
+                <span class="item-sum">公告发出后连发两条，22:28 “It is done”，22:41 转发公告</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t3-i1"><p>他此前签了要求黄仁勋复任的联署信。Altman 发了一句“Jensen!”，Srinivas 发了“Welcome back”。</p><ul class="links"><li><a href="https://x.com/elonmusk/status/2124875939133751684" rel="noopener noreferrer" target="_blank">Musk 原帖</a></li><li><a href="https://x.com/sama/status/2124887162206495228" rel="noopener noreferrer" target="_blank">Altman 原帖</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t3-i2">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t3-i2">
+                <span class="item-top">
+                  <span class="idx">03</span>
+                  <span class="item-title">Brockman 推出 OpenWorks，并转发 Shirudo</span>
+                </span>
+                <span class="item-sum">出钱请本地 AI 专家免费帮小商户用 AI，试点覆盖美国 20 个城市</span>
+                <span class="badges"><span class="badge">3 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t3-i2"><p>据报道专家每月最高拿 8000 美元，商户另送三个月 ChatGPT Business。OpenAI 同时发文称 GPT-6 Cyber 一次运行帮忙验证了 948 个能拿到本地 root 的 Linux 内核漏洞。</p><ul class="links"><li><a href="https://x.com/gdb/status/2124940416072200521" rel="noopener noreferrer" target="_blank">OpenWorks</a></li><li><a href="https://x.com/OpenAI/status/2124980590717911527" rel="noopener noreferrer" target="_blank">Shirudo</a></li><li><a href="https://x.com/OpenAI/status/2125007927098699827" rel="noopener noreferrer" target="_blank">GPT-6 Cyber 研究</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t3-i3">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t3-i3">
+                <span class="item-top">
+                  <span class="idx">04</span>
+                  <span class="item-title">Srinivas：Gemini 4 Neon 在 Perplexity 上用量每天增长 10.6% 和 15.0%</span>
+                </span>
+                <span class="item-sum">随后澄清是用户自己切换，平台还没默认路由</span>
+                <span class="badges"><span class="badge">2 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t3-i3"><p>用户主要从 Opus 5.5 和 GPT-6.2 Sol 换过来。摘要认为这是第三方平台给出的真实使用份额变化。</p><ul class="links"><li><a href="https://x.com/AravSrinivas/status/2124765417378099414" rel="noopener noreferrer" target="_blank">原帖</a></li><li><a href="https://x.com/AravSrinivas/status/2124951952035578100" rel="noopener noreferrer" target="_blank">澄清</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t3-i4">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t3-i4">
+                <span class="item-top">
+                  <span class="idx">05</span>
+                  <span class="item-title">Suleyman 介绍微软自研强化学习基础设施 Rocket</span>
+                </span>
+                <span class="item-sum">并发了技术博客</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t3-i4"><p>摘要称微软在自建模型训练栈上的投入又多了一条公开证据。</p><ul class="links"><li><a href="https://x.com/mustafasuleyman/status/2124933527066325243" rel="noopener noreferrer" target="_blank">原帖</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t3-i5">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t3-i5">
+                <span class="item-top">
+                  <span class="idx">06</span>
+                  <span class="item-title">LeCun 批评 Amodei，开源派与 Anthropic 冲突再升级</span>
+                </span>
+                <span class="item-sum">23 日凌晨发帖称 Amodei 从 GPT-2 时期起渲染 AI 危险，目的是让开源模型被立法禁止</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t3-i5"><p>他还拿奥斯曼帝国禁印刷术作比，这条是上期漏收的补录。</p><ul class="links"><li><a href="https://x.com/ylecun/status/2124550037912920090" rel="noopener noreferrer" target="_blank">原帖</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t3-i6">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t3-i6">
+                <span class="item-top">
+                  <span class="idx">07</span>
+                  <span class="item-title">何小鹏判断 2027 年是高阶通用人形机器人量产元年</span>
+                </span>
+                <span class="item-sum">23 日在《经济学人》年度特刊发署名文章，列出人形机器人进家庭的三点条件</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t3-i6"><p>三点是全栈自研硬件、超快/快/慢多模型分工、兼顾质量与多样性的数据闭环。小鹏 11 月 25 日开第八届科技日。</p><ul class="links"><li><a href="https://finance.sina.com.cn/roll/2026-11-23/doc-iniztmue0557288.shtml" rel="noopener noreferrer" target="_blank">新浪财经</a></li></ul></div>
+          </article>
+        </div>
+      </section>
+      <section class="tab-panel" role="tabpanel" id="topic-4" aria-labelledby="tab-4">
+        <div class="panel-meta"><p>GitHub 每日涨星 Top 50 · 5 条（数据截至 2026-11-24）</p><div><a class="trend-open" href="github-trend/index.html">打开 GitHub 涨星看板</a></div></div>
+        <div class="items">
+          <article class="item is-open" id="t4-i0">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t4-i0">
+                <span class="item-top">
+                  <span class="idx">01</span>
+                  <span class="item-title">elementalsouls/Claude-BugHunter 第 1</span>
+                </span>
+                <span class="item-sum">2026-11-24 数据：当日 +2,037，总星 19,683</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t4-i0"><p>用于漏洞挖掘和红队工作的 Claude Code 技能包，含 82 个技能，Python。前一期也在榜上。 本期榜首涨幅 +2,037，第 50 名 +78；共 9 个仓库相对上一期新进榜。</p><ul class="links"><li><a href="https://github.com/elementalsouls/Claude-BugHunter" rel="noopener noreferrer" target="_blank">GitHub 仓库</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t4-i1">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t4-i1">
+                <span class="item-top">
+                  <span class="idx">02</span>
+                  <span class="item-title">XiaoYouChR/Ghost-Downloader-3 第 2</span>
+                </span>
+                <span class="item-sum">2026-11-24 数据：当日 +1,078，总星 16,272</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t4-i1"><p>多线程下载器，号称下载器的集大成者，Python。前一期也在榜上。</p><ul class="links"><li><a href="https://github.com/XiaoYouChR/Ghost-Downloader-3" rel="noopener noreferrer" target="_blank">GitHub 仓库</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t4-i2">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t4-i2">
+                <span class="item-top">
+                  <span class="idx">03</span>
+                  <span class="item-title">firecrawl/firecrawl 第 3</span>
+                </span>
+                <span class="item-sum">2026-11-24 数据：当日 +920，总星 207,878</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t4-i2"><p>给智能体用的知识基础设施，一个 API 搞定搜索、抓取和 550 多个数据源，TypeScript。前一期也在榜上。</p><ul class="links"><li><a href="https://github.com/firecrawl/firecrawl" rel="noopener noreferrer" target="_blank">GitHub 仓库</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t4-i3">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t4-i3">
+                <span class="item-top">
+                  <span class="idx">04</span>
+                  <span class="item-title">zhouxiaoka/autoclip 第 4</span>
+                </span>
+                <span class="item-sum">2026-11-24 数据：当日 +908，总星 14,359</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t4-i3"><p>开源 AI 视频剪辑桌面工具，把长视频自动剪成带字幕和封面的短视频，Python。前一期也在榜上。</p><ul class="links"><li><a href="https://github.com/zhouxiaoka/autoclip" rel="noopener noreferrer" target="_blank">GitHub 仓库</a></li></ul></div>
+          </article>
+          <article class="item is-open" id="t4-i4">
+            <div class="item-head">
+              <button type="button" class="item-btn" aria-expanded="true" aria-controls="d-t4-i4">
+                <span class="item-top">
+                  <span class="idx">05</span>
+                  <span class="item-title">obra/superpowers 第 5</span>
+                </span>
+                <span class="item-sum">2026-11-24 数据：当日 +838，总星 325,019</span>
+                <span class="badges"><span class="badge">1 个来源</span></span>
+              </button>
+              
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+            <div class="detail" id="d-t4-i4"><p>智能体技能框架与软件开发方法论，Shell。前一期也在榜上。</p><ul class="links"><li><a href="https://github.com/obra/superpowers" rel="noopener noreferrer" target="_blank">GitHub 仓库</a></li></ul></div>
+          </article>
+        </div>
+      </section>
+      </div>
+    </div>
+
+<footer>
+      <p>文字、要点和链接都写在这个页面里，打开即可阅读，不需要再加载数据。</p>
+      <p>往期：<a href="./2026-11-23.html">2026-11-23</a> · <a href="./2026-11-20.html">2026-11-20</a> · <a href="./2026-11-19.html">2026-11-19</a> · <a href="./2026-11-18.html">2026-11-18</a></p>
+      <p><a href="./index.html">返回主页</a>，查看全部日期。</p>
+    </footer>
+  </div>
+  <noscript>
+    <style>.tab-panel, .items, .detail { display: block !important; }</style>
+  </noscript>
+  <script>
+    (function () {
+      var tabs = document.querySelectorAll(".tab");
+      var panels = document.querySelectorAll(".tab-panel");
+
+      function topicTabIndex(topicIndex) {
+        for (var i = 0; i < tabs.length; i++) {
+          if (tabs[i].getAttribute("data-topic") === String(topicIndex)) return i;
+        }
+        return topicIndex + 1;
+      }
+
+      function selectTab(index, hashKind) {
+        if (index < 0 || index >= tabs.length) index = 0;
+        tabs.forEach(function (tab, i) {
+          var on = i === index;
+          tab.classList.toggle("is-active", on);
+          tab.setAttribute("aria-selected", on ? "true" : "false");
+          tab.tabIndex = on ? 0 : -1;
+        });
+        panels.forEach(function (p, i) {
+          p.classList.toggle("is-active", i === index);
+        });
+        if (hashKind === "topic" && history.replaceState) {
+          var tab = tabs[index];
+          var hash = "#all";
+          if (tab && tab.getAttribute("data-topic") != null) {
+            hash = "#topic-" + tab.getAttribute("data-topic");
+          }
+          history.replaceState(null, "", hash);
+        }
+        return index;
+      }
+
+      function setItem(article, open) {
+        article.classList.toggle("is-open", open);
+        var btn = article.querySelector(".item-btn");
+        if (btn) btn.setAttribute("aria-expanded", open ? "true" : "false");
+      }
+
+      function reveal(topicIndex, itemIndex, smooth) {
+        selectTab(topicTabIndex(topicIndex), "item");
+        var article = document.getElementById("t" + topicIndex + "-i" + itemIndex);
+        if (!article) return;
+        setItem(article, true);
+        article.classList.remove("flash");
+        void article.offsetWidth;
+        article.classList.add("flash");
+        article.scrollIntoView({ behavior: smooth ? "smooth" : "auto", block: "start" });
+        if (history.replaceState) history.replaceState(null, "", "#" + article.id);
+      }
+
+      tabs.forEach(function (tab, i) {
+        tab.addEventListener("click", function () { selectTab(i, "topic"); });
+        tab.addEventListener("keydown", function (e) {
+          var next = i;
+          if (e.key === "ArrowRight") next = (i + 1) % tabs.length;
+          else if (e.key === "ArrowLeft") next = (i - 1 + tabs.length) % tabs.length;
+          else if (e.key === "Home") next = 0;
+          else if (e.key === "End") next = tabs.length - 1;
+          else return;
+          e.preventDefault();
+          selectTab(next, "topic");
+          tabs[next].focus();
+        });
+      });
+
+      document.querySelectorAll("#panel-all .topic").forEach(function (topic) {
+        var btn = topic.querySelector(".topic-btn");
+        if (!btn) return;
+        btn.addEventListener("click", function () {
+          var open = !topic.classList.contains("is-open");
+          topic.classList.toggle("is-open", open);
+          btn.setAttribute("aria-expanded", open ? "true" : "false");
+        });
+      });
+
+      document.querySelectorAll(".item").forEach(function (article) {
+        var head = article.querySelector(".item-head") || article.querySelector(".item-btn");
+        if (!head) return;
+        head.addEventListener("click", function (e) {
+          if (e.target.closest && e.target.closest(".item-thumb")) return;
+          var open = !article.classList.contains("is-open");
+          setItem(article, open);
+        });
+      });
+
+      document.querySelectorAll(".top-card").forEach(function (card) {
+        card.addEventListener("click", function () {
+          reveal(Number(card.dataset.topic), Number(card.dataset.item), true);
+        });
+      });
+
+      document.querySelectorAll("img").forEach(function (img) {
+        img.addEventListener("error", function () {
+          var fig = img.closest("figure");
+          if (!fig || fig.dataset.broken) return;
+          fig.dataset.broken = "1";
+          var link = document.createElement("a");
+          link.href = img.getAttribute("src");
+          link.target = "_blank";
+          link.rel = "noopener noreferrer";
+          link.textContent = "原图无法内嵌显示，打开原图";
+          fig.replaceChildren(link);
+        });
+      });
+
+      var h = location.hash || "";
+      var item = h.match(/^#t(\d+)-i(\d+)$/);
+      var allHash = h.match(/^#(?:all|tab-all|panel-all)$/);
+      var topic = h.match(/^#(?:topic|tab|panel)-(\d+)$/);
+      if (item) reveal(Number(item[1]), Number(item[2]), false);
+      else if (allHash) selectTab(0, null);
+      else if (topic) selectTab(topicTabIndex(Number(topic[1])), null);
+      else selectTab(0, null);
+    })();
+    </script>
+</body>
+</html>

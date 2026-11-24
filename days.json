@@ -1,5 +1,75 @@
 [
  {
+  "date": "2026-11-24",
+  "topics": [
+   "AI 行业简报",
+   "科技高管观点",
+   "PC 行业动向",
+   "AI 大拿",
+   "GitHub 涨星"
+  ],
+  "summary": "英伟达董事会宣布黄仁勋复任 CEO、总裁和董事，距他辞职 11 天，当天股价涨约 30%，董事会称复任前听取了美国政府高层意见。Anthropic 发布 Claude Ship，让 Claude 审 PR 并按仓库策略自动合并，同日放出署名 Claude 的 VP ≠ VNP 论文和 Lean 4 证明。OpenAI 与思科开源 Linux 防护运行时 Shirudo，OpenAI 还推出面向小商户的 OpenWorks 计划。PC 方面，微软确认 Windows 11 的 Wi-Fi 驱动将在 2027 年移出内核态。GitHub 涨星榜上 elementalsouls/Claude-BugHunter 以 +2,037 居首。",
+  "reports": [
+   {
+    "name": "AI 行业简报",
+    "href": "reports/2026-11-24/brief.html"
+   },
+   {
+    "name": "科技高管观点",
+    "href": "reports/2026-11-24/exec.html"
+   },
+   {
+    "name": "PC 行业动向",
+    "href": "reports/2026-11-24/pc.html"
+   },
+   {
+    "name": "AI 大拿",
+    "href": "reports/2026-11-24/ai-leaders.html"
+   },
+   {
+    "name": "GitHub 涨星",
+    "href": "github-trend/index.html"
+   }
+  ],
+  "lines": [
+   {
+    "topic": "AI 行业简报",
+    "text": "英伟达董事会让黄仁勋复任 CEO，股价单日涨 30%，市值增加约 9520 亿美元。",
+    "image": "",
+    "image_src": "",
+    "link": "https://www.cnn.com/2026/11/23/tech/nvidia-reinstates-jensen-huang-ceo"
+   },
+   {
+    "topic": "科技高管观点",
+    "text": "Anthropic 发布 Claude Ship，让 Claude 审 PR、修失败检查并按仓库策略自动批准合并。",
+    "image": "",
+    "image_src": "",
+    "link": "https://claude.com/resources/articles/introducing-claude-ship"
+   },
+   {
+    "topic": "PC 行业动向",
+    "text": "微软确认 Windows 11 的 Wi-Fi 驱动将在 2027 年移出内核态，驱动崩了只断网、不蓝屏。",
+    "image": "",
+    "image_src": "",
+    "link": "https://www.notebookcheck.net/Windows-11-to-move-Wi-Fi-drivers-out-of-the-kernel-in-2027.1457987.0.html"
+   },
+   {
+    "topic": "AI 大拿",
+    "text": "黄仁勋复任 CEO，董事会复任前咨询过美国政府高层，Musk、Altman 先后公开表态。",
+    "image": "",
+    "image_src": "",
+    "link": "https://nvidianews.nvidia.com/news/nvidia-board-reinstates-jensen-huang-as-president-ceo-and-board-director"
+   },
+   {
+    "topic": "GitHub 涨星",
+    "text": "elementalsouls/Claude-BugHunter 当日 +2,037，总星 19,683，居涨星榜首。",
+    "image": "",
+    "image_src": "",
+    "link": "https://github.com/elementalsouls/Claude-BugHunter"
+   }
+  ]
+ },
+ {
   "date": "2026-11-23",
   "topics": [
    "AI 行业简报",
