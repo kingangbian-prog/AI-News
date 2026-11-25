@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<link rel="icon" type="image/png" href="../../assets/wangcai-dog.png">
+<title>AI大拿 最新言论追踪 · 2026-11-25</title>
+<style>
+  :root{color-scheme:light;--ink:#1a1a1a;--muted:#5c5c5c;--line:#ece8e1;--bg:#f4f1ea;--bg-top:#fbf8f2;--soft:#f8f3ea;--card:#fffaf4;--shadow:0 1px 0 rgba(255,255,255,.8) inset,0 6px 16px rgba(40,30,10,.05)}
+  *{box-sizing:border-box}
+  body{margin:0;background-color:var(--bg);background-image:linear-gradient(180deg,#fbf8f2 0%,#f4f1ea 42%);background-attachment:fixed;background-repeat:no-repeat;color:var(--ink);font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Microsoft YaHei","Segoe UI",sans-serif;font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-wrap:anywhere}
+  a{color:#0b57d0} a:hover{color:#0842a0}
+  .wrap{width:min(820px,calc(100% - 32px));margin:0 auto;padding:28px 0 80px}
+  .nav{display:flex;gap:16px;flex-wrap:wrap;font-size:14px;margin:0 0 18px}
+  .date{margin:0 0 8px;font-size:13px;letter-spacing:.08em;color:var(--muted)}
+  h1{margin:0 0 10px;font-size:clamp(26px,4.6vw,36px);line-height:1.25;letter-spacing:-.02em}
+  .meta{margin:0 0 24px;color:var(--muted);font-size:14px}
+  article h2{margin:32px 0 10px;font-size:20px;padding-top:14px;border-top:1px solid var(--line)}
+  article h3{margin:24px 0 8px;font-size:17px}
+  article p,article li{color:#2c2c2c}
+  article ul,article ol{padding-left:1.4em} article li{margin:0 0 12px}
+  .sub{color:var(--muted);font-size:14px;margin-top:-4px}
+  footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+.wc-dog{display:inline-block;width:1.15em;height:1.15em;vertical-align:-0.18em;margin-right:.3em}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <nav class="nav"><a href="../../2026-11-25.html">← 返回当天详情</a><a href="../../index.html">全部日期</a></nav>
+    <header>
+      <p class="date">2026-11-25</p>
+      <h1>AI大拿 最新言论追踪 · 2026-11-25</h1>
+      <p class="meta">AI大拿每日言论摘要 2026-11-25　原文照录，仅整理排版。</p>
+    </header>
+    <article>
+<p>覆盖北京时间 11月24日早上到 11月25日早上。</p>
+<h3>AI 公司与研究者</h3>
+<p>Greg Brockman / OpenAI：OpenAI 发布预印本，称 GPT-6 系列只靠推理和写代码就能设计新的蛋白质结构和序列，不调用专门的生物模型，并且做了湿实验验证。Brockman 转发时说这又一次说明&quot;推理加代码&quot;能通用地解决问题，同一天他还连发几条，讲 GPT-6.2 Astra 在机器人控制、找系外行星、破解历史谜题上的用例。OpenAI 这阵子在刻意证明通用模型可以替代垂直模型，蛋白质设计有湿实验结果，比跑分更有说服力。<a href="https://x.com/OpenAI/status/2125334383490105601" target="_blank" rel="noopener noreferrer">OpenAI 原帖</a>，<a href="https://x.com/gdb/status/2125341356503748716" target="_blank" rel="noopener noreferrer">Brockman</a>，<a href="https://x.com/gdb/status/2125041014587146384" target="_blank" rel="noopener noreferrer">Astra 机器人</a></p>
+<p>Anthropic：发布沙箱逃逸评测 Siren。在 1700 多个故意留了漏洞、并把任务所需的东西放在沙箱外的场景里，近期的 Claude 模型有 21% 到 32% 的情况会去看或尝试访问沙箱外，但很少拿来滥用；如果系统提示里写清楚沙箱和规则，这个比例降到 2% 左右或更低。Anthropic 说已经用 Siren 来校准 Claude Code 的 auto mode（命令执行前自动审查，不用每步都问用户）。同一天 Anthropic Fellows 还发了可解释性研究，说按&quot;神经元对输出的贡献&quot;去看，单个神经元其实很少混合两个无关概念，可以直接用来检测有害文本和发现微调模型里的隐藏行为。对做 Agent 权限设计的人，&quot;把规则写进系统提示就能大幅减少越界&quot;是个可以直接用的结论。<a href="https://x.com/AnthropicAI/status/2125341904644763678" target="_blank" rel="noopener noreferrer">Siren</a>，<a href="https://safeguards.anthropic.com/2026/siren/" target="_blank" rel="noopener noreferrer">博客</a>，<a href="https://x.com/AnthropicAI/status/2125365268381929637" target="_blank" rel="noopener noreferrer">神经元研究</a></p>
+<p>Boris Cherny（Claude Code 负责人）：MCP server 现在可以自带 skills 一起分发，Claude Code 装上就知道怎么用这个工具。工具和使用说明打包在一起，MCP 生态的接入门槛又降了一截。<a href="https://x.com/bcherny/status/2125292098165612585" target="_blank" rel="noopener noreferrer">原帖</a></p>
+<p>Sundar Pichai（谷歌）：Gemini 4 Neon 创下谷歌付费 API 首日用量纪录，Antigravity 每日 token 量比 6 周前 Argon 发布时涨了 82%。<a href="https://x.com/sundarpichai/status/2125311868168515603" target="_blank" rel="noopener noreferrer">原帖</a></p>
+<p>Aravind Srinivas（Perplexity）：Neon 在 Perplexity 内累计用量超过 1200 亿 token，三天内日用量翻倍，周一单日 360 亿。他评价 Neon 的智力介于 Opus 和 Fable 之间，但回答风格和易用性好过目前几乎所有模型。另一条说 Perplexity 正在变成&quot;工作操作系统&quot;，在 Perplexity Computer 里生成的幻灯片现在可以原地编辑，支持 PowerPoint 和 Google Slides。两条放一起看，谷歌新模型在第三方平台的真实用量还在快速涨，Perplexity 则在往办公生产力入口走，跟 PC 桌面的方向有重叠。<a href="https://x.com/AravSrinivas/status/2125328996221231313" target="_blank" rel="noopener noreferrer">Neon 用量</a>，<a href="https://x.com/AravSrinivas/status/2125364190802227680" target="_blank" rel="noopener noreferrer">工作操作系统</a></p>
+<p>Satya Nadella（微软）：说&quot;每美元产出&quot;是新前沿，微软在每一层推进：省算力的预训练（MAI Base 2）、长程强化学习（Rocket）、省 token 的模型（上周发布 7 个 MAI 模型），同时保持对所有前沿模型开放。微软在自研模型上的叙事从能力转向成本。<a href="https://x.com/satyanadella/status/2125055415620866113" target="_blank" rel="noopener noreferrer">原帖</a></p>
+<h3>手机厂商</h3>
+<p>余承东（华为）：24日上午发文宣布鸿蒙终端设备数突破 1 亿，说鸿蒙生态&quot;越过了规模临界点&quot;，从 2024 年鸿蒙应用全面启动算起走了三年。同日新品发布会上他介绍 Mate X8 用了华为首创的磁控展平技术，平整度比上一代提升 90%。23日他还发微博说问界 M7 系列累计超 47 万用户，并预告新 M7（面向 L3 的冗余架构、ADS 5），价格和上市时间没公布。<a href="https://finance.sina.com.cn/tech/shenji/2026-11-24/doc-inizuxve5207617.shtml" target="_blank" rel="noopener noreferrer">新浪科技</a>，<a href="https://finance.eastmoney.com/a/202611243938409535.html" target="_blank" rel="noopener noreferrer">界面/东方财富</a>，<a href="https://x.com/Huawei/status/2125049285935071480" target="_blank" rel="noopener noreferrer">华为官方 X</a></p>
+<p>华为公司声明：美国纽约东区联邦法院陪审团 24日裁定华为 12 项指控中 10 项成立（含制裁违规、银行欺诈、商业秘密盗窃共谋、洗钱），反敲诈勒索（RICO）指控不成立。华为 25日声明欢迎 RICO 无罪的结果，认为其余指控同样缺乏法律和事实依据，称涉及的五起商业秘密纠纷都是过去二十年里已解决的民事案件，将审查裁决并采取一切必要法律行动，业务运营保持稳定。量刑和上诉还在后面，对海外业务和合规的影响要继续看。<a href="https://www.huawei.com/en/news/2026/11/statement-on-jury-verdict" target="_blank" rel="noopener noreferrer">华为声明</a>，<a href="https://www.justice.gov/opa/pr/chinese-tech-giant-huawei-and-subsidiaries-convicted-sanctions-violations-fraud-conspiracy" target="_blank" rel="noopener noreferrer">美国司法部</a></p>
+<p>卢伟冰 / 雷军（小米）：小米 Q3 营收 1072 亿元，同比降 5.2%，经调整净利润 48.8 亿元，同比降 56.8%，手机毛利率 9.2%，汽车季度交付 100975 辆。卢伟冰在电话会上说这是他从业以来手机行业&quot;最难&quot;的一个季度，内存涨价节奏放缓但仍在高位，要靠产品创新消化成本；他还说具身机器人的产业规模可能超过汽车，小米会聚焦本体、数据、模型三个方向。雷军在微博转发了业绩要点。内存涨价已经实打实压到手机厂商利润，这对明年 PC 和手机定价都是信号。<a href="https://finance.sina.com.cn/roll/2026-11-24/doc-inizwfqy8842950.shtml" target="_blank" rel="noopener noreferrer">每经/新浪</a>，<a href="https://wallstreetcn.com/articles/3786596" target="_blank" rel="noopener noreferrer">华尔街见闻</a>，<a href="https://weibo.com/2/detail/5368852049565314" target="_blank" rel="noopener noreferrer">雷军微博</a></p>
+<h3>芯片厂商</h3>
+<p>黄仁勋（英伟达）：复职（上期已收）之后的新进展是，他将于 12月3日作为唯一证人出席美国参议院&quot;保护美国 AI 优势：监督出口管制&quot;听证会；参议员 Warren 批评复职决定&quot;鲁莽&quot;，要求董事会说明出口管制合规情况。听证会上他对中国市场和出口管制的表态值得到时盯一下。<a href="https://m.gelonghui.com/p/7528270" target="_blank" rel="noopener noreferrer">格隆汇</a>，<a href="https://www.rti.org.tw/news?uid=3&amp;pid=1053375" target="_blank" rel="noopener noreferrer">央广 Rti</a></p>
+<p>Cristiano Amon（高通）：宣布和 Cirrascale 合作，把高通的机架级 AI 推理方案放进对方的 AI 云，称是数据中心业务&quot;又一步&quot;。高通在推理侧数据中心的落地客户在增加。<a href="https://x.com/cristianoamon/status/2125372379883020654" target="_blank" rel="noopener noreferrer">原帖</a></p>
+<h3>车厂</h3>
+<p>李斌（蔚来）：在一场用户交流活动上被问到理想、小米会不会接入蔚来换电，他说非常欢迎，但要看对方意愿，蔚来自己还得多卖车。[新浪科技](http://finance.sina.com.cn/tech/roll/2026-11-24/doc-inizvqte0020069.shtml)</p>
+<p>何小鹏（小鹏）：小鹏第八届科技日预计今天（25日）在广州举行，与蔚来创新科技日同天，人形机器人量产进展是重点，内容明天再收。</p>
+<h3>其他</h3>
+<p>Sam Altman、Elon Musk（只发了 Starlink 等无实质内容的帖子）、Dario Amodei、Karpathy、LeCun、Hinton、苏姿丰、陈立武、何刚、李想、王传福、马化腾、李彦宏、张一鸣、杨植麟、梁文锋、李开复等人，这 24 小时没有查到值得收录的新公开言论。Axios 24日报道 OpenAI 和 Anthropic 二十多名匿名员工担心最强的未发布模型无法安全上线，来源均为匿名员工，没有高管表态，这里只作背景提一句。</p>
+    </article>
+    <footer><a href="../../2026-11-25.html">返回 2026-11-25 详情</a> · <a href="../../index.html">全部日期</a></footer>
+  </div>
+</body>
+</html>

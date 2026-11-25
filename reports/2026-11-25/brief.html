@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<link rel="icon" type="image/png" href="../../assets/wangcai-dog.png">
+<title>AI 行业简报 · 2026-11-25</title>
+<style>
+  :root{color-scheme:light;--ink:#1a1a1a;--muted:#5c5c5c;--line:#ece8e1;--bg:#f4f1ea;--bg-top:#fbf8f2;--soft:#f8f3ea;--card:#fffaf4;--shadow:0 1px 0 rgba(255,255,255,.8) inset,0 6px 16px rgba(40,30,10,.05)}
+  *{box-sizing:border-box}
+  body{margin:0;background-color:var(--bg);background-image:linear-gradient(180deg,#fbf8f2 0%,#f4f1ea 42%);background-attachment:fixed;background-repeat:no-repeat;color:var(--ink);font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Microsoft YaHei","Segoe UI",sans-serif;font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-wrap:anywhere}
+  a{color:#0b57d0} a:hover{color:#0842a0}
+  .wrap{width:min(820px,calc(100% - 32px));margin:0 auto;padding:28px 0 80px}
+  .nav{display:flex;gap:16px;flex-wrap:wrap;font-size:14px;margin:0 0 18px}
+  .date{margin:0 0 8px;font-size:13px;letter-spacing:.08em;color:var(--muted)}
+  h1{margin:0 0 10px;font-size:clamp(26px,4.6vw,36px);line-height:1.25;letter-spacing:-.02em}
+  .meta{margin:0 0 24px;color:var(--muted);font-size:14px}
+  article h2{margin:32px 0 10px;font-size:20px;padding-top:14px;border-top:1px solid var(--line)}
+  article h3{margin:24px 0 8px;font-size:17px}
+  article p,article li{color:#2c2c2c}
+  article ul,article ol{padding-left:1.4em} article li{margin:0 0 12px}
+  .sub{color:var(--muted);font-size:14px;margin-top:-4px}
+  footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+.wc-dog{display:inline-block;width:1.15em;height:1.15em;vertical-align:-0.18em;margin-right:.3em}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <nav class="nav"><a href="../../2026-11-25.html">← 返回当天详情</a><a href="../../index.html">全部日期</a></nav>
+    <header>
+      <p class="date">2026-11-25</p>
+      <h1>AI 行业简报 · 2026-11-25</h1>
+      <p class="meta">AI 行业早间简报｜11月25日 周三（北京时间）　原文照录，仅整理排版。</p>
+    </header>
+    <article>
+<p>今天的主线有两条：大厂在英伟达之外抢算力软件，前沿模型开始拿出能验证的科研成果。</p>
+<ol start="1">
+<li>亚马逊约 75 亿美元收购 Decart 的优化技术和团队</li>
+</ol>
+<p>亚马逊周一确认收购 Decart Optimization Stack，并接收这家成立三年的初创公司的创始人和研发团队。官方没披露金额，彭博报道约 75 亿美元，Globes 称和未来五年的业绩目标挂钩。这套软件能让每颗芯片跑出更高性能，亚马逊正准备对外卖 Trainium 芯片，正好用它来和英伟达抢客户。<a href="https://www.geekwire.com/2026/amazon-is-buying-decarts-ai-chip-software-for-a-reported-7-5b-and-bringing-its-founders-aboard/" target="_blank" rel="noopener noreferrer">GeekWire</a></p>
+<ol start="2">
+<li>Sierra 融资 17.5 亿美元，估值 300 亿美元</li>
+</ol>
+<p>Bret Taylor 和 Clay Bavor 创办的客服 Agent 公司 Sierra 完成 F 轮，由 Greenoaks 和 Lightspeed 领投，此前的领投方全部跟投。估值比今年 5 月翻了一倍，公司称 10 月年化收入已超过 4 亿美元。它按完成的业务结果收费，客户里有不少百年银行和保险公司，说明企业级 Agent 已经有了实打实的收入。<a href="https://sierra.ai/blog/series-f-30b" target="_blank" rel="noopener noreferrer">Sierra 官方博客</a></p>
+<ol start="3">
+<li>DeepMind 用 Gemini 4 Agent 团队改进量子算法，每个结果都用 Lean 证明</li>
+</ol>
+<p>多组 Gemini 4 Agent 各自改进经典量子算法，每四小时碰一次头交换思路。一个用于核聚变模拟的算法成本降到原来的 1/11.8，一个常用基础子程序快了 290 多倍。这些电路太大，没法在经典计算机上模拟，所以改用形式化证明来保证正确。相关 Lean 库和解答已在 GitHub 开源。<a href="https://deepmind.google/blog/finding-faster-quantum-algorithms-with-agents-and-formal-verification/" target="_blank" rel="noopener noreferrer">Google DeepMind</a></p>
+<ol start="4">
+<li>OpenAI：GPT-6 不调用专用生物模型也能设计蛋白质</li>
+</ol>
+<p>OpenAI 发布预印本，称 GPT-6 系列只靠推理和通用代码工具，就能设计新的蛋白结构和序列。内部研究模型在不少任务上追平或超过专用模型；和 Onava 合作的湿实验里，基于 GPT-6.2 的设计在五个靶点上都出现了结合迹象。需要注意，候选序列的生成和筛选有一部分还是靠专用模型完成的。<a href="https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities/" target="_blank" rel="noopener noreferrer">OpenAI 原文</a></p>
+<ol start="5">
+<li>Anthropic 推出 Claude Ship，让 AI 审 PR、修 PR、按策略批准合并</li>
+</ol>
+<p>Claude Ship 由已正式上线的 Code Review，加上两个 beta 版 Agent（PR Steward 负责修失败的测试和合并冲突，Claude Approvals 按团队定的规则批准常规改动）组成，面向 Team 和 Enterprise 用户，支持 GitHub，按用量计费。Agent 写代码之后，人工评审成了新瓶颈，Anthropic 这次把“谁来点批准”也交给了模型。<a href="https://claude.com/resources/articles/introducing-claude-ship" target="_blank" rel="noopener noreferrer">Claude 官方</a></p>
+<ol start="6">
+<li>俄勒冈州和弗吉尼亚州起诉 SpaceX，指控 Grok 生成未经同意的色情图像</li>
+</ol>
+<p>两州总检察长周一分别提起诉讼，称 SpaceX 没给 Grok 和 X 加足防护，导致用户生成并传播儿童性虐待内容和未经同意的深度伪造色情图，同时把产品宣传成“总体安全”。两州要求民事罚款，并要求法院强制加装防护。这是美国州政府第一次就 AI 图像生成起诉模型公司，对所有做图像生成的厂商都是合规信号。<a href="https://www.cnbc.com/2026/11/23/oregon-virginia-spacex-grok-deepfake-lawsuits.html" target="_blank" rel="noopener noreferrer">CNBC</a></p>
+    </article>
+    <footer><a href="../../2026-11-25.html">返回 2026-11-25 详情</a> · <a href="../../index.html">全部日期</a></footer>
+  </div>
+</body>
+</html>
