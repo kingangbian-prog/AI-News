@@ -1,1010 +1,1092 @@
 [
- {
-  "date": "2026-11-25",
-  "topics": [
-   "AI 行业简报",
-   "科技高管观点",
-   "PC 行业动向",
-   "Apple 洞察",
-   "AI 大拿",
-   "GitHub 涨星"
-  ],
-  "summary": "亚马逊确认收购 Decart 的优化技术和团队，彭博报道金额约 75 亿美元，用来配合 Trainium 芯片对外销售；客服 Agent 公司 Sierra 以 300 亿美元估值融资 17.5 亿美元。Anthropic 让 Claude 生成的 artifact 可以装成带通知和权限控制的桌面应用，同日还发布了沙箱逃逸评测 Siren；OpenAI 称 GPT-6 只靠推理和通用代码设计出蛋白质。PC 方面，华硕联席 CEO 说入门机可能把内存从 16GB 降回 8GB，微软则称 Windows 11 为 8GB 和 16GB 设备省出约 860MB 内存。Apple 一侧，Meta 的 Muse Agent 被发现在接 Apple 商务消息，Walmart App 悄悄撤掉了 Apple Pay。GitHub 涨星榜上 elementalsouls/Claude-BugHunter 以 +1,833 居首。",
-  "reports": [
-   {
-    "name": "AI 行业简报",
-    "href": "reports/2026-11-25/brief.html"
-   },
-   {
-    "name": "科技高管观点",
-    "href": "reports/2026-11-25/exec.html"
-   },
-   {
-    "name": "PC 行业动向",
-    "href": "reports/2026-11-25/pc.html"
-   },
-   {
-    "name": "Apple 洞察",
-    "href": "reports/2026-11-25/apple.html"
-   },
-   {
-    "name": "AI 大拿",
-    "href": "reports/2026-11-25/ai-leaders.html"
-   },
-   {
-    "name": "GitHub 涨星",
-    "href": "github-trend/index.html"
-   }
-  ],
-  "lines": [
-   {
-    "topic": "AI 行业简报",
-    "text": "亚马逊约 75 亿美元收购 Decart 的优化技术和团队，用来配合 Trainium 芯片和英伟达抢客户。",
-    "image": "",
-    "image_src": "",
-    "link": "https://www.geekwire.com/2026/amazon-is-buying-decarts-ai-chip-software-for-a-reported-7-5b-and-bringing-its-founders-aboard/"
-   },
-   {
-    "topic": "科技高管观点",
-    "text": "Anthropic 让 Claude 生成的 artifact 可以安装为 Mac 和 Windows 桌面应用，权限分三级。",
-    "image": "",
-    "image_src": "",
-    "link": "https://claude.com/resources/articles/install-as-app"
-   },
-   {
-    "topic": "PC 行业动向",
-    "text": "华硕联席 CEO 称入门和中端 PC 可能把内存从 16GB 降回 8GB，预计 2027 年全球 PC 出货下滑 10% 到 15%。",
-    "image": "",
-    "image_src": "",
-    "link": "https://videocardz.com/newz/asus-co-ceo-says-budget-pcs-may-drop-from-16gb-to-8gb-ram-due-to-rising-memory-prices"
-   },
-   {
-    "topic": "Apple 洞察",
-    "text": "Meta 的 Muse Agent 里发现接 Apple 商务消息的 Messages 选项，入口之争打到消息通道。",
-    "image": "",
-    "image_src": "",
-    "link": "https://www.testingcatalog.com/meta-prepares-apple-messages-support-for-muse-ai-agent/"
-   },
-   {
-    "topic": "AI 大拿",
-    "text": "OpenAI 称 GPT-6 靠推理和通用代码设计蛋白质，有湿实验验证，Brockman 称这是通用解题的又一例。",
-    "image": "",
-    "image_src": "",
-    "link": "https://x.com/OpenAI/status/2125334383490105601"
-   },
-   {
-    "topic": "GitHub 涨星",
-    "text": "elementalsouls/Claude-BugHunter 当日 +1,833，总星 21,400，居涨星榜首。",
-    "image": "",
-    "image_src": "",
-    "link": "https://github.com/elementalsouls/Claude-BugHunter"
-   }
-  ]
- },
- {
-  "date": "2026-11-24",
-  "topics": [
-   "AI 行业简报",
-   "科技高管观点",
-   "PC 行业动向",
-   "AI 大拿",
-   "GitHub 涨星"
-  ],
-  "summary": "英伟达董事会宣布黄仁勋复任 CEO、总裁和董事，距他辞职 11 天，当天股价涨约 30%，董事会称复任前听取了美国政府高层意见。Anthropic 发布 Claude Ship，让 Claude 审 PR 并按仓库策略自动合并，同日放出署名 Claude 的 VP ≠ VNP 论文和 Lean 4 证明。OpenAI 与思科开源 Linux 防护运行时 Shirudo，OpenAI 还推出面向小商户的 OpenWorks 计划。PC 方面，微软确认 Windows 11 的 Wi-Fi 驱动将在 2027 年移出内核态。GitHub 涨星榜上 elementalsouls/Claude-BugHunter 以 +2,037 居首。",
-  "reports": [
-   {
-    "name": "AI 行业简报",
-    "href": "reports/2026-11-24/brief.html"
-   },
-   {
-    "name": "科技高管观点",
-    "href": "reports/2026-11-24/exec.html"
-   },
-   {
-    "name": "PC 行业动向",
-    "href": "reports/2026-11-24/pc.html"
-   },
-   {
-    "name": "AI 大拿",
-    "href": "reports/2026-11-24/ai-leaders.html"
-   },
-   {
-    "name": "GitHub 涨星",
-    "href": "github-trend/index.html"
-   }
-  ],
-  "lines": [
-   {
-    "topic": "AI 行业简报",
-    "text": "英伟达董事会让黄仁勋复任 CEO，股价单日涨 30%，市值增加约 9520 亿美元。",
-    "image": "",
-    "image_src": "",
-    "link": "https://www.cnn.com/2026/11/23/tech/nvidia-reinstates-jensen-huang-ceo"
-   },
-   {
-    "topic": "科技高管观点",
-    "text": "Anthropic 发布 Claude Ship，让 Claude 审 PR、修失败检查并按仓库策略自动批准合并。",
-    "image": "",
-    "image_src": "",
-    "link": "https://claude.com/resources/articles/introducing-claude-ship"
-   },
-   {
-    "topic": "PC 行业动向",
-    "text": "微软确认 Windows 11 的 Wi-Fi 驱动将在 2027 年移出内核态，驱动崩了只断网、不蓝屏。",
-    "image": "",
-    "image_src": "",
-    "link": "https://www.notebookcheck.net/Windows-11-to-move-Wi-Fi-drivers-out-of-the-kernel-in-2027.1457987.0.html"
-   },
-   {
-    "topic": "AI 大拿",
-    "text": "黄仁勋复任 CEO，董事会复任前咨询过美国政府高层，Musk、Altman 先后公开表态。",
-    "image": "",
-    "image_src": "",
-    "link": "https://nvidianews.nvidia.com/news/nvidia-board-reinstates-jensen-huang-as-president-ceo-and-board-director"
-   },
-   {
-    "topic": "GitHub 涨星",
-    "text": "elementalsouls/Claude-BugHunter 当日 +2,037，总星 19,683，居涨星榜首。",
-    "image": "",
-    "image_src": "",
-    "link": "https://github.com/elementalsouls/Claude-BugHunter"
-   }
-  ]
- },
- {
-  "date": "2026-11-23",
-  "topics": [
-   "AI 行业简报",
-   "科技高管观点",
-   "PC 行业动向",
-   "Apple 洞察",
-   "AI 大拿",
-   "GitHub 涨星"
-  ],
-  "summary": "OpenAI 首席科学家 Pachocki 发文提议各家实验室为预训练设共同上限，Altman、Brockman、Mark Chen 公开支持，Suleyman 也表态。Anthropic 数学家用 Claude 完成的黎曼猜想 Lean 证明通过 Lean FRO 和 Mathlib 的独立验证。英伟达连跌七周，Apollo 和高盛为 SpaceX 完成 440 亿美元 GPU 融资。PC 方面，Windows 11 Insider 重开 Future Platforms 通道，HP 的 Snapdragon X 笔记本降到 399 美元。Gurman 称 Apple 的系统级 Agent 最早 2027 年底才可能发布。GitHub 涨星榜上 elementalsouls/Claude-BugHunter 以 +1,721 居首。",
-  "reports": [
-   {
-    "name": "AI 行业简报",
-    "href": "reports/2026-11-23/brief.html"
-   },
-   {
-    "name": "科技高管观点",
-    "href": "reports/2026-11-23/exec.html"
-   },
-   {
-    "name": "PC 行业动向",
-    "href": "reports/2026-11-23/pc.html"
-   },
-   {
-    "name": "Apple 洞察",
-    "href": "reports/2026-11-23/apple.html"
-   },
-   {
-    "name": "AI 大拿",
-    "href": "reports/2026-11-23/ai-leaders.html"
-   },
-   {
-    "name": "GitHub 涨星",
-    "href": "github-trend/index.html"
-   }
-  ],
-  "lines": [
-   {
-    "topic": "AI 行业简报",
-    "text": "OpenAI 首席科学家提议各家实验室用 perplexity 给预训练设共同上限，Altman 公开支持。",
-    "image": "",
-    "image_src": "",
-    "link": "https://openai.com/index/perplexity-and-intelligence/"
-   },
-   {
-    "topic": "科技高管观点",
-    "text": "Anthropic 数学家称与 Claude 合作证明黎曼猜想，Lean 与 Mathlib 社区联合声明确认证明正确。",
-    "image": "",
-    "image_src": "",
-    "link": "https://www.scientificamerican.com/article/the-ai-riemann-hypothesis-proof-is-almost-certainly-true-independent-mathematicians-attest/"
-   },
-   {
-    "topic": "PC 行业动向",
-    "text": "Windows 11 Insider 重开 Future Platforms 通道，29712.1000 需要全新安装，内置 PowerShell 7。",
-    "image": "",
-    "image_src": "",
-    "link": "https://blogs.windows.com/windows-insider/2026/11/20/announcing-new-builds-for-20-november-2026/"
-   },
-   {
-    "topic": "Apple 洞察",
-    "text": "Gurman 称 Apple 的系统级 Agent 最早 2027 年底才可能发布，Mac 上可能有一年多空窗。",
-    "image": "",
-    "image_src": "",
-    "link": "https://www.bloomberg.com/news/newsletters/2026-11-22/apple-s-ai-agent-war-early-2027-product-plans-and-iphone-duo-face-unlock-review"
-   },
-   {
-    "topic": "AI 大拿",
-    "text": "Altman 称 Pachocki 的文章是 OpenAI 很久以来发布的最重要的东西，文章公开了预训练内部数据。",
-    "image": "",
-    "image_src": "",
-    "link": "https://x.com/sama/status/2124551594691932405"
-   },
-   {
-    "topic": "GitHub 涨星",
-    "text": "elementalsouls/Claude-BugHunter 当日 +1,721 居首，总星 17,714；本期 11 个仓库新进榜。",
-    "image": "",
-    "image_src": "",
-    "link": "https://github.com/elementalsouls/Claude-BugHunter"
-   }
-  ]
- },
- {
-  "date": "2026-11-20",
-  "topics": [
-   "AI 行业简报",
-   "科技高管观点",
-   "PC 行业动向",
-   "Apple 洞察",
-   "AI 大拿",
-   "GitHub 涨星"
-  ],
-  "summary": "Anthropic 周四在纳斯达克挂牌，开盘较发行价高 34%，收盘 97.17 美元，涨 17%，当天纳指跌 2.3%。Google 给 Mac 版 Gemini 加了 computer use，Meta 的 Muse 在员工测试中把不同账户的对话混在一起，花旗等银行把智能体代办的风险推给客户。OpenAI 发布 GPT-6.2 Astra 和 Sol，内部研究显示编程智能体完成 2 到 4 小时任务的成功率从 23% 升到 46%。PC 方面，Intel 18A 签下首个外部代工客户但未公开名字；Apple 被曝在招聘自主 AI Agent 负责人。GitHub 涨星榜上 obra/superpowers 以 +2,029 居首。",
-  "reports": [
-   {
-    "name": "AI 行业简报",
-    "href": "reports/2026-11-20/brief.html"
-   },
-   {
-    "name": "科技高管观点",
-    "href": "reports/2026-11-20/exec.html"
-   },
-   {
-    "name": "PC 行业动向",
-    "href": "reports/2026-11-20/pc.html"
-   },
-   {
-    "name": "Apple 洞察",
-    "href": "reports/2026-11-20/apple.html"
-   },
-   {
-    "name": "AI 大拿",
-    "href": "reports/2026-11-20/ai-leaders.html"
-   },
-   {
-    "name": "GitHub 涨星",
-    "href": "github-trend/index.html"
-   }
-  ],
-  "lines": [
-   {
-    "topic": "AI 行业简报",
-    "text": "Anthropic 周四在纳斯达克挂牌，开盘较发行价高 34%，收盘 97.17 美元，涨 17%，当天纳指跌 2.3%。",
-    "image": "",
-    "image_src": "",
-    "link": "https://www.cbsnews.com/news/anthropic-ipo-nasdaq-debut-claude-ai/"
-   },
-   {
-    "topic": "科技高管观点",
-    "text": "Anthropic 上市首日收涨 17%，Dario 致辞承诺按安全需要放慢训练和部署。",
-    "image": "",
-    "image_src": "",
-    "link": "https://x.com/AnthropicAI/status/2123461658890686863"
-   },
-   {
-    "topic": "PC 行业动向",
-    "text": "Intel 18A 签下首个外部代工客户，客户未公开，微软成为 EMIB 封装首个公开客户。",
-    "image": "",
-    "image_src": "",
-    "link": "https://www.cnbc.com/2026/11/18/intel-first-18a-foundry-customer.html"
-   },
-   {
-    "topic": "Apple 洞察",
-    "text": "Bloomberg 称 Apple 在招聘自主 AI Agent 负责人，要求能像人一样用电脑。",
-    "image": "",
-    "image_src": "",
-    "link": "https://www.macrumors.com/2026/11/19/apple-ai-agent-development/"
-   },
-   {
-    "topic": "AI 大拿",
-    "text": "Dario 和 Daniela 上 CNBC，称算力承诺宁可低估，不够再去现货市场买。",
-    "image": "",
-    "image_src": "",
-    "link": "https://www.cnbc.com/2026/11/19/cnbc-exclusive-transcript-anthropic-co-founders-dario-and-daniela-amodei-speak-with-andrew-ross-sorkin-on-cnbc-today.html"
-   },
-   {
-    "topic": "GitHub 涨星",
-    "text": "obra/superpowers 当日 +2,029 居首，总星 322,044；本期 25 个仓库新进榜。",
-    "image": "",
-    "image_src": "",
-    "link": "https://github.com/obra/superpowers"
-   }
-  ]
- },
- {
-  "date": "2026-11-19",
-  "topics": [
-   "AI 行业简报",
-   "科技高管观点",
-   "PC 行业动向",
-   "Apple 洞察",
-   "X 热门新点子",
-   "AI 大拿",
-   "GitHub 涨星"
-  ],
-  "summary": "Anthropic 以每股 83 美元定价 IPO，募资 813 亿美元，成为史上最大 IPO，周四在纳斯达克挂牌。Google 发布 Gemini 4 Neon，OpenAI 公布用自家模型帮 AMD 改 GPU 设计，功耗、性能、面积最高改善 14%。Altman 和 Brockman 在 DealBook 峰会上谈安全，对黄仁勋是否回任不表态。PC 方面，NVIDIA RTX Spark 迷你桌面机开卖，MSI 当周就降价。美国远程访问 AI 芯片新规当天生效，中国商务部称将反制。",
-  "reports": [
-   {
-    "name": "AI 行业简报",
-    "href": "reports/2026-11-19/brief.html"
-   },
-   {
-    "name": "科技高管观点",
-    "href": "reports/2026-11-19/exec.html"
-   },
-   {
-    "name": "PC 行业动向",
-    "href": "reports/2026-11-19/pc.html"
-   },
-   {
-    "name": "Apple 洞察",
-    "href": "reports/2026-11-19/apple.html"
-   },
-   {
-    "name": "X 热门新点子",
-    "href": "reports/2026-11-19/x-ideas.html"
-   },
-   {
-    "name": "AI 大拿",
-    "href": "reports/2026-11-19/ai-leaders.html"
-   },
-   {
-    "name": "GitHub 涨星",
-    "href": "github-trend/index.html"
-   }
-  ],
-  "lines": [
-   {
-    "topic": "AI 行业简报",
-    "text": "Anthropic 以每股 83 美元定价 IPO，募资 813 亿美元，成为史上最大 IPO，周四在纳斯达克挂牌。",
-    "image": "",
-    "image_src": "",
-    "link": "https://www.cnn.com/2026/11/18/investing/anthropic-ipo-price-stock"
-   },
-   {
-    "topic": "科技高管观点",
-    "text": "Altman 和 Brockman 在 DealBook 峰会上谈安全和速度，对黄仁勋是否回任不表态。",
-    "image": "",
-    "image_src": "",
-    "link": "https://thenextweb.com/news/sam-altman-greg-brockman-jensen-huang-dealbook"
-   },
-   {
-    "topic": "PC 行业动向",
-    "text": "NVIDIA RTX Spark 迷你桌面机开卖，MSI 当周把 EdgeMesa N AI+ 从 4,699 降到 4,399 美元。",
-    "image": "",
-    "image_src": "",
-    "link": "https://videocardz.com/newz/nvidia-launches-rtx-spark-mini-pc-desktops-with-windows-os-asus-dell-and-msi-first"
-   },
-   {
-    "topic": "Apple 洞察",
-    "text": "HomeView 27.2.1 修了三个 Siri 配对和设置问题，常用的闹钟、计时器指令失灵没提。",
-    "image": "",
-    "image_src": "",
-    "link": "https://www.macrumors.com/2026/11/18/homeview-27-2-1-update-fixes-siri-bugs/"
-   },
-   {
-    "topic": "X 热门新点子",
-    "text": "Google 发布 Gemini 4 Neon，一个月内第四款 Gemini 4，每百万 token 输入 3 美元、输出 15 美元。",
-    "image": "",
-    "image_src": "",
-    "link": "https://x.com/sundarpichai/status/2123167780988125621"
-   },
-   {
-    "topic": "AI 大拿",
-    "text": "Brockman：OpenAI 模型帮 AMD 在不到 5 个月取得约一年的芯片设计进展，PPA 最高改善 14%。",
-    "image": "",
-    "image_src": "",
-    "link": "https://x.com/gdb/status/2123130414323888463"
-   },
-   {
-    "topic": "GitHub 涨星",
-    "text": "elementalsouls/Claude-BugHunter 当日 +2,322 登顶，是含 82 个技能的漏洞挖掘和红队技能包。",
-    "image": "",
-    "image_src": "",
-    "link": "https://github.com/elementalsouls/Claude-BugHunter"
-   }
-  ]
- },
- {
-  "date": "2026-11-18",
-  "topics": [
-   "AI 行业简报",
-   "科技高管观点",
-   "PC 行业动向",
-   "X 热门新点子",
-   "AI 大拿",
-   "GitHub 涨星"
-  ],
-  "summary": "英伟达发出黄仁勋辞职后的第一份财报：第三财季营收 1158 亿美元，同比增 103%，四季度指引 1300 亿美元，2028 财年增长预期上调到约 75%。黄仁勋在 X 上发长文说愿意回任，董事长 Harvey Jones 在电话会上说董事会不打算恢复他的 CEO 职务。OpenAI 发布 GPT-6.2 Astra 和 Sol，同一天加州总检察长起诉 OpenAI，美国商务部也发布了远程访问 AI 芯片的临时规则。微软 Ignite 开幕，发布自研模型，并公布 Windows 端点安全平台和管理员保护。GitHub 涨星榜首是 dream-num/univer，当日 +1,776。",
-  "reports": [
-   {
-    "name": "AI 行业简报",
-    "href": "reports/2026-11-18/brief.html"
-   },
-   {
-    "name": "科技高管观点",
-    "href": "reports/2026-11-18/exec.html"
-   },
-   {
-    "name": "PC 行业动向",
-    "href": "reports/2026-11-18/pc.html"
-   },
-   {
-    "name": "X 热门新点子",
-    "href": "reports/2026-11-18/x-ideas.html"
-   },
-   {
-    "name": "AI 大拿",
-    "href": "reports/2026-11-18/ai-leaders.html"
-   },
-   {
-    "name": "GitHub 涨星",
-    "href": "github-trend/index.html"
-   }
-  ],
-  "lines": [
-   {
-    "topic": "AI 行业简报",
-    "text": "英伟达第三财季营收 1158 亿美元，同比增 103%；加州总检察长起诉 OpenAI。",
-    "image": "",
-    "image_src": "",
-    "link": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-third-quarter-fiscal-2027"
-   },
-   {
-    "topic": "科技高管观点",
-    "text": "黄仁勋发长文说愿回任，董事长当天表示董事会不打算让他回来。",
-    "image": "",
-    "image_src": "",
-    "link": "https://x.com/JensenHuang/status/2122726005219737649"
-   },
-   {
-    "topic": "PC 行业动向",
-    "text": "微软 Ignite 首日公布 Windows 端点安全平台和管理员保护正式可用。",
-    "image": "",
-    "image_src": "",
-    "link": "https://blogs.windows.com/windowsexperience/2026/11/17/microsoft-ignite-2026-building-windows-for-the-next-era-of-work/"
-   },
-   {
-    "topic": "X 热门新点子",
-    "text": "OpenAI 发布 GPT-6.2 Astra 和 Sol，评价分化；Perplexity 推出 Orchestrator API。",
-    "image": "",
-    "image_src": "",
-    "link": "https://x.com/OpenAI/status/2122750124543926515"
-   },
-   {
-    "topic": "AI 大拿",
-    "text": "Altman 宣布 GPT-6.2 Sol 和 Astra 上线；雷军在 APEC 上说 AI 落地场景有限。",
-    "image": "",
-    "image_src": "",
-    "link": "https://x.com/sama/status/2122798039899263456"
-   },
-   {
-    "topic": "GitHub 涨星",
-    "text": "dream-num/univer 以 +1,776 登顶。",
-    "image": "",
-    "image_src": "",
-    "link": "https://github.com/dream-num/univer"
-   }
-  ]
- },
- {
-  "date": "2026-11-17",
-  "topics": [
-   "AI 行业简报",
-   "科技高管观点",
-   "PC 行业动向",
-   "X 热门新点子",
-   "AI 大拿",
-   "GitHub 涨星"
-  ],
-  "summary": "英伟达北京时间周三早上发出黄仁勋辞职后的第一份财报，代理 CEO Colette Kress 主持，分析师预期营收 1091 亿美元、同比增 91%。AMD 完成约 82 亿美元收购 World Labs，李飞飞出任 AMD 首席科学家；OpenAI 一天内发了嵌入式安全评估、面向 20 万名科学家的免费计划和医疗电脑操作智能体三件事。阿里把 2.4 万亿参数的 Qwen4-Max 全面开放，成本比自家测试降了约 58%。PC 这边，Windows Insider 新版本加入通行密钥管理和 Intune 远程锁定，macOS 27.3 beta 2 为 AI 代理收紧权限，十铨称内存最紧的时候在 2027 年上半年。GitHub 涨星榜首是 Univer，当日 +1,878。",
-  "reports": [
-   {
-    "name": "AI 行业简报",
-    "href": "reports/2026-11-17/brief.html"
-   },
-   {
-    "name": "科技高管观点",
-    "href": "reports/2026-11-17/exec.html"
-   },
-   {
-    "name": "PC 行业动向",
-    "href": "reports/2026-11-17/pc.html"
-   },
-   {
-    "name": "X 热门新点子",
-    "href": "reports/2026-11-17/x-ideas.html"
-   },
-   {
-    "name": "AI 大拿",
-    "href": "reports/2026-11-17/ai-leaders.html"
-   },
-   {
-    "name": "GitHub 涨星",
-    "href": "github-trend/index.html"
-   }
-  ],
-  "lines": [
-   {
-    "topic": "AI 行业简报",
-    "text": "英伟达发黄仁勋辞职后的第一份财报，预期营收 1091 亿美元；阿里 Qwen4-Max 全面开放。",
-    "image": "",
-    "image_src": "",
-    "link": "https://www.cnbc.com/2026/11/16/nvidia-earnings-jensen-huang-resignation.html"
-   },
-   {
-    "topic": "科技高管观点",
-    "text": "AMD 完成收购 World Labs，李飞飞任首席科学家；OpenAI 一天内发三件安全和科研的事。",
-    "image": "",
-    "image_src": "",
-    "link": "https://ir.amd.com/news-events/press-releases/detail/1306/amd-completes-acquisition-of-world-labs"
-   },
-   {
-    "topic": "PC 行业动向",
-    "text": "Windows Insider 新版本加入通行密钥管理和 Intune 远程锁定；MacBook Pro OLED 低亮度 PWM 引发头疼反馈。",
-    "image": "",
-    "image_src": "",
-    "link": "https://blogs.windows.com/windows-insider/2026/11/16/announcing-new-builds-for-16-november-2026/"
-   },
-   {
-    "topic": "X 热门新点子",
-    "text": "OpenAI 一天连发 4 条科研相关消息，前沿模型免费开放给最多 20 万名科学家；Perplexity 投入至少 1 万张 GPU。",
-    "image": "",
-    "image_src": "",
-    "link": "https://x.com/OpenAI/status/2122377585523126615"
-   },
-   {
-    "topic": "AI 大拿",
-    "text": "Altman 回应“Anthropic 的 Lyft”之问，说 OpenAI 最终会上市；纳德拉承认 Claude Code 让微软措手不及。",
-    "image": "",
-    "image_src": "",
-    "link": "https://www.businessinsider.com/sam-altman-openai-ipo-plan-investor-demand-2026-11"
-   },
-   {
-    "topic": "GitHub 涨星",
-    "text": "dream-num/univer 升到第 1，当日 +1,878；本期 29 个仓库相对上一期新进榜。",
-    "image": "",
-    "image_src": "",
-    "link": "https://github.com/dream-num/univer"
-   }
-  ]
- },
- {
-  "date": "2026-11-16",
-  "topics": [
-   "AI 行业简报",
-   "科技高管观点",
-   "PC 行业动向",
-   "Apple 洞察",
-   "X 热门新点子",
-   "AI 大拿",
-   "GitHub 涨星"
-  ],
-  "summary": "周末到周一的主线仍是英伟达换帅后的拉扯：要求黄仁勋回归的请愿超过 11.5 万人签名，FT 称他正和亲信讨论回任，美国财长贝森特则要求从外部找 CEO，公司 11 月 17 日发财报。OpenAI 推出了 ChatGPT Wallet，并开设科学博客，首篇介绍物理学家与 GPT-6 Astra 给出的标准模型格点定义候选方案。PC 这边，华为 MateBook Fold S 在国内开订，微软给 26H1 推了 Insider 版本；Apple 则给老款 Apple TV 4K 送上了 Siri AI，古尔曼还称首款智能眼镜计划 2027 年发布。GitHub 涨星榜上，Chrome 团队的现代 Web 开发指引升到第 1，前 10 里有 8 个是新面孔。",
-  "reports": [
-   {
-    "name": "AI 行业简报",
-    "href": "reports/2026-11-16/brief.html"
-   },
-   {
-    "name": "科技高管观点",
-    "href": "reports/2026-11-16/exec.html"
-   },
-   {
-    "name": "PC 行业动向",
-    "href": "reports/2026-11-16/pc.html"
-   },
-   {
-    "name": "Apple 洞察",
-    "href": "reports/2026-11-16/apple.html"
-   },
-   {
-    "name": "X 热门新点子",
-    "href": "reports/2026-11-16/x-ideas.html"
-   },
-   {
-    "name": "AI 大拿",
-    "href": "reports/2026-11-16/ai-leaders.html"
-   },
-   {
-    "name": "GitHub 涨星",
-    "href": "github-trend/index.html"
-   }
-  ],
-  "lines": [
-   {
-    "topic": "AI 行业简报",
-    "text": "要求恢复黄仁勋职务的请愿超过 11.5 万人签名；同天还有 ChatGPT Wallet 和美联储把 AI 列为主要风险。",
-    "image": "",
-    "image_src": "",
-    "link": "https://techcrunch.com/2026/11/14/elon-musk-other-tech-execs-sign-petition-calling-on-nvidia-to-reinstate-jensen-huang/"
-   },
-   {
-    "topic": "科技高管观点",
-    "text": "FT 称黄仁勋正和亲信讨论回任，贝森特要求从外部找 CEO；OpenAI 上线科学博客。",
-    "image": "",
-    "image_src": "",
-    "link": "https://www.reuters.com/world/china/jensen-huang-discusses-comeback-nvidia-ceo-with-allies-ft-reports-2026-11-15/"
-   },
-   {
-    "topic": "PC 行业动向",
-    "text": "华为 MateBook Fold S 在国内开订，展开 14.7 英寸，跑鸿蒙 PC，11 月 24 日付尾款。",
-    "image": "",
-    "image_src": "",
-    "link": "https://www.notebookcheck.net/Huawei-s-foldable-laptop-with-up-to-32GB-RAM-and-1TB-storage-opens-for-pre-orders.1450194.0.html"
-   },
-   {
-    "topic": "Apple 洞察",
-    "text": "古尔曼称 Apple 首款智能眼镜计划 2027 年 WWDC 发布；tvOS 27.2.1 让老款 Apple TV 4K 用上 Siri AI。",
-    "image": "",
-    "image_src": "",
-    "link": "https://www.macrumors.com/2026/11/15/apple-smart-glasses-hinge-on-siri/"
-   },
-   {
-    "topic": "X 热门新点子",
-    "text": "马斯克称英伟达不少供应链协议是和黄仁勋握手达成的，这条赞 9.3 万、浏览 734 万。",
-    "image": "",
-    "image_src": "",
-    "link": "https://x.com/elonmusk/status/2121613402846204253"
-   },
-   {
-    "topic": "AI 大拿",
-    "text": "LeCun 谈 p(doom) 和开放基础模型；OpenAI 用 GPT-6 Astra 参与标准模型格点定义的科研案例。",
-    "image": "",
-    "image_src": "",
-    "link": "https://x.com/ylecun/status/2121995284196602013"
-   },
-   {
-    "topic": "GitHub 涨星",
-    "text": "Chrome 团队的 modern-web-guidance-src 升到第 1，当日 +1,219；前 10 里 8 个是新面孔。",
-    "image": "",
-    "image_src": "",
-    "link": "https://github.com/GoogleChrome/modern-web-guidance-src"
-   }
-  ]
- },
- {
-  "date": "2026-11-13",
-  "topics": [
-   "AI 行业简报",
-   "科技高管观点",
-   "PC 行业动向",
-   "Apple 洞察",
-   "X 热门新点子",
-   "AI 大拿",
-   "GitHub 涨星"
-  ],
-  "summary": "黄仁勋已辞去英伟达 CEO、总裁和董事职务，CFO Colette Kress 兼任临时 CEO，Harvey Jones 出任公司首任董事长。周四早盘股价一度跌近 12%，自上周五以来市值蒸发超过 8550 亿美元，11 月 17 日还有财报。同一天谷歌把 Gemini 4 Hydrogen 推到了 Gemini App、AI Studio 和搜索，官方称比 3.8 Flash 完成任务快 2.5 倍。PC 这边，技嘉发布了约 1 升、可装 Windows 11 的 RTX Spark 主机 AI TOP AERO；Apple 的 HomeView 和新款 Apple TV 4K 也从今天开始送达。",
-  "reports": [
-   {
-    "name": "AI 行业简报",
-    "href": "reports/2026-11-13/brief.html"
-   },
-   {
-    "name": "科技高管观点",
-    "href": "reports/2026-11-13/exec.html"
-   },
-   {
-    "name": "PC 行业动向",
-    "href": "reports/2026-11-13/pc.html"
-   },
-   {
-    "name": "Apple 洞察",
-    "href": "reports/2026-11-13/apple.html"
-   },
-   {
-    "name": "X 热门新点子",
-    "href": "reports/2026-11-13/x-ideas.html"
-   },
-   {
-    "name": "AI 大拿",
-    "href": "reports/2026-11-13/ai-leaders.html"
-   },
-   {
-    "name": "GitHub 涨星",
-    "href": "github-trend/index.html"
-   }
-  ],
-  "lines": [
-   {
-    "topic": "AI 行业简报",
-    "text": "黄仁勋辞去英伟达 CEO，CFO Colette Kress 任临时 CEO；同天谷歌发布 Gemini 4 Hydrogen。",
-    "image": "",
-    "image_src": "",
-    "link": "https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition"
-   },
-   {
-    "topic": "科技高管观点",
-    "text": "硅谷对黄仁勋离任反应分化；OpenAI 发布 Daybreak 网络安全产品，Microsoft 365 当天大面积故障。",
-    "image": "",
-    "image_src": "",
-    "link": "https://x.com/AravSrinivas/status/2120891190333607989"
-   },
-   {
-    "topic": "PC 行业动向",
-    "text": "技嘉发布约 1 升、预装 Windows 11 的 RTX Spark 主机 AI TOP AERO。",
-    "image": "",
-    "image_src": "",
-    "link": "https://videocardz.com/newz/gigabyte-launches-1-liter-nvidia-rtx-spark-desktop-with-dlss-5"
-   },
-   {
-    "topic": "Apple 洞察",
-    "text": "HomeView 和新款 Apple TV 4K 开始送达，Siri 控制门锁要等下个月更新。",
-    "image": "",
-    "image_src": "",
-    "link": "https://www.macrumors.com/2026/11/12/apple-homeview-software-27-2-24v526/"
-   },
-   {
-    "topic": "X 热门新点子",
-    "text": "Claude Meetings 上线，发布帖赞 4.2 万、浏览 260 万，是当天互动最高的 AI 帖。",
-    "image": "",
-    "image_src": "",
-    "link": "https://x.com/claudeai/status/2120973994191094179"
-   },
-   {
-    "topic": "AI 大拿",
-    "text": "Anthropic 提交 IPO 招股书（代码 ANT）；李飞飞开放 World Labs Atlas。",
-    "image": "",
-    "image_src": "",
-    "link": "https://x.com/AnthropicAI/status/2120841731302154708"
-   },
-   {
-    "topic": "GitHub 涨星",
-    "text": "涨星榜仍用 11-12 数据，meta/astryx 以 +2,776 连续第二天排第 1。",
-    "image": "",
-    "image_src": "",
-    "link": "github-trend/index.html"
-   }
-  ]
- },
- {
-  "date": "2026-11-12",
-  "topics": [
-   "AI 行业简报",
-   "科技高管观点",
-   "PC 行业动向",
-   "Apple 洞察",
-   "X 热门新点子",
-   "AI 大拿",
-   "GitHub 涨星"
-  ],
-  "summary": "英伟达董事会据报准备撤换黄仁勋，两天市值蒸发超 4000 亿美元；同一天 Anthropic IPO 认购超额数倍，OpenAI 单季收入首次突破 100 亿美元。谷歌发布 Gemini Decisions API，马斯克宣布 Cybertruck 产线延长到 2027 年夏末。PC 这边，iFixit 拆解了触屏版 MacBook Pro，Windows 11 十一月补丁推送，微软 Auto SR 在 ROG Xbox Ally X 上结束预览并扩展到部分 AMD Copilot+ PC。Apple 股价创 52 周新高，市值重回 5 万亿美元，谷歌开始在 CarPlay 上提供 Gemini。GitHub 涨星榜上 meta/astryx 以 +2,776 连续第二天排第 1。",
-  "reports": [
-   {
-    "name": "AI 行业简报",
-    "href": "reports/2026-11-12/brief.html"
-   },
-   {
-    "name": "科技高管观点",
-    "href": "reports/2026-11-12/exec.html"
-   },
-   {
-    "name": "PC 行业动向",
-    "href": "reports/2026-11-12/pc.html"
-   },
-   {
-    "name": "Apple 洞察",
-    "href": "reports/2026-11-12/apple.html"
-   },
-   {
-    "name": "X 热门新点子",
-    "href": "reports/2026-11-12/x-ideas.html"
-   },
-   {
-    "name": "AI 大拿",
-    "href": "reports/2026-11-12/ai-leaders.html"
-   },
-   {
-    "name": "GitHub 涨星",
-    "href": "github-trend/index.html"
-   }
-  ],
-  "lines": [
-   {
-    "topic": "AI 行业简报",
-    "text": "英伟达董事会据报准备撤换黄仁勋，两天市值蒸发超 4000 亿美元；同天 Anthropic IPO 认购超额数倍。",
-    "image": "assets/img/2026-11-12/nvidia-ceo.jpg",
-    "image_src": "https://techcrunch.com/wp-content/uploads/2025/04/GettyImages-2205754389.jpg?w=1024",
-    "link": "https://techcrunch.com/2026/11/11/nvidia-ceo-jensen-huangs-affair-with-alleged-chinese-spy-a-timeline/"
-   },
-   {
-    "topic": "科技高管观点",
-    "text": "谷歌发布 Gemini Decisions API 和 AlphaGenome 2；SemiAnalysis 称常驻 Agent 已占其 AI 支出 45%。",
-    "image": "assets/img/2026-11-12/gemini-decisions.jpg",
-    "image_src": "https://pbs.twimg.com/amplify_video_thumb/2120574108635455488/img/oulKz9YqtupyRljq.jpg",
-    "link": "https://x.com/sundarpichai/status/2120581155078729728"
-   },
-   {
-    "topic": "PC 行业动向",
-    "text": "微软 Auto SR 在 ROG Xbox Ally X 上结束预览，并扩展到部分 AMD Ryzen 的 Copilot+ PC。",
-    "image": "assets/img/2026-11-12/autosr-performance.jpg",
-    "image_src": "https://devblogs.microsoft.com/directx/wp-content/uploads/sites/42/2026/11/image-2.webp",
-    "link": "https://devblogs.microsoft.com/directx/autosr-performance-mode/"
-   },
-   {
-    "topic": "Apple 洞察",
-    "text": "AAPL 收涨 2.04%，报 355.63 美元，创 52 周新高，市值重回 5 万亿美元上方。",
-    "image": "",
-    "image_src": "",
-    "link": "https://www.marketbeat.com/instant-alerts/price-apple-nasdaq-aapl-shares-climb-2-following-analyst-upgrade-2026-11-11/"
-   },
-   {
-    "topic": "X 热门新点子",
-    "text": "xAI 发布 Grok Bot 1.0，马斯克那条帖浏览 2544 万；谷歌推出 Gemini Decisions API。",
-    "image": "",
-    "image_src": "",
-    "link": "https://x.com/elonmusk/status/2120584535423565889"
-   },
-   {
-    "topic": "AI 大拿",
-    "text": "黄仁勋去留待董事会决定；Dario Amodei 在路演中称重大疾病会在十年内成为历史。",
-    "image": "",
-    "image_src": "",
-    "link": "https://x.com/i/trending/2120576221176037449"
-   },
-   {
-    "topic": "GitHub 涨星",
-    "text": "meta/astryx 以 +2,776 连续第二天排第 1。",
-    "image": "assets/img/2026-11-12/meta-astryx.jpg",
-    "image_src": "https://opengraph.githubassets.com/1/meta/astryx",
-    "link": "https://github.com/meta/astryx"
-   }
-  ]
- },
- {
-  "date": "2026-11-11",
-  "topics": [
-   "AI 行业简报",
-   "科技高管观点",
-   "PC 行业动向",
-   "Apple 洞察",
-   "X 热门新点子",
-   "GitHub 涨星"
-  ],
-  "summary": "Anthropic 启动 IPO 路演，每股 70 到 78 美元，同天推出 Claude Sheets、Whiteboards 和 Meetings，直接和 Office、Google Workspace 抢办公场景。Google 开放 Gemini 4 Carbon，谷歌高管集体站台，Perplexity 实测它和 Claude Fable 5.2 持平、成本约为对手 40%。PC 这边，Kora Systems 发布内置 AI 和智能体的 Linux 桌面系统，在骁龙 X2 Elite 上跑通。Apple 旗下 Claris 在测试 Harbor，把 Mac 变成本地 AI 推理服务器。GitHub 涨星榜上 meta/astryx 以 +3,108 升到第 1。",
-  "reports": [
-   {
-    "name": "AI 行业简报",
-    "href": "reports/2026-11-11/brief.html"
-   },
-   {
-    "name": "科技高管观点",
-    "href": "reports/2026-11-11/exec.html"
-   },
-   {
-    "name": "PC 行业动向",
-    "href": "reports/2026-11-11/pc.html"
-   },
-   {
-    "name": "Apple 洞察",
-    "href": "reports/2026-11-11/apple.html"
-   },
-   {
-    "name": "X 热门新点子",
-    "href": "reports/2026-11-11/x-ideas.html"
-   },
-   {
-    "name": "GitHub 涨星",
-    "href": "github-trend/index.html"
-   }
-  ],
-  "lines": [
-   {
-    "topic": "AI 行业简报",
-    "text": "Anthropic 启动 IPO 路演，每股 70 到 78 美元，同天推出 Claude Sheets、Whiteboards 和 Meetings，直接和 Office、Google Workspace 抢办公场景。",
-    "image": "assets/img/2026-11-11/anthropic-ipo.jpg",
-    "image_src": "https://www-cdn.anthropic.com/images/4zrzovbb/website/6d4a0d28992ade92d6fa63646fd9c9d318245c6c-2400x1260.jpg",
-    "link": "https://www.anthropic.com/news/roadshow-launch"
-   },
-   {
-    "topic": "科技高管观点",
-    "text": "Google 开放 Gemini 4 Carbon，谷歌高管集体站台。",
-    "image": "assets/img/2026-11-11/gemini-4-carbon.jpg",
-    "image_src": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini_4_carbon_key_art_16-9_lockup.width-1300.jpg",
-    "link": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/"
-   },
-   {
-    "topic": "PC 行业动向",
-    "text": "Kora Systems 发布内置 AI 和智能体的 Linux 桌面系统，在骁龙 X2 Elite 上跑通。",
-    "image": "assets/img/2026-11-11/kora-linux.jpg",
-    "image_src": "https://images.siliconangle.com/blogs.dir/1/files/2026/11/kora-800x450.png",
-    "link": "https://siliconangle.com/2026/11/10/kora-builds-ai-models-and-agents-into-a-new-linux-os-bound-for-qualcomm-snapdragon-pcs/"
-   },
-   {
-    "topic": "Apple 洞察",
-    "text": "Apple 旗下 Claris 在测试 Harbor，把 Mac 变成本地 AI 推理服务器。",
-    "image": "assets/img/2026-11-11/claris-harbor.jpg",
-    "image_src": "https://images.macrumors.com/t/9wUV-qYkqqosjBGhmAOYPyY-q5k=/1600x/article-new/2026/11/claris-harbor-2.jpg",
-    "link": "https://www.macrumors.com/2026/11/10/apple-claris-harbor-app/"
-   },
-   {
-    "topic": "X 热门新点子",
-    "text": "Perplexity 实测 Gemini 4 Carbon 和 Claude Fable 5.2 持平、成本约为对手 40%；ChatGPT 开放商家入驻测试。",
-    "image": "assets/img/2026-11-11/perplexity-carbon.jpg",
-    "image_src": "https://pbs.twimg.com/media/HWx-WgoWsAA992y.jpg?name=orig",
-    "link": "https://x.com/AravSrinivas/status/2120208455965569262"
-   },
-   {
-    "topic": "GitHub 涨星",
-    "text": "meta/astryx 以 +3,108 升到第 1。",
-    "image": "assets/img/2026-11-11/meta-astryx.jpg",
-    "image_src": "https://opengraph.githubassets.com/77d2c2047ff12e54f80596c1648c1d0df2e4499cee2c7ff4ae2a77a7a30fd881/meta/astryx",
-    "link": "https://github.com/meta/astryx"
-   }
-  ]
- },
- {
-  "date": "2026-11-06",
-  "topics": [
-   "AI 行业简报",
-   "Apple 洞察",
-   "科技高管观点",
-   "X 新想法",
-   "GitHub 涨星"
-  ],
-  "summary": "五款 Apple 新品开售，首款触控 OLED MacBook Pro 和 OLED iPad mini 到货，iOS / macOS 27.3 首个公开测试版同时放出。OpenAI 发布面向安全研究的 GPT-6 Cyber，Brockman 称它已用于加固关键软件。Perplexity 发布 Teammates 工作代理，Claude 在美国上线只读的个人理财 beta。Anthropic S-1 披露约 8954 亿美元算力承诺，当日 AI 股大跌。GitHub 涨星榜上 NVIDIA/auto-ontology 以 +2,679 登顶。",
-  "reports": [
-   {
-    "name": "AI 行业简报",
-    "href": "reports/2026-11-06/brief.html"
-   },
-   {
-    "name": "Apple 洞察",
-    "href": "reports/2026-11-06/apple.html"
-   },
-   {
-    "name": "科技高管观点",
-    "href": "reports/2026-11-06/exec.html"
-   },
-   {
-    "name": "X 新想法",
-    "href": "reports/2026-11-06/x-ideas.html"
-   },
-   {
-    "name": "GitHub 涨星",
-    "href": "github-trend/index.html"
-   }
-  ],
-  "lines": [
-   {
-    "topic": "AI 行业简报",
-    "text": "OpenAI 发布面向安全研究的 GPT-6 Cyber，谷歌 Gemini Omni 1.2 Flash 把视频拉长到 15 秒并降价。",
-    "image": "assets/img/2026-11-06/gpt-6-cyber.jpg",
-    "image_src": "https://pbs.twimg.com/amplify_video_thumb/2118387217588465664/img/N2grMUmP0O_EMvS2.jpg",
-    "link": "https://x.com/OpenAI/status/2118390190246879554"
-   },
-   {
-    "topic": "Apple 洞察",
-    "text": "五款新品开售，首款触控 OLED MacBook Pro 和 OLED iPad mini 到货，iOS / macOS 27.3 首个公开测试版同时放出。",
-    "image": "assets/img/2026-11-06/apple-five-products.jpg",
-    "image_src": "https://images.macrumors.com/t/wPYeHY6-2xS0BMyi62C601kOVDs=/1600x/article-new/2026/10/apple-pro-tell-logo.jpg",
-    "link": "https://www.macrumors.com/2026/11/05/apple-launching-five-new-products-tomorrow/"
-   },
-   {
-    "topic": "科技高管观点",
-    "text": "Anthropic S-1 披露约 8954 亿美元算力承诺，当日 AI 股大跌。",
-    "image": "assets/img/2026-11-06/anthropic-s1.jpg",
-    "image_src": "https://media.datacenterdynamics.com/media/images/Claude.2e16d0ba.fill-1200x630.jpg",
-    "link": "https://www.datacenterdynamics.com/en/news/anthropic-s-1-update-reveals-8954bn-in-cloud-and-data-center-commitments/"
-   },
-   {
-    "topic": "X 新想法",
-    "text": "Perplexity 发布 Teammates 工作代理，Claude 在美国上线只读的个人理财 beta。",
-    "image": "assets/img/2026-11-06/perplexity-teammates.jpg",
-    "image_src": "https://pbs.twimg.com/amplify_video_thumb/2118389256930660352/img/GPUe0mXgz4f2dJ6O.jpg",
-    "link": "https://x.com/perplexity_ai/status/2118389326459670825"
-   },
-   {
-    "topic": "GitHub 涨星",
-    "text": "NVIDIA/auto-ontology 以 +2,679 登顶。",
-    "image": "assets/img/2026-11-06/nvidia-auto-ontology.jpg",
-    "image_src": "https://opengraph.githubassets.com/3d910998f6ad2a98c7eb6a9f28f5b23f8d8d886dfac9b5cd2b0c479847dfc3d7/NVIDIA/auto-ontology",
-    "link": "https://github.com/NVIDIA/auto-ontology"
-   }
-  ]
- }
+  {
+    "date": "2026-11-26",
+    "topics": [
+      "AI 行业简报",
+      "科技高管观点",
+      "PC 行业动向",
+      "Apple 洞察",
+      "AI 大拿",
+      "GitHub 涨星"
+    ],
+    "summary": "Axios 报道 OpenAI 和 Anthropic 不少员工认为内部未发布模型强到没法安全发布，Amodei 同日公开反驳“把人类自由意志交给 AI”的说法，Suleyman 表态支持。OpenAI 发布预印本称矩阵乘法指数 ω 恰好等于 9/4，并开始和少数客户测试 Private Inference。Claude Code 工程师 Thariq 宣布加入 OpenAI，OpenAI 称要重做 Codex。PC 方面，华为把分布式软总线升级为“鸿蒙星河互联”并开放跨 OS 互通，TrendForce 预计 2027 年下半年 DRAM 合约价可能持平。Apple 一侧，古尔曼说内部早有跑 macOS 的 iPad，但没有面向消费者的项目；GitHub 涨星榜上 elementalsouls/Claude-BugHunter 以 +1,644 居首。",
+    "reports": [
+      {
+        "name": "AI 行业简报",
+        "href": "reports/2026-11-26/brief.html"
+      },
+      {
+        "name": "科技高管观点",
+        "href": "reports/2026-11-26/exec.html"
+      },
+      {
+        "name": "PC 行业动向",
+        "href": "reports/2026-11-26/pc.html"
+      },
+      {
+        "name": "Apple 洞察",
+        "href": "reports/2026-11-26/apple.html"
+      },
+      {
+        "name": "AI 大拿",
+        "href": "reports/2026-11-26/ai-leaders.html"
+      },
+      {
+        "name": "GitHub 涨星",
+        "href": "github-trend/index.html"
+      }
+    ],
+    "lines": [
+      {
+        "topic": "AI 行业简报",
+        "text": "OpenAI 预印本称矩阵乘法指数 ω 恰好等于 9/4，附 Lean 形式化证明，等待同行审查。",
+        "image": "",
+        "image_src": "",
+        "link": "https://raw.githubusercontent.com/openai/math/main/preprints/The-matrix-multiplication-exponent-is-nine-fourths-November-24-2026/README.md"
+      },
+      {
+        "topic": "科技高管观点",
+        "text": "Claude Code 工程师 Thariq 加入 OpenAI，OpenAI 称要重做 Codex，ChatGPT Space 按需生成应用和画布。",
+        "image": "",
+        "image_src": "",
+        "link": "https://x.com/trq212/status/2125675533761671405"
+      },
+      {
+        "topic": "PC 行业动向",
+        "text": "华为把分布式软总线升级为“鸿蒙星河互联”，除 HarmonyOS 设备外可连更多 OpenHarmony 设备，并开放跨 OS 互通。",
+        "image": "",
+        "image_src": "",
+        "link": "https://www.ithome.com/1/032/516.htm"
+      },
+      {
+        "topic": "Apple 洞察",
+        "text": "古尔曼称 Apple 内部早有跑 macOS 的 iPad，但没有面向消费者的项目，也不打算合并两套系统。",
+        "image": "",
+        "image_src": "",
+        "link": "https://www.macrumors.com/2026/11/25/apple-2026-heres-whats-still-coming/"
+      },
+      {
+        "topic": "AI 大拿",
+        "text": "Amodei 反驳“把自由意志交给 AI”，Suleyman 公开支持，称口号不是护栏。",
+        "image": "",
+        "image_src": "",
+        "link": "https://x.com/DarioAmodei/status/2125656399392690605"
+      },
+      {
+        "topic": "GitHub 涨星",
+        "text": "elementalsouls/Claude-BugHunter 当日 +1,644，总星 22,929，居涨星榜首。",
+        "image": "",
+        "image_src": "",
+        "link": "https://github.com/elementalsouls/Claude-BugHunter"
+      }
+    ]
+  },
+  {
+    "date": "2026-11-25",
+    "topics": [
+      "AI 行业简报",
+      "科技高管观点",
+      "PC 行业动向",
+      "Apple 洞察",
+      "AI 大拿",
+      "GitHub 涨星"
+    ],
+    "summary": "亚马逊确认收购 Decart 的优化技术和团队，彭博报道金额约 75 亿美元，用来配合 Trainium 芯片对外销售；客服 Agent 公司 Sierra 以 300 亿美元估值融资 17.5 亿美元。Anthropic 让 Claude 生成的 artifact 可以装成带通知和权限控制的桌面应用，同日还发布了沙箱逃逸评测 Siren；OpenAI 称 GPT-6 只靠推理和通用代码设计出蛋白质。PC 方面，华硕联席 CEO 说入门机可能把内存从 16GB 降回 8GB，微软则称 Windows 11 为 8GB 和 16GB 设备省出约 860MB 内存。Apple 一侧，Meta 的 Muse Agent 被发现在接 Apple 商务消息，Walmart App 悄悄撤掉了 Apple Pay。GitHub 涨星榜上 elementalsouls/Claude-BugHunter 以 +1,833 居首。",
+    "reports": [
+      {
+        "name": "AI 行业简报",
+        "href": "reports/2026-11-25/brief.html"
+      },
+      {
+        "name": "科技高管观点",
+        "href": "reports/2026-11-25/exec.html"
+      },
+      {
+        "name": "PC 行业动向",
+        "href": "reports/2026-11-25/pc.html"
+      },
+      {
+        "name": "Apple 洞察",
+        "href": "reports/2026-11-25/apple.html"
+      },
+      {
+        "name": "AI 大拿",
+        "href": "reports/2026-11-25/ai-leaders.html"
+      },
+      {
+        "name": "GitHub 涨星",
+        "href": "github-trend/index.html"
+      }
+    ],
+    "lines": [
+      {
+        "topic": "AI 行业简报",
+        "text": "亚马逊约 75 亿美元收购 Decart 的优化技术和团队，用来配合 Trainium 芯片和英伟达抢客户。",
+        "image": "",
+        "image_src": "",
+        "link": "https://www.geekwire.com/2026/amazon-is-buying-decarts-ai-chip-software-for-a-reported-7-5b-and-bringing-its-founders-aboard/"
+      },
+      {
+        "topic": "科技高管观点",
+        "text": "Anthropic 让 Claude 生成的 artifact 可以安装为 Mac 和 Windows 桌面应用，权限分三级。",
+        "image": "",
+        "image_src": "",
+        "link": "https://claude.com/resources/articles/install-as-app"
+      },
+      {
+        "topic": "PC 行业动向",
+        "text": "华硕联席 CEO 称入门和中端 PC 可能把内存从 16GB 降回 8GB，预计 2027 年全球 PC 出货下滑 10% 到 15%。",
+        "image": "",
+        "image_src": "",
+        "link": "https://videocardz.com/newz/asus-co-ceo-says-budget-pcs-may-drop-from-16gb-to-8gb-ram-due-to-rising-memory-prices"
+      },
+      {
+        "topic": "Apple 洞察",
+        "text": "Meta 的 Muse Agent 里发现接 Apple 商务消息的 Messages 选项，入口之争打到消息通道。",
+        "image": "",
+        "image_src": "",
+        "link": "https://www.testingcatalog.com/meta-prepares-apple-messages-support-for-muse-ai-agent/"
+      },
+      {
+        "topic": "AI 大拿",
+        "text": "OpenAI 称 GPT-6 靠推理和通用代码设计蛋白质，有湿实验验证，Brockman 称这是通用解题的又一例。",
+        "image": "",
+        "image_src": "",
+        "link": "https://x.com/OpenAI/status/2125334383490105601"
+      },
+      {
+        "topic": "GitHub 涨星",
+        "text": "elementalsouls/Claude-BugHunter 当日 +1,833，总星 21,400，居涨星榜首。",
+        "image": "",
+        "image_src": "",
+        "link": "https://github.com/elementalsouls/Claude-BugHunter"
+      }
+    ]
+  },
+  {
+    "date": "2026-11-24",
+    "topics": [
+      "AI 行业简报",
+      "科技高管观点",
+      "PC 行业动向",
+      "AI 大拿",
+      "GitHub 涨星"
+    ],
+    "summary": "英伟达董事会宣布黄仁勋复任 CEO、总裁和董事，距他辞职 11 天，当天股价涨约 30%，董事会称复任前听取了美国政府高层意见。Anthropic 发布 Claude Ship，让 Claude 审 PR 并按仓库策略自动合并，同日放出署名 Claude 的 VP ≠ VNP 论文和 Lean 4 证明。OpenAI 与思科开源 Linux 防护运行时 Shirudo，OpenAI 还推出面向小商户的 OpenWorks 计划。PC 方面，微软确认 Windows 11 的 Wi-Fi 驱动将在 2027 年移出内核态。GitHub 涨星榜上 elementalsouls/Claude-BugHunter 以 +2,037 居首。",
+    "reports": [
+      {
+        "name": "AI 行业简报",
+        "href": "reports/2026-11-24/brief.html"
+      },
+      {
+        "name": "科技高管观点",
+        "href": "reports/2026-11-24/exec.html"
+      },
+      {
+        "name": "PC 行业动向",
+        "href": "reports/2026-11-24/pc.html"
+      },
+      {
+        "name": "AI 大拿",
+        "href": "reports/2026-11-24/ai-leaders.html"
+      },
+      {
+        "name": "GitHub 涨星",
+        "href": "github-trend/index.html"
+      }
+    ],
+    "lines": [
+      {
+        "topic": "AI 行业简报",
+        "text": "英伟达董事会让黄仁勋复任 CEO，股价单日涨 30%，市值增加约 9520 亿美元。",
+        "image": "",
+        "image_src": "",
+        "link": "https://www.cnn.com/2026/11/23/tech/nvidia-reinstates-jensen-huang-ceo"
+      },
+      {
+        "topic": "科技高管观点",
+        "text": "Anthropic 发布 Claude Ship，让 Claude 审 PR、修失败检查并按仓库策略自动批准合并。",
+        "image": "",
+        "image_src": "",
+        "link": "https://claude.com/resources/articles/introducing-claude-ship"
+      },
+      {
+        "topic": "PC 行业动向",
+        "text": "微软确认 Windows 11 的 Wi-Fi 驱动将在 2027 年移出内核态，驱动崩了只断网、不蓝屏。",
+        "image": "",
+        "image_src": "",
+        "link": "https://www.notebookcheck.net/Windows-11-to-move-Wi-Fi-drivers-out-of-the-kernel-in-2027.1457987.0.html"
+      },
+      {
+        "topic": "AI 大拿",
+        "text": "黄仁勋复任 CEO，董事会复任前咨询过美国政府高层，Musk、Altman 先后公开表态。",
+        "image": "",
+        "image_src": "",
+        "link": "https://nvidianews.nvidia.com/news/nvidia-board-reinstates-jensen-huang-as-president-ceo-and-board-director"
+      },
+      {
+        "topic": "GitHub 涨星",
+        "text": "elementalsouls/Claude-BugHunter 当日 +2,037，总星 19,683，居涨星榜首。",
+        "image": "",
+        "image_src": "",
+        "link": "https://github.com/elementalsouls/Claude-BugHunter"
+      }
+    ]
+  },
+  {
+    "date": "2026-11-23",
+    "topics": [
+      "AI 行业简报",
+      "科技高管观点",
+      "PC 行业动向",
+      "Apple 洞察",
+      "AI 大拿",
+      "GitHub 涨星"
+    ],
+    "summary": "OpenAI 首席科学家 Pachocki 发文提议各家实验室为预训练设共同上限，Altman、Brockman、Mark Chen 公开支持，Suleyman 也表态。Anthropic 数学家用 Claude 完成的黎曼猜想 Lean 证明通过 Lean FRO 和 Mathlib 的独立验证。英伟达连跌七周，Apollo 和高盛为 SpaceX 完成 440 亿美元 GPU 融资。PC 方面，Windows 11 Insider 重开 Future Platforms 通道，HP 的 Snapdragon X 笔记本降到 399 美元。Gurman 称 Apple 的系统级 Agent 最早 2027 年底才可能发布。GitHub 涨星榜上 elementalsouls/Claude-BugHunter 以 +1,721 居首。",
+    "reports": [
+      {
+        "name": "AI 行业简报",
+        "href": "reports/2026-11-23/brief.html"
+      },
+      {
+        "name": "科技高管观点",
+        "href": "reports/2026-11-23/exec.html"
+      },
+      {
+        "name": "PC 行业动向",
+        "href": "reports/2026-11-23/pc.html"
+      },
+      {
+        "name": "Apple 洞察",
+        "href": "reports/2026-11-23/apple.html"
+      },
+      {
+        "name": "AI 大拿",
+        "href": "reports/2026-11-23/ai-leaders.html"
+      },
+      {
+        "name": "GitHub 涨星",
+        "href": "github-trend/index.html"
+      }
+    ],
+    "lines": [
+      {
+        "topic": "AI 行业简报",
+        "text": "OpenAI 首席科学家提议各家实验室用 perplexity 给预训练设共同上限，Altman 公开支持。",
+        "image": "",
+        "image_src": "",
+        "link": "https://openai.com/index/perplexity-and-intelligence/"
+      },
+      {
+        "topic": "科技高管观点",
+        "text": "Anthropic 数学家称与 Claude 合作证明黎曼猜想，Lean 与 Mathlib 社区联合声明确认证明正确。",
+        "image": "",
+        "image_src": "",
+        "link": "https://www.scientificamerican.com/article/the-ai-riemann-hypothesis-proof-is-almost-certainly-true-independent-mathematicians-attest/"
+      },
+      {
+        "topic": "PC 行业动向",
+        "text": "Windows 11 Insider 重开 Future Platforms 通道，29712.1000 需要全新安装，内置 PowerShell 7。",
+        "image": "",
+        "image_src": "",
+        "link": "https://blogs.windows.com/windows-insider/2026/11/20/announcing-new-builds-for-20-november-2026/"
+      },
+      {
+        "topic": "Apple 洞察",
+        "text": "Gurman 称 Apple 的系统级 Agent 最早 2027 年底才可能发布，Mac 上可能有一年多空窗。",
+        "image": "",
+        "image_src": "",
+        "link": "https://www.bloomberg.com/news/newsletters/2026-11-22/apple-s-ai-agent-war-early-2027-product-plans-and-iphone-duo-face-unlock-review"
+      },
+      {
+        "topic": "AI 大拿",
+        "text": "Altman 称 Pachocki 的文章是 OpenAI 很久以来发布的最重要的东西，文章公开了预训练内部数据。",
+        "image": "",
+        "image_src": "",
+        "link": "https://x.com/sama/status/2124551594691932405"
+      },
+      {
+        "topic": "GitHub 涨星",
+        "text": "elementalsouls/Claude-BugHunter 当日 +1,721 居首，总星 17,714；本期 11 个仓库新进榜。",
+        "image": "",
+        "image_src": "",
+        "link": "https://github.com/elementalsouls/Claude-BugHunter"
+      }
+    ]
+  },
+  {
+    "date": "2026-11-20",
+    "topics": [
+      "AI 行业简报",
+      "科技高管观点",
+      "PC 行业动向",
+      "Apple 洞察",
+      "AI 大拿",
+      "GitHub 涨星"
+    ],
+    "summary": "Anthropic 周四在纳斯达克挂牌，开盘较发行价高 34%，收盘 97.17 美元，涨 17%，当天纳指跌 2.3%。Google 给 Mac 版 Gemini 加了 computer use，Meta 的 Muse 在员工测试中把不同账户的对话混在一起，花旗等银行把智能体代办的风险推给客户。OpenAI 发布 GPT-6.2 Astra 和 Sol，内部研究显示编程智能体完成 2 到 4 小时任务的成功率从 23% 升到 46%。PC 方面，Intel 18A 签下首个外部代工客户但未公开名字；Apple 被曝在招聘自主 AI Agent 负责人。GitHub 涨星榜上 obra/superpowers 以 +2,029 居首。",
+    "reports": [
+      {
+        "name": "AI 行业简报",
+        "href": "reports/2026-11-20/brief.html"
+      },
+      {
+        "name": "科技高管观点",
+        "href": "reports/2026-11-20/exec.html"
+      },
+      {
+        "name": "PC 行业动向",
+        "href": "reports/2026-11-20/pc.html"
+      },
+      {
+        "name": "Apple 洞察",
+        "href": "reports/2026-11-20/apple.html"
+      },
+      {
+        "name": "AI 大拿",
+        "href": "reports/2026-11-20/ai-leaders.html"
+      },
+      {
+        "name": "GitHub 涨星",
+        "href": "github-trend/index.html"
+      }
+    ],
+    "lines": [
+      {
+        "topic": "AI 行业简报",
+        "text": "Anthropic 周四在纳斯达克挂牌，开盘较发行价高 34%，收盘 97.17 美元，涨 17%，当天纳指跌 2.3%。",
+        "image": "",
+        "image_src": "",
+        "link": "https://www.cbsnews.com/news/anthropic-ipo-nasdaq-debut-claude-ai/"
+      },
+      {
+        "topic": "科技高管观点",
+        "text": "Anthropic 上市首日收涨 17%，Dario 致辞承诺按安全需要放慢训练和部署。",
+        "image": "",
+        "image_src": "",
+        "link": "https://x.com/AnthropicAI/status/2123461658890686863"
+      },
+      {
+        "topic": "PC 行业动向",
+        "text": "Intel 18A 签下首个外部代工客户，客户未公开，微软成为 EMIB 封装首个公开客户。",
+        "image": "",
+        "image_src": "",
+        "link": "https://www.cnbc.com/2026/11/18/intel-first-18a-foundry-customer.html"
+      },
+      {
+        "topic": "Apple 洞察",
+        "text": "Bloomberg 称 Apple 在招聘自主 AI Agent 负责人，要求能像人一样用电脑。",
+        "image": "",
+        "image_src": "",
+        "link": "https://www.macrumors.com/2026/11/19/apple-ai-agent-development/"
+      },
+      {
+        "topic": "AI 大拿",
+        "text": "Dario 和 Daniela 上 CNBC，称算力承诺宁可低估，不够再去现货市场买。",
+        "image": "",
+        "image_src": "",
+        "link": "https://www.cnbc.com/2026/11/19/cnbc-exclusive-transcript-anthropic-co-founders-dario-and-daniela-amodei-speak-with-andrew-ross-sorkin-on-cnbc-today.html"
+      },
+      {
+        "topic": "GitHub 涨星",
+        "text": "obra/superpowers 当日 +2,029 居首，总星 322,044；本期 25 个仓库新进榜。",
+        "image": "",
+        "image_src": "",
+        "link": "https://github.com/obra/superpowers"
+      }
+    ]
+  },
+  {
+    "date": "2026-11-19",
+    "topics": [
+      "AI 行业简报",
+      "科技高管观点",
+      "PC 行业动向",
+      "Apple 洞察",
+      "X 热门新点子",
+      "AI 大拿",
+      "GitHub 涨星"
+    ],
+    "summary": "Anthropic 以每股 83 美元定价 IPO，募资 813 亿美元，成为史上最大 IPO，周四在纳斯达克挂牌。Google 发布 Gemini 4 Neon，OpenAI 公布用自家模型帮 AMD 改 GPU 设计，功耗、性能、面积最高改善 14%。Altman 和 Brockman 在 DealBook 峰会上谈安全，对黄仁勋是否回任不表态。PC 方面，NVIDIA RTX Spark 迷你桌面机开卖，MSI 当周就降价。美国远程访问 AI 芯片新规当天生效，中国商务部称将反制。",
+    "reports": [
+      {
+        "name": "AI 行业简报",
+        "href": "reports/2026-11-19/brief.html"
+      },
+      {
+        "name": "科技高管观点",
+        "href": "reports/2026-11-19/exec.html"
+      },
+      {
+        "name": "PC 行业动向",
+        "href": "reports/2026-11-19/pc.html"
+      },
+      {
+        "name": "Apple 洞察",
+        "href": "reports/2026-11-19/apple.html"
+      },
+      {
+        "name": "X 热门新点子",
+        "href": "reports/2026-11-19/x-ideas.html"
+      },
+      {
+        "name": "AI 大拿",
+        "href": "reports/2026-11-19/ai-leaders.html"
+      },
+      {
+        "name": "GitHub 涨星",
+        "href": "github-trend/index.html"
+      }
+    ],
+    "lines": [
+      {
+        "topic": "AI 行业简报",
+        "text": "Anthropic 以每股 83 美元定价 IPO，募资 813 亿美元，成为史上最大 IPO，周四在纳斯达克挂牌。",
+        "image": "",
+        "image_src": "",
+        "link": "https://www.cnn.com/2026/11/18/investing/anthropic-ipo-price-stock"
+      },
+      {
+        "topic": "科技高管观点",
+        "text": "Altman 和 Brockman 在 DealBook 峰会上谈安全和速度，对黄仁勋是否回任不表态。",
+        "image": "",
+        "image_src": "",
+        "link": "https://thenextweb.com/news/sam-altman-greg-brockman-jensen-huang-dealbook"
+      },
+      {
+        "topic": "PC 行业动向",
+        "text": "NVIDIA RTX Spark 迷你桌面机开卖，MSI 当周把 EdgeMesa N AI+ 从 4,699 降到 4,399 美元。",
+        "image": "",
+        "image_src": "",
+        "link": "https://videocardz.com/newz/nvidia-launches-rtx-spark-mini-pc-desktops-with-windows-os-asus-dell-and-msi-first"
+      },
+      {
+        "topic": "Apple 洞察",
+        "text": "HomeView 27.2.1 修了三个 Siri 配对和设置问题，常用的闹钟、计时器指令失灵没提。",
+        "image": "",
+        "image_src": "",
+        "link": "https://www.macrumors.com/2026/11/18/homeview-27-2-1-update-fixes-siri-bugs/"
+      },
+      {
+        "topic": "X 热门新点子",
+        "text": "Google 发布 Gemini 4 Neon，一个月内第四款 Gemini 4，每百万 token 输入 3 美元、输出 15 美元。",
+        "image": "",
+        "image_src": "",
+        "link": "https://x.com/sundarpichai/status/2123167780988125621"
+      },
+      {
+        "topic": "AI 大拿",
+        "text": "Brockman：OpenAI 模型帮 AMD 在不到 5 个月取得约一年的芯片设计进展，PPA 最高改善 14%。",
+        "image": "",
+        "image_src": "",
+        "link": "https://x.com/gdb/status/2123130414323888463"
+      },
+      {
+        "topic": "GitHub 涨星",
+        "text": "elementalsouls/Claude-BugHunter 当日 +2,322 登顶，是含 82 个技能的漏洞挖掘和红队技能包。",
+        "image": "",
+        "image_src": "",
+        "link": "https://github.com/elementalsouls/Claude-BugHunter"
+      }
+    ]
+  },
+  {
+    "date": "2026-11-18",
+    "topics": [
+      "AI 行业简报",
+      "科技高管观点",
+      "PC 行业动向",
+      "X 热门新点子",
+      "AI 大拿",
+      "GitHub 涨星"
+    ],
+    "summary": "英伟达发出黄仁勋辞职后的第一份财报：第三财季营收 1158 亿美元，同比增 103%，四季度指引 1300 亿美元，2028 财年增长预期上调到约 75%。黄仁勋在 X 上发长文说愿意回任，董事长 Harvey Jones 在电话会上说董事会不打算恢复他的 CEO 职务。OpenAI 发布 GPT-6.2 Astra 和 Sol，同一天加州总检察长起诉 OpenAI，美国商务部也发布了远程访问 AI 芯片的临时规则。微软 Ignite 开幕，发布自研模型，并公布 Windows 端点安全平台和管理员保护。GitHub 涨星榜首是 dream-num/univer，当日 +1,776。",
+    "reports": [
+      {
+        "name": "AI 行业简报",
+        "href": "reports/2026-11-18/brief.html"
+      },
+      {
+        "name": "科技高管观点",
+        "href": "reports/2026-11-18/exec.html"
+      },
+      {
+        "name": "PC 行业动向",
+        "href": "reports/2026-11-18/pc.html"
+      },
+      {
+        "name": "X 热门新点子",
+        "href": "reports/2026-11-18/x-ideas.html"
+      },
+      {
+        "name": "AI 大拿",
+        "href": "reports/2026-11-18/ai-leaders.html"
+      },
+      {
+        "name": "GitHub 涨星",
+        "href": "github-trend/index.html"
+      }
+    ],
+    "lines": [
+      {
+        "topic": "AI 行业简报",
+        "text": "英伟达第三财季营收 1158 亿美元，同比增 103%；加州总检察长起诉 OpenAI。",
+        "image": "",
+        "image_src": "",
+        "link": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-third-quarter-fiscal-2027"
+      },
+      {
+        "topic": "科技高管观点",
+        "text": "黄仁勋发长文说愿回任，董事长当天表示董事会不打算让他回来。",
+        "image": "",
+        "image_src": "",
+        "link": "https://x.com/JensenHuang/status/2122726005219737649"
+      },
+      {
+        "topic": "PC 行业动向",
+        "text": "微软 Ignite 首日公布 Windows 端点安全平台和管理员保护正式可用。",
+        "image": "",
+        "image_src": "",
+        "link": "https://blogs.windows.com/windowsexperience/2026/11/17/microsoft-ignite-2026-building-windows-for-the-next-era-of-work/"
+      },
+      {
+        "topic": "X 热门新点子",
+        "text": "OpenAI 发布 GPT-6.2 Astra 和 Sol，评价分化；Perplexity 推出 Orchestrator API。",
+        "image": "",
+        "image_src": "",
+        "link": "https://x.com/OpenAI/status/2122750124543926515"
+      },
+      {
+        "topic": "AI 大拿",
+        "text": "Altman 宣布 GPT-6.2 Sol 和 Astra 上线；雷军在 APEC 上说 AI 落地场景有限。",
+        "image": "",
+        "image_src": "",
+        "link": "https://x.com/sama/status/2122798039899263456"
+      },
+      {
+        "topic": "GitHub 涨星",
+        "text": "dream-num/univer 以 +1,776 登顶。",
+        "image": "",
+        "image_src": "",
+        "link": "https://github.com/dream-num/univer"
+      }
+    ]
+  },
+  {
+    "date": "2026-11-17",
+    "topics": [
+      "AI 行业简报",
+      "科技高管观点",
+      "PC 行业动向",
+      "X 热门新点子",
+      "AI 大拿",
+      "GitHub 涨星"
+    ],
+    "summary": "英伟达北京时间周三早上发出黄仁勋辞职后的第一份财报，代理 CEO Colette Kress 主持，分析师预期营收 1091 亿美元、同比增 91%。AMD 完成约 82 亿美元收购 World Labs，李飞飞出任 AMD 首席科学家；OpenAI 一天内发了嵌入式安全评估、面向 20 万名科学家的免费计划和医疗电脑操作智能体三件事。阿里把 2.4 万亿参数的 Qwen4-Max 全面开放，成本比自家测试降了约 58%。PC 这边，Windows Insider 新版本加入通行密钥管理和 Intune 远程锁定，macOS 27.3 beta 2 为 AI 代理收紧权限，十铨称内存最紧的时候在 2027 年上半年。GitHub 涨星榜首是 Univer，当日 +1,878。",
+    "reports": [
+      {
+        "name": "AI 行业简报",
+        "href": "reports/2026-11-17/brief.html"
+      },
+      {
+        "name": "科技高管观点",
+        "href": "reports/2026-11-17/exec.html"
+      },
+      {
+        "name": "PC 行业动向",
+        "href": "reports/2026-11-17/pc.html"
+      },
+      {
+        "name": "X 热门新点子",
+        "href": "reports/2026-11-17/x-ideas.html"
+      },
+      {
+        "name": "AI 大拿",
+        "href": "reports/2026-11-17/ai-leaders.html"
+      },
+      {
+        "name": "GitHub 涨星",
+        "href": "github-trend/index.html"
+      }
+    ],
+    "lines": [
+      {
+        "topic": "AI 行业简报",
+        "text": "英伟达发黄仁勋辞职后的第一份财报，预期营收 1091 亿美元；阿里 Qwen4-Max 全面开放。",
+        "image": "",
+        "image_src": "",
+        "link": "https://www.cnbc.com/2026/11/16/nvidia-earnings-jensen-huang-resignation.html"
+      },
+      {
+        "topic": "科技高管观点",
+        "text": "AMD 完成收购 World Labs，李飞飞任首席科学家；OpenAI 一天内发三件安全和科研的事。",
+        "image": "",
+        "image_src": "",
+        "link": "https://ir.amd.com/news-events/press-releases/detail/1306/amd-completes-acquisition-of-world-labs"
+      },
+      {
+        "topic": "PC 行业动向",
+        "text": "Windows Insider 新版本加入通行密钥管理和 Intune 远程锁定；MacBook Pro OLED 低亮度 PWM 引发头疼反馈。",
+        "image": "",
+        "image_src": "",
+        "link": "https://blogs.windows.com/windows-insider/2026/11/16/announcing-new-builds-for-16-november-2026/"
+      },
+      {
+        "topic": "X 热门新点子",
+        "text": "OpenAI 一天连发 4 条科研相关消息，前沿模型免费开放给最多 20 万名科学家；Perplexity 投入至少 1 万张 GPU。",
+        "image": "",
+        "image_src": "",
+        "link": "https://x.com/OpenAI/status/2122377585523126615"
+      },
+      {
+        "topic": "AI 大拿",
+        "text": "Altman 回应“Anthropic 的 Lyft”之问，说 OpenAI 最终会上市；纳德拉承认 Claude Code 让微软措手不及。",
+        "image": "",
+        "image_src": "",
+        "link": "https://www.businessinsider.com/sam-altman-openai-ipo-plan-investor-demand-2026-11"
+      },
+      {
+        "topic": "GitHub 涨星",
+        "text": "dream-num/univer 升到第 1，当日 +1,878；本期 29 个仓库相对上一期新进榜。",
+        "image": "",
+        "image_src": "",
+        "link": "https://github.com/dream-num/univer"
+      }
+    ]
+  },
+  {
+    "date": "2026-11-16",
+    "topics": [
+      "AI 行业简报",
+      "科技高管观点",
+      "PC 行业动向",
+      "Apple 洞察",
+      "X 热门新点子",
+      "AI 大拿",
+      "GitHub 涨星"
+    ],
+    "summary": "周末到周一的主线仍是英伟达换帅后的拉扯：要求黄仁勋回归的请愿超过 11.5 万人签名，FT 称他正和亲信讨论回任，美国财长贝森特则要求从外部找 CEO，公司 11 月 17 日发财报。OpenAI 推出了 ChatGPT Wallet，并开设科学博客，首篇介绍物理学家与 GPT-6 Astra 给出的标准模型格点定义候选方案。PC 这边，华为 MateBook Fold S 在国内开订，微软给 26H1 推了 Insider 版本；Apple 则给老款 Apple TV 4K 送上了 Siri AI，古尔曼还称首款智能眼镜计划 2027 年发布。GitHub 涨星榜上，Chrome 团队的现代 Web 开发指引升到第 1，前 10 里有 8 个是新面孔。",
+    "reports": [
+      {
+        "name": "AI 行业简报",
+        "href": "reports/2026-11-16/brief.html"
+      },
+      {
+        "name": "科技高管观点",
+        "href": "reports/2026-11-16/exec.html"
+      },
+      {
+        "name": "PC 行业动向",
+        "href": "reports/2026-11-16/pc.html"
+      },
+      {
+        "name": "Apple 洞察",
+        "href": "reports/2026-11-16/apple.html"
+      },
+      {
+        "name": "X 热门新点子",
+        "href": "reports/2026-11-16/x-ideas.html"
+      },
+      {
+        "name": "AI 大拿",
+        "href": "reports/2026-11-16/ai-leaders.html"
+      },
+      {
+        "name": "GitHub 涨星",
+        "href": "github-trend/index.html"
+      }
+    ],
+    "lines": [
+      {
+        "topic": "AI 行业简报",
+        "text": "要求恢复黄仁勋职务的请愿超过 11.5 万人签名；同天还有 ChatGPT Wallet 和美联储把 AI 列为主要风险。",
+        "image": "",
+        "image_src": "",
+        "link": "https://techcrunch.com/2026/11/14/elon-musk-other-tech-execs-sign-petition-calling-on-nvidia-to-reinstate-jensen-huang/"
+      },
+      {
+        "topic": "科技高管观点",
+        "text": "FT 称黄仁勋正和亲信讨论回任，贝森特要求从外部找 CEO；OpenAI 上线科学博客。",
+        "image": "",
+        "image_src": "",
+        "link": "https://www.reuters.com/world/china/jensen-huang-discusses-comeback-nvidia-ceo-with-allies-ft-reports-2026-11-15/"
+      },
+      {
+        "topic": "PC 行业动向",
+        "text": "华为 MateBook Fold S 在国内开订，展开 14.7 英寸，跑鸿蒙 PC，11 月 24 日付尾款。",
+        "image": "",
+        "image_src": "",
+        "link": "https://www.notebookcheck.net/Huawei-s-foldable-laptop-with-up-to-32GB-RAM-and-1TB-storage-opens-for-pre-orders.1450194.0.html"
+      },
+      {
+        "topic": "Apple 洞察",
+        "text": "古尔曼称 Apple 首款智能眼镜计划 2027 年 WWDC 发布；tvOS 27.2.1 让老款 Apple TV 4K 用上 Siri AI。",
+        "image": "",
+        "image_src": "",
+        "link": "https://www.macrumors.com/2026/11/15/apple-smart-glasses-hinge-on-siri/"
+      },
+      {
+        "topic": "X 热门新点子",
+        "text": "马斯克称英伟达不少供应链协议是和黄仁勋握手达成的，这条赞 9.3 万、浏览 734 万。",
+        "image": "",
+        "image_src": "",
+        "link": "https://x.com/elonmusk/status/2121613402846204253"
+      },
+      {
+        "topic": "AI 大拿",
+        "text": "LeCun 谈 p(doom) 和开放基础模型；OpenAI 用 GPT-6 Astra 参与标准模型格点定义的科研案例。",
+        "image": "",
+        "image_src": "",
+        "link": "https://x.com/ylecun/status/2121995284196602013"
+      },
+      {
+        "topic": "GitHub 涨星",
+        "text": "Chrome 团队的 modern-web-guidance-src 升到第 1，当日 +1,219；前 10 里 8 个是新面孔。",
+        "image": "",
+        "image_src": "",
+        "link": "https://github.com/GoogleChrome/modern-web-guidance-src"
+      }
+    ]
+  },
+  {
+    "date": "2026-11-13",
+    "topics": [
+      "AI 行业简报",
+      "科技高管观点",
+      "PC 行业动向",
+      "Apple 洞察",
+      "X 热门新点子",
+      "AI 大拿",
+      "GitHub 涨星"
+    ],
+    "summary": "黄仁勋已辞去英伟达 CEO、总裁和董事职务，CFO Colette Kress 兼任临时 CEO，Harvey Jones 出任公司首任董事长。周四早盘股价一度跌近 12%，自上周五以来市值蒸发超过 8550 亿美元，11 月 17 日还有财报。同一天谷歌把 Gemini 4 Hydrogen 推到了 Gemini App、AI Studio 和搜索，官方称比 3.8 Flash 完成任务快 2.5 倍。PC 这边，技嘉发布了约 1 升、可装 Windows 11 的 RTX Spark 主机 AI TOP AERO；Apple 的 HomeView 和新款 Apple TV 4K 也从今天开始送达。",
+    "reports": [
+      {
+        "name": "AI 行业简报",
+        "href": "reports/2026-11-13/brief.html"
+      },
+      {
+        "name": "科技高管观点",
+        "href": "reports/2026-11-13/exec.html"
+      },
+      {
+        "name": "PC 行业动向",
+        "href": "reports/2026-11-13/pc.html"
+      },
+      {
+        "name": "Apple 洞察",
+        "href": "reports/2026-11-13/apple.html"
+      },
+      {
+        "name": "X 热门新点子",
+        "href": "reports/2026-11-13/x-ideas.html"
+      },
+      {
+        "name": "AI 大拿",
+        "href": "reports/2026-11-13/ai-leaders.html"
+      },
+      {
+        "name": "GitHub 涨星",
+        "href": "github-trend/index.html"
+      }
+    ],
+    "lines": [
+      {
+        "topic": "AI 行业简报",
+        "text": "黄仁勋辞去英伟达 CEO，CFO Colette Kress 任临时 CEO；同天谷歌发布 Gemini 4 Hydrogen。",
+        "image": "",
+        "image_src": "",
+        "link": "https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition"
+      },
+      {
+        "topic": "科技高管观点",
+        "text": "硅谷对黄仁勋离任反应分化；OpenAI 发布 Daybreak 网络安全产品，Microsoft 365 当天大面积故障。",
+        "image": "",
+        "image_src": "",
+        "link": "https://x.com/AravSrinivas/status/2120891190333607989"
+      },
+      {
+        "topic": "PC 行业动向",
+        "text": "技嘉发布约 1 升、预装 Windows 11 的 RTX Spark 主机 AI TOP AERO。",
+        "image": "",
+        "image_src": "",
+        "link": "https://videocardz.com/newz/gigabyte-launches-1-liter-nvidia-rtx-spark-desktop-with-dlss-5"
+      },
+      {
+        "topic": "Apple 洞察",
+        "text": "HomeView 和新款 Apple TV 4K 开始送达，Siri 控制门锁要等下个月更新。",
+        "image": "",
+        "image_src": "",
+        "link": "https://www.macrumors.com/2026/11/12/apple-homeview-software-27-2-24v526/"
+      },
+      {
+        "topic": "X 热门新点子",
+        "text": "Claude Meetings 上线，发布帖赞 4.2 万、浏览 260 万，是当天互动最高的 AI 帖。",
+        "image": "",
+        "image_src": "",
+        "link": "https://x.com/claudeai/status/2120973994191094179"
+      },
+      {
+        "topic": "AI 大拿",
+        "text": "Anthropic 提交 IPO 招股书（代码 ANT）；李飞飞开放 World Labs Atlas。",
+        "image": "",
+        "image_src": "",
+        "link": "https://x.com/AnthropicAI/status/2120841731302154708"
+      },
+      {
+        "topic": "GitHub 涨星",
+        "text": "涨星榜仍用 11-12 数据，meta/astryx 以 +2,776 连续第二天排第 1。",
+        "image": "",
+        "image_src": "",
+        "link": "github-trend/index.html"
+      }
+    ]
+  },
+  {
+    "date": "2026-11-12",
+    "topics": [
+      "AI 行业简报",
+      "科技高管观点",
+      "PC 行业动向",
+      "Apple 洞察",
+      "X 热门新点子",
+      "AI 大拿",
+      "GitHub 涨星"
+    ],
+    "summary": "英伟达董事会据报准备撤换黄仁勋，两天市值蒸发超 4000 亿美元；同一天 Anthropic IPO 认购超额数倍，OpenAI 单季收入首次突破 100 亿美元。谷歌发布 Gemini Decisions API，马斯克宣布 Cybertruck 产线延长到 2027 年夏末。PC 这边，iFixit 拆解了触屏版 MacBook Pro，Windows 11 十一月补丁推送，微软 Auto SR 在 ROG Xbox Ally X 上结束预览并扩展到部分 AMD Copilot+ PC。Apple 股价创 52 周新高，市值重回 5 万亿美元，谷歌开始在 CarPlay 上提供 Gemini。GitHub 涨星榜上 meta/astryx 以 +2,776 连续第二天排第 1。",
+    "reports": [
+      {
+        "name": "AI 行业简报",
+        "href": "reports/2026-11-12/brief.html"
+      },
+      {
+        "name": "科技高管观点",
+        "href": "reports/2026-11-12/exec.html"
+      },
+      {
+        "name": "PC 行业动向",
+        "href": "reports/2026-11-12/pc.html"
+      },
+      {
+        "name": "Apple 洞察",
+        "href": "reports/2026-11-12/apple.html"
+      },
+      {
+        "name": "X 热门新点子",
+        "href": "reports/2026-11-12/x-ideas.html"
+      },
+      {
+        "name": "AI 大拿",
+        "href": "reports/2026-11-12/ai-leaders.html"
+      },
+      {
+        "name": "GitHub 涨星",
+        "href": "github-trend/index.html"
+      }
+    ],
+    "lines": [
+      {
+        "topic": "AI 行业简报",
+        "text": "英伟达董事会据报准备撤换黄仁勋，两天市值蒸发超 4000 亿美元；同天 Anthropic IPO 认购超额数倍。",
+        "image": "assets/img/2026-11-12/nvidia-ceo.jpg",
+        "image_src": "https://techcrunch.com/wp-content/uploads/2025/04/GettyImages-2205754389.jpg?w=1024",
+        "link": "https://techcrunch.com/2026/11/11/nvidia-ceo-jensen-huangs-affair-with-alleged-chinese-spy-a-timeline/"
+      },
+      {
+        "topic": "科技高管观点",
+        "text": "谷歌发布 Gemini Decisions API 和 AlphaGenome 2；SemiAnalysis 称常驻 Agent 已占其 AI 支出 45%。",
+        "image": "assets/img/2026-11-12/gemini-decisions.jpg",
+        "image_src": "https://pbs.twimg.com/amplify_video_thumb/2120574108635455488/img/oulKz9YqtupyRljq.jpg",
+        "link": "https://x.com/sundarpichai/status/2120581155078729728"
+      },
+      {
+        "topic": "PC 行业动向",
+        "text": "微软 Auto SR 在 ROG Xbox Ally X 上结束预览，并扩展到部分 AMD Ryzen 的 Copilot+ PC。",
+        "image": "assets/img/2026-11-12/autosr-performance.jpg",
+        "image_src": "https://devblogs.microsoft.com/directx/wp-content/uploads/sites/42/2026/11/image-2.webp",
+        "link": "https://devblogs.microsoft.com/directx/autosr-performance-mode/"
+      },
+      {
+        "topic": "Apple 洞察",
+        "text": "AAPL 收涨 2.04%，报 355.63 美元，创 52 周新高，市值重回 5 万亿美元上方。",
+        "image": "",
+        "image_src": "",
+        "link": "https://www.marketbeat.com/instant-alerts/price-apple-nasdaq-aapl-shares-climb-2-following-analyst-upgrade-2026-11-11/"
+      },
+      {
+        "topic": "X 热门新点子",
+        "text": "xAI 发布 Grok Bot 1.0，马斯克那条帖浏览 2544 万；谷歌推出 Gemini Decisions API。",
+        "image": "",
+        "image_src": "",
+        "link": "https://x.com/elonmusk/status/2120584535423565889"
+      },
+      {
+        "topic": "AI 大拿",
+        "text": "黄仁勋去留待董事会决定；Dario Amodei 在路演中称重大疾病会在十年内成为历史。",
+        "image": "",
+        "image_src": "",
+        "link": "https://x.com/i/trending/2120576221176037449"
+      },
+      {
+        "topic": "GitHub 涨星",
+        "text": "meta/astryx 以 +2,776 连续第二天排第 1。",
+        "image": "assets/img/2026-11-12/meta-astryx.jpg",
+        "image_src": "https://opengraph.githubassets.com/1/meta/astryx",
+        "link": "https://github.com/meta/astryx"
+      }
+    ]
+  },
+  {
+    "date": "2026-11-11",
+    "topics": [
+      "AI 行业简报",
+      "科技高管观点",
+      "PC 行业动向",
+      "Apple 洞察",
+      "X 热门新点子",
+      "GitHub 涨星"
+    ],
+    "summary": "Anthropic 启动 IPO 路演，每股 70 到 78 美元，同天推出 Claude Sheets、Whiteboards 和 Meetings，直接和 Office、Google Workspace 抢办公场景。Google 开放 Gemini 4 Carbon，谷歌高管集体站台，Perplexity 实测它和 Claude Fable 5.2 持平、成本约为对手 40%。PC 这边，Kora Systems 发布内置 AI 和智能体的 Linux 桌面系统，在骁龙 X2 Elite 上跑通。Apple 旗下 Claris 在测试 Harbor，把 Mac 变成本地 AI 推理服务器。GitHub 涨星榜上 meta/astryx 以 +3,108 升到第 1。",
+    "reports": [
+      {
+        "name": "AI 行业简报",
+        "href": "reports/2026-11-11/brief.html"
+      },
+      {
+        "name": "科技高管观点",
+        "href": "reports/2026-11-11/exec.html"
+      },
+      {
+        "name": "PC 行业动向",
+        "href": "reports/2026-11-11/pc.html"
+      },
+      {
+        "name": "Apple 洞察",
+        "href": "reports/2026-11-11/apple.html"
+      },
+      {
+        "name": "X 热门新点子",
+        "href": "reports/2026-11-11/x-ideas.html"
+      },
+      {
+        "name": "GitHub 涨星",
+        "href": "github-trend/index.html"
+      }
+    ],
+    "lines": [
+      {
+        "topic": "AI 行业简报",
+        "text": "Anthropic 启动 IPO 路演，每股 70 到 78 美元，同天推出 Claude Sheets、Whiteboards 和 Meetings，直接和 Office、Google Workspace 抢办公场景。",
+        "image": "assets/img/2026-11-11/anthropic-ipo.jpg",
+        "image_src": "https://www-cdn.anthropic.com/images/4zrzovbb/website/6d4a0d28992ade92d6fa63646fd9c9d318245c6c-2400x1260.jpg",
+        "link": "https://www.anthropic.com/news/roadshow-launch"
+      },
+      {
+        "topic": "科技高管观点",
+        "text": "Google 开放 Gemini 4 Carbon，谷歌高管集体站台。",
+        "image": "assets/img/2026-11-11/gemini-4-carbon.jpg",
+        "image_src": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini_4_carbon_key_art_16-9_lockup.width-1300.jpg",
+        "link": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/"
+      },
+      {
+        "topic": "PC 行业动向",
+        "text": "Kora Systems 发布内置 AI 和智能体的 Linux 桌面系统，在骁龙 X2 Elite 上跑通。",
+        "image": "assets/img/2026-11-11/kora-linux.jpg",
+        "image_src": "https://images.siliconangle.com/blogs.dir/1/files/2026/11/kora-800x450.png",
+        "link": "https://siliconangle.com/2026/11/10/kora-builds-ai-models-and-agents-into-a-new-linux-os-bound-for-qualcomm-snapdragon-pcs/"
+      },
+      {
+        "topic": "Apple 洞察",
+        "text": "Apple 旗下 Claris 在测试 Harbor，把 Mac 变成本地 AI 推理服务器。",
+        "image": "assets/img/2026-11-11/claris-harbor.jpg",
+        "image_src": "https://images.macrumors.com/t/9wUV-qYkqqosjBGhmAOYPyY-q5k=/1600x/article-new/2026/11/claris-harbor-2.jpg",
+        "link": "https://www.macrumors.com/2026/11/10/apple-claris-harbor-app/"
+      },
+      {
+        "topic": "X 热门新点子",
+        "text": "Perplexity 实测 Gemini 4 Carbon 和 Claude Fable 5.2 持平、成本约为对手 40%；ChatGPT 开放商家入驻测试。",
+        "image": "assets/img/2026-11-11/perplexity-carbon.jpg",
+        "image_src": "https://pbs.twimg.com/media/HWx-WgoWsAA992y.jpg?name=orig",
+        "link": "https://x.com/AravSrinivas/status/2120208455965569262"
+      },
+      {
+        "topic": "GitHub 涨星",
+        "text": "meta/astryx 以 +3,108 升到第 1。",
+        "image": "assets/img/2026-11-11/meta-astryx.jpg",
+        "image_src": "https://opengraph.githubassets.com/77d2c2047ff12e54f80596c1648c1d0df2e4499cee2c7ff4ae2a77a7a30fd881/meta/astryx",
+        "link": "https://github.com/meta/astryx"
+      }
+    ]
+  },
+  {
+    "date": "2026-11-06",
+    "topics": [
+      "AI 行业简报",
+      "Apple 洞察",
+      "科技高管观点",
+      "X 新想法",
+      "GitHub 涨星"
+    ],
+    "summary": "五款 Apple 新品开售，首款触控 OLED MacBook Pro 和 OLED iPad mini 到货，iOS / macOS 27.3 首个公开测试版同时放出。OpenAI 发布面向安全研究的 GPT-6 Cyber，Brockman 称它已用于加固关键软件。Perplexity 发布 Teammates 工作代理，Claude 在美国上线只读的个人理财 beta。Anthropic S-1 披露约 8954 亿美元算力承诺，当日 AI 股大跌。GitHub 涨星榜上 NVIDIA/auto-ontology 以 +2,679 登顶。",
+    "reports": [
+      {
+        "name": "AI 行业简报",
+        "href": "reports/2026-11-06/brief.html"
+      },
+      {
+        "name": "Apple 洞察",
+        "href": "reports/2026-11-06/apple.html"
+      },
+      {
+        "name": "科技高管观点",
+        "href": "reports/2026-11-06/exec.html"
+      },
+      {
+        "name": "X 新想法",
+        "href": "reports/2026-11-06/x-ideas.html"
+      },
+      {
+        "name": "GitHub 涨星",
+        "href": "github-trend/index.html"
+      }
+    ],
+    "lines": [
+      {
+        "topic": "AI 行业简报",
+        "text": "OpenAI 发布面向安全研究的 GPT-6 Cyber，谷歌 Gemini Omni 1.2 Flash 把视频拉长到 15 秒并降价。",
+        "image": "assets/img/2026-11-06/gpt-6-cyber.jpg",
+        "image_src": "https://pbs.twimg.com/amplify_video_thumb/2118387217588465664/img/N2grMUmP0O_EMvS2.jpg",
+        "link": "https://x.com/OpenAI/status/2118390190246879554"
+      },
+      {
+        "topic": "Apple 洞察",
+        "text": "五款新品开售，首款触控 OLED MacBook Pro 和 OLED iPad mini 到货，iOS / macOS 27.3 首个公开测试版同时放出。",
+        "image": "assets/img/2026-11-06/apple-five-products.jpg",
+        "image_src": "https://images.macrumors.com/t/wPYeHY6-2xS0BMyi62C601kOVDs=/1600x/article-new/2026/10/apple-pro-tell-logo.jpg",
+        "link": "https://www.macrumors.com/2026/11/05/apple-launching-five-new-products-tomorrow/"
+      },
+      {
+        "topic": "科技高管观点",
+        "text": "Anthropic S-1 披露约 8954 亿美元算力承诺，当日 AI 股大跌。",
+        "image": "assets/img/2026-11-06/anthropic-s1.jpg",
+        "image_src": "https://media.datacenterdynamics.com/media/images/Claude.2e16d0ba.fill-1200x630.jpg",
+        "link": "https://www.datacenterdynamics.com/en/news/anthropic-s-1-update-reveals-8954bn-in-cloud-and-data-center-commitments/"
+      },
+      {
+        "topic": "X 新想法",
+        "text": "Perplexity 发布 Teammates 工作代理，Claude 在美国上线只读的个人理财 beta。",
+        "image": "assets/img/2026-11-06/perplexity-teammates.jpg",
+        "image_src": "https://pbs.twimg.com/amplify_video_thumb/2118389256930660352/img/GPUe0mXgz4f2dJ6O.jpg",
+        "link": "https://x.com/perplexity_ai/status/2118389326459670825"
+      },
+      {
+        "topic": "GitHub 涨星",
+        "text": "NVIDIA/auto-ontology 以 +2,679 登顶。",
+        "image": "assets/img/2026-11-06/nvidia-auto-ontology.jpg",
+        "image_src": "https://opengraph.githubassets.com/3d910998f6ad2a98c7eb6a9f28f5b23f8d8d886dfac9b5cd2b0c479847dfc3d7/NVIDIA/auto-ontology",
+        "link": "https://github.com/NVIDIA/auto-ontology"
+      }
+    ]
+  }
 ]
